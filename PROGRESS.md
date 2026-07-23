@@ -22,7 +22,7 @@ Progress (case → commit):
 - [x] Opinion 2/13 — `ded6d96`
 - [x] Stauder v City of Ulm — `da4ef81`
 - [x] Konstantinidis v Stadt Altensteig — `bb2d521` (original 12 now fully done in Italian)
-- [ ] Simmenthal II (Italian case — source authentic text)
+- [x] Simmenthal II — `a014955` (authentic Italian citation text sourced and verified)
 - [ ] Marshall
 - [ ] Solange I
 - [ ] Solange II
