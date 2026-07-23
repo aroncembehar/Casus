@@ -27,7 +27,7 @@ Progress (case → commit):
 - [x] Solange I — `4f7270e`
 - [x] Solange II — `883e814`
 - [x] Grzelczyk — `56367b7`
-- [ ] Åkerberg Fransson
+- [x] Åkerberg Fransson — `19ab253`
 - [ ] Francovich and Bonifaci v Italy (Italian case — source authentic text)
 
 Order followed: file order (same as the parity pass), i.e. the order cases appear in `CASES`. **This pass takes priority over the 178-new-case queue right now** — resume the new-case queue only after all 19 have an `it:{}` block. If picking this up cold: check the box list above against `grep -c 'it:{' casus.html` per case id to confirm actual state before assuming the list is current (update it as you go, don't trust it blindly after a context compaction).
