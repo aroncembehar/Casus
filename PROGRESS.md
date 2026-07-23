@@ -38,6 +38,44 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 
 **Retrofit complete:** all 19 pre-Mangold cases now carry `<cite data-para="key">` tagging in `intermediate.rule`/`detailed.rule` (and `application` where relevant), across EN/FR/DE/IT, with matching `key` fields on every affected `citations[]` entry. Combined with Mangold (the first case authored under the standard) and every case added since, **all 20 cases in Casus now use the paragraph-precise citation-highlight mechanism** — the legacy whole-case fuzzy-fallback path is no longer exercised by any case in the current dataset (it remains in the code as a safety net for any future case that's added without tagging). Two cases (Simmenthal II, Marshall) turned up a pre-existing asymmetry where FR/DE were missing a secondary citations[] entry that EN/IT had — backfilled during the retrofit so all four languages expose the same set of citation keys per case.
 
+## Full-coverage citation tagging (user request, 2026-07-23) — IN PROGRESS
+
+**User feedback after the retrofit above:** coverage was too narrow — only 2-3 tagged clauses per case, the rest of the Intermediate/Detailed prose (facts, procedural history, connective/analytical text) was not highlightable at all. User wants the ENTIRE case text highlightable at every level `.citable` is enabled on.
+
+**New standard:** every sentence in `intermediate.issue/rule/application` and `detailed.issue/rule/application` must be inside a `<cite data-para="key">` span — no gaps. Two kinds of key:
+- A specific `pXX` (or `leitsatz`/`leitsatz2` for BVerfG headnotes) wherever the text paraphrases one identifiable judgment paragraph — same convention as the original retrofit.
+- A `"general"` key, with its own `citations[]` entry per language ("General case facts and reasoning (not a single specific paragraph)" + explanatory note), for background facts, procedural history, or connective/retrospective commentary that doesn't map to one specific paragraph. Never leave prose untagged.
+
+**Key finding, user-prompted:** initially used "general" for ALL background text on Mangold (the pilot case). User asked "is it not possible to reveal where you got the general case facts from?" — tested EUR-Lex direct fetch again (it had failed consistently earlier this session) and it worked, returning real paragraph-by-paragraph structure. **User's explicit call: full paragraph precision everywhere, "general" only as a genuine last resort** when even research doesn't yield a specific paragraph (pre-1970s judgments without paragraph numbering, or judgments where EUR-Lex/secondary sources won't yield a clean number for that specific sentence).
+
+**Per-case process:** (1) WebFetch EUR-Lex CELEX text for a paragraph-by-paragraph breakdown of facts/procedure/reasoning; if EUR-Lex returns empty (happens intermittently — succeeded for Mangold and Costa v ENEL, failed for Handelsgesellschaft), fall back to WebSearch + secondary sources for specific paragraph numbers; (2) map every sentence in the case's prose to a real paragraph where verifiable, add a matching `citations[]` entry per language with a note on how it was verified; (3) tag exhaustively — rule text that's one continuous quotation across a page range can just get one widened `pXX` span rather than being artificially split; (4) run the syntax + brace-balance + cite-key-consistency checks; (5) commit.
+
+**Pre-1970s judgments (Costa v ENEL, Van Gend en Loos) are a known exception:** they predate paragraph numbering, and EUR-Lex's own page markers don't cleanly separate facts/procedure from reasoning the way later numbered paragraphs do (confirmed via direct fetch attempts) — so `general` legitimately remains the ceiling for their background text, clearly noted as such in the citation's own note field, not a shortcut.
+
+**Progress (case order = file order, all cases already have SOME tagging from the original retrofit; this pass is about achieving full coverage + verified precision):**
+- [x] Mangold — pilot case; keys `p20`, `p13`, `p31`, `p64`, `p59` (plus existing `p75`, `p77`), `general` only on one retrospective-commentary sentence per level (commits `0c02703`, `0eae83a`)
+- [x] Costa v ENEL — key `p593` widened to cover the entire rule passage (one continuous quotation, pp. 593-594); `general` for facts/procedure/Lisbon-Treaty commentary (pre-numbering judgment, see exception above) (commit `55e0c32`)
+- [x] Internationale Handelsgesellschaft — added key `p3` (primacy/independent-source-of-law reasoning, verified via secondary source after EUR-Lex fetch failed); `general` for facts/procedure/proportionality-outcome commentary (commit `a556d15`)
+- [ ] Melloni
+- [ ] Commission v Bavarian Lager
+- [ ] Kadi I
+- [ ] Kadi II
+- [ ] Van Gend en Loos (pre-numbering exception applies, like Costa v ENEL)
+- [ ] Defrenne v Sabena (No 2)
+- [ ] Dominguez
+- [ ] Opinion 2/13
+- [ ] Stauder
+- [ ] Konstantinidis
+- [ ] Simmenthal II
+- [ ] Marshall
+- [ ] Solange I
+- [ ] Solange II
+- [ ] Grzelczyk
+- [ ] Åkerberg Fransson
+- [ ] Francovich and Bonifaci v Italy
+
+Remaining after this list: the 178-new-case queue (each authored with full-coverage tagging from the start, per the standard above, not as a later pass).
+
 **Gotcha found during retrofit (not present in Mangold, which used backticks throughout):** whether a field is a double-quoted JS string (`rule:"..."`) or a backtick template literal (`` rule:`...` ``) determines whether the `<cite data-para="...">` attribute's double quotes must be escaped as `\"`. Double-quoted fields need `<cite data-para=\"key\">`; backtick fields use plain `<cite data-para="key">`. Missing this breaks the string and fails the syntax check immediately (caught both times it happened, before commit) — check each field's delimiter before inserting tags.
 
 **Verification status:** user manually confirmed at `http://localhost:8934/casus.html` (local test server) that the split-popup behavior works correctly on Mangold — selecting across the "p75" and "p77" sentences produces two distinct, correctly-labeled citation cards. Feature confirmed working.
