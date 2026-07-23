@@ -24,7 +24,7 @@ Progress (case → commit):
 - [x] Konstantinidis v Stadt Altensteig — `bb2d521` (original 12 now fully done in Italian)
 - [x] Simmenthal II — `a014955` (authentic Italian citation text sourced and verified)
 - [x] Marshall — `7aa6ea4`
-- [ ] Solange I
+- [x] Solange I — `4f7270e`
 - [ ] Solange II
 - [ ] Grzelczyk
 - [ ] Åkerberg Fransson
