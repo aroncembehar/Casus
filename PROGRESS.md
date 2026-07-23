@@ -2,16 +2,41 @@
 
 Last updated: 2026-07-23, in-session. Continuing in a fresh interactive session from the one that left off at 4/182 — confirmed via `ps`/`lsof` that the other live `claude` process on this machine has cwd `~`, not this repo, so no collision. Since then: added Grzelczyk, Åkerberg Fransson, Francovich, Mangold (8/182 new cases at full depth), completed the original-12 translation-parity pass (all 12 pre-existing cases now trilingual), completed an Italian language pass (site is now EN/FR/DE/IT quadrilingual across all 19 cases done before Mangold), and shipped a paragraph-precise citation-highlight upgrade (see "Citation-highlight upgrade" section below) — Mangold is the first case authored under the new tagging standard.
 
-## Citation-highlight upgrade (user request, 2026-07-23) — mechanism shipped, retrofit deferred
+## Citation-highlight upgrade (user request, 2026-07-23) — mechanism shipped, retrofit IN PROGRESS (user reversed the defer decision, see below)
 User asked for the highlight-to-see-source feature to: (1) also work in Intermediate mode, not just Detailed; (2) show the exact source paragraph, not a general case-wide reference; (3) auto-extend a partial selection to the whole "information unit" (all text drawn from one source paragraph); (4) split into separate citation cards when a selection spans two different source paragraphs.
 
 **Data-model finding (reported before writing any UI code, per user's explicit request):** none of the 19 cases written before this point — not just the 4 the user asked about — had per-sentence paragraph tagging. The only structured citation data was a flat, case-level `citations[]` array (a list of quotable excerpts with a paragraph label), matched against user selections by fuzzy substring search, falling back to "show every citation for the case" whenever the exact substring wasn't found. Proved this concretely: neither of Simmenthal II's own two holding quotes (para 21, para 24) appears verbatim in its `detailed.rule` prose, so highlighting *either* paragraph's sentence today shows *both* citations — the exact failure mode the user's spec describes, already live in the site.
 
 **Approved design:** inline `<cite data-para="key">...</cite>` spans wrapped directly around the specific clause a sentence paraphrases, embedded in the existing HTML template-literal prose (not a restructured segment-array schema — avoids fighting the flowing prose style and existing `<br><br>`/`<a class="case-link">` markup). Each citation object gets a new stable `key` field (e.g. `"p21"`, `"p24"`) alongside the existing human-readable `paragraphs` label. Mouseup handler: finds the `.citable` ancestor, checks for any `cite[data-para]` elements inside it — if none exist (legacy case), falls back to the original whole-case fuzzy match unchanged (no regression); if some exist, only responds to selections that intersect at least one tagged unit (`Range.intersectsNode`), extends the visible selection to cover the whole unit(s) touched, and shows one popup with one clearly-labeled card per distinct paragraph touched (reusing the existing multi-card popup layout — confirmed with the user that this satisfies "two separate citations, not merged," rather than needing two separately-positioned floating popups).
 
-**Retrofit decision (user's explicit call):** do NOT retrofit the 19 cases written before this feature. Tagging is not mechanical — assigning source paragraphs to already-written sentences requires re-examining each case's own primary material, not just the prose already written, and doing it across 4 languages × up to 2 fields × 19 cases is a large separate undertaking. Instead:
+**Original retrofit decision (superseded — see reversal below):** initially deferred: do NOT retrofit the 19 cases written before this feature, tag only new cases going forward, revisit only if asked. That deferral held while the case queue and the Italian pass were in progress.
+
 - **New standard, effective immediately, for every case from here on** (178 remaining + any further old-case work): `intermediate.rule`, `detailed.rule`, and `detailed.application`/`intermediate.application` (where a specific disposition paragraph exists) must carry inline `<cite data-para="key">` tags, in all four languages, authored at the same time as the prose itself — not bolted on later. Mangold (commit `a081e2e`) is the first case done this way and should be used as the reference example.
-- **The 19 pre-Mangold cases keep today's fallback behavior indefinitely, until a dedicated retrofit pass** — tracked here as a real backlog item, not forgotten: Costa v ENEL, Handelsgesellschaft, Melloni, Bavarian Lager, Kadi I, Kadi II, Van Gend en Loos, Defrenne, Dominguez, Opinion 2/13, Stauder, Konstantinidis, Simmenthal II, Marshall, Solange I, Solange II, Grzelczyk, Fransson, Francovich all still show the coarse "everything" fallback on non-exact-match highlights, in both Intermediate (newly enabled) and Detailed. This is expected and not a bug — revisit only when the user asks for the retrofit pass specifically.
+
+**Retrofit reversal (user's explicit new instruction, same day):** user asked to extend the tagging to all cases now ("can you extend this now to all cases?"), reversing the earlier defer. Retrofitting the 19 pre-Mangold cases in file order, one commit per case, same syntax-check/structural-check convention as new-case work. Since this prose was authored recently, source-paragraph mapping is done from existing session knowledge of each case's citations rather than fresh research.
+
+**Retrofit progress (19 total, in file order):**
+- [x] Costa v ENEL — key `p593` (commit `f5bb68b`)
+- [x] Internationale Handelsgesellschaft — key `p4` (commit `c128a04`)
+- [x] Melloni — key `p60` (commit `5bf13fa`)
+- [x] Commission v Bavarian Lager — keys `p68`, `p78` (commit `bc7e8bb`)
+- [ ] Kadi I
+- [ ] Kadi II
+- [ ] Van Gend en Loos
+- [ ] Defrenne v Sabena (No 2)
+- [ ] Dominguez
+- [ ] Opinion 2/13
+- [ ] Stauder
+- [ ] Konstantinidis
+- [ ] Simmenthal II
+- [ ] Marshall
+- [ ] Solange I
+- [ ] Solange II
+- [ ] Grzelczyk
+- [ ] Åkerberg Fransson
+- [ ] Francovich
+
+**Gotcha found during retrofit (not present in Mangold, which used backticks throughout):** whether a field is a double-quoted JS string (`rule:"..."`) or a backtick template literal (`` rule:`...` ``) determines whether the `<cite data-para="...">` attribute's double quotes must be escaped as `\"`. Double-quoted fields need `<cite data-para=\"key\">`; backtick fields use plain `<cite data-para="key">`. Missing this breaks the string and fails the syntax check immediately (caught both times it happened, before commit) — check each field's delimiter before inserting tags.
 
 **Verification status:** user manually confirmed at `http://localhost:8934/casus.html` (local test server) that the split-popup behavior works correctly on Mangold — selecting across the "p75" and "p77" sentences produces two distinct, correctly-labeled citation cards. Feature confirmed working.
 
