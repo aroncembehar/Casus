@@ -10,6 +10,7 @@ Source: `IUR I/Droit européen/jurisprudence UE.pdf` — 284 rows across 17 cate
 - [x] Deduplication + category union per distinct case
 - [x] Ambiguous grouped-row resolution (see Ambiguity Log)
 - [x] 17-category taxonomy adopted, old 10-theme cases remapped
+- [x] Dual-taxonomy resolution: 5 legacy substantive themes kept as a secondary tag layer
 - [ ] Case-by-case content development (Step 4) — NOT STARTED, 0/182 cases at full depth
 
 ## Count reconciliation
@@ -36,26 +37,36 @@ Exact case-name-string grouping of the 284 rows gives 171 distinct labels. Ten o
 - `revision_traites` — **Révision des traités / Kompetenz** (6 cases)
 - `equilibre_institutionnel` — **Équilibre institutionnel** (14 cases)
 
-**Structural note:** this taxonomy classifies cases by institutional/procedural doctrine (primacy, competences, judicial-review channels, external relations, institutional balance, etc.) — the same axis as a droit constitutionnel européen course. It does **not** include the old taxonomy's substantive-law categories: *Non-discrimination, Market freedoms, Worker's rights, Collective action vs. economic liberty, Solidarity* have no equivalent bucket in the new 17. This is not a mapping gap I can close by picking a closer synonym — it's a change in what axis the whole site organizes cases by. See the flags below for the 3 existing cases this actually bites.
+**Structural note:** this taxonomy classifies cases by institutional/procedural doctrine (primacy, competences, judicial-review channels, external relations, institutional balance, etc.) — the same axis as a droit constitutionnel européen course. It does **not** include the old taxonomy's substantive-law categories: *Non-discrimination, Market freedoms, Worker's rights, Collective action vs. economic liberty, Solidarity*. Resolved as a **dual-taxonomy structure** (see next section) rather than dropping those categories or forcing them into the 17.
+
+## Secondary taxonomy layer (legacy substantive themes)
+
+The 17 categories above are primary/structural. The 5 old substantive categories that don't fit that axis are kept as a **secondary tag layer**, applied only where they genuinely describe the case — not backfilled across all 182 cases, just applied where Step 4 research (or this remap) confirms the fit. Starting set:
+
+- `non_discrimination` — **Non-discrimination** (2 cases tagged so far)
+- `market_freedoms` — **Market freedoms** (1 cases tagged so far)
+- `workers_rights` — **Worker's rights** (1 cases tagged so far)
+- `collective_action_vs_economic_liberty` — **Collective action vs. economic liberty** (0 cases tagged so far)
+- `solidarity` — **Solidarity** (0 cases tagged so far)
 
 ## Old Casus cases (12, not 10) remapped onto the new taxonomy
 
 Note: the current site has **12** case entries, not 10 (10 is the old *theme* count). All 12 were found in the PDF index itself, so the mapping below uses the document's own category tags as ground truth rather than my guessing, where a match exists.
 
-| Case | Old theme(s) | New categories | Flag |
-|---|---|---|---|
-| Costa v ENEL | Primacy of EU law | `ordre_juridique` |  |
-| Internationale Handelsgesellschaft | Primacy of EU law; Fundamental rights | `droits_fondamentaux`, `identite_constitutionnelle`, `ordre_juridique` |  |
-| Melloni v Ministerio Fiscal | Primacy of EU law; Fundamental rights | `droits_fondamentaux`, `identite_constitutionnelle`, `ordre_juridique` |  |
-| Commission v Bavarian Lager | Primacy of EU law | `equilibre_institutionnel` | **MISMATCH** — case is about transparency/data-protection balance (Reg 1049/2001 vs Reg 45/2001), not primacy at all. Old tag looks wrong, not just imprecise. |
-| Kadi I | Primacy of EU law; EU legal order | `droits_fondamentaux`, `ordre_juridique`, `relations_exterieures` |  |
-| Kadi II | Primacy of EU law; EU legal order | `ordre_juridique`, `relations_exterieures` |  |
-| Van Gend en Loos | Direct effect of EU law; EU legal order | `competences`, `ordre_juridique` | PDF tags it partly under `competences` — unexpected for the direct-effect classic; kept as document ground truth, worth a sanity check in Step 4. |
-| Defrenne v Sabena (No 2) | Direct effect of EU law; Non-discrimination | `droits_fondamentaux`, `ordre_juridique` | **MISMATCH** — "Non-discrimination" (old) has no new-taxonomy equivalent; dropped, not replaced. |
-| Dominguez | Direct effect of EU law; Non-discrimination; Worker's rights | `citoyennete`, `droit_derive` | **MISMATCH** — both "Non-discrimination" and "Worker's rights" (old) have no new-taxonomy equivalent, and `citoyennete` is a loose fit for a working-time-directive case. |
-| Opinion 2/13 | EU legal order | `cedh`, `ordre_juridique`, `relations_exterieures` |  |
-| Stauder v City of Ulm | Fundamental rights | `droits_fondamentaux` |  |
-| Konstantinidis v Stadt Altensteig | Fundamental rights; Market freedoms | `citoyennete`, `droits_fondamentaux` | **MISMATCH** — "Market freedoms" (old) has no new-taxonomy equivalent; `citoyennete` is the closest analog, not a real equivalent. |
+| Case | Old theme(s) | New primary categories | Secondary (legacy) tags | Note |
+|---|---|---|---|---|
+| Costa v ENEL | Primacy of EU law | `ordre_juridique` | — |  |
+| Internationale Handelsgesellschaft | Primacy of EU law; Fundamental rights | `droits_fondamentaux`, `identite_constitutionnelle`, `ordre_juridique` | — |  |
+| Melloni v Ministerio Fiscal | Primacy of EU law; Fundamental rights | `droits_fondamentaux`, `identite_constitutionnelle`, `ordre_juridique` | — |  |
+| Commission v Bavarian Lager | Primacy of EU law | `equilibre_institutionnel` | *(none)* | Old tag was a **mistagging**, not a taxonomy gap — case is about transparency/data-protection balance (Reg 1049/2001 vs Reg 45/2001), not primacy, and none of the 5 legacy substantive tags apply either. No secondary tag added; the old theme is simply dropped as incorrect. |
+| Kadi I | Primacy of EU law; EU legal order | `droits_fondamentaux`, `ordre_juridique`, `relations_exterieures` | — |  |
+| Kadi II | Primacy of EU law; EU legal order | `ordre_juridique`, `relations_exterieures` | — |  |
+| Van Gend en Loos | Direct effect of EU law; EU legal order | `competences`, `ordre_juridique` | — | PDF tags it partly under `competences` — unexpected for the direct-effect classic; kept as document ground truth, worth a sanity check in Step 4. |
+| Defrenne v Sabena (No 2) | Direct effect of EU law; Non-discrimination | `droits_fondamentaux`, `ordre_juridique` | `non_discrimination` | Legacy tag restores the old theme via the secondary layer. |
+| Dominguez | Direct effect of EU law; Non-discrimination; Worker's rights | `citoyennete`, `droit_derive` | `non_discrimination`, `workers_rights` | Both legacy tags restored; `citoyennete` as primary is still a loose fit for a working-time-directive case, worth a second look in Step 4. |
+| Opinion 2/13 | EU legal order | `cedh`, `ordre_juridique`, `relations_exterieures` | — |  |
+| Stauder v City of Ulm | Fundamental rights | `droits_fondamentaux` | — |  |
+| Konstantinidis v Stadt Altensteig | Fundamental rights; Market freedoms | `citoyennete`, `droits_fondamentaux` | `market_freedoms` | Legacy tag restores the old theme via the secondary layer. |
 
 ## Ambiguity log (grouped/duplicated rows requiring judgment)
 
@@ -84,7 +95,7 @@ Note: the current site has **12** case entries, not 10 (10 is the old *theme* co
 
 ## Distinct case checklist (182)
 
-Format: `- [ ] name — jurisdiction — categories`. Citations are all unverified pending Step 4 research (the source PDF is a keyword index, not a citation list — none were invented).
+Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations are all unverified pending Step 4 research (the source PDF is a keyword index, not a citation list — none were invented).
 
 - [ ] **AETR** — CJCE — Compétences / base juridique, Recours en annulation, Relations extérieures / DI
 - [ ] **AETR (objet)** — CJUE — Recours en annulation
@@ -141,7 +152,7 @@ Format: `- [ ] name — jurisdiction — categories`. Citations are all unverifi
 - [ ] **Daichii Sankyo** — CJUE — Relations extérieures / DI
 - [ ] **Dano** — CJUE — Citoyenneté / libre circulation
 - [ ] **Defrenne I** — CJCE — Révision des traités / Kompetenz
-- [ ] **Defrenne II** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct
+- [ ] **Defrenne II** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct [legacy: Non-discrimination]
 - [ ] **Defrenne III** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct
 - [ ] **Demirel** — CJCE — Relations extérieures / DI
 - [ ] **Deutsche Milchkontor** — CJCE — Mise en œuvre / autonomie procédurale
@@ -185,7 +196,7 @@ Format: `- [ ] name — jurisdiction — categories`. Citations are all unverifi
 - [ ] **Kampffmeyer** — CJCE — Responsabilité extracontractuelle
 - [ ] **Kempter (C-2/06)** — CJCE — Renvoi préjudiciel
 - [ ] **Kolpinghuis Nijmegen** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale, Renvoi préjudiciel ⚠️
-- [ ] **Konstantinidis** — AG — Citoyenneté / libre circulation, Droits fondamentaux
+- [ ] **Konstantinidis** — AG — Citoyenneté / libre circulation, Droits fondamentaux [legacy: Market freedoms]
 - [ ] **Köbler** — CJUE — Recours en manquement, Renvoi préjudiciel, Responsabilité extracontractuelle
 - [ ] **Kücükdeveci** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel
 - [ ] **Kühne et Heitz** — CJCE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel
@@ -197,7 +208,7 @@ Format: `- [ ] name — jurisdiction — categories`. Citations are all unverifi
 - [ ] **M.S.S.** — CourEDH — CEDH / Droits CEDH
 - [ ] **Mangold** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel
 - [ ] **Marcin Bonda** — AG — Droits fondamentaux
-- [ ] **Maribel Dominguez** — CJCE — Citoyenneté / libre circulation, Droit dérivé / actes juridiques
+- [ ] **Maribel Dominguez** — CJCE — Citoyenneté / libre circulation, Droit dérivé / actes juridiques [legacy: Non-discrimination, Worker's rights]
 - [ ] **Marleasing** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
 - [ ] **Marshall** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel
 - [ ] **Martinez Sala** — CJCE — Citoyenneté / libre circulation

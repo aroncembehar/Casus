@@ -558,7 +558,12 @@
         "Limites de l'interprétation conforme (ne peut aller contra legem) ; interdiction discrimination indirecte"
       ]
     },
-    "ambiguity": null
+    "ambiguity": null,
+    "secondary_tags": [
+      "non_discrimination",
+      "workers_rights"
+    ],
+    "secondary_tags_note": "Matches old Casus tags 'Non-discrimination' + \"Worker's rights\" (paid annual leave under Directive 2003/88)."
   },
   {
     "id": "konstantinidis",
@@ -581,7 +586,11 @@
         "«Civis europeus sum» : citoyenneté européenne comme source directe de droits fondamentaux"
       ]
     },
-    "ambiguity": null
+    "ambiguity": null,
+    "secondary_tags": [
+      "market_freedoms"
+    ],
+    "secondary_tags_note": "Matches old Casus tag 'Market freedoms' (freedom to provide services, transliteration of name affecting professional practice)."
   },
   {
     "id": "van-gend-loos-2662-1963",
@@ -1983,7 +1992,11 @@
         "Justice sociale comme objectif communautaire ; égalité salariale H/F à effet direct horizontal"
       ]
     },
-    "ambiguity": null
+    "ambiguity": null,
+    "secondary_tags": [
+      "non_discrimination"
+    ],
+    "secondary_tags_note": "Matches old Casus tag 'Non-discrimination' (case concerns equal pay for equal work, Art. 119/157)."
   },
   {
     "id": "defrenne-iii",
@@ -3997,6 +4010,8 @@
         "Accès aux documents des institutions examiné à l'aune du DUE sur protection des données („ art. 8 CEDH)"
       ]
     },
-    "ambiguity": null
+    "ambiguity": null,
+    "secondary_tags": [],
+    "secondary_tags_note": "None of the 5 legacy substantive categories apply — the case concerns transparency/data-protection balance (Reg 1049/2001 vs Reg 45/2001), not primacy, non-discrimination, market freedoms, worker's rights, collective action, or solidarity. The old 'Primacy of EU law' tag was a mistagging, not a taxonomy-coverage gap; no legacy tag should be forced here."
   }
 ]
