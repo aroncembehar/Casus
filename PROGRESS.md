@@ -20,8 +20,8 @@ Progress (case → commit):
 - [x] Defrenne v Sabena (No 2) — `323fbf0`
 - [x] Dominguez — `0636a3d`
 - [x] Opinion 2/13 — `ded6d96`
-- [ ] Stauder v City of Ulm
-- [ ] Konstantinidis v Stadt Altensteig
+- [x] Stauder v City of Ulm — `da4ef81`
+- [x] Konstantinidis v Stadt Altensteig — `bb2d521` (original 12 now fully done in Italian)
 - [ ] Simmenthal II (Italian case — source authentic text)
 - [ ] Marshall
 - [ ] Solange I
