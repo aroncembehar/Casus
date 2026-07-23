@@ -28,9 +28,12 @@ Progress (case → commit):
 - [x] Solange II — `883e814`
 - [x] Grzelczyk — `56367b7`
 - [x] Åkerberg Fransson — `19ab253`
-- [ ] Francovich and Bonifaci v Italy (Italian case — source authentic text)
+- [x] Francovich and Bonifaci v Italy — `6e96171` (authentic Italian citation text sourced and verified)
 
-Order followed: file order (same as the parity pass), i.e. the order cases appear in `CASES`. **This pass takes priority over the 178-new-case queue right now** — resume the new-case queue only after all 19 have an `it:{}` block. If picking this up cold: check the box list above against `grep -c 'it:{' casus.html` per case id to confirm actual state before assuming the list is current (update it as you go, don't trust it blindly after a context compaction).
+## Italian language pass — COMPLETE
+All 19 cases now have a full `it:{}` translation block (all four IRAC levels, holistic, citations) — verified by script scanning every case in `CASES` for `it:{` presence, zero missing. Combined with the FR/DE work earlier this session, every case in `casus.html` is now fully quadrilingual (EN/FR/DE/IT). Order followed: file order (same as the parity pass), i.e. the order cases appear in `CASES`.
+
+Resuming the 178-new-case queue now (see "Next up" section below) — new cases going forward will need EN/FR/DE/IT from the start, not EN/FR/DE followed by a later IT pass.
 
 ## IMPORTANT: overnight automation did NOT run the batch — read before resuming
 `casus_overnight.sh` was actually launched by the user in a separate terminal tonight (session 1 ~2 AM, session 2 at the 4 AM resume — see `overnight_run.log`, `session1_output.json`, `session2_output.json`, left in place untouched, not part of the project content). Both headless runs correctly detected this interactive session was already live and editing the same branch/files, declined to touch anything to avoid corrupting concurrent writes, and asked the user for direction (which went unanswered since the user wasn't watching). **All Step 4 progress so far has come from this one interactive session, not from the overnight script.** If resuming later via `casus_overnight.sh` again, first confirm no other session is already live on this branch (check for a running `claude` process and recent commits) before letting it write.
@@ -53,7 +56,8 @@ This exact bug recurred during the original-12 translation-parity pass (Kadi I's
 ## Status
 - Distinct case count: **182** (confirmed final by user — no further merges).
 - Taxonomy: 17 categories live in `casus.html` (Option 1, minimal-diff), 5 legacy substantive tags as a secondary layer. See `TRACKING.md` for full rationale.
-- Cases at full depth (4 levels x 3 languages, verified/flagged citations): **7 of 182**
+- Site is now quadrilingual (EN/FR/DE/IT) across all 19 cases currently live — see "Italian language pass" above. New cases from here on need all four languages, not three.
+- Cases at full depth (4 levels x 4 languages, verified/flagged citations): **7 of 182**
   - [x] Simmenthal II (Case 106/77, CJCE) — `mise_en_oeuvre`, `ordre_juridique`
   - [x] Marshall (Case 152/84, CJCE) — `droit_derive`, `renvoi_prejudiciel`
   - [x] Solange I (BVerfGE 37, 271) — `droits_fondamentaux`, `identite_constitutionnelle`
@@ -66,11 +70,12 @@ This exact bug recurred during the original-12 translation-parity pass (Kadi I's
 - 175 cases remaining, not started.
 
 ## Standing citation-verification convention (applies to all remaining cases)
-Direct EUR-Lex fetches (`eur-lex.europa.eu/legal-content/.../TXT/HTML/...` and the plain `/TXT/` variant) have failed twice in a row — the page returns empty to WebFetch, likely JS-rendered. Per user decision, the fallback is:
+Direct EUR-Lex fetches (`eur-lex.europa.eu/legal-content/.../TXT/HTML/...` and the plain `/TXT/` variant) have failed consistently — the page returns empty to WebFetch, likely JS-rendered. Per user decision, the fallback is:
 1. Attempt EUR-Lex fetch once.
 2. If it fails, use WebSearch to find the same paragraph-numbered quote corroborated by independent secondary sources (academic commentary, case-law databases).
-3. Mark the citation's `note` field explicitly: "Verified via secondary source... primary EUR-Lex fetch failed" (English), with FR/DE equivalents.
-4. For non-English citation entries, translate the verified English quote myself and flag it explicitly as an unofficial translation not checked against the official-language EUR-Lex text — never present a FR/DE quote as independently source-verified unless it actually was.
+3. Mark the citation's `note` field explicitly: "Verified via secondary source... primary EUR-Lex fetch failed" (English), with FR/DE/IT equivalents.
+4. For non-English citation entries, translate the verified English quote myself and flag it explicitly as an unofficial translation not checked against the official-language EUR-Lex text — never present a FR/DE/IT quote as independently source-verified unless it actually was.
+5. **Check the case's authentic procedural language first** (established during the FR/DE/IT passes): if the case's own language matches one of the site's four (e.g. an Italian case like Costa v ENEL, Simmenthal II, or Francovich; a French case like Grzelczyk or Defrenne; a German case like Handelsgesellschaft, Stauder, or Konstantinidis), try to source the actual judgment text in that language via WebSearch/WebFetch and use it as the verified primary citation in that language's translation block, rather than translating from English. This has consistently worked for Italian-language cases via secondary sources like giurcost.org even when EUR-Lex itself fails.
 
 ## Schema notes for future cases (Option 1, minimal-diff taxonomy integration)
 - `jurisdiction: "CJCE"|"CJUE"|"CourEDH"|"BVerfGE"|"ATF"|"AG"` — required on every new case, renders as a visible badge next to the name/citation.
@@ -78,6 +83,7 @@ Direct EUR-Lex fetches (`eur-lex.europa.eu/legal-content/.../TXT/HTML/...` and t
 - `legacyThemes: [...]` (optional) — only for the 5 old substantive categories with no equivalent in the 17 (Non-discrimination, Market freedoms, Worker's rights, Collective action vs. economic liberty, Solidarity). Do not backfill this across all 182 cases — apply only where a case's actual holding genuinely turns on one of these.
 - CJCE vs CJUE: date-based split at the Lisbon Treaty's entry into force (1 Dec 2009). Pre-Lisbon judgments are CJCE even if commonly cited by their later CJUE case number format.
 - When adding a case, check `TRACKING.md`'s distinct-case list AND grep `casus.html` for `case-link-pending` with that case's name — several already-live cases (Costa v ENEL, Van Gend en Loos, Konstantinidis) have forward references to not-yet-added cases in their holistic text (Simmenthal, Foster v British Gas, Grzelczyk, Zhu and Chen, etc.). Converting a `case-link-pending` span to a real `<a class="case-link" onclick="jumpToCase('id')">` link is part of "adding" a case if it's referenced elsewhere. Some references (e.g. Marshall in Van Gend en Loos) were already coded as real `jumpToCase` links pointing at an id that didn't exist yet — these self-resolve once the case is added under that same id, no text edit needed, just confirm the id matches.
+- **`translations` must now include `fr`, `de`, AND `it`** for every new case (as of the Italian language pass, 2026-07-23) — all four IRAC levels, holistic, and citations, same structure and rigor for each language. Write all three at once per case rather than doing a language in a separate later pass (that's what the original-12 parity pass and the Italian pass both had to clean up after the fact).
 
 ## Original-12 translation-parity pass — COMPLETE (user request, 2026-07-23)
 All 11 non-Costa cases now have full FR/DE translations (all four IRAC levels, holistic, citations), verified by script: every one of the 12 shows `fr:{` and `de:{` present in its `translations` block. Details of the pass kept below for reference.
