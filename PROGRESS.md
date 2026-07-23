@@ -2,7 +2,7 @@
 
 Last updated: 2026-07-23, in-session. Continuing in a fresh interactive session from the one that left off at 4/182 — confirmed via `ps`/`lsof` that the other live `claude` process on this machine has cwd `~`, not this repo, so no collision. Since then: added Grzelczyk, Åkerberg Fransson, Francovich, Mangold (8/182 new cases at full depth), completed the original-12 translation-parity pass (all 12 pre-existing cases now trilingual), completed an Italian language pass (site is now EN/FR/DE/IT quadrilingual across all 19 cases done before Mangold), and shipped a paragraph-precise citation-highlight upgrade (see "Citation-highlight upgrade" section below) — Mangold is the first case authored under the new tagging standard.
 
-## Citation-highlight upgrade (user request, 2026-07-23) — mechanism shipped, retrofit IN PROGRESS (user reversed the defer decision, see below)
+## Citation-highlight upgrade (user request, 2026-07-23) — mechanism shipped, retrofit COMPLETE (all 20 cases now tagged)
 User asked for the highlight-to-see-source feature to: (1) also work in Intermediate mode, not just Detailed; (2) show the exact source paragraph, not a general case-wide reference; (3) auto-extend a partial selection to the whole "information unit" (all text drawn from one source paragraph); (4) split into separate citation cards when a selection spans two different source paragraphs.
 
 **Data-model finding (reported before writing any UI code, per user's explicit request):** none of the 19 cases written before this point — not just the 4 the user asked about — had per-sentence paragraph tagging. The only structured citation data was a flat, case-level `citations[]` array (a list of quotable excerpts with a paragraph label), matched against user selections by fuzzy substring search, falling back to "show every citation for the case" whenever the exact substring wasn't found. Proved this concretely: neither of Simmenthal II's own two holding quotes (para 21, para 24) appears verbatim in its `detailed.rule` prose, so highlighting *either* paragraph's sentence today shows *both* citations — the exact failure mode the user's spec describes, already live in the site.
@@ -22,23 +22,23 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [x] Commission v Bavarian Lager — keys `p68`, `p78` (commit `bc7e8bb`)
 - [x] Kadi I — keys `p281`, `p326` (commit `5f9b022`)
 - [x] Kadi II — key `general` (commit `4113d5b`)
-- [ ] Van Gend en Loos
-- [ ] Defrenne v Sabena (No 2)
-- [ ] Dominguez
-- [ ] Opinion 2/13
-- [ ] Stauder
-- [ ] Konstantinidis
-- [ ] Simmenthal II
-- [ ] Marshall
-- [ ] Solange I
-- [ ] Solange II
-- [ ] Grzelczyk
-- [ ] Åkerberg Fransson
-- [ ] Francovich
+- [x] Van Gend en Loos — key `p12` (commit `3c821e2`)
+- [x] Defrenne v Sabena (No 2) — keys `p21`, `p22` (commit `8d007da`)
+- [x] Dominguez — keys `p17`, `p36` (commit `f255b7b`)
+- [x] Opinion 2/13 — key `p191` (commit `6d0cef2`)
+- [x] Stauder — key `p7` (commit `6b3c275`)
+- [x] Konstantinidis — key `p16` (commit `adb6b69`)
+- [x] Simmenthal II — keys `p21`, `p24` (commit `25b3b67`; also backfilled a missing `p21` citations[] entry in FR/DE for parity with EN/IT)
+- [x] Marshall — keys `p48`, `p49` (commit `70166be`; also backfilled a missing `p49` citations[] entry in FR/DE for parity with EN/IT)
+- [x] Solange I — key `leitsatz` (commit `15c26e8`)
+- [x] Solange II — key `leitsatz2` (commit `5e6fa28`)
+- [x] Grzelczyk — keys `p31`, `p44` (commit `006d239`)
+- [x] Åkerberg Fransson — keys `p21`, `p35` (commit `1dca7ba`)
+- [x] Francovich and Bonifaci v Italy — keys `p35`, `p40` (commit `601b847`)
+
+**Retrofit complete:** all 19 pre-Mangold cases now carry `<cite data-para="key">` tagging in `intermediate.rule`/`detailed.rule` (and `application` where relevant), across EN/FR/DE/IT, with matching `key` fields on every affected `citations[]` entry. Combined with Mangold (the first case authored under the standard) and every case added since, **all 20 cases in Casus now use the paragraph-precise citation-highlight mechanism** — the legacy whole-case fuzzy-fallback path is no longer exercised by any case in the current dataset (it remains in the code as a safety net for any future case that's added without tagging). Two cases (Simmenthal II, Marshall) turned up a pre-existing asymmetry where FR/DE were missing a secondary citations[] entry that EN/IT had — backfilled during the retrofit so all four languages expose the same set of citation keys per case.
 
 **Gotcha found during retrofit (not present in Mangold, which used backticks throughout):** whether a field is a double-quoted JS string (`rule:"..."`) or a backtick template literal (`` rule:`...` ``) determines whether the `<cite data-para="...">` attribute's double quotes must be escaped as `\"`. Double-quoted fields need `<cite data-para=\"key\">`; backtick fields use plain `<cite data-para="key">`. Missing this breaks the string and fails the syntax check immediately (caught both times it happened, before commit) — check each field's delimiter before inserting tags.
-
-**Session paused here (battery/interruption, mid-retrofit):** 6 of 19 cases retrofitted and committed (Costa v ENEL through Kadi II, all clean — see checklist above). Git working tree is clean at this point (verify with `git status` before resuming). Next case in file order is **Van Gend en Loos** (grep `id:"vangend"`, single citation, `paragraphs:"[1963] ECR 1, at p. 12 (this judgment predates paragraph numbering)"`, primary:true — same pre-numbering-page pattern as Costa v ENEL, so reuse that approach: pick a page-based key like `p12`, tag the matching clause in `intermediate.rule`/`detailed.rule` across EN/FR/DE/IT, add `key` to each language's citation entry, run the syntax + brace + cite-balance checks, commit). Remaining after that, in file order: Defrenne v Sabena (No 2), Dominguez, Opinion 2/13, Stauder, Konstantinidis, Simmenthal II, Marshall, Solange I, Solange II, Grzelczyk, Åkerberg Fransson, Francovich.
 
 **Verification status:** user manually confirmed at `http://localhost:8934/casus.html` (local test server) that the split-popup behavior works correctly on Mangold — selecting across the "p75" and "p77" sentences produces two distinct, correctly-labeled citation cards. Feature confirmed working.
 
