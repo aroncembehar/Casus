@@ -18,6 +18,8 @@ osascript -l JavaScript -e "$(cat /tmp/casus_app.js)" 2>&1 | head -5
 ```
 Expect either a clean run or `ReferenceError: Can't find variable: document` (that's fine — this engine has no DOM, it means parsing succeeded and execution started). Anything that says `SyntaxError` is a real, blocking bug — find and fix it before committing, the same way the Marshall fix was done (`git log` commit `8cd56e2`). This applies to `casus_overnight.sh` runs too, not just this interactive session — if you're an agent picking this up cold, run the check now against the current `casus.html` before writing anything, and again before every commit after that.
 
+This exact bug recurred during the original-12 translation-parity pass (Kadi I's German `application` field, fixed before commit `947789b`) — it's an easy typo to make since „ and " look almost identical while typing German quotes fast. Faster than waiting for the JS engine to catch it: before running the check above, `grep -n '„[^“]*"' casus.html` — flags any „ opening quote whose *next* quote-like character is a straight `"` instead of the correct closing `"` (U+201C). This over-flags: matches inside backtick-delimited fields (`rule`, `holistic`) are harmless, since a stray `"` there doesn't end the string — only check hits inside plain double-quoted fields (`issue`, `application`, and sometimes `rule`) are real bugs. Skim the matches with that in mind rather than assuming every hit is broken.
+
 ## Status
 - Distinct case count: **182** (confirmed final by user — no further merges).
 - Taxonomy: 17 categories live in `casus.html` (Option 1, minimal-diff), 5 legacy substantive tags as a secondary layer. See `TRACKING.md` for full rationale.
