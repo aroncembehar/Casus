@@ -26,7 +26,7 @@ Progress (case → commit):
 - [x] Marshall — `7aa6ea4`
 - [x] Solange I — `4f7270e`
 - [x] Solange II — `883e814`
-- [ ] Grzelczyk
+- [x] Grzelczyk — `56367b7`
 - [ ] Åkerberg Fransson
 - [ ] Francovich and Bonifaci v Italy (Italian case — source authentic text)
 
