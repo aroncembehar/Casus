@@ -61,7 +61,7 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [x] Kadi I — added keys `p11` (facts), `p1` (procedural), `p334` (defence-rights violation), `p373` (deferred-effect ruling), all EUR-Lex-verified; upgraded p281's confidence note; `general` only on one retrospective sentence (commit `5e3f026`)
 - [x] Kadi II — EUR-Lex failed repeatedly (3 attempts) and no new paragraph numbers found; consolidated into one continuous `general` span per field, fully honest about the verification gap (commit `bc1cade`)
 - [x] Van Gend en Loos — key `p12` widened to cover the entire rule passage (one continuous quotation, ECR p. 12), same pattern as Costa v ENEL; `general` for facts/procedure/retrospective commentary (pre-numbering judgment, see exception above) (commit `e668850`)
-- [ ] Defrenne v Sabena (No 2)
+- [x] Defrenne v Sabena (No 2) — retrieved full judgment text via CVCE-hosted ECR copy after EUR-Lex fetch failed; added keys `p1` (procedural, para 1), `p2` (facts, paras 2-3), `p39` (private-employer/horizontal-effect holding, paras 38-39), `p40` (reply to first question, para 40); existing `p21`/`p22` confirmed correct; `general` only for the pre-Law unnumbered facts (retirement age) and retrospective commentary (commit `3117444`)
 - [ ] Dominguez
 - [ ] Opinion 2/13
 - [ ] Stauder
