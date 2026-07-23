@@ -74,6 +74,23 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [ ] Åkerberg Fransson
 - [ ] Francovich and Bonifaci v Italy
 
+## ⏸ STOPPED HERE — 2026-07-23, resume when usage renews
+
+**Baseline for everything below: commit `d4fda08` on this branch (`casus-jurisprudence-batch-2026-07-23`) — 9/19 cases complete (through Defrenne, checklist above).** To parallelize the remaining 10 cases, two git worktrees were created off that commit and a background agent was set loose in each. Both agents were stopped mid-task by the user's explicit request ("let's stop for now"). Exact state of each, verified by inspecting `git log`/`git status`/`git stash list` directly (not just trusting agent self-reports):
+
+**`/Users/Aron/Desktop/Casus-batchA`, branch `casus-batchA`** — assigned Dominguez, Opinion 2/13, Stauder, Konstantinidis, Simmenthal II (in that order).
+- Working tree clean, zero commits ahead of `d4fda08`.
+- **No progress made at all** — the agent was stopped before any file edit landed (likely still in the research/WebFetch phase). All 5 of its assigned cases are untouched, still at original narrow retrofit-era tagging.
+- To resume: just re-launch an agent (or continue by hand) against this worktree with the same 5 cases, no cleanup needed first.
+
+**`/Users/Aron/Desktop/Casus-batchB`, branch `casus-batchB`** — assigned Marshall, Solange I, Solange II, Grzelczyk, Åkerberg Fransson (in that order).
+- Working tree clean, zero commits ahead of `d4fda08` — **but this is misleading: substantial uncommitted work exists in `git stash list` as `stash@{0}`**, message: `"WIP Grzelczyk full-coverage tagging: EN complete (intermediate+detailed+citations, keys p10/p32/p46/p39/p38 added), FR intermediate only tagged, FR detailed/holistic/citations NOT yet translated-tagged, DE/IT untouched"`.
+- Reading that stash's diff directly: the agent skipped straight to Grzelczyk (4th in its list) with no trace of Marshall, Solange I, or Solange II ever being edited or committed — those three are untouched, still at original tagging, despite being earlier in this batch's assigned order. Worth checking Grzelczyk's citations/prose in that stash before redoing research from scratch — the paragraph numbers already found (p10 facts/procedure paras 10-14, p32 paras 30-36 threshold holding, p46 para 46 operative conclusion, p39 para 39, p38 paras 38/40/45) were verified against a full EUR-Lex PDF fetch and looked solid, just not finished across all 4 languages.
+- Åkerberg Fransson: no evidence of any work.
+- To resume: `cd /Users/Aron/Desktop/Casus-batchB && git stash show -p stash@{0}` to review before deciding whether to `git stash pop` and finish Grzelczyk's FR detailed + DE + IT, or discard and redo. Then do Marshall → Solange I → Solange II → (Grzelczyk) → Åkerberg Fransson.
+
+**Nothing has been merged back into the main branch.** The 9 cases done so far (Mangold through Defrenne) live only on `casus-jurisprudence-batch-2026-07-23`; the two worktree branches (`casus-batchA`, `casus-batchB`) still need their work committed and merged back here once each batch is finished — not done yet, don't assume it.
+
 Remaining after this list: the 178-new-case queue (each authored with full-coverage tagging from the start, per the standard above, not as a later pass).
 
 **Gotcha found during retrofit (not present in Mangold, which used backticks throughout):** whether a field is a double-quoted JS string (`rule:"..."`) or a backtick template literal (`` rule:`...` ``) determines whether the `<cite data-para="...">` attribute's double quotes must be escaped as `\"`. Double-quoted fields need `<cite data-para=\"key\">`; backtick fields use plain `<cite data-para="key">`. Missing this breaks the string and fails the syntax check immediately (caught both times it happened, before commit) — check each field's delimiter before inserting tags.
