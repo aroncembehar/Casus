@@ -20,8 +20,8 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [x] Internationale Handelsgesellschaft — key `p4` (commit `c128a04`)
 - [x] Melloni — key `p60` (commit `5bf13fa`)
 - [x] Commission v Bavarian Lager — keys `p68`, `p78` (commit `bc7e8bb`)
-- [ ] Kadi I
-- [ ] Kadi II
+- [x] Kadi I — keys `p281`, `p326` (commit `5f9b022`)
+- [x] Kadi II — key `general` (commit `4113d5b`)
 - [ ] Van Gend en Loos
 - [ ] Defrenne v Sabena (No 2)
 - [ ] Dominguez
@@ -37,6 +37,8 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [ ] Francovich
 
 **Gotcha found during retrofit (not present in Mangold, which used backticks throughout):** whether a field is a double-quoted JS string (`rule:"..."`) or a backtick template literal (`` rule:`...` ``) determines whether the `<cite data-para="...">` attribute's double quotes must be escaped as `\"`. Double-quoted fields need `<cite data-para=\"key\">`; backtick fields use plain `<cite data-para="key">`. Missing this breaks the string and fails the syntax check immediately (caught both times it happened, before commit) — check each field's delimiter before inserting tags.
+
+**Session paused here (battery/interruption, mid-retrofit):** 6 of 19 cases retrofitted and committed (Costa v ENEL through Kadi II, all clean — see checklist above). Git working tree is clean at this point (verify with `git status` before resuming). Next case in file order is **Van Gend en Loos** (grep `id:"vangend"`, single citation, `paragraphs:"[1963] ECR 1, at p. 12 (this judgment predates paragraph numbering)"`, primary:true — same pre-numbering-page pattern as Costa v ENEL, so reuse that approach: pick a page-based key like `p12`, tag the matching clause in `intermediate.rule`/`detailed.rule` across EN/FR/DE/IT, add `key` to each language's citation entry, run the syntax + brace + cite-balance checks, commit). Remaining after that, in file order: Defrenne v Sabena (No 2), Dominguez, Opinion 2/13, Stauder, Konstantinidis, Simmenthal II, Marshall, Solange I, Solange II, Grzelczyk, Åkerberg Fransson, Francovich.
 
 **Verification status:** user manually confirmed at `http://localhost:8934/casus.html` (local test server) that the split-popup behavior works correctly on Mangold — selecting across the "p75" and "p77" sentences produces two distinct, correctly-labeled citation cards. Feature confirmed working.
 
