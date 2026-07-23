@@ -57,7 +57,8 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [x] Costa v ENEL — key `p593` widened to cover the entire rule passage (one continuous quotation, pp. 593-594); `general` for facts/procedure/Lisbon-Treaty commentary (pre-numbering judgment, see exception above) (commit `55e0c32`)
 - [x] Internationale Handelsgesellschaft — added key `p3` (primacy/independent-source-of-law reasoning, verified via secondary source after EUR-Lex fetch failed); `general` for facts/procedure/proportionality-outcome commentary (commit `a556d15`)
 - [x] Melloni — added keys `p13` (facts), `p25` (referred questions), `p56` (Article 53 scope analysis), all EUR-Lex-verified; `general` only on one retrospective-commentary sentence (commit `6ecf8ef`)
-- [ ] Commission v Bavarian Lager
+- [x] Commission v Bavarian Lager — added keys `p19` (facts), `p1` (procedural history), `p59` (direct-referral reasoning), all EUR-Lex-verified; `general` only on one structural-commentary sentence (commit `938584f`)
+- [ ] Kadi I
 - [ ] Commission v Bavarian Lager
 - [ ] Kadi I
 - [ ] Kadi II
