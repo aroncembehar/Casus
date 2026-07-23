@@ -1360,6 +1360,25 @@ const THEME_LABELS_DE = {
   "Treaty revision / Kompetenz-Kompetenz":"Vertragsrevision / Kompetenz-Kompetenz",
   "Institutional balance":"Institutionelles Gleichgewicht"
 };
+const THEME_LABELS_IT = {
+  "ECHR / Convention rights":"CEDU / Diritti convenzionali",
+  "Citizenship / free movement":"Cittadinanza / libera circolazione",
+  "Competences / legal basis":"Competenze / base giuridica",
+  "Secondary law / legal acts":"Diritto derivato / atti giuridici",
+  "Fundamental rights":"Diritti fondamentali",
+  "National constitutional identity":"Identità costituzionale nazionale",
+  "National case law (BVerfGE / ATF)":"Giurisprudenza nazionale (BVerfGE / ATF)",
+  "Implementation / procedural autonomy":"Attuazione / autonomia procedurale",
+  "Legal order / primacy / direct effect":"Ordinamento giuridico / primato / effetto diretto",
+  "Legislative procedures":"Procedure legislative",
+  "Actions for annulment":"Ricorso di annullamento",
+  "Infringement actions":"Ricorso per inadempimento",
+  "External relations / international law":"Relazioni esterne / diritto internazionale",
+  "Preliminary reference":"Rinvio pregiudiziale",
+  "Non-contractual liability":"Responsabilità extracontrattuale",
+  "Treaty revision / Kompetenz-Kompetenz":"Revisione dei trattati / Kompetenz-Kompetenz",
+  "Institutional balance":"Equilibrio istituzionale"
+};
 const LEGACY_THEME_LABELS_FR = {
   "Non-discrimination":"Non-discrimination",
   "Market freedoms":"Libertés de marché",
@@ -1374,14 +1393,23 @@ const LEGACY_THEME_LABELS_DE = {
   "Collective action vs. economic liberty":"Kollektivmaßnahmen und wirtschaftliche Freiheit",
   "Solidarity":"Solidarität"
 };
+const LEGACY_THEME_LABELS_IT = {
+  "Non-discrimination":"Non discriminazione",
+  "Market freedoms":"Libertà di mercato",
+  "Worker's rights":"Diritti dei lavoratori",
+  "Collective action vs. economic liberty":"Azione collettiva e libertà economica",
+  "Solidarity":"Solidarietà"
+};
 function themeLabel(t){
   if(currentLang==='fr') return THEME_LABELS_FR[t] || t;
   if(currentLang==='de') return THEME_LABELS_DE[t] || t;
+  if(currentLang==='it') return THEME_LABELS_IT[t] || t;
   return t;
 }
 function legacyThemeLabel(t){
   if(currentLang==='fr') return LEGACY_THEME_LABELS_FR[t] || t;
   if(currentLang==='de') return LEGACY_THEME_LABELS_DE[t] || t;
+  if(currentLang==='it') return LEGACY_THEME_LABELS_IT[t] || t;
   return t;
 }
 const JURISDICTION_SLUG = {"CJCE":"cjce","CJUE":"cjue","CourEDH":"couredh","BVerfGE":"bverfge","ATF":"atf","AG":"ag"};
@@ -1405,7 +1433,7 @@ function setLang(l){
 function renderLangSwitch(){
   const el = document.getElementById('lang-switch');
   if(!el) return;
-  const langs = [['en','EN'],['fr','FR'],['de','DE']];
+  const langs = [['en','EN'],['fr','FR'],['de','DE'],['it','IT']];
   el.innerHTML = langs.map(([code,label])=>`<span onclick="setLang('${code}')" style="cursor:pointer;font-size:12px;padding:3px 7px;border-radius:6px;color:${currentLang===code?'var(--red)':'var(--gold-light)'};background:${currentLang===code?'var(--gold-light)':'transparent'};">${label}</span>`).join('');
 }
 
@@ -1484,7 +1512,8 @@ function showCitationPopup(caseId, selectedText, rect){
   const t = {
     en:{cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — '},
     fr:{cited:'Cité du jugement', sourced:'Passages sourcés pour cet arrêt', primary:'Le plus pertinent — '},
-    de:{cited:'Aus dem Urteil zitiert', sourced:'Belegte Passagen zu diesem Fall', primary:'Am relevantesten — '}
+    de:{cited:'Aus dem Urteil zitiert', sourced:'Belegte Passagen zu diesem Fall', primary:'Am relevantesten — '},
+    it:{cited:'Citato dalla sentenza', sourced:'Passaggi documentati per questo caso', primary:'Il più rilevante — '}
   }[currentLang] || {cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — '};
   popup.innerHTML = `<div class="cp-head">${result.exact ? t.cited : t.sourced}</div>`
     + result.matches.map(m=>`<div class="cp-item ${m.primary?'primary':''}">
@@ -1521,7 +1550,7 @@ function articleChips(c){
   }).join('')}</div>`;
 }
 function fallbackNote(){
-  const t = {fr:'Traduction française pas encore disponible — texte anglais affiché.', de:'Deutsche Übersetzung noch nicht verfügbar — englischer Text wird angezeigt.'};
+  const t = {fr:'Traduction française pas encore disponible — texte anglais affiché.', de:'Deutsche Übersetzung noch nicht verfügbar — englischer Text wird angezeigt.', it:'Traduzione italiana non ancora disponibile — viene mostrato il testo inglese.'};
   return currentLang!=='en' ? `<p class="advanced-hint">${t[currentLang]}</p>` : '';
 }
 function levelContentHtml(c){
