@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "cedh",
+    "label_fr": "CEDH / Droits CEDH"
+  },
+  {
+    "slug": "citoyennete",
+    "label_fr": "Citoyenneté / libre circulation"
+  },
+  {
+    "slug": "competences",
+    "label_fr": "Compétences / base juridique"
+  },
+  {
+    "slug": "droit_derive",
+    "label_fr": "Droit dérivé / actes juridiques"
+  },
+  {
+    "slug": "droits_fondamentaux",
+    "label_fr": "Droits fondamentaux"
+  },
+  {
+    "slug": "identite_constitutionnelle",
+    "label_fr": "Identité constitutionnelle nationale"
+  },
+  {
+    "slug": "jurisprudence_nationale",
+    "label_fr": "Jurisprudence nationale (BVerfGE / ATF)"
+  },
+  {
+    "slug": "mise_en_oeuvre",
+    "label_fr": "Mise en œuvre / autonomie procédurale"
+  },
+  {
+    "slug": "ordre_juridique",
+    "label_fr": "Ordre juridique / primauté / effet direct"
+  },
+  {
+    "slug": "procedures_legislatives",
+    "label_fr": "Procédures législatives"
+  },
+  {
+    "slug": "recours_annulation",
+    "label_fr": "Recours en annulation"
+  },
+  {
+    "slug": "recours_manquement",
+    "label_fr": "Recours en manquement"
+  },
+  {
+    "slug": "relations_exterieures",
+    "label_fr": "Relations extérieures / DI"
+  },
+  {
+    "slug": "renvoi_prejudiciel",
+    "label_fr": "Renvoi préjudiciel"
+  },
+  {
+    "slug": "responsabilite_extracontractuelle",
+    "label_fr": "Responsabilité extracontractuelle"
+  },
+  {
+    "slug": "revision_traites",
+    "label_fr": "Révision des traités / Kompetenz"
+  },
+  {
+    "slug": "equilibre_institutionnel",
+    "label_fr": "Équilibre institutionnel"
+  }
+]

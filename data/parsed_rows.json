@@ -1,0 +1,2522 @@
+[
+  {
+    "name": "CEDH / Droits CEDH",
+    "rows": [
+      {
+        "page": 1,
+        "jurisdiction": "CJUE",
+        "name": "Avis 2/13",
+        "keywords": "Incompatibilité du projet d'adhésion UE-CEDH avec les traités ; autonomie de l'ordre juridique de l'UE",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CJCE",
+        "name": "Rutili",
+        "keywords": "CEDH = source d'inspiration des droits fondamentaux de l'UE ; reconnaissance jurisprudentielle",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CJCE",
+        "name": "Avis 2/94",
+        "keywords": "Pas de compétence CE pour adhérer à la CEDH ; altération constitutionnelle exigeant révision des traités",
+        "aussi": [
+          "Compétences / base juridique",
+          "Révision des traités / Kompetenz"
+        ]
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CourEDH",
+        "name": "Bosphorus",
+        "keywords": "Présomption réfragable de compatibilité DUE avec CEDH (équivalence de protection) ; la CourEDH s'abstient de contrôler DUE",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CourEDH",
+        "name": "Matthews",
+        "keywords": "EM peut être tenu pour responsable devant CourEDH pour actes de l'UE dans leurs obligations CEDH",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CourEDH",
+        "name": "Poirrez",
+        "keywords": "Différences d'interprétation entre CJUE et CourEDH sur droits correspondants à la CEDH",
+        "aussi": []
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CourEDH",
+        "name": "Michaud",
+        "keywords": "La présomption Bosphorus peut être renversée en cas d'insuffisance manifeste de protection",
+        "aussi": []
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CourEDH",
+        "name": "M.S.S.",
+        "keywords": "La marge d'appréciation des EM fait que les violations leur sont proprement imputables (limite présomption Bosphorus)",
+        "aussi": []
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CourEDH",
+        "name": "Dhabib ; Schipani ; Arlewin",
+        "keywords": "Juridiction nationale doit motiver refus de renvoi préjudiciel ; sinon violation art. 6 § 1 CEDH",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CourEDH",
+        "name": "Goodwin",
+        "keywords": "Différences d'interprétation CJUE/CourEDH sur certains droits",
+        "aussi": []
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CourEDH",
+        "name": "Tyrer",
+        "keywords": "La CEDH = instrument vivant (interprétation évolutive)",
+        "aussi": []
+      }
+    ]
+  },
+  {
+    "name": "Citoyenneté / libre circulation",
+    "rows": [
+      {
+        "page": 1,
+        "jurisdiction": "CJCE",
+        "name": "Micheletti",
+        "keywords": "Nationalité = compétence des EM ; mais perte nationalité doit respecter DUE",
+        "aussi": []
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CJCE",
+        "name": "Chen",
+        "keywords": "Nationalité = compétence des EM ; citoyenneté UE dérivée de nationalité EM",
+        "aussi": []
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CJUE",
+        "name": "Rottmann",
+        "keywords": "Perte de nationalité EM (et donc de la citoyenneté UE) dans le champ du DUE ; proportionnalité requise",
+        "aussi": []
+      },
+      {
+        "page": 1,
+        "jurisdiction": "CJCE",
+        "name": "Grzelczyk",
+        "keywords": "Citoyenneté UE = statut fondamental des ressortissants EM ; source directe de droits",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Martinez Sala",
+        "keywords": "Citoyenneté comme source de droits ; développement champ d'application",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "D'Hoop",
+        "keywords": "Extension jurisprudentielle citoyenneté et principe de non-discrimination",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJUE",
+        "name": "Zambrano",
+        "keywords": "Nuance du lien transnational ; protection du droit de séjour du ressortissant EM par citoyenneté enfant",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJUE",
+        "name": "Alimanovic",
+        "keywords": "Limites à la citoyenneté sociale ; mesures anti-tourisme social admises",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJUE",
+        "name": "Dano",
+        "keywords": "EM peut refuser aides sociales aux citoyens UE sans ressources suffisantes",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Tas-Hagen ; Morgan & Bucher",
+        "keywords": "Lien transnational requis pour rattachement au DUE ; art. 21 TFUE s'émancipe du cadre économique",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJUE",
+        "name": "Sayn-Wittgenstein",
+        "keywords": "Restrictions à la liberté de circuler justifiées par identité constitutionnelle nationale (dignité, égalité)",
+        "aussi": [
+          "Identité constitutionnelle nationale"
+        ]
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Maribel Dominguez",
+        "keywords": "Limites de l'interprétation conforme (ne peut aller contra legem) ; interdiction discrimination indirecte",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 2,
+        "jurisdiction": "AG",
+        "name": "Rottmann",
+        "keywords": "Nationalité européenne „ nationalité nationale ; enjeux de la citoyenneté dérivée",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "AG",
+        "name": "Konstantinidis",
+        "keywords": "«Civis europeus sum» : citoyenneté européenne comme source directe de droits fondamentaux",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Compétences / base juridique",
+    "rows": [
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Van Gend & Loos (26/62, 1963)",
+        "keywords": "Fondement de l'effet direct ; nouvel ordre juridique de DI ; droits des particuliers",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Schmidberger",
+        "keywords": "Mise en balance liberté fondamentale (circulation marchandises) et droit fondamental (liberté d'expression)",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Omega",
+        "keywords": "Restriction à libre circulation justifiée par dignité humaine (droit fondamental) ; quelques traditions communes suffisent",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Viking Line",
+        "keywords": "Droit à l'action collective = droit fondamental ; mise en balance avec libertés économiques (libre circulation)",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Laval",
+        "keywords": "Droit à l'action collective vs libre prestation de services ; finalité sociale de l'UE",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Fédéchar",
+        "keywords": "Reconnaissance des compétences implicites internes de l'UE",
+        "aussi": []
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "AETR",
+        "keywords": "Compétences externes implicites (parallélisme interne/externe) ; objet du recours en annulation",
+        "aussi": [
+          "Relations extérieures / DI",
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 2,
+        "jurisdiction": "CJCE",
+        "name": "Avis 1/76",
+        "keywords": "Compétences externes implicites : exercice conjoint interne/externe nécessaire",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Avis ciel ouvert",
+        "keywords": "Compétence externe ne peut être exercée que si compétence interne ne peut l'être autrement",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJUE",
+        "name": "Avis 2/25",
+        "keywords": "Caractère exclusif ou non d'une compétence externe implicite doit être établi lors de sa reconnaissance",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Royaume-Uni c. Parlement et Conseil",
+        "keywords": "La base juridique doit reposer sur éléments objectifs (but + contenu de l'acte) ; contrôle judiciaire",
+        "aussi": []
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Parlement c. Conseil",
+        "keywords": "Double base juridique admise si conditions équivalentes ; procédures compatibles ; consultation PE obligatoire",
+        "aussi": [
+          "Procédures législatives",
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Affaire dioxyde de titane (Commission c. Conseil)",
+        "keywords": "Double base juridique : procédures doivent être compatibles",
+        "aussi": [
+          "Procédures législatives"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Avis 2/94",
+        "keywords": "Pas de compétence CE pour adhérer à la CEDH ; altération constitutionnelle exigeant révision des traités",
+        "aussi": [
+          "CEDH / Droits CEDH",
+          "Révision des traités / Kompetenz"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJUE",
+        "name": "Pringle",
+        "keywords": "Révision simplifiée (48 par. 6 TUE) ne doit pas accroître les compétences de l'Union ; MES compatible",
+        "aussi": [
+          "Révision des traités / Kompetenz"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Publicité sur le tabac (I et II)",
+        "keywords": "Incompétence de l'UE : base juridique marché intérieur ne peut pas être détournée pour harmonisation générale",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJUE",
+        "name": "Commission c. Conseil (AETR étendu)",
+        "keywords": "Conditions de l'existence d'une compétence externe implicite (règles communes affectées)",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJUE",
+        "name": "République Slovaque / Hongrie c. Conseil",
+        "keywords": "Solidarité entre EM = principe justiciable du DUE générant des obligations",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "AG",
+        "name": "Ahokainen",
+        "keywords": "Proportionnalité au sens strict (mise en balance générale bénéfices / objectifs)",
+        "aussi": []
+      }
+    ]
+  },
+  {
+    "name": "Droit dérivé / actes juridiques",
+    "rows": [
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Variola",
+        "keywords": "Applicabilité immédiate des règlements ; interdiction de transposition en droit national",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Marleasing",
+        "keywords": "Obligation d'interprétation conforme du DN au DUE (effet indirect) ; y compris droit antérieur",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Pupino",
+        "keywords": "Obligation d'interprétation conforme s'applique aux décisions-cadres (3e pilier) ; quel que soit le domaine",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "BASF",
+        "keywords": "Nullité d'un acte non dûment authentifié ; exigences de forme",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 3,
+        "jurisdiction": "CJCE",
+        "name": "Van Duyn",
+        "keywords": "Effet direct vertical d'une directive (possibilité) ; méthode téléologique d'interprétation",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "T-Mobile et Vodafone",
+        "keywords": "Trois conditions de l'effet direct des directives (délai expiré, mal/non transposée, obligation claire)",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Marshall",
+        "keywords": "Exclusion de l'effet direct horizontal des directives ; effet direct uniquement vertical",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Faccini Dori",
+        "keywords": "Confirmation exclusion effet horizontal directives ; compétence de droit privé reste aux EM",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Ratti",
+        "keywords": "Effet direct vertical des directives : délai de transposition expiré = condition sine qua non",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJUE",
+        "name": "Mangold",
+        "keywords": "Effet direct horizontal du principe général de non-discrimination (droit primaire) ; obligation conforme avant expiration délai",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJUE",
+        "name": "Kücükdeveci",
+        "keywords": "Effet direct horizontal du principe de non-discrimination âge (droit primaire) ; confirmation exclusion horizontal directives",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Kolpinghuis et Adeneler",
+        "keywords": "Obligation interprétation conforme au droit national antérieur ; avant expiration délai transposition dans cas exceptionnels",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Maribel Dominguez",
+        "keywords": "Limites de l'interprétation conforme (ne peut aller contra legem) ; interdiction discrimination indirecte",
+        "aussi": [
+          "Citoyenneté / libre circulation"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Deutz",
+        "keywords": "La nature d'un acte dépend de son objet, contenu et portée, pas de son titre",
+        "aussi": []
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Franz Grad",
+        "keywords": "Effet direct des décisions adressées aux EM vis-à-vis des particuliers",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJUE",
+        "name": "Grimaldi",
+        "keywords": "Recommandations et avis : non contraignants mais valeur juridique ; obligation de prise en compte",
+        "aussi": []
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Arcor",
+        "keywords": "Règlement directement applicable : les EM doivent l'appliquer tel quel, avec possibilité de mesures d'exécution",
+        "aussi": []
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Sevince",
+        "keywords": "Actes unilatéraux des institutions établis par accords internationaux : même valeur que les accords",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Walonie",
+        "keywords": "Obligations des EM pendant délai transposition : ne pas priver directive de ses effets",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJUE",
+        "name": "Biocides & Commission c. Conseil et Parlement",
+        "keywords": "Critères de distinction actes délégués vs actes d'exécution (marge d'appréciation)",
+        "aussi": []
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Becker et Grosskrotzenburg",
+        "keywords": "Justifications de l'effet direct des directives : effectivité + bonne foi ; État ne peut invoquer sa propre non-transposition",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "CLIFIT",
+        "keywords": "Spécificité de l'interprétation du DUE ; 24 langues officielles ; méthodes interprétatives",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Allemagne c. Commission + British American Tobacco",
+        "keywords": "Obligation de motivation : raisonnement clair et non équivoque ; portée varie selon nature de l'acte",
+        "aussi": []
+      },
+      {
+        "page": 4,
+        "jurisdiction": "CJCE",
+        "name": "Firma A. Racke",
+        "keywords": "Non-rétroactivité des actes de l'UE (sécurité juridique) ; exceptions strictes",
+        "aussi": []
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJUE",
+        "name": "James Elliott",
+        "keywords": "Standards techniques des agences soumis au contrôle de la CJUE si effets juridiques vis-à-vis des tiers",
+        "aussi": [
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJUE",
+        "name": "Glatzel",
+        "keywords": "Obligation d'interprétation du droit dérivé conforme aux accords internationaux liant l'UE",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Von Colson",
+        "keywords": "Principe d'effectivité (difficulté excessive) ; obligation d'interprétation conforme",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJUE",
+        "name": "Commission c. Belgique",
+        "keywords": "Forme de la transposition doit être contraignante (loi formelle ou au moins loi matérielle) ; avant expiration délai",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Droits fondamentaux",
+    "rows": [
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Handelsgesellschaft",
+        "keywords": "Primauté DUE même sur droits fondamentaux constitutionnels nationaux ; test d'aptitude des PG au cadre des traités",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "Identité constitutionnelle nationale"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Kadi I",
+        "keywords": "Hiérarchie constitutionnelle : droit primaire prime sur DI ; contrôle juridictionnel des résolutions CS/ONU",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Stauder",
+        "keywords": "Reconnaissance des droits fondamentaux comme principes généraux du DUE",
+        "aussi": []
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Handelsgesellschaft",
+        "keywords": "Droits fondamentaux comme PG du DUE issus des traditions constitutionnelles communes",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Rutili",
+        "keywords": "CEDH = source d'inspiration des droits fondamentaux de l'UE ; reconnaissance jurisprudentielle",
+        "aussi": [
+          "CEDH / Droits CEDH"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Nold",
+        "keywords": "Élargissement des sources des droits fondamentaux aux conventions internationales",
+        "aussi": []
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Wachauf",
+        "keywords": "Droits fondamentaux s'appliquent aux EM quand ils mettent en œuvre le DUE",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "ERT",
+        "keywords": "Droits fondamentaux s'appliquent aussi quand les EM dérogent au DUE ; exclusion situations purement internes",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJCE",
+        "name": "Melloni",
+        "keywords": "EM ne peut invoquer droits fondamentaux nationaux (même noyau intangible) contre la primauté DUE ; mandat d'arrêt européen",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "Identité constitutionnelle nationale"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJUE",
+        "name": "Test-Achats",
+        "keywords": "Application de la Charte pour annuler directive ; CJUE applique Charte en priorité",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJUE",
+        "name": "Digital Rights",
+        "keywords": "Annulation directive conservation données ; proportionnalité + droits fondamentaux (Charte)",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 5,
+        "jurisdiction": "CJUE",
+        "name": "Schrems",
+        "keywords": "Annulation décision Commission sur transfert données USA ; droits fondamentaux (vie privée)",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJUE",
+        "name": "Fransson",
+        "keywords": "Champ d'application élargi de la Charte : s'applique quand situation nationale est connexe au DUE",
+        "aussi": []
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJCE",
+        "name": "Schmidberger",
+        "keywords": "Mise en balance liberté fondamentale (circulation marchandises) et droit fondamental (liberté d'expression)",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJCE",
+        "name": "Omega",
+        "keywords": "Restriction à libre circulation justifiée par dignité humaine (droit fondamental) ; quelques traditions communes suffisent",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJUE",
+        "name": "Audiolux",
+        "keywords": "Certains PG ont rang constitutionnel et ne cèdent pas nécessairement devant droit primaire",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJCE",
+        "name": "Defrenne II",
+        "keywords": "Justice sociale comme objectif communautaire ; égalité salariale H/F à effet direct horizontal",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJCE",
+        "name": "Defrenne III",
+        "keywords": "Interdiction discrimination fondée sur le sexe = PG du DUE ; effet direct horizontal",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJCE",
+        "name": "BECTU",
+        "keywords": "Droit au congé payé annuel = principe de droit social communautaire à valeur fondamentale ; ne peut être dérogé",
+        "aussi": []
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJCE",
+        "name": "Viking Line",
+        "keywords": "Droit à l'action collective = droit fondamental ; mise en balance avec libertés économiques (libre circulation)",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJCE",
+        "name": "Laval",
+        "keywords": "Droit à l'action collective vs libre prestation de services ; finalité sociale de l'UE",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJUE",
+        "name": "Otis",
+        "keywords": "Institutions UE = destinataires principaux des droits fondamentaux",
+        "aussi": []
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJCE",
+        "name": "Promusica et T ; Arcelor",
+        "keywords": "Obligation des EM de respecter droits fondamentaux dans mise en œuvre directe et indirecte du DUE",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJUE",
+        "name": "Taricco II",
+        "keywords": "Nuance Melloni : juge national non tenu de respecter DUE si protection procédurale nationale essentielle ; légalité des peines",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJUE",
+        "name": "Mangold",
+        "keywords": "Effet direct horizontal du principe général de non-discrimination (droit primaire) ; obligation conforme avant expiration délai",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJUE",
+        "name": "Kücükdeveci",
+        "keywords": "Effet direct horizontal du principe de non-discrimination âge (droit primaire) ; confirmation exclusion horizontal directives",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "BVerfGE",
+        "name": "Solange I et Solange II",
+        "keywords": "Résistance des cours constitutionnelles : primauté DUE conditionnée au respect des droits fondamentaux nationaux",
+        "aussi": [
+          "Identité constitutionnelle nationale"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CJUE",
+        "name": "Associacao Sindical dos Juizes Portugueses",
+        "keywords": "État de droit implique contrôle juridictionnel effectif ; indépendance judiciaire",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "CourEDH",
+        "name": "Bosphorus",
+        "keywords": "Présomption réfragable de compatibilité DUE avec CEDH (équivalence de protection) ; la CourEDH s'abstient de contrôler DUE",
+        "aussi": [
+          "CEDH / Droits CEDH"
+        ]
+      },
+      {
+        "page": 6,
+        "jurisdiction": "AG",
+        "name": "Konstantinidis",
+        "keywords": "«Civis europeus sum» : citoyenneté européenne comme source directe de droits fondamentaux",
+        "aussi": [
+          "Citoyenneté / libre circulation"
+        ]
+      },
+      {
+        "page": 7,
+        "jurisdiction": "AG",
+        "name": "Marcin Bonda",
+        "keywords": "Opt-out Pologne / Royaume-Uni (Protocole n°30) : jurisprudence sur droits fondamentaux s'applique en soi à tous les EM",
+        "aussi": []
+      }
+    ]
+  },
+  {
+    "name": "Identité constitutionnelle nationale",
+    "rows": [
+      {
+        "page": 7,
+        "jurisdiction": "CJCE",
+        "name": "Handelsgesellschaft",
+        "keywords": "Primauté DUE même sur droits fondamentaux constitutionnels nationaux ; test d'aptitude des PG au cadre des traités",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 7,
+        "jurisdiction": "CJCE",
+        "name": "Melloni",
+        "keywords": "EM ne peut invoquer droits fondamentaux nationaux (même noyau intangible) contre la primauté DUE ; mandat d'arrêt européen",
+        "aussi": [
+          "Droits fondamentaux",
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 7,
+        "jurisdiction": "CJUE",
+        "name": "Sayn-Wittgenstein",
+        "keywords": "Restrictions à la liberté de circuler justifiées par identité constitutionnelle nationale (dignité, égalité)",
+        "aussi": [
+          "Citoyenneté / libre circulation"
+        ]
+      },
+      {
+        "page": 7,
+        "jurisdiction": "BVerfGE",
+        "name": "Solange I et Solange II",
+        "keywords": "Résistance des cours constitutionnelles : primauté DUE conditionnée au respect des droits fondamentaux nationaux",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 7,
+        "jurisdiction": "BVerfGE",
+        "name": "Lissabonsvertrag",
+        "keywords": "Identité constitutionnelle nationale allemande comme limite à la primauté DUE ; Kompetenz-Kompetenz",
+        "aussi": [
+          "Révision des traités / Kompetenz"
+        ]
+      },
+      {
+        "page": 7,
+        "jurisdiction": "BVerfGE",
+        "name": "OMT",
+        "keywords": "Contrôle d'identité constitutionnelle nationale (BVerfGE) ; dialogue avec CJUE sur PSPP",
+        "aussi": [
+          "Révision des traités / Kompetenz"
+        ]
+      },
+      {
+        "page": 7,
+        "jurisdiction": "AG",
+        "name": "Gauweiler (C-62/14)",
+        "keywords": "Renvoi préjudiciel Cour constitutionnelle fédérale allemande ; limites invocation identité constitutionnelle nationale vs DUE",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 7,
+        "jurisdiction": "AG",
+        "name": "Michaniki",
+        "keywords": "Limite de l'invocation de l'identité constitutionnelle nationale pour faire échec à la primauté DUE",
+        "aussi": []
+      },
+      {
+        "page": 7,
+        "jurisdiction": "AG",
+        "name": "Arcelor",
+        "keywords": "Reprise prudente par la CJUE de la notion d'identité constitutionnelle nationale",
+        "aussi": []
+      }
+    ]
+  },
+  {
+    "name": "Jurisprudence nationale (BVerfGE / ATF)",
+    "rows": [
+      {
+        "page": 7,
+        "jurisdiction": "ATF",
+        "name": "ATF 123 I 152",
+        "keywords": "Références des tribunaux suisses à la jurisprudence CJUE pour interpréter le droit suisse eurocompatible",
+        "aussi": []
+      },
+      {
+        "page": 7,
+        "jurisdiction": "ATF",
+        "name": "ATF 129 III 335",
+        "keywords": "Interprétation dynamique du droit suisse aligné sur DUE selon l'évolution de la jurisprudence CJUE",
+        "aussi": []
+      },
+      {
+        "page": 7,
+        "jurisdiction": "ATF",
+        "name": "ATF 137 III 487 ; ATF 137 II 199",
+        "keywords": "Adaptation autonome droit suisse au DUE même sans décision du législateur",
+        "aussi": []
+      }
+    ]
+  },
+  {
+    "name": "Mise en œuvre / autonomie procédurale",
+    "rows": [
+      {
+        "page": 7,
+        "jurisdiction": "CJCE",
+        "name": "Simmenthal II",
+        "keywords": "Primauté du DUE sur tout droit national même ultérieur ; validité immédiate ; applicabilité immédiate",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Lucchini",
+        "keywords": "Primauté DUE : norme nationale inapplicable même si autorité de chose jugée ; primauté prime res judicata",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Wachauf",
+        "keywords": "Droits fondamentaux s'appliquent aux EM quand ils mettent en œuvre le DUE",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "ERT",
+        "keywords": "Droits fondamentaux s'appliquent aussi quand les EM dérogent au DUE ; exclusion situations purement internes",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Promusica et T ; Arcelor",
+        "keywords": "Obligation des EM de respecter droits fondamentaux dans mise en œuvre directe et indirecte du DUE",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJUE",
+        "name": "Taricco II",
+        "keywords": "Nuance Melloni : juge national non tenu de respecter DUE si protection procédurale nationale essentielle ; légalité des peines",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Kühne et Heitz",
+        "keywords": "Obligation de réexamen décision nationale après arrêt CJUE ; autorité de chose interprétée erga omnes",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJUE",
+        "name": "Winner Wetten",
+        "keywords": "Seule la CJUE fixe les conditions d'un délai transitoire après déclaration d'invalidité",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Kolpinghuis et Adeneler",
+        "keywords": "Obligation interprétation conforme au droit national antérieur ; avant expiration délai transposition dans cas exceptionnels",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Factortame",
+        "keywords": "Primauté impose d'écarter norme nationale contraire ; principe d'effectivité ; interdiction obstacle aux recours",
+        "aussi": [
+          "Responsabilité extracontractuelle",
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJUE",
+        "name": "Transportes Urbanos",
+        "keywords": "Principe d'équivalence dans les recours en responsabilité : même traitement que recours fondés sur droit interne",
+        "aussi": [
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Walonie",
+        "keywords": "Obligations des EM pendant délai transposition : ne pas priver directive de ses effets",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Rewe-Zentralfinanz",
+        "keywords": "Autonomie procédurale des EM ; principe d'effectivité (standard minimal d'impossibilité pratique)",
+        "aussi": []
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Von Colson",
+        "keywords": "Principe d'effectivité (difficulté excessive) ; obligation d'interprétation conforme",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Deutsche Milchkontor",
+        "keywords": "Autonomie procédurale des EM dans le cadre de l'UE ; conciliée avec uniformité du DUE",
+        "aussi": []
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Preston",
+        "keywords": "Test de similitude des procédures quant à leur objectif pour le principe d'équivalence",
+        "aussi": []
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJCE",
+        "name": "Palmisani",
+        "keywords": "Principes d'effectivité et d'équivalence dans les recours en responsabilité étatique",
+        "aussi": [
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJUE",
+        "name": "Aranyosi et Caldararu et Poplawski",
+        "keywords": "Obligation de mise en œuvre d'un mandat d'arrêt européen ; principe de confiance mutuelle entre EM",
+        "aussi": []
+      },
+      {
+        "page": 8,
+        "jurisdiction": "CJUE",
+        "name": "Associacao Sindical dos Juizes Portugueses",
+        "keywords": "État de droit implique contrôle juridictionnel effectif ; indépendance judiciaire",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJUE",
+        "name": "Commission c. Belgique",
+        "keywords": "Forme de la transposition doit être contraignante (loi formelle ou au moins loi matérielle) ; avant expiration délai",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ordre juridique / primauté / effet direct",
+    "rows": [
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Van Gend & Loos (26/62, 1963)",
+        "keywords": "Fondement de l'effet direct ; nouvel ordre juridique de DI ; droits des particuliers",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Costa c. ENEL (1964)",
+        "keywords": "Premier arrêt affirmant la primauté du DUE sur le droit national ; nature spécifique de l'UE",
+        "aussi": []
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Simmenthal II",
+        "keywords": "Primauté du DUE sur tout droit national même ultérieur ; validité immédiate ; applicabilité immédiate",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Variola",
+        "keywords": "Applicabilité immédiate des règlements ; interdiction de transposition en droit national",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Handelsgesellschaft",
+        "keywords": "Primauté DUE même sur droits fondamentaux constitutionnels nationaux ; test d'aptitude des PG au cadre des traités",
+        "aussi": [
+          "Droits fondamentaux",
+          "Identité constitutionnelle nationale"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Avis 1/91",
+        "keywords": "Ordre juridique de l'UE = charte constitutionnelle autonome, distinct du DI",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJUE",
+        "name": "Avis 2/13",
+        "keywords": "Incompatibilité du projet d'adhésion UE-CEDH avec les traités ; autonomie de l'ordre juridique de l'UE",
+        "aussi": [
+          "CEDH / Droits CEDH",
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Kadi I",
+        "keywords": "Hiérarchie constitutionnelle : droit primaire prime sur DI ; contrôle juridictionnel des résolutions CS/ONU",
+        "aussi": [
+          "Relations extérieures / DI",
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJUE",
+        "name": "Kadi II",
+        "keywords": "Confirmation jurisprudence Kadi I ; pouvoir de contrôle CJUE des actes fondés sur résolutions CS",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Les Verts",
+        "keywords": "L'UE = communauté de droit ; système complet de voies de recours ; autonomie institutionnelle du Parlement",
+        "aussi": [
+          "Équilibre institutionnel",
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Lucchini",
+        "keywords": "Primauté DUE : norme nationale inapplicable même si autorité de chose jugée ; primauté prime res judicata",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Marleasing",
+        "keywords": "Obligation d'interprétation conforme du DN au DUE (effet indirect) ; y compris droit antérieur",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Pupino",
+        "keywords": "Obligation d'interprétation conforme s'applique aux décisions-cadres (3e pilier) ; quel que soit le domaine",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJUE",
+        "name": "van Delft",
+        "keywords": "Le droit dérivé doit être conforme au droit primaire ; possible contestation d'une norme nationale conforme au dérivé",
+        "aussi": []
+      },
+      {
+        "page": 9,
+        "jurisdiction": "CJCE",
+        "name": "Handelsgesellschaft",
+        "keywords": "Droits fondamentaux comme PG du DUE issus des traditions constitutionnelles communes",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Melloni",
+        "keywords": "EM ne peut invoquer droits fondamentaux nationaux (même noyau intangible) contre la primauté DUE ; mandat d'arrêt européen",
+        "aussi": [
+          "Droits fondamentaux",
+          "Identité constitutionnelle nationale"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJUE",
+        "name": "Audiolux",
+        "keywords": "Certains PG ont rang constitutionnel et ne cèdent pas nécessairement devant droit primaire",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Defrenne II",
+        "keywords": "Justice sociale comme objectif communautaire ; égalité salariale H/F à effet direct horizontal",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Defrenne III",
+        "keywords": "Interdiction discrimination fondée sur le sexe = PG du DUE ; effet direct horizontal",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Commission c. Italie",
+        "keywords": "Impossibilité d'exécution (force majeure) = fait justificatif rare ; État doit laisser règle contraire inappliquée",
+        "aussi": [
+          "Recours en manquement"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Van Duyn",
+        "keywords": "Effet direct vertical d'une directive (possibilité) ; méthode téléologique d'interprétation",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Elchinov",
+        "keywords": "Juge national doit écarter interprétation contraire à celle de la CJUE même si ses supérieurs hiérarchiques le lient",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Factortame",
+        "keywords": "Primauté impose d'écarter norme nationale contraire ; principe d'effectivité ; interdiction obstacle aux recours",
+        "aussi": [
+          "Responsabilité extracontractuelle",
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Franz Grad",
+        "keywords": "Effet direct des décisions adressées aux EM vis-à-vis des particuliers",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Becker et Grosskrotzenburg",
+        "keywords": "Justifications de l'effet direct des directives : effectivité + bonne foi ; État ne peut invoquer sa propre non-transposition",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Procédures législatives",
+    "rows": [
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Parlement c. Conseil",
+        "keywords": "Double base juridique admise si conditions équivalentes ; procédures compatibles ; consultation PE obligatoire",
+        "aussi": [
+          "Compétences / base juridique",
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Affaire dioxyde de titane (Commission c. Conseil)",
+        "keywords": "Double base juridique : procédures doivent être compatibles",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Isoglucose",
+        "keywords": "Consultation PE = formalité essentielle ; acte nul si omise (procédure de consultation)",
+        "aussi": [
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Roquette",
+        "keywords": "Confirmation obligation consultation PE ; Parlement = pilier démocratique de l'UE",
+        "aussi": [
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Chemiefarma",
+        "keywords": "Nouvelle consultation PE si texte adopté s'écarte trop du texte initial soumis",
+        "aussi": []
+      },
+      {
+        "page": 10,
+        "jurisdiction": "CJCE",
+        "name": "Conseil c. Commission",
+        "keywords": "Coopération loyale interinstitutionnelle : ne peut renforcer le pouvoir d'une institution au-delà de ses attributions",
+        "aussi": [
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "TWD I",
+        "keywords": "Recours en annulation et exception d'illégalité : irrecevabilité si délai de recours direct non respecté",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Recours en annulation",
+    "rows": [
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "Les Verts",
+        "keywords": "L'UE = communauté de droit ; système complet de voies de recours ; autonomie institutionnelle du Parlement",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJUE",
+        "name": "Test-Achats",
+        "keywords": "Application de la Charte pour annuler directive ; CJUE applique Charte en priorité",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJUE",
+        "name": "Digital Rights",
+        "keywords": "Annulation directive conservation données ; proportionnalité + droits fondamentaux (Charte)",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJUE",
+        "name": "Schrems",
+        "keywords": "Annulation décision Commission sur transfert données USA ; droits fondamentaux (vie privée)",
+        "aussi": [
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "AETR",
+        "keywords": "Compétences externes implicites (parallélisme interne/externe) ; objet du recours en annulation",
+        "aussi": [
+          "Compétences / base juridique",
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "Publicité sur le tabac (I et II)",
+        "keywords": "Incompétence de l'UE : base juridique marché intérieur ne peut pas être détournée pour harmonisation générale",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "Meroni",
+        "keywords": "Premier arrêt sur l'équilibre institutionnel ; limitation de la délégation de pouvoirs",
+        "aussi": [
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "IBM",
+        "keywords": "Objet du recours en annulation : acte destiné à produire des effets juridiques ; exclusion actes préparatoires",
+        "aussi": []
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "Plaumann",
+        "keywords": "Définition de « individuellement concerné » : situation particulière propre à l'individu (critère restrictif)",
+        "aussi": []
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "Cordoniu",
+        "keywords": "Application restrictive de la condition d'affectation individuelle pour les actes de portée générale",
+        "aussi": []
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJUE",
+        "name": "Inuit",
+        "keywords": "Définition d'acte règlementaire : acte de portée générale non législatif ; légitimation active élargie",
+        "aussi": []
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJUE",
+        "name": "Microban",
+        "keywords": "Légitimation active élargie pour actes règlementaires sans mesure d'exécution (art. 263 al. 4 TFUE)",
+        "aussi": []
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJUE",
+        "name": "Front Polisario",
+        "keywords": "Recours en annulation contre décision de conclusion d'accord international ; n'invalide pas l'accord lui-même",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "BASF",
+        "keywords": "Nullité d'un acte non dûment authentifié ; exigences de forme",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "Van Landewyck",
+        "keywords": "La violation des formes substantielles n'est sanctionnée que si le résultat aurait pu être différent",
+        "aussi": []
+      },
+      {
+        "page": 11,
+        "jurisdiction": "CJCE",
+        "name": "TWD I",
+        "keywords": "Recours en annulation et exception d'illégalité : irrecevabilité si délai de recours direct non respecté",
+        "aussi": [
+          "Procédures législatives"
+        ]
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Bavaria",
+        "keywords": "Blocage de l'accès aux procédures si recours direct non ouvert dans les délais",
+        "aussi": []
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJUE",
+        "name": "Razzouk",
+        "keywords": "Devoir d'abroger l'acte déclaré inapplicable par exception d'illégalité",
+        "aussi": []
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJUE",
+        "name": "AETR (objet)",
+        "keywords": "Acte visé par le recours en annulation : toute disposition produisant des effets juridiques, quelle que soit sa forme",
+        "aussi": []
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Zuckerfabrik",
+        "keywords": "Recours en indemnité indépendant du recours en annulation ; mesures provisoires ; recours avant annulation possible",
+        "aussi": [
+          "Responsabilité extracontractuelle"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Recours en manquement",
+    "rows": [
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Commission c. Espagne",
+        "keywords": "Tout organe de l'État (y compris judiciaire) peut engager un manquement ; griefs du recours = griefs de l'avis motivé",
+        "aussi": []
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Commission c. Italie",
+        "keywords": "Impossibilité d'exécution (force majeure) = fait justificatif rare ; État doit laisser règle contraire inappliquée",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Francovich",
+        "keywords": "Responsabilité EM pour non-transposition d'une directive ; trois conditions ; obligation de réparer",
+        "aussi": [
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJUE",
+        "name": "Brasserie du pêcheur",
+        "keywords": "Extension responsabilité EM à toute violation DUE par tout organe (législatif, exécutif, judiciaire) ; violation suffisamment caractérisée",
+        "aussi": [
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJUE",
+        "name": "Köbler",
+        "keywords": "Responsabilité EM pour violation DUE par juridiction statuant en dernier ressort",
+        "aussi": [
+          "Responsabilité extracontractuelle",
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJUE",
+        "name": "Ferreira da Silva",
+        "keywords": "Obligation de renvoi préjudiciel pour juridictions de dernière instance ; responsabilité EM si non-respect",
+        "aussi": [
+          "Renvoi préjudiciel",
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Deutsche Telekom",
+        "keywords": "Pouvoir discrétionnaire de la Commission pour intenter un recours en manquement ; CJUE ne contrôle pas ce choix",
+        "aussi": []
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJUE",
+        "name": "Dillenkofer",
+        "keywords": "Non-transposition directive = violation suffisamment caractérisée automatiquement",
+        "aussi": [
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Commission c. Grèce",
+        "keywords": "Obligation pour EM de ne pas prendre d'initiatives internationales violant DUE ; astreinte possible",
+        "aussi": []
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Commission c. Portugal",
+        "keywords": "Sanction financière (astreinte + forfait) pour inexécution de jugement en manquement",
+        "aussi": []
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJUE",
+        "name": "Commission c. Espagne (manquement judiciaire)",
+        "keywords": "Responsabilité EM pour violation DUE par juridiction nationale de dernière instance",
+        "aussi": [
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 12,
+        "jurisdiction": "CJCE",
+        "name": "Mox",
+        "keywords": "Juridiction exclusive CJUE sur DUE ; l'Irlande a violé art. 344 TFUE en saisissant tribunal arbitral international",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Relations extérieures / DI",
+    "rows": [
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Avis 1/91",
+        "keywords": "Ordre juridique de l'UE = charte constitutionnelle autonome, distinct du DI",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJUE",
+        "name": "Avis 2/13",
+        "keywords": "Incompatibilité du projet d'adhésion UE-CEDH avec les traités ; autonomie de l'ordre juridique de l'UE",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "CEDH / Droits CEDH"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Kadi I",
+        "keywords": "Hiérarchie constitutionnelle : droit primaire prime sur DI ; contrôle juridictionnel des résolutions CS/ONU",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJUE",
+        "name": "Kadi II",
+        "keywords": "Confirmation jurisprudence Kadi I ; pouvoir de contrôle CJUE des actes fondés sur résolutions CS",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "AETR",
+        "keywords": "Compétences externes implicites (parallélisme interne/externe) ; objet du recours en annulation",
+        "aussi": [
+          "Compétences / base juridique",
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Avis 1/76",
+        "keywords": "Compétences externes implicites : exercice conjoint interne/externe nécessaire",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Avis ciel ouvert",
+        "keywords": "Compétence externe ne peut être exercée que si compétence interne ne peut l'être autrement",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJUE",
+        "name": "Avis 2/25",
+        "keywords": "Caractère exclusif ou non d'une compétence externe implicite doit être établi lors de sa reconnaissance",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJUE",
+        "name": "Front Polisario",
+        "keywords": "Recours en annulation contre décision de conclusion d'accord international ; n'invalide pas l'accord lui-même",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJUE",
+        "name": "Achmea",
+        "keywords": "Tribunal arbitral ne peut pas être «juge national» au sens du renvoi préjudiciel",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Sevince",
+        "keywords": "Actes unilatéraux des institutions établis par accords internationaux : même valeur que les accords",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Haegeman et Opel Austria",
+        "keywords": "Accords internationaux = partie intégrante du DUE (monisme) ; invocables directement",
+        "aussi": []
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Demirel",
+        "keywords": "Conditions de l'effet direct des accords internationaux (obligation claire, précise, inconditionnelle)",
+        "aussi": []
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "International Fruits",
+        "keywords": "Succession de facto de l'UE au GATT ; conditions de succession de facto à accord international des EM",
+        "aussi": []
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Poulsen et Opel Austria",
+        "keywords": "Droit coutumier international invocable par l'UE ; lié par le droit international général",
+        "aussi": []
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Racke",
+        "keywords": "L'UE a l'obligation de respecter le DI dans ses relations extérieures",
+        "aussi": []
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Mox",
+        "keywords": "Juridiction exclusive CJUE sur DUE ; l'Irlande a violé art. 344 TFUE en saisissant tribunal arbitral international",
+        "aussi": [
+          "Recours en manquement"
+        ]
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJUE",
+        "name": "Daichii Sankyo",
+        "keywords": "Effets d'un accord mixte : CJUE ne contrôle que les parties relevant du DUE",
+        "aussi": []
+      },
+      {
+        "page": 13,
+        "jurisdiction": "CJCE",
+        "name": "Commission c. Finlande",
+        "keywords": "Obligation des EM (art. 351 al. 2 TFUE) d'éliminer incompatibilités entre anciens traités et DUE",
+        "aussi": []
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJUE",
+        "name": "Commission c. Conseil (AETR étendu)",
+        "keywords": "Conditions de l'existence d'une compétence externe implicite (règles communes affectées)",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJUE",
+        "name": "Glatzel",
+        "keywords": "Obligation d'interprétation du droit dérivé conforme aux accords internationaux liant l'UE",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJUE",
+        "name": "Gennaro Curra",
+        "keywords": "Juridiction CJUE limitée au cadre des compétences attribuées à l'Union par les EM",
+        "aussi": []
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJUE",
+        "name": "République Slovaque / Hongrie c. Conseil",
+        "keywords": "Solidarité entre EM = principe justiciable du DUE générant des obligations",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CourEDH",
+        "name": "Matthews",
+        "keywords": "EM peut être tenu pour responsable devant CourEDH pour actes de l'UE dans leurs obligations CEDH",
+        "aussi": [
+          "CEDH / Droits CEDH"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Renvoi préjudiciel",
+    "rows": [
+      {
+        "page": 14,
+        "jurisdiction": "CJUE",
+        "name": "Köbler",
+        "keywords": "Responsabilité EM pour violation DUE par juridiction statuant en dernier ressort",
+        "aussi": [
+          "Recours en manquement",
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJUE",
+        "name": "Ferreira da Silva",
+        "keywords": "Obligation de renvoi préjudiciel pour juridictions de dernière instance ; responsabilité EM si non-respect",
+        "aussi": [
+          "Recours en manquement",
+          "Responsabilité extracontractuelle"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJCE",
+        "name": "CILFIT (283/81)",
+        "keywords": "Conditions de l'obligation de renvoi ; théorie de l'acte clair ; discrétion des juridictions suprêmes",
+        "aussi": []
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJCE",
+        "name": "Foto-Frost",
+        "keywords": "Seule la CJUE peut déclarer invalide un acte de droit dérivé ; obligation de renvoi en cas de doute de validité",
+        "aussi": []
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJCE",
+        "name": "IATA",
+        "keywords": "Obligation de renvoi préjudiciel en cas de question de validité d'un acte dérivé",
+        "aussi": []
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJCE",
+        "name": "Van Duyn",
+        "keywords": "Effet direct vertical d'une directive (possibilité) ; méthode téléologique d'interprétation",
+        "aussi": [
+          "Droit dérivé / actes juridiques",
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJCE",
+        "name": "T-Mobile et Vodafone",
+        "keywords": "Trois conditions de l'effet direct des directives (délai expiré, mal/non transposée, obligation claire)",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJCE",
+        "name": "Marshall",
+        "keywords": "Exclusion de l'effet direct horizontal des directives ; effet direct uniquement vertical",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJCE",
+        "name": "Faccini Dori",
+        "keywords": "Confirmation exclusion effet horizontal directives ; compétence de droit privé reste aux EM",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJCE",
+        "name": "Ratti",
+        "keywords": "Effet direct vertical des directives : délai de transposition expiré = condition sine qua non",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 14,
+        "jurisdiction": "CJUE",
+        "name": "Mangold",
+        "keywords": "Effet direct horizontal du principe général de non-discrimination (droit primaire) ; obligation conforme avant expiration délai",
+        "aussi": [
+          "Droit dérivé / actes juridiques",
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJUE",
+        "name": "Kücükdeveci",
+        "keywords": "Effet direct horizontal du principe de non-discrimination âge (droit primaire) ; confirmation exclusion horizontal directives",
+        "aussi": [
+          "Droit dérivé / actes juridiques",
+          "Droits fondamentaux"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Kühne et Heitz",
+        "keywords": "Obligation de réexamen décision nationale après arrêt CJUE ; autorité de chose interprétée erga omnes",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Kempter (C-2/06)",
+        "keywords": "Étendue de l'autorité de chose interprétée ; rétroactivité de l'interprétation ex tunc",
+        "aussi": []
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Dorsch Consult",
+        "keywords": "Définition de «juge national» au sens du renvoi préjudiciel (permanent, contradictoire, obligatoire, indépendant)",
+        "aussi": []
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJUE",
+        "name": "Achmea",
+        "keywords": "Tribunal arbitral ne peut pas être «juge national» au sens du renvoi préjudiciel",
+        "aussi": [
+          "Relations extérieures / DI"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJUE",
+        "name": "Winner Wetten",
+        "keywords": "Seule la CJUE fixe les conditions d'un délai transitoire après déclaration d'invalidité",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Elchinov",
+        "keywords": "Juge national doit écarter interprétation contraire à celle de la CJUE même si ses supérieurs hiérarchiques le lient",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJUE",
+        "name": "Global Starnet",
+        "keywords": "Juridiction de dernière instance doit renvoyer même après contrôle constitutionnel national",
+        "aussi": []
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Bosman",
+        "keywords": "La CJUE répond à la question posée ; ne peut pas étendre ou changer l'angle",
+        "aussi": []
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Peterbroeck",
+        "keywords": "Seul le tribunal national saisi peut s'adresser à la CJUE par renvoi préjudiciel",
+        "aussi": []
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Kolpinghuis et Adeneler",
+        "keywords": "Obligation interprétation conforme au droit national antérieur ; avant expiration délai transposition dans cas exceptionnels",
+        "aussi": [
+          "Droit dérivé / actes juridiques",
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "CLIFIT",
+        "keywords": "Spécificité de l'interprétation du DUE ; 24 langues officielles ; méthodes interprétatives",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "IATA",
+        "keywords": "Système complet de voies de recours ; équilibre institutionnel",
+        "aussi": [
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Unibet ; Avis 1/09",
+        "keywords": "Juridictions nationales = juges de droit commun du DUE ; primauté des voies de recours nationales",
+        "aussi": [
+          "Équilibre institutionnel"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "CourEDH",
+        "name": "Dhabib ; Schipani ; Arlewin",
+        "keywords": "Juridiction nationale doit motiver refus de renvoi préjudiciel ; sinon violation art. 6 § 1 CEDH",
+        "aussi": [
+          "CEDH / Droits CEDH"
+        ]
+      },
+      {
+        "page": 15,
+        "jurisdiction": "AG",
+        "name": "Gauweiler (C-62/14)",
+        "keywords": "Renvoi préjudiciel Cour constitutionnelle fédérale allemande ; limites invocation identité constitutionnelle nationale vs DUE",
+        "aussi": [
+          "Identité constitutionnelle nationale"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Responsabilité extracontractuelle",
+    "rows": [
+      {
+        "page": 15,
+        "jurisdiction": "CJCE",
+        "name": "Francovich",
+        "keywords": "Responsabilité EM pour non-transposition d'une directive ; trois conditions ; obligation de réparer",
+        "aussi": [
+          "Recours en manquement"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Brasserie du pêcheur",
+        "keywords": "Extension responsabilité EM à toute violation DUE par tout organe (législatif, exécutif, judiciaire) ; violation suffisamment caractérisée",
+        "aussi": [
+          "Recours en manquement"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Köbler",
+        "keywords": "Responsabilité EM pour violation DUE par juridiction statuant en dernier ressort",
+        "aussi": [
+          "Recours en manquement",
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Ferreira da Silva",
+        "keywords": "Obligation de renvoi préjudiciel pour juridictions de dernière instance ; responsabilité EM si non-respect",
+        "aussi": [
+          "Recours en manquement",
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Dillenkofer",
+        "keywords": "Non-transposition directive = violation suffisamment caractérisée automatiquement",
+        "aussi": [
+          "Recours en manquement"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJCE",
+        "name": "Holtz & Willemsen et Bergaderm",
+        "keywords": "Conditions de la responsabilité extracontractuelle de l'UE (3 conditions) ; calquée sur responsabilité EM",
+        "aussi": []
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJCE",
+        "name": "Zuckerfabrik",
+        "keywords": "Recours en indemnité indépendant du recours en annulation ; mesures provisoires ; recours avant annulation possible",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJCE",
+        "name": "Factortame",
+        "keywords": "Primauté impose d'écarter norme nationale contraire ; principe d'effectivité ; interdiction obstacle aux recours",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale",
+          "Ordre juridique / primauté / effet direct"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Giordano",
+        "keywords": "Préjudice doit être réel ; conditions de la responsabilité extracontractuelle UE",
+        "aussi": []
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Trubowest",
+        "keywords": "Lien de causalité direct = condition de la responsabilité EM et UE",
+        "aussi": []
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Schneider Electric",
+        "keywords": "Violation suffisamment caractérisée selon marge d'appréciation de l'institution",
+        "aussi": []
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJCE",
+        "name": "Kampffmeyer",
+        "keywords": "Cumul exceptionnel responsabilité UE + EM ; responsabilité UE subsidiaire",
+        "aussi": []
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Commission c. Espagne (manquement judiciaire)",
+        "keywords": "Responsabilité EM pour violation DUE par juridiction nationale de dernière instance",
+        "aussi": [
+          "Recours en manquement"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Transportes Urbanos",
+        "keywords": "Principe d'équivalence dans les recours en responsabilité : même traitement que recours fondés sur droit interne",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJCE",
+        "name": "Palmisani",
+        "keywords": "Principes d'effectivité et d'équivalence dans les recours en responsabilité étatique",
+        "aussi": [
+          "Mise en œuvre / autonomie procédurale"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Révision des traités / Kompetenz",
+    "rows": [
+      {
+        "page": 16,
+        "jurisdiction": "CJCE",
+        "name": "Avis 2/94",
+        "keywords": "Pas de compétence CE pour adhérer à la CEDH ; altération constitutionnelle exigeant révision des traités",
+        "aussi": [
+          "Compétences / base juridique",
+          "CEDH / Droits CEDH"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJUE",
+        "name": "Pringle",
+        "keywords": "Révision simplifiée (48 par. 6 TUE) ne doit pas accroître les compétences de l'Union ; MES compatible",
+        "aussi": [
+          "Compétences / base juridique"
+        ]
+      },
+      {
+        "page": 16,
+        "jurisdiction": "CJCE",
+        "name": "Defrenne I",
+        "keywords": "Les traités ne peuvent être révisés que selon la procédure de l'art. 48 TUE ; exclusion droit coutumier interétatique",
+        "aussi": []
+      },
+      {
+        "page": 17,
+        "jurisdiction": "BVerfGE",
+        "name": "Lissabonsvertrag",
+        "keywords": "Identité constitutionnelle nationale allemande comme limite à la primauté DUE ; Kompetenz-Kompetenz",
+        "aussi": [
+          "Identité constitutionnelle nationale"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "BVerfGE",
+        "name": "OMT",
+        "keywords": "Contrôle d'identité constitutionnelle nationale (BVerfGE) ; dialogue avec CJUE sur PSPP",
+        "aussi": [
+          "Identité constitutionnelle nationale"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "AG",
+        "name": "Parlement c. Conseil",
+        "keywords": "Révision par droit coutumier interétatique exclue ; compétences explicites de révision",
+        "aussi": []
+      }
+    ]
+  },
+  {
+    "name": "Équilibre institutionnel",
+    "rows": [
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "Les Verts",
+        "keywords": "L'UE = communauté de droit ; système complet de voies de recours ; autonomie institutionnelle du Parlement",
+        "aussi": [
+          "Ordre juridique / primauté / effet direct",
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "Parlement c. Conseil",
+        "keywords": "Double base juridique admise si conditions équivalentes ; procédures compatibles ; consultation PE obligatoire",
+        "aussi": [
+          "Compétences / base juridique",
+          "Procédures législatives"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "Isoglucose",
+        "keywords": "Consultation PE = formalité essentielle ; acte nul si omise (procédure de consultation)",
+        "aussi": [
+          "Procédures législatives"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "Roquette",
+        "keywords": "Confirmation obligation consultation PE ; Parlement = pilier démocratique de l'UE",
+        "aussi": [
+          "Procédures législatives"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "Conseil c. Commission",
+        "keywords": "Coopération loyale interinstitutionnelle : ne peut renforcer le pouvoir d'une institution au-delà de ses attributions",
+        "aussi": [
+          "Procédures législatives"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "Meroni",
+        "keywords": "Premier arrêt sur l'équilibre institutionnel ; limitation de la délégation de pouvoirs",
+        "aussi": [
+          "Recours en annulation"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJUE",
+        "name": "James Elliott",
+        "keywords": "Standards techniques des agences soumis au contrôle de la CJUE si effets juridiques vis-à-vis des tiers",
+        "aussi": [
+          "Droit dérivé / actes juridiques"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "Lord Bruce of Donington",
+        "keywords": "Autonomie organisationnelle des institutions (pouvoir de se doter d'un règlement interne)",
+        "aussi": []
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "AKZO",
+        "keywords": "Obligation des institutions de fonctionner et d'atteindre leurs missions ; principe de capacité de fonctionner",
+        "aussi": []
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "IATA",
+        "keywords": "Système complet de voies de recours ; équilibre institutionnel",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJUE",
+        "name": "Conseil c. Commission",
+        "keywords": "Coopération loyale interinstitutionnelle ; accords interinstitutionnels dans le respect des traités",
+        "aussi": []
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJCE",
+        "name": "Unibet ; Avis 1/09",
+        "keywords": "Juridictions nationales = juges de droit commun du DUE ; primauté des voies de recours nationales",
+        "aussi": [
+          "Renvoi préjudiciel"
+        ]
+      },
+      {
+        "page": 17,
+        "jurisdiction": "CJUE",
+        "name": "Bavarian Lager",
+        "keywords": "Accès aux documents des institutions examiné à l'aune du DUE sur protection des données („ art. 8 CEDH)",
+        "aussi": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "raw_label": "Dhabib ; Schipani ; Arlewin",
+    "resolution": "split into 3 cases",
+    "reasoning": "Single bundled row citing three separate CourEDH applicants under one label (study-notes shorthand). Dhahbi v Italy and Schipani and Others v Italy both concern a domestic court's duty to give reasons when declining an Art. 267 TFEU preliminary reference (Art. 6 ECHR fair trial); Arlewin v Sweden concerns extraterritorial jurisdiction over defamation. Distinct facts, likely distinct holdings -> split into 3, sharing the row's category set (cannot subdivide categories per sub-case from the source alone)."
+  },
+  {
+    "raw_label": "Rottmann",
+    "resolution": "merged, dual jurisdiction retained as note",
+    "reasoning": "Same case cited under multiple jurisdiction labels across rows (AG, CJUE) — merged as one case (e.g. AG opinion + Court judgment both indexed); verify in Step 4."
+  },
+  {
+    "raw_label": "Tas-Hagen ; Morgan & Bucher",
+    "resolution": "split into 2 cases",
+    "reasoning": "Semicolon separates two distinct citizenship cases: Tas-Hagen and Tas (C-192/05), and the joined case Morgan and Bucher (C-11/06 & C-12/06) — the ampersand here is part of that joined case's conventional shorthand, not a further split."
+  },
+  {
+    "raw_label": "Parlement c. Conseil",
+    "resolution": "split into 2 cases (discovered via aussi cross-reference inconsistency, not in original flagged list)",
+    "reasoning": "Same case-name label reused for two unrelated CJCE/AG matters. Rows in Compétences/base juridique, Procédures législatives and Équilibre institutionnel mutually cross-reference each other via 'aussi' (consistent triangle) and share identical keyword text ('double base juridique') -> one case. The Révision des traités/Kompetenz row (AG opinion) has no aussi links to the others and describes an unrelated subject (customary-law treaty revision) -> a second, different case. Exact citations for both need Step 4 verification (many 'Parlement c. Conseil' cases exist in CJCE case law, e.g. Chernobyl C-70/88, Bangladesh aid C-181/91, GSP C-45/86)."
+  },
+  {
+    "raw_label": "Publicité sur le tabac (I et II)",
+    "resolution": "split into 2 cases",
+    "reasoning": "Two distinct CJUE judgments, Germany v Parliament and Council (2000 and 2006), on tobacco-advertising directive competence."
+  },
+  {
+    "raw_label": "Kolpinghuis et Adeneler",
+    "resolution": "split into 2 cases",
+    "reasoning": "Two distinct judgments on different (though related) doctrines: Kolpinghuis Nijmegen (80/86, no direct effect of an unimplemented directive against an individual in criminal proceedings) and Adeneler (C-212/04, consistent-interpretation / indirect-effect duty)."
+  },
+  {
+    "raw_label": "Solange I et Solange II",
+    "resolution": "split into 2 cases",
+    "reasoning": "Explicitly two BVerfGE judgments (1974 and 1986) forming a well-known doctrinal pair; not a single case."
+  },
+  {
+    "raw_label": "Aranyosi et Caldararu et Poplawski",
+    "resolution": "split into 2 cases",
+    "reasoning": "Aranyosi and Caldararu (joined cases C-404/15 & C-659/15 PPU) is itself a single joined judgment. Poplawski is a separate later case (either Poplawski I, C-579/15, or Poplawski II, C-573/17 — citation to be confirmed) on the same EAW/primacy theme. Split into 2, not 3."
+  },
+  {
+    "raw_label": "Conseil c. Commission",
+    "resolution": "split into 2 cases (discovered via aussi cross-reference inconsistency, not in original flagged list)",
+    "reasoning": "Two 'Équilibre institutionnel' rows exist for this name label with different keyword phrasing and different jurisdictions (CJCE vs CJUE); only one of them cross-references the Procédures législatives row via 'aussi'. Read together this looks like two different loyal-cooperation cases decided years apart rather than one case appearing three times. Citations to be confirmed in Step 4."
+  },
+  {
+    "raw_label": "Unibet ; Avis 1/09",
+    "resolution": "split into 2 cases",
+    "reasoning": "Semicolon separates two unrelated matters: Unibet (C-432/05, effective judicial protection) and Opinion 1/09 (draft unified patent litigation agreement)."
+  },
+  {
+    "raw_label": "Holtz & Willemsen et Bergaderm",
+    "resolution": "split into 2 cases",
+    "reasoning": "'Holtz & Willemsen' is itself a single case's proper name (153/73, the ampersand is part of the applicant company name, not a bundling marker). 'et Bergaderm' adds a second, later case (C-352/98 P) aligning non-contractual EU liability with the Member State liability standard. Split into 2."
+  }
+]
