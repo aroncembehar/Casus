@@ -51,6 +51,7 @@
   .detail b{color:var(--red);}
   .citable{cursor:text;}
   .citable::selection, .citable *::selection{background:var(--gold-light);}
+  .citable cite{font-style:normal;border-bottom:1px dotted var(--muted);}
   .case-link{color:var(--blue);cursor:pointer;text-decoration:underline;}
   .case-link:hover{color:var(--red);}
   .case-link-pending{color:var(--muted);border-bottom:1px dashed var(--muted);cursor:help;}
@@ -1855,26 +1856,50 @@ function findCitations(caseId, selectedText){
   matches = matches.slice().sort((a,b)=>(b.primary?1:0)-(a.primary?1:0));
   return {matches, exact};
 }
-function showCitationPopup(caseId, selectedText, rect){
-  const popup = document.getElementById('citation-popup');
-  const result = findCitations(caseId, selectedText);
-  if(!result.matches || !result.matches.length){ popup.style.display='none'; return; }
-  const t = {
+function citationPopupStrings(){
+  return {
     en:{cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — '},
     fr:{cited:'Cité du jugement', sourced:'Passages sourcés pour cet arrêt', primary:'Le plus pertinent — '},
     de:{cited:'Aus dem Urteil zitiert', sourced:'Belegte Passagen zu diesem Fall', primary:'Am relevantesten — '},
     it:{cited:'Citato dalla sentenza', sourced:'Passaggi documentati per questo caso', primary:'Il più rilevante — '}
   }[currentLang] || {cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — '};
-  popup.innerHTML = `<div class="cp-head">${result.exact ? t.cited : t.sourced}</div>`
-    + result.matches.map(m=>`<div class="cp-item ${m.primary?'primary':''}">
+}
+function renderCitationCards(matches, exact){
+  const t = citationPopupStrings();
+  return `<div class="cp-head">${exact ? t.cited : t.sourced}</div>`
+    + matches.map(m=>`<div class="cp-item ${m.primary?'primary':''}">
         <div class="cp-para">${m.primary?t.primary:''}${m.paragraphs}</div>
         <div class="cp-note">${m.note}</div>
       </div>`).join('');
+}
+function positionCitationPopup(popup, rect){
   const top = Math.min(rect.bottom + 8, window.innerHeight - 200);
   const left = Math.min(Math.max(8, rect.left), window.innerWidth - 290);
   popup.style.top = top+'px';
   popup.style.left = left+'px';
   popup.style.display = 'block';
+}
+function showCitationPopup(caseId, selectedText, rect){
+  const popup = document.getElementById('citation-popup');
+  const result = findCitations(caseId, selectedText);
+  if(!result.matches || !result.matches.length){ popup.style.display='none'; return; }
+  popup.innerHTML = renderCitationCards(result.matches, result.exact);
+  positionCitationPopup(popup, rect);
+}
+function showCitationPopupForUnits(caseId, citeEls, rect){
+  const popup = document.getElementById('citation-popup');
+  const c = CASES.find(x=>x.id===caseId);
+  const content = c ? getCaseContent(c) : null;
+  if(!content || !content.citations){ popup.style.display='none'; return; }
+  const matches = [];
+  citeEls.forEach(el=>{
+    const key = el.getAttribute('data-para');
+    const cit = content.citations.find(x=>x.key===key);
+    if(cit && matches.indexOf(cit)===-1) matches.push(cit);
+  });
+  if(!matches.length){ popup.style.display='none'; return; }
+  popup.innerHTML = renderCitationCards(matches, true);
+  positionCitationPopup(popup, rect);
 }
 
 function progressSummary(){
@@ -1914,8 +1939,14 @@ function levelContentHtml(c){
   const src = lvl===1 ? content.abstract : (lvl===2 ? content.intermediate : content.detailed);
   const body = `<div class="detail"><b>Issue</b> — ${src.issue}<br><br><b>Rule</b> — ${src.rule}<br><br><b>Application</b> — ${src.application}</div>`;
   const legal = lvl>=2 ? articleChips(c) : '';
-  if(lvl===3){
-    return `<div class="citable" data-case="${c.id}">${body}</div>${legal}<p class="advanced-hint">Highlight any phrase above to see where it comes from in the judgment.</p>${note}`;
+  if(lvl===2 || lvl===3){
+    const hint = {
+      en:'Highlight any phrase above to see where it comes from in the judgment.',
+      fr:'Sélectionnez une phrase ci-dessus pour voir d’où elle provient dans l’arrêt.',
+      de:'Markieren Sie einen Satz oben, um zu sehen, woher er im Urteil stammt.',
+      it:'Seleziona una frase sopra per vedere da dove proviene nella sentenza.'
+    }[currentLang] || 'Highlight any phrase above to see where it comes from in the judgment.';
+    return `<div class="citable" data-case="${c.id}">${body}</div>${legal}<p class="advanced-hint">${hint}</p>${note}`;
   }
   return body + legal + note;
 }
@@ -2286,13 +2317,31 @@ document.addEventListener('mouseup', function(e){
   const popup = document.getElementById('citation-popup');
   if(popup.contains(e.target)) return;
   const sel = window.getSelection();
-  const text = sel ? sel.toString().trim() : '';
-  if(!text || !sel.rangeCount){ popup.style.display='none'; return; }
+  if(!sel || !sel.rangeCount || sel.isCollapsed){ popup.style.display='none'; return; }
   const node = sel.anchorNode;
   const el = node && node.nodeType===3 ? node.parentElement : node;
   const citable = el ? el.closest('.citable') : null;
   if(!citable){ popup.style.display='none'; return; }
-  showCitationPopup(citable.getAttribute('data-case'), text, sel.getRangeAt(0).getBoundingClientRect());
+  const caseId = citable.getAttribute('data-case');
+  const range = sel.getRangeAt(0);
+  const allUnits = Array.from(citable.querySelectorAll('cite[data-para]'));
+  if(allUnits.length){
+    // Tagged ("new-style") case: source is only ever a specific paragraph, never "everything".
+    const touched = allUnits.filter(function(ce){ return range.intersectsNode(ce); });
+    if(!touched.length){ popup.style.display='none'; return; }
+    // Extend the visible selection to cover each whole information unit touched.
+    const extended = document.createRange();
+    extended.setStartBefore(touched[0]);
+    extended.setEndAfter(touched[touched.length-1]);
+    sel.removeAllRanges();
+    sel.addRange(extended);
+    showCitationPopupForUnits(caseId, touched, extended.getBoundingClientRect());
+    return;
+  }
+  // Legacy (untagged) case: fall back to the original whole-case fuzzy match.
+  const text = sel.toString().trim();
+  if(!text){ popup.style.display='none'; return; }
+  showCitationPopup(caseId, text, range.getBoundingClientRect());
 });
 document.addEventListener('mousedown', function(e){
   const popup = document.getElementById('citation-popup');
