@@ -23,16 +23,17 @@ This exact bug recurred during the original-12 translation-parity pass (Kadi I's
 ## Status
 - Distinct case count: **182** (confirmed final by user — no further merges).
 - Taxonomy: 17 categories live in `casus.html` (Option 1, minimal-diff), 5 legacy substantive tags as a secondary layer. See `TRACKING.md` for full rationale.
-- Cases at full depth (4 levels x 3 languages, verified/flagged citations): **6 of 182**
+- Cases at full depth (4 levels x 3 languages, verified/flagged citations): **7 of 182**
   - [x] Simmenthal II (Case 106/77, CJCE) — `mise_en_oeuvre`, `ordre_juridique`
   - [x] Marshall (Case 152/84, CJCE) — `droit_derive`, `renvoi_prejudiciel`
   - [x] Solange I (BVerfGE 37, 271) — `droits_fondamentaux`, `identite_constitutionnelle`
   - [x] Solange II (BVerfGE 73, 339) — `droits_fondamentaux`, `identite_constitutionnelle`
   - [x] Grzelczyk (Case C-184/99, CJCE) — `citoyennete`, legacy tag `solidarity`
   - [x] Åkerberg Fransson (Case C-617/10, CJUE) — `droits_fondamentaux` (commit `e8020a3`)
+  - [x] Francovich and Bonifaci v Italy (Joined Cases C-6/90 & C-9/90, CJCE) — `recours_manquement`, `responsabilite_extracontractuelle` (commit `417cc3c`)
 - Note: Solange I and Solange II are both fully committed in commit `e32e5ca`, even though its message only names Solange I — the Edit that added them was a single combined change and both are present and correct in `casus.html`; this is just a commit-message labeling slip, not a content gap.
 - Old 12 Casus cases: remapped onto the new taxonomy (themes[] swapped, jurisdiction added, legacyThemes added to Defrenne/Dominguez/Konstantinidis) AND now at full trilingual parity — see "Original-12 translation-parity pass" below, **complete as of this checkpoint**.
-- 176 cases remaining, not started.
+- 175 cases remaining, not started.
 
 ## Standing citation-verification convention (applies to all remaining cases)
 Direct EUR-Lex fetches (`eur-lex.europa.eu/legal-content/.../TXT/HTML/...` and the plain `/TXT/` variant) have failed twice in a row — the page returns empty to WebFetch, likely JS-rendered. Per user decision, the fallback is:
@@ -65,11 +66,11 @@ Note: Defrenne and Dominguez both contain real (non-pending) `jumpToCase('mangol
 Translation note for this pass: for each case, checked whether the case's authentic procedural language is English (Bavarian Lager — UK party) vs. something else the English citation is itself already a translation of (Handelsgesellschaft — German proceedings; Melloni — Spanish proceedings). Flagged FR/DE citation notes accordingly: "unofficial translation of the authentic English text" for Bavarian Lager, vs. "unofficial translation of the verified English text, neither the authentic-language original nor the official FR/DE Recueil text checked this session" for the other two. Same distinction to apply going forward for Kadi I/II (English), Van Gend en Loos (Dutch), Defrenne (French), Dominguez (French), Opinion 2/13 (n/a — Court's own request), Stauder (German), Konstantinidis (German, per originalName).
 
 ## Next up (priority queue, in order)
-Chosen for cross-reference density with existing content and to close out already-referenced pending links first:
-1. Francovich (CJCE)
-2. Then continuing through the 182-case list by category coverage (aiming to touch all 17 categories reasonably early rather than clearing one category at a time).
+Continuing through the 182-case list by category coverage (aiming to touch all 17 categories reasonably early rather than clearing one category at a time) — no more already-referenced pending links left to prioritize right now; pick the next case using TRACKING.md's untouched-case list and cross-reference density with what's already live.
 
-Fransson (CJUE) done this checkpoint (commit `e8020a3`) — was referenced pending in Melloni (all 3 languages), now real `jumpToCase('fransson')` links. Added Charter Article 51 and Article 50 entries to ARTICLES.
+Francovich (CJCE) done this checkpoint (commit `417cc3c`) — added Directive 80/987/EEC and Article 4(3) TEU entries to ARTICLES. Left a forward `case-link-pending` to "Brasserie du Pêcheur and Factortame III". Flag for whoever adds that case: TRACKING.md lists **"Brasserie du pêcheur"** (row 134) and **"Factortame"** (row 168) as two separate distinct-case entries, but they were in fact decided together as one joined judgment (Joined Cases C-46/93 and C-48/93) — same situation as the Solange I/Solange II commit-message slip noted above, just not yet resolved. When adding, decide whether to write one combined case entry (matching the real judgment) with a single id, or two separate entries per TRACKING.md's row-level ground truth, and update TRACKING.md's row count/rationale accordingly either way — don't silently pick one without a note.
+
+Fransson (CJUE) done earlier (commit `e8020a3`) — was referenced pending in Melloni (all 3 languages), now real `jumpToCase('fransson')` links. Added Charter Article 51 and Article 50 entries to ARTICLES.
 
 Grzelczyk (CJCE) done earlier — was referenced pending in Konstantinidis, now a real `jumpToCase('grzelczyk')` link. Still pending in Grzelczyk's own holistic text: `Zhu and Chen` (id will be `chen` — see TRACKING.md row 138) — convert that span when Chen is added. Same for Konstantinidis's own pending reference to `Zhu and Chen`.
 
