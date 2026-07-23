@@ -1,6 +1,36 @@
 # Casus — Step 4 Progress
 
-Last updated: 2026-07-23, in-session. Continuing in a fresh interactive session from the one that left off at 4/182 — confirmed via `ps`/`lsof` that the other live `claude` process on this machine has cwd `~`, not this repo, so no collision. Since then: added Grzelczyk (5/182 new cases at full depth), then completed the original-12 translation-parity pass at the user's request (all 12 pre-existing cases now trilingual). Resuming the new-case queue next.
+Last updated: 2026-07-23, in-session. Continuing in a fresh interactive session from the one that left off at 4/182 — confirmed via `ps`/`lsof` that the other live `claude` process on this machine has cwd `~`, not this repo, so no collision. Since then: added Grzelczyk, Åkerberg Fransson, Francovich (7/182 new cases at full depth), completed the original-12 translation-parity pass (all 12 pre-existing cases now trilingual), and started an **Italian language pass** at the user's explicit request (add IT as a fourth site language, matching FR/DE exactly — see dedicated section below). Currently mid-way through the Italian pass; that's the active thread, not the new-case queue.
+
+## Italian language pass (user request, 2026-07-23) — IN PROGRESS
+User wants Italian added as a fourth site language, done exactly the same way as French and German — both the infrastructure (language switcher, theme-label dictionaries, citation-popup strings, fallback note) and per-case content (all four IRAC levels, holistic, citations) for every case currently in `casus.html`.
+
+Infrastructure done first, one commit (`bb8e69c`): `THEME_LABELS_IT`, `LEGACY_THEME_LABELS_IT`, `it` branches in `themeLabel()`/`legacyThemeLabel()`, `['it','IT']` in the language switcher, `it:{...}` in the citation-popup `t` object, and an Italian fallback-note string. Same footprint as FR/DE — general UI chrome (tab labels, "Legal basis", etc.) stays English-only, matching precedent.
+
+Per-case Italian translations: **19 cases total need an `it:{}` block** (all cases currently in `CASES`, i.e. the original 12 plus the 7 new ones added this session). One commit per case, same convention as before. Same authentic-language-checking discipline as the FR/DE work: verify whether the case's own procedural language is Italian (Costa v ENEL, Simmenthal II, Francovich all are — try to source the actual Italian judgment text for the primary citation) vs. translating from the verified English text with an honest "unofficial translation" flag (all other cases).
+
+Progress (case → commit):
+- [x] Costa v ENEL — `1a4f30b` (authentic Italian citation text sourced and verified)
+- [x] Internationale Handelsgesellschaft — `ca1cbbd`
+- [x] Melloni v Ministerio Fiscal — `04e3738`
+- [ ] Commission v Bavarian Lager
+- [ ] Kadi I
+- [ ] Kadi II
+- [ ] Van Gend en Loos
+- [ ] Defrenne v Sabena (No 2)
+- [ ] Dominguez
+- [ ] Opinion 2/13
+- [ ] Stauder v City of Ulm
+- [ ] Konstantinidis v Stadt Altensteig
+- [ ] Simmenthal II (Italian case — source authentic text)
+- [ ] Marshall
+- [ ] Solange I
+- [ ] Solange II
+- [ ] Grzelczyk
+- [ ] Åkerberg Fransson
+- [ ] Francovich and Bonifaci v Italy (Italian case — source authentic text)
+
+Order followed: file order (same as the parity pass), i.e. the order cases appear in `CASES`. **This pass takes priority over the 178-new-case queue right now** — resume the new-case queue only after all 19 have an `it:{}` block. If picking this up cold: check the box list above against `grep -c 'it:{' casus.html` per case id to confirm actual state before assuming the list is current (update it as you go, don't trust it blindly after a context compaction).
 
 ## IMPORTANT: overnight automation did NOT run the batch — read before resuming
 `casus_overnight.sh` was actually launched by the user in a separate terminal tonight (session 1 ~2 AM, session 2 at the 4 AM resume — see `overnight_run.log`, `session1_output.json`, `session2_output.json`, left in place untouched, not part of the project content). Both headless runs correctly detected this interactive session was already live and editing the same branch/files, declined to touch anything to avoid corrupting concurrent writes, and asked the user for direction (which went unanswered since the user wasn't watching). **All Step 4 progress so far has come from this one interactive session, not from the overnight script.** If resuming later via `casus_overnight.sh` again, first confirm no other session is already live on this branch (check for a running `claude` process and recent commits) before letting it write.
