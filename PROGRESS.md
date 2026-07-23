@@ -1,6 +1,6 @@
 # Casus — Step 4 Progress
 
-Last updated: 2026-07-23 ~09:55 local time, in-session (checkpoint after 4 cases).
+Last updated: 2026-07-23, in-session (checkpoint after 5 cases). Continuing in a fresh interactive session from the one that left off at 4/182 — confirmed via `ps`/`lsof` that the other live `claude` process on this machine has cwd `~`, not this repo, so no collision.
 
 ## IMPORTANT: overnight automation did NOT run the batch — read before resuming
 `casus_overnight.sh` was actually launched by the user in a separate terminal tonight (session 1 ~2 AM, session 2 at the 4 AM resume — see `overnight_run.log`, `session1_output.json`, `session2_output.json`, left in place untouched, not part of the project content). Both headless runs correctly detected this interactive session was already live and editing the same branch/files, declined to touch anything to avoid corrupting concurrent writes, and asked the user for direction (which went unanswered since the user wasn't watching). **All Step 4 progress so far has come from this one interactive session, not from the overnight script.** If resuming later via `casus_overnight.sh` again, first confirm no other session is already live on this branch (check for a running `claude` process and recent commits) before letting it write.
@@ -21,14 +21,15 @@ Expect either a clean run or `ReferenceError: Can't find variable: document` (th
 ## Status
 - Distinct case count: **182** (confirmed final by user — no further merges).
 - Taxonomy: 17 categories live in `casus.html` (Option 1, minimal-diff), 5 legacy substantive tags as a secondary layer. See `TRACKING.md` for full rationale.
-- Cases at full depth (4 levels x 3 languages, verified/flagged citations): **4 of 182**
+- Cases at full depth (4 levels x 3 languages, verified/flagged citations): **5 of 182**
   - [x] Simmenthal II (Case 106/77, CJCE) — `mise_en_oeuvre`, `ordre_juridique`
   - [x] Marshall (Case 152/84, CJCE) — `droit_derive`, `renvoi_prejudiciel`
   - [x] Solange I (BVerfGE 37, 271) — `droits_fondamentaux`, `identite_constitutionnelle`
   - [x] Solange II (BVerfGE 73, 339) — `droits_fondamentaux`, `identite_constitutionnelle`
+  - [x] Grzelczyk (Case C-184/99, CJCE) — `citoyennete`, legacy tag `solidarity`
 - Note: Solange I and Solange II are both fully committed in commit `e32e5ca`, even though its message only names Solange I — the Edit that added them was a single combined change and both are present and correct in `casus.html`; this is just a commit-message labeling slip, not a content gap.
 - Old 12 Casus cases: remapped onto the new taxonomy (themes[] swapped, jurisdiction added, legacyThemes added to Defrenne/Dominguez/Konstantinidis). Not rewritten at full depth beyond that — their existing IRAC/holistic content is untouched.
-- 178 cases remaining, not started.
+- 177 cases remaining, not started.
 
 ## Standing citation-verification convention (applies to all remaining cases)
 Direct EUR-Lex fetches (`eur-lex.europa.eu/legal-content/.../TXT/HTML/...` and the plain `/TXT/` variant) have failed twice in a row — the page returns empty to WebFetch, likely JS-rendered. Per user decision, the fallback is:
@@ -46,10 +47,11 @@ Direct EUR-Lex fetches (`eur-lex.europa.eu/legal-content/.../TXT/HTML/...` and t
 
 ## Next up (priority queue, in order)
 Chosen for cross-reference density with existing content and to close out already-referenced pending links first:
-1. Grzelczyk (CJCE) — referenced pending in Konstantinidis
-2. Fransson / Åkerberg Fransson (CJUE)
-3. Francovich (CJCE)
-4. Then continuing through the 182-case list by category coverage (aiming to touch all 17 categories reasonably early rather than clearing one category at a time).
+1. Fransson / Åkerberg Fransson (CJUE)
+2. Francovich (CJCE)
+3. Then continuing through the 182-case list by category coverage (aiming to touch all 17 categories reasonably early rather than clearing one category at a time).
+
+Grzelczyk (CJCE) done this checkpoint — was referenced pending in Konstantinidis, now a real `jumpToCase('grzelczyk')` link. Still pending in Grzelczyk's own holistic text: `Zhu and Chen` (id will be `chen` — see TRACKING.md row 138) — convert that span when Chen is added.
 
 ## Flags for later review (not blocking, logged and continuing per standing instruction)
 - Dominguez: PDF-derived jurisdiction read "CJCE" but the case is from 2012 (post-Lisbon) — used "CJUE" instead based on date, flagged in the Step 4 infra commit.
