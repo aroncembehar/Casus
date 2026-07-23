@@ -5,6 +5,19 @@ Last updated: 2026-07-23 ~09:55 local time, in-session (checkpoint after 4 cases
 ## IMPORTANT: overnight automation did NOT run the batch — read before resuming
 `casus_overnight.sh` was actually launched by the user in a separate terminal tonight (session 1 ~2 AM, session 2 at the 4 AM resume — see `overnight_run.log`, `session1_output.json`, `session2_output.json`, left in place untouched, not part of the project content). Both headless runs correctly detected this interactive session was already live and editing the same branch/files, declined to touch anything to avoid corrupting concurrent writes, and asked the user for direction (which went unanswered since the user wasn't watching). **All Step 4 progress so far has come from this one interactive session, not from the overnight script.** If resuming later via `casus_overnight.sh` again, first confirm no other session is already live on this branch (check for a running `claude` process and recent commits) before letting it write.
 
+## MANDATORY per-case step, added after tonight's blank-page bug (read before writing another case)
+Marshall's German translation broke the entire site: an opening German quote „ (U+201E) got closed with a straight ASCII `"` instead of the correct `"` (U+201C) in a double-quoted JS string field, which prematurely terminated the string and turned the rest of the file into unparseable garbage — silent blank page, no console error until parse time. `node` is not installed in this environment; use macOS's built-in JS engine instead. **Before committing any case from now on, run:**
+```
+python3 -c "
+import re
+html = open('casus.html', encoding='utf-8').read()
+blocks = re.findall(r'<script>(.*?)</script>', html, re.DOTALL)
+open('/tmp/casus_app.js','w',encoding='utf-8').write(blocks[-1])
+"
+osascript -l JavaScript -e "$(cat /tmp/casus_app.js)" 2>&1 | head -5
+```
+Expect either a clean run or `ReferenceError: Can't find variable: document` (that's fine — this engine has no DOM, it means parsing succeeded and execution started). Anything that says `SyntaxError` is a real, blocking bug — find and fix it before committing, the same way the Marshall fix was done (`git log` commit `8cd56e2`). This applies to `casus_overnight.sh` runs too, not just this interactive session — if you're an agent picking this up cold, run the check now against the current `casus.html` before writing anything, and again before every commit after that.
+
 ## Status
 - Distinct case count: **182** (confirmed final by user — no further merges).
 - Taxonomy: 17 categories live in `casus.html` (Option 1, minimal-diff), 5 legacy substantive tags as a secondary layer. See `TRACKING.md` for full rationale.
