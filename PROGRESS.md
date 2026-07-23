@@ -60,11 +60,7 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [x] Commission v Bavarian Lager — added keys `p19` (facts), `p1` (procedural history), `p59` (direct-referral reasoning), all EUR-Lex-verified; `general` only on one structural-commentary sentence (commit `938584f`)
 - [x] Kadi I — added keys `p11` (facts), `p1` (procedural), `p334` (defence-rights violation), `p373` (deferred-effect ruling), all EUR-Lex-verified; upgraded p281's confidence note; `general` only on one retrospective sentence (commit `5e3f026`)
 - [x] Kadi II — EUR-Lex failed repeatedly (3 attempts) and no new paragraph numbers found; consolidated into one continuous `general` span per field, fully honest about the verification gap (commit `bc1cade`)
-- [ ] Van Gend en Loos (pre-numbering exception applies, like Costa v ENEL)
-- [ ] Commission v Bavarian Lager
-- [ ] Kadi I
-- [ ] Kadi II
-- [ ] Van Gend en Loos (pre-numbering exception applies, like Costa v ENEL)
+- [x] Van Gend en Loos — key `p12` widened to cover the entire rule passage (one continuous quotation, ECR p. 12), same pattern as Costa v ENEL; `general` for facts/procedure/retrospective commentary (pre-numbering judgment, see exception above) (commit `e668850`)
 - [ ] Defrenne v Sabena (No 2)
 - [ ] Dominguez
 - [ ] Opinion 2/13
