@@ -16,8 +16,8 @@ Progress (case → commit):
 - [x] Commission v Bavarian Lager — `21e4e7d`
 - [x] Kadi I — `0d3bdc5`
 - [x] Kadi II — `cc12efd`
-- [ ] Van Gend en Loos
-- [ ] Defrenne v Sabena (No 2)
+- [x] Van Gend en Loos — `b9ba996`
+- [x] Defrenne v Sabena (No 2) — `323fbf0`
 - [ ] Dominguez
 - [ ] Opinion 2/13
 - [ ] Stauder v City of Ulm
