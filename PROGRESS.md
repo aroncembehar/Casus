@@ -23,15 +23,16 @@ This exact bug recurred during the original-12 translation-parity pass (Kadi I's
 ## Status
 - Distinct case count: **182** (confirmed final by user — no further merges).
 - Taxonomy: 17 categories live in `casus.html` (Option 1, minimal-diff), 5 legacy substantive tags as a secondary layer. See `TRACKING.md` for full rationale.
-- Cases at full depth (4 levels x 3 languages, verified/flagged citations): **5 of 182**
+- Cases at full depth (4 levels x 3 languages, verified/flagged citations): **6 of 182**
   - [x] Simmenthal II (Case 106/77, CJCE) — `mise_en_oeuvre`, `ordre_juridique`
   - [x] Marshall (Case 152/84, CJCE) — `droit_derive`, `renvoi_prejudiciel`
   - [x] Solange I (BVerfGE 37, 271) — `droits_fondamentaux`, `identite_constitutionnelle`
   - [x] Solange II (BVerfGE 73, 339) — `droits_fondamentaux`, `identite_constitutionnelle`
   - [x] Grzelczyk (Case C-184/99, CJCE) — `citoyennete`, legacy tag `solidarity`
+  - [x] Åkerberg Fransson (Case C-617/10, CJUE) — `droits_fondamentaux` (commit `e8020a3`)
 - Note: Solange I and Solange II are both fully committed in commit `e32e5ca`, even though its message only names Solange I — the Edit that added them was a single combined change and both are present and correct in `casus.html`; this is just a commit-message labeling slip, not a content gap.
 - Old 12 Casus cases: remapped onto the new taxonomy (themes[] swapped, jurisdiction added, legacyThemes added to Defrenne/Dominguez/Konstantinidis) AND now at full trilingual parity — see "Original-12 translation-parity pass" below, **complete as of this checkpoint**.
-- 177 cases remaining, not started.
+- 176 cases remaining, not started.
 
 ## Standing citation-verification convention (applies to all remaining cases)
 Direct EUR-Lex fetches (`eur-lex.europa.eu/legal-content/.../TXT/HTML/...` and the plain `/TXT/` variant) have failed twice in a row — the page returns empty to WebFetch, likely JS-rendered. Per user decision, the fallback is:
@@ -63,13 +64,14 @@ Note: Defrenne and Dominguez both contain real (non-pending) `jumpToCase('mangol
 
 Translation note for this pass: for each case, checked whether the case's authentic procedural language is English (Bavarian Lager — UK party) vs. something else the English citation is itself already a translation of (Handelsgesellschaft — German proceedings; Melloni — Spanish proceedings). Flagged FR/DE citation notes accordingly: "unofficial translation of the authentic English text" for Bavarian Lager, vs. "unofficial translation of the verified English text, neither the authentic-language original nor the official FR/DE Recueil text checked this session" for the other two. Same distinction to apply going forward for Kadi I/II (English), Van Gend en Loos (Dutch), Defrenne (French), Dominguez (French), Opinion 2/13 (n/a — Court's own request), Stauder (German), Konstantinidis (German, per originalName).
 
-## Next up (priority queue, in order) — resuming the 178-new-case batch now that the parity pass is done
+## Next up (priority queue, in order)
 Chosen for cross-reference density with existing content and to close out already-referenced pending links first:
-1. Fransson / Åkerberg Fransson (CJUE) — referenced pending in Melloni's holistic text (`<span class="case-link-pending">`), research already partly done this session (para 21 "applicability of EU law entails applicability of the Charter", para 35 three-criteria test for criminal-nature penalties, para 44-equivalent own-resources/VAT reasoning) but not yet written into casus.html — resume here.
-2. Francovich (CJCE)
-3. Then continuing through the 182-case list by category coverage (aiming to touch all 17 categories reasonably early rather than clearing one category at a time).
+1. Francovich (CJCE)
+2. Then continuing through the 182-case list by category coverage (aiming to touch all 17 categories reasonably early rather than clearing one category at a time).
 
-Grzelczyk (CJCE) done this checkpoint — was referenced pending in Konstantinidis, now a real `jumpToCase('grzelczyk')` link. Still pending in Grzelczyk's own holistic text: `Zhu and Chen` (id will be `chen` — see TRACKING.md row 138) — convert that span when Chen is added.
+Fransson (CJUE) done this checkpoint (commit `e8020a3`) — was referenced pending in Melloni (all 3 languages), now real `jumpToCase('fransson')` links. Added Charter Article 51 and Article 50 entries to ARTICLES.
+
+Grzelczyk (CJCE) done earlier — was referenced pending in Konstantinidis, now a real `jumpToCase('grzelczyk')` link. Still pending in Grzelczyk's own holistic text: `Zhu and Chen` (id will be `chen` — see TRACKING.md row 138) — convert that span when Chen is added. Same for Konstantinidis's own pending reference to `Zhu and Chen`.
 
 ## Flags for later review (not blocking, logged and continuing per standing instruction)
 - Dominguez: PDF-derived jurisdiction read "CJCE" but the case is from 2012 (post-Lisbon) — used "CJUE" instead based on date, flagged in the Step 4 infra commit.
