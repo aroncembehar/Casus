@@ -127,6 +127,8 @@
   .cp-para{font-size:12.5px;font-weight:500;color:var(--ink);}
   .cp-item.primary .cp-para{color:var(--red);}
   .cp-note{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5;}
+  .cp-link{display:block;font-size:12px;color:var(--blue);text-decoration:none;margin-top:10px;padding-top:8px;border-top:1px solid var(--line);}
+  .cp-link:hover{text-decoration:underline;}
   .modal-overlay{position:fixed;inset:0;background:rgba(58,54,47,0.45);display:none;align-items:center;justify-content:center;z-index:1200;padding:20px;}
   .modal-card{background:var(--white);border-radius:12px;padding:22px 24px;max-width:420px;width:100%;max-height:80vh;overflow:auto;position:relative;}
   .modal-close{position:absolute;top:16px;right:18px;cursor:pointer;color:var(--muted);font-size:14px;}
@@ -237,7 +239,7 @@ const ARTICLES = [
 ];
 
 const CASES = [
-{id:"costaenel", name:"Costa v ENEL", originalName:"Flaminio Costa contro E.N.E.L.", citation:"Case 6/64", jurisdiction:"CJCE", themes:["Legal order / primacy / direct effect"], articleIds:["art267tfeu"],
+{id:"costaenel", name:"Costa v ENEL", originalName:"Flaminio Costa contro E.N.E.L.", citation:"Case 6/64", jurisdiction:"CJCE", themes:["Legal order / primacy / direct effect"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61964CJ0006",
  abstract:{
    issue:"Could Italy's later nationalisation law override its earlier obligations under the EEC Treaty?",
    rule:"Community law, once in force, forms an integral part of the legal systems of the member states and takes precedence over their national law, including later national legislation.",
@@ -311,7 +313,7 @@ const CASES = [
    }
  }},
 
-{id:"handelsgesellschaft", name:"Internationale Handelsgesellschaft", originalName:"Internationale Handelsgesellschaft mbH gegen Einfuhr- und Vorratsstelle für Getreide und Futtermittel", citation:"Case 11/70", jurisdiction:"CJCE", themes:["Fundamental rights","National constitutional identity","Legal order / primacy / direct effect"], articleIds:["art267tfeu"],
+{id:"handelsgesellschaft", name:"Internationale Handelsgesellschaft", originalName:"Internationale Handelsgesellschaft mbH gegen Einfuhr- und Vorratsstelle für Getreide und Futtermittel", citation:"Case 11/70", jurisdiction:"CJCE", themes:["Fundamental rights","National constitutional identity","Legal order / primacy / direct effect"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61970CJ0011",
  abstract:{
    issue:"Can a company challenge the validity of an EU measure by invoking fundamental rights guaranteed under its own national constitution?",
    rule:"The validity of EU measures can only be judged in the light of EU law itself, not national constitutional law — but respect for fundamental rights is itself part of EU law's general principles.",
@@ -385,7 +387,7 @@ const CASES = [
    }
  }},
 
-{id:"melloni", name:"Melloni v Ministerio Fiscal", originalName:"Stefano Melloni contra Ministerio Fiscal", citation:"Case C-399/11", jurisdiction:"CJUE", themes:["Fundamental rights","National constitutional identity","Legal order / primacy / direct effect"], articleIds:["art267tfeu"],
+{id:"melloni", name:"Melloni v Ministerio Fiscal", originalName:"Stefano Melloni contra Ministerio Fiscal", citation:"Case C-399/11", jurisdiction:"CJUE", themes:["Fundamental rights","National constitutional identity","Legal order / primacy / direct effect"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62011CJ0399",
  abstract:{
    issue:"Can a member state refuse to execute a European Arrest Warrant by applying a higher national fundamental-rights standard than the EU one?",
    rule:"Article 53 of the Charter does not allow member states to apply a higher national standard of fundamental-rights protection where doing so would compromise the primacy, unity, and effectiveness of EU law.",
@@ -459,7 +461,7 @@ const CASES = [
    }
  }},
 
-{id:"bavarianlager", name:"Commission v Bavarian Lager", citation:"Case C-28/08 P", jurisdiction:"CJUE", themes:["Institutional balance"], articleIds:[],
+{id:"bavarianlager", name:"Commission v Bavarian Lager", citation:"Case C-28/08 P", jurisdiction:"CJUE", themes:["Institutional balance"], articleIds:[], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62008CJ0028",
  abstract:{
    issue:"When someone requests an EU institution's documents and those documents contain other people's names, which EU rule governs — the access-to-documents rule or the data-protection rule?",
    rule:"Where a request for documents under the access-to-documents regulation would disclose personal data, the data-protection regulation applies in full, not merely as a general exception to be weighed case by case.",
@@ -537,7 +539,7 @@ const CASES = [
    }
  }},
 
-{id:"kadi1", name:"Kadi I", originalName:"Kadi and Al Barakaat International Foundation v Council and Commission", citation:"Joined Cases C-402/05 P & C-415/05 P", jurisdiction:"CJCE", themes:["Fundamental rights","Legal order / primacy / direct effect","External relations / international law"], articleIds:["art267tfeu"],
+{id:"kadi1", name:"Kadi I", originalName:"Kadi and Al Barakaat International Foundation v Council and Commission", citation:"Joined Cases C-402/05 P & C-415/05 P", jurisdiction:"CJCE", themes:["Fundamental rights","Legal order / primacy / direct effect","External relations / international law"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62005CJ0402",
  abstract:{
    issue:"Must EU measures implementing binding UN Security Council resolutions still comply with EU fundamental rights?",
    rule:"EU courts must ensure full review of the lawfulness of EU acts in light of fundamental rights, including acts that implement UN Security Council resolutions.",
@@ -615,7 +617,7 @@ const CASES = [
    }
  }},
 
-{id:"kadi2", name:"Kadi II", originalName:"Commission and Others v Yassin Abdullah Kadi", citation:"Joined Cases C-584/10 P, C-593/10 P & C-595/10 P", jurisdiction:"CJUE", themes:["Legal order / primacy / direct effect","External relations / international law"], articleIds:["art267tfeu"],
+{id:"kadi2", name:"Kadi II", originalName:"Commission and Others v Yassin Abdullah Kadi", citation:"Joined Cases C-584/10 P, C-593/10 P & C-595/10 P", jurisdiction:"CJUE", themes:["Legal order / primacy / direct effect","External relations / international law"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62010CJ0584",
  abstract:{
    issue:"After the EU tried to fix the procedural defects Kadi I identified, was the revised listing process now good enough?",
    rule:"The Court reaffirmed its Kadi I standard of full judicial review, and required that at least some evidence, not just an unsubstantiated summary of reasons, actually support a listing decision.",
@@ -688,7 +690,7 @@ const CASES = [
      ]
    }
  }},
-{id:"vangend", name:"Van Gend en Loos", originalName:"N.V. Algemene Transport- en Expeditie Onderneming van Gend & Loos v Nederlandse Administratie der Belastingen", citation:"Case 26/62", jurisdiction:"CJCE", themes:["Competences / legal basis","Legal order / primacy / direct effect"], articleIds:["art30tfeu"],
+{id:"vangend", name:"Van Gend en Loos", originalName:"N.V. Algemene Transport- en Expeditie Onderneming van Gend & Loos v Nederlandse Administratie der Belastingen", citation:"Case 26/62", jurisdiction:"CJCE", themes:["Competences / legal basis","Legal order / primacy / direct effect"], articleIds:["art30tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61962CJ0026",
  abstract:{
    issue:"Could a private company invoke a Treaty provision directly against the Dutch customs authority?",
    rule:"A Treaty provision that is clear, precise and unconditional produces direct effect regardless of implementing legislation.",
@@ -762,7 +764,7 @@ const CASES = [
    }
  }},
 
-{id:"defrenne", name:"Defrenne v Sabena (No 2)", originalName:"Gabrielle Defrenne contre Société anonyme belge de navigation aérienne Sabena", citation:"Case 43/75", jurisdiction:"CJCE", themes:["Fundamental rights","Legal order / primacy / direct effect"], legacyThemes:["Non-discrimination"], articleIds:["art157tfeu"],
+{id:"defrenne", name:"Defrenne v Sabena (No 2)", originalName:"Gabrielle Defrenne contre Société anonyme belge de navigation aérienne Sabena", citation:"Case 43/75", jurisdiction:"CJCE", themes:["Fundamental rights","Legal order / primacy / direct effect"], legacyThemes:["Non-discrimination"], articleIds:["art157tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61975CJ0043",
  abstract:{
    issue:"Can an air hostess invoke Article 119 EEC directly against her private employer for pay discrimination?",
    rule:"Treaty provisions imposing a clear, unconditional obligation can have horizontal direct effect, reaching disputes between private parties.",
@@ -840,7 +842,7 @@ const CASES = [
    }
  }},
 
-{id:"dominguez", name:"Dominguez", originalName:"Maribel Dominguez contre Centre informatique du Centre Ouest Atlantique", citation:"Case C-282/10", jurisdiction:"CJUE", themes:["Citizenship / free movement","Secondary law / legal acts"], legacyThemes:["Non-discrimination","Worker's rights"], articleIds:["dir200388","art267tfeu"],
+{id:"dominguez", name:"Dominguez", originalName:"Maribel Dominguez contre Centre informatique du Centre Ouest Atlantique", citation:"Case C-282/10", jurisdiction:"CJUE", themes:["Citizenship / free movement","Secondary law / legal acts"], legacyThemes:["Non-discrimination","Worker's rights"], articleIds:["dir200388","art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62010CJ0282",
  abstract:{
    issue:"Can a worker rely on the Working Time Directive's paid-leave guarantee directly against her employer, a social security body?",
    rule:"A directive can be relied on directly against the state, or a body treated as an emanation of the state, once its deadline has passed and its terms are clear enough.",
@@ -918,7 +920,7 @@ const CASES = [
    }
  }},
 
-{id:"opinion213", name:"Opinion 2/13", originalName:"Avis 2/13 de la Cour", citation:"Opinion 2/13", jurisdiction:"CJUE", themes:["ECHR / Convention rights","Legal order / primacy / direct effect","External relations / international law"], articleIds:["art218tfeu"],
+{id:"opinion213", name:"Opinion 2/13", originalName:"Avis 2/13 de la Cour", citation:"Opinion 2/13", jurisdiction:"CJUE", themes:["ECHR / Convention rights","Legal order / primacy / direct effect","External relations / international law"], articleIds:["art218tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62013CV0002",
  abstract:{
    issue:"Would the EU's planned accession to the European Convention on Human Rights be compatible with EU law?",
    rule:"An accession agreement that risks undermining the autonomy of the EU legal order, or the principle of mutual trust between member states, is incompatible with the Treaties.",
@@ -992,7 +994,7 @@ const CASES = [
    }
  }},
 
-{id:"stauder", name:"Stauder v City of Ulm", originalName:"Erich Stauder gegen Stadt Ulm – Sozialamt", citation:"Case 29/69", jurisdiction:"CJCE", themes:["Fundamental rights"], articleIds:["art267tfeu"],
+{id:"stauder", name:"Stauder v City of Ulm", originalName:"Erich Stauder gegen Stadt Ulm – Sozialamt", citation:"Case 29/69", jurisdiction:"CJCE", themes:["Fundamental rights"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61969CJ0029",
  abstract:{
    issue:"Did an EU measure requiring a welfare recipient to give his name to buy subsidised butter breach fundamental rights protected under Community law?",
    rule:"Fundamental human rights are enshrined in the general principles of Community law, and the Court of Justice ensures their protection.",
@@ -1066,7 +1068,7 @@ const CASES = [
    }
  }},
 
-{id:"konstantinidis", name:"Konstantinidis v Stadt Altensteig", originalName:"Christos Konstantinidis gegen Stadt Altensteig – Standesamt und Landratsamt Calw – Ordnungsamt", citation:"Case C-168/91", jurisdiction:"CJCE", themes:["Citizenship / free movement","Fundamental rights"], legacyThemes:["Market freedoms"], articleIds:["art49tfeu"],
+{id:"konstantinidis", name:"Konstantinidis v Stadt Altensteig", originalName:"Christos Konstantinidis gegen Stadt Altensteig – Standesamt und Landratsamt Calw – Ordnungsamt", citation:"Case C-168/91", jurisdiction:"CJCE", themes:["Citizenship / free movement","Fundamental rights"], legacyThemes:["Market freedoms"], articleIds:["art49tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61991CJ0168",
  abstract:{
    issue:"Could Germany require a Greek national to use a transliteration of his name that distorted its pronunciation and risked confusing his clients, without breaching his freedom of establishment?",
    rule:"It is contrary to Article 52 of the Treaty for a member state to require a Greek national to use, in the pursuit of his occupation, a spelling of his name that changes its pronunciation and exposes him to a real risk that clients will confuse him with someone else.",
@@ -1140,7 +1142,7 @@ const CASES = [
    }
  }},
 
-{id:"simmenthal-ii", name:"Simmenthal II", originalName:"Amministrazione delle Finanze dello Stato v Simmenthal SpA", citation:"Case 106/77", jurisdiction:"CJCE", themes:["Implementation / procedural autonomy","Legal order / primacy / direct effect"], articleIds:["art267tfeu"],
+{id:"simmenthal-ii", name:"Simmenthal II", originalName:"Amministrazione delle Finanze dello Stato v Simmenthal SpA", citation:"Case 106/77", jurisdiction:"CJCE", themes:["Implementation / procedural autonomy","Legal order / primacy / direct effect"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61977CJ0106",
  abstract:{
    issue:"Must a national court immediately set aside a national law that conflicts with EU law, or must it first wait for that law to be struck down through the national constitutional process?",
    rule:"National courts must give full effect to EU law immediately, if necessary refusing of their own motion to apply any conflicting national provision, without waiting for its prior removal by legislative or constitutional means.",
@@ -1216,7 +1218,7 @@ const CASES = [
    }
  }},
 
-{id:"marshall", name:"Marshall", originalName:"M. H. Marshall v Southampton and South-West Hampshire Area Health Authority (Teaching)", citation:"Case 152/84", jurisdiction:"CJCE", themes:["Secondary law / legal acts","Preliminary reference"], articleIds:["dir76207","art267tfeu"],
+{id:"marshall", name:"Marshall", originalName:"M. H. Marshall v Southampton and South-West Hampshire Area Health Authority (Teaching)", citation:"Case 152/84", jurisdiction:"CJCE", themes:["Secondary law / legal acts","Preliminary reference"], articleIds:["dir76207","art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61984CJ0152",
  abstract:{
    issue:"Can an individual rely directly on an EU directive against a private employer, the same way she could against a public body?",
    rule:"A directive cannot of itself impose obligations on a private individual and cannot be relied upon as such against one; it can only be relied on directly against the State, regardless of the capacity — employer or public authority — in which the State is acting.",
@@ -1292,7 +1294,7 @@ const CASES = [
    }
  }},
 
-{id:"solange-i", name:"Solange I", originalName:"BVerfG, Beschluss vom 29. Mai 1974 – 2 BvL 52/71 (\"Solange I\")", citation:"BVerfGE 37, 271", jurisdiction:"BVerfGE", themes:["Fundamental rights","National constitutional identity"], articleIds:[],
+{id:"solange-i", name:"Solange I", originalName:"BVerfG, Beschluss vom 29. Mai 1974 – 2 BvL 52/71 (\"Solange I\")", citation:"BVerfGE 37, 271", jurisdiction:"BVerfGE", themes:["Fundamental rights","National constitutional identity"], articleIds:[], sourceUrl:"https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/EN/1974/ls19740529_2bvl005271en.html",
  abstract:{
    issue:"Can Germany's Constitutional Court review EU secondary legislation against the fundamental rights guaranteed by Germany's own Basic Law?",
    rule:"As long as EU law lacks its own codified, parliament-adopted catalogue of fundamental rights equivalent to the Basic Law's, German courts may refer an EU measure to the Federal Constitutional Court if they consider it incompatible with a Basic Law fundamental right.",
@@ -1366,7 +1368,7 @@ const CASES = [
    }
  }},
 
-{id:"solange-ii", name:"Solange II", originalName:"BVerfG, Beschluss vom 22. Oktober 1986 – 2 BvR 197/83 (\"Solange II\")", citation:"BVerfGE 73, 339", jurisdiction:"BVerfGE", themes:["Fundamental rights","National constitutional identity"], articleIds:[],
+{id:"solange-ii", name:"Solange II", originalName:"BVerfG, Beschluss vom 22. Oktober 1986 – 2 BvR 197/83 (\"Solange II\")", citation:"BVerfGE 73, 339", jurisdiction:"BVerfGE", themes:["Fundamental rights","National constitutional identity"], articleIds:[], sourceUrl:"https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/EN/1986/10/rs19861022_2bvr019783en.html",
  abstract:{
    issue:"Had EU law's protection of fundamental rights become good enough that Germany's Constitutional Court should stop reviewing EU secondary law against the Basic Law, as Solange I had left open?",
    rule:"As long as the European Communities, and in particular the case law of the Court of Justice, generally ensure effective protection of fundamental rights essentially equivalent to that required by the Basic Law, the Federal Constitutional Court will no longer exercise its jurisdiction to review derivative Community law against Basic Law fundamental rights.",
@@ -1439,7 +1441,7 @@ const CASES = [
      ]
    }
  }},
-{id:"grzelczyk", name:"Grzelczyk", originalName:"Rudy Grzelczyk contre Centre public d'aide sociale d'Ottignies-Louvain-la-Neuve", citation:"Case C-184/99", jurisdiction:"CJCE", themes:["Citizenship / free movement"], legacyThemes:["Solidarity"], articleIds:["art18tfeu","art21tfeu","dir9396"],
+{id:"grzelczyk", name:"Grzelczyk", originalName:"Rudy Grzelczyk contre Centre public d'aide sociale d'Ottignies-Louvain-la-Neuve", citation:"Case C-184/99", jurisdiction:"CJCE", themes:["Citizenship / free movement"], legacyThemes:["Solidarity"], articleIds:["art18tfeu","art21tfeu","dir9396"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61999CJ0184",
  abstract:{
    issue:"Can a national of one member state, lawfully resident as a student in another, rely on EU citizenship to claim the same social assistance as the host state's own nationals?",
    rule:"Union citizenship is destined to be the fundamental status of nationals of the member states, entitling those who find themselves in the same situation to equal treatment under the law irrespective of nationality, subject only to the exceptions expressly provided for.",
@@ -1516,7 +1518,7 @@ const CASES = [
      ]
    }
  }},
-{id:"fransson", name:"Åkerberg Fransson", originalName:"Åklagaren mot Hans Åkerberg Fransson", citation:"Case C-617/10", jurisdiction:"CJUE", themes:["Fundamental rights"], articleIds:["art51charter","art50charter","art267tfeu"],
+{id:"fransson", name:"Åkerberg Fransson", originalName:"Åklagaren mot Hans Åkerberg Fransson", citation:"Case C-617/10", jurisdiction:"CJUE", themes:["Fundamental rights"], articleIds:["art51charter","art50charter","art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62010CJ0617",
  abstract:{
    issue:"When a member state's own measure implements EU law only indirectly — enforcing VAT rules that also help fund the EU budget — does the EU Charter of Fundamental Rights still apply, and does it bar combining a tax penalty with a criminal prosecution for the same conduct?",
    rule:"The Charter applies whenever national legislation falls within the scope of EU law, with no further threshold beyond that connection; the ne bis in idem principle in Article 50 bars a second, criminal prosecution for the same acts only if an earlier penalty already imposed was itself criminal in nature and had become final.",
@@ -1593,7 +1595,7 @@ const CASES = [
      ]
    }
  }},
-{id:"francovich", name:"Francovich and Bonifaci v Italy", originalName:"Andrea Francovich e Danila Bonifaci e altri contro Repubblica italiana", citation:"Joined Cases C-6/90 and C-9/90", jurisdiction:"CJCE", themes:["Infringement actions","Non-contractual liability"], articleIds:["dir80987","art4tue","art267tfeu"],
+{id:"francovich", name:"Francovich and Bonifaci v Italy", originalName:"Andrea Francovich e Danila Bonifaci e altri contro Repubblica italiana", citation:"Joined Cases C-6/90 and C-9/90", jurisdiction:"CJCE", themes:["Infringement actions","Non-contractual liability"], articleIds:["dir80987","art4tue","art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61990CJ0006",
  abstract:{
    issue:"When a member state fails entirely to transpose a directive, and the directive's own terms are too imprecise about who owes the money for it to have direct effect, can the individuals it was meant to protect still recover anything from the state?",
    rule:"A member state that breaches EU law, including by failing to transpose a directive, is liable to compensate individuals for the loss this causes, provided the directive was intended to confer rights on them, the content of those rights can be identified from the directive, and there is a causal link between the breach and the loss.",
@@ -1670,7 +1672,7 @@ const CASES = [
      ]
    }
  }},
-{id:"mangold", name:"Mangold v Helm", originalName:"Werner Mangold gegen Rüdiger Helm", citation:"Case C-144/04", jurisdiction:"CJCE", themes:["Secondary law / legal acts","Fundamental rights","Preliminary reference"], legacyThemes:["Non-discrimination"], articleIds:["dir200078","art267tfeu"],
+{id:"mangold", name:"Mangold v Helm", originalName:"Werner Mangold gegen Rüdiger Helm", citation:"Case C-144/04", jurisdiction:"CJCE", themes:["Secondary law / legal acts","Fundamental rights","Preliminary reference"], legacyThemes:["Non-discrimination"], articleIds:["dir200078","art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62004CJ0144",
  abstract:{
    issue:"Can a national court, in a dispute between two private parties, refuse to apply a national law that discriminates on grounds of age, even before the deadline for transposing the relevant EU directive has passed?",
    rule:"The prohibition of discrimination on grounds of age is a general principle of EU law in its own right, not merely a creature of the directive that gives it concrete expression; a national court must set aside any conflicting national provision to guarantee that principle's full effectiveness, even in a dispute between private individuals.",
@@ -1935,19 +1937,21 @@ function findCitations(caseId, selectedText){
 }
 function citationPopupStrings(){
   return {
-    en:{cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — '},
-    fr:{cited:'Cité du jugement', sourced:'Passages sourcés pour cet arrêt', primary:'Le plus pertinent — '},
-    de:{cited:'Aus dem Urteil zitiert', sourced:'Belegte Passagen zu diesem Fall', primary:'Am relevantesten — '},
-    it:{cited:'Citato dalla sentenza', sourced:'Passaggi documentati per questo caso', primary:'Il più rilevante — '}
-  }[currentLang] || {cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — '};
+    en:{cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — ', readFull:'Read the full judgment →'},
+    fr:{cited:'Cité du jugement', sourced:'Passages sourcés pour cet arrêt', primary:'Le plus pertinent — ', readFull:'Lire l’arrêt intégral →'},
+    de:{cited:'Aus dem Urteil zitiert', sourced:'Belegte Passagen zu diesem Fall', primary:'Am relevantesten — ', readFull:'Vollständiges Urteil lesen →'},
+    it:{cited:'Citato dalla sentenza', sourced:'Passaggi documentati per questo caso', primary:'Il più rilevante — ', readFull:'Leggi la sentenza integrale →'}
+  }[currentLang] || {cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — ', readFull:'Read the full judgment →'};
 }
-function renderCitationCards(matches, exact){
+function renderCitationCards(matches, exact, sourceUrl){
   const t = citationPopupStrings();
+  const link = sourceUrl ? `<a class="cp-link" href="${sourceUrl}" target="_blank" rel="noopener">${t.readFull}</a>` : '';
   return `<div class="cp-head">${exact ? t.cited : t.sourced}</div>`
     + matches.map(m=>`<div class="cp-item ${m.primary?'primary':''}">
         <div class="cp-para">${m.primary?t.primary:''}${m.paragraphs}</div>
         <div class="cp-note">${m.note}</div>
-      </div>`).join('');
+      </div>`).join('')
+    + link;
 }
 function positionCitationPopup(popup, rect){
   const top = Math.min(rect.bottom + 8, window.innerHeight - 200);
@@ -1960,7 +1964,8 @@ function showCitationPopup(caseId, selectedText, rect){
   const popup = document.getElementById('citation-popup');
   const result = findCitations(caseId, selectedText);
   if(!result.matches || !result.matches.length){ popup.style.display='none'; return; }
-  popup.innerHTML = renderCitationCards(result.matches, result.exact);
+  const c = CASES.find(x=>x.id===caseId);
+  popup.innerHTML = renderCitationCards(result.matches, result.exact, c && c.sourceUrl);
   positionCitationPopup(popup, rect);
 }
 function showCitationPopupForUnits(caseId, citeEls, rect){
@@ -1975,7 +1980,7 @@ function showCitationPopupForUnits(caseId, citeEls, rect){
     if(cit && matches.indexOf(cit)===-1) matches.push(cit);
   });
   if(!matches.length){ popup.style.display='none'; return; }
-  popup.innerHTML = renderCitationCards(matches, true);
+  popup.innerHTML = renderCitationCards(matches, true, c && c.sourceUrl);
   positionCitationPopup(popup, rect);
 }
 
