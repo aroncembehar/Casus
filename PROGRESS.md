@@ -25,7 +25,7 @@ Progress (case → commit):
 - [x] Simmenthal II — `a014955` (authentic Italian citation text sourced and verified)
 - [x] Marshall — `7aa6ea4`
 - [x] Solange I — `4f7270e`
-- [ ] Solange II
+- [x] Solange II — `883e814`
 - [ ] Grzelczyk
 - [ ] Åkerberg Fransson
 - [ ] Francovich and Bonifaci v Italy (Italian case — source authentic text)
