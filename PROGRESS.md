@@ -1,0 +1,47 @@
+# Casus — Step 4 Progress
+
+Last updated: 2026-07-23, in-session (checkpoint after 2 cases).
+
+## Status
+- Distinct case count: **182** (confirmed final by user — no further merges).
+- Taxonomy: 17 categories live in `casus.html` (Option 1, minimal-diff), 5 legacy substantive tags as a secondary layer. See `TRACKING.md` for full rationale.
+- Cases at full depth (4 levels x 3 languages, verified/flagged citations): **2 of 182**
+  - [x] Simmenthal II (Case 106/77, CJCE) — `mise_en_oeuvre`, `ordre_juridique`
+  - [x] Marshall (Case 152/84, CJCE) — `droit_derive`, `renvoi_prejudiciel`
+- Old 12 Casus cases: remapped onto the new taxonomy (themes[] swapped, jurisdiction added, legacyThemes added to Defrenne/Dominguez/Konstantinidis). Not rewritten at full depth beyond that — their existing IRAC/holistic content is untouched.
+- 180 cases remaining, not started.
+
+## Standing citation-verification convention (applies to all remaining cases)
+Direct EUR-Lex fetches (`eur-lex.europa.eu/legal-content/.../TXT/HTML/...` and the plain `/TXT/` variant) have failed twice in a row — the page returns empty to WebFetch, likely JS-rendered. Per user decision, the fallback is:
+1. Attempt EUR-Lex fetch once.
+2. If it fails, use WebSearch to find the same paragraph-numbered quote corroborated by independent secondary sources (academic commentary, case-law databases).
+3. Mark the citation's `note` field explicitly: "Verified via secondary source... primary EUR-Lex fetch failed" (English), with FR/DE equivalents.
+4. For non-English citation entries, translate the verified English quote myself and flag it explicitly as an unofficial translation not checked against the official-language EUR-Lex text — never present a FR/DE quote as independently source-verified unless it actually was.
+
+## Schema notes for future cases (Option 1, minimal-diff taxonomy integration)
+- `jurisdiction: "CJCE"|"CJUE"|"CourEDH"|"BVerfGE"|"ATF"|"AG"` — required on every new case, renders as a visible badge next to the name/citation.
+- `themes: [...]` — flat array of the 17 new canonical English strings (see `THEMES` const in casus.html). The establishes/illustrates/applies distinction per theme is captured in prose (Holistic + IRAC text), not a structured field — Option 2 (structured relations) was explicitly rejected by the user for now.
+- `legacyThemes: [...]` (optional) — only for the 5 old substantive categories with no equivalent in the 17 (Non-discrimination, Market freedoms, Worker's rights, Collective action vs. economic liberty, Solidarity). Do not backfill this across all 182 cases — apply only where a case's actual holding genuinely turns on one of these.
+- CJCE vs CJUE: date-based split at the Lisbon Treaty's entry into force (1 Dec 2009). Pre-Lisbon judgments are CJCE even if commonly cited by their later CJUE case number format.
+- When adding a case, check `TRACKING.md`'s distinct-case list AND grep `casus.html` for `case-link-pending` with that case's name — several already-live cases (Costa v ENEL, Van Gend en Loos, Konstantinidis) have forward references to not-yet-added cases in their holistic text (Simmenthal, Foster v British Gas, Grzelczyk, Zhu and Chen, etc.). Converting a `case-link-pending` span to a real `<a class="case-link" onclick="jumpToCase('id')">` link is part of "adding" a case if it's referenced elsewhere. Some references (e.g. Marshall in Van Gend en Loos) were already coded as real `jumpToCase` links pointing at an id that didn't exist yet — these self-resolve once the case is added under that same id, no text edit needed, just confirm the id matches.
+
+## Next up (priority queue, in order)
+Chosen for cross-reference density with existing content and to close out already-referenced pending links first:
+1. Solange I (BVerfGE) — referenced pending in Costa v ENEL and Handelsgesellschaft
+2. Solange II (BVerfGE) — same
+3. Grzelczyk (CJCE) — referenced pending in Konstantinidis
+4. Fransson / Åkerberg Fransson (CJUE)
+5. Francovich (CJCE)
+6. Then continuing through the 182-case list by category coverage (aiming to touch all 17 categories reasonably early rather than clearing one category at a time).
+
+## Flags for later review (not blocking, logged and continuing per standing instruction)
+- Dominguez: PDF-derived jurisdiction read "CJCE" but the case is from 2012 (post-Lisbon) — used "CJUE" instead based on date, flagged in the Step 4 infra commit.
+- Konstantinidis: the PDF index specifically tags this row under "AG" (Advocate General opinion) rather than the Court's judgment — likely because Jacobs AG's opinion (the "civis europeus sum" passage) is the more famous/quoted part of this case. Used "CJCE" for the badge since the site cites the Court's 1993 judgment (C-168/91), which the existing holistic text already discusses correctly alongside the AG opinion.
+- Van Gend en Loos's PDF-derived categories include `competences` alongside `ordre_juridique` — unexpected for the direct-effect classic. Kept as document ground truth; worth a second look if time allows, not blocking.
+- EUR-Lex access failure is systemic, not case-specific — expect this flag to recur on nearly every case going forward. Not re-flagging as a "new" problem each time; see the standing convention above.
+
+## Session mechanics
+- Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
+- `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
+- Checkpointing every 1-3 cases: one commit per case (per original instruction), PROGRESS.md updated at each checkpoint.
+- Continuing to the next cases now without further check-ins, per standing instruction.
