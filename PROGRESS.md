@@ -18,8 +18,8 @@ Progress (case → commit):
 - [x] Kadi II — `cc12efd`
 - [x] Van Gend en Loos — `b9ba996`
 - [x] Defrenne v Sabena (No 2) — `323fbf0`
-- [ ] Dominguez
-- [ ] Opinion 2/13
+- [x] Dominguez — `0636a3d`
+- [x] Opinion 2/13 — `ded6d96`
 - [ ] Stauder v City of Ulm
 - [ ] Konstantinidis v Stadt Altensteig
 - [ ] Simmenthal II (Italian case — source authentic text)
