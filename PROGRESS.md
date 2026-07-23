@@ -13,9 +13,9 @@ Progress (case → commit):
 - [x] Costa v ENEL — `1a4f30b` (authentic Italian citation text sourced and verified)
 - [x] Internationale Handelsgesellschaft — `ca1cbbd`
 - [x] Melloni v Ministerio Fiscal — `04e3738`
-- [ ] Commission v Bavarian Lager
-- [ ] Kadi I
-- [ ] Kadi II
+- [x] Commission v Bavarian Lager — `21e4e7d`
+- [x] Kadi I — `0d3bdc5`
+- [x] Kadi II — `cc12efd`
 - [ ] Van Gend en Loos
 - [ ] Defrenne v Sabena (No 2)
 - [ ] Dominguez
