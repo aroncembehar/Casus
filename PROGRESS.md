@@ -67,7 +67,7 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [ ] Stauder
 - [ ] Konstantinidis
 - [ ] Simmenthal II
-- [ ] Marshall
+- [x] Marshall — EUR-Lex direct fetch of Case 152/84 succeeded; added keys `p3` (facts, paras 3-8), `p9` (procedural history, paras 9-12), `p34` (dismissal falls within Art 5(1), paras 32-34/38), `p36` (Art 7 exception construed strictly, paras 35-37), `p46` (direct-effect test, paras 46/52/54-55); upgraded existing `p48`/`p49` notes from secondary-source to full-text-verified; `general` only for one Foster v British Gas retrospective sentence (commit `fb1001e`)
 - [ ] Solange I
 - [ ] Solange II
 - [x] Grzelczyk — recovered an interrupted-session stash (EN fully done, FR intermediate done) and finished it: FR detailed/citations, plus DE and IT intermediate+detailed+citations from scratch, all using the same paragraph numbers the stashed research had already verified against the full EUR-Lex judgment text — keys `p10` (facts/procedure), `p31` ("fundamental status" dictum), `p32` (threshold holding), `p46` (operative conclusion), `p39` (Directive 93/96 doesn't bar recourse to assistance), `p38` (sufficient-resources declaration timing), `p44` ("financial solidarity" formula) — all 7 keys present with matching citations[] entries in all four languages (commit `e84bd9b`)
