@@ -70,7 +70,7 @@ User asked for the highlight-to-see-source feature to: (1) also work in Intermed
 - [ ] Marshall
 - [ ] Solange I
 - [ ] Solange II
-- [ ] Grzelczyk
+- [x] Grzelczyk — recovered an interrupted-session stash (EN fully done, FR intermediate done) and finished it: FR detailed/citations, plus DE and IT intermediate+detailed+citations from scratch, all using the same paragraph numbers the stashed research had already verified against the full EUR-Lex judgment text — keys `p10` (facts/procedure), `p31` ("fundamental status" dictum), `p32` (threshold holding), `p46` (operative conclusion), `p39` (Directive 93/96 doesn't bar recourse to assistance), `p38` (sufficient-resources declaration timing), `p44` ("financial solidarity" formula) — all 7 keys present with matching citations[] entries in all four languages (commit `e84bd9b`)
 - [ ] Åkerberg Fransson
 - [ ] Francovich and Bonifaci v Italy
 
