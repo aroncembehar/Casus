@@ -205,7 +205,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Lissabonsvertrag** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz — done (commit `cb485bb`)
 - [x] **Lord Bruce of Donington** — CJCE — Équilibre institutionnel — done (commit `0a81ff6`)
 - [x] **Lucchini** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct — done (commit `d12f63b`)
-- [ ] **M.S.S.** — CourEDH — CEDH / Droits CEDH
+- [x] **M.S.S.** — CourEDH — CEDH / Droits CEDH — done (commit `2807253`)
 - [x] **Mangold** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel — already live in casus.html (`mangold`)
 - [ ] **Marcin Bonda** — AG — Droits fondamentaux
 - [x] **Maribel Dominguez** — CJCE — Citoyenneté / libre circulation, Droit dérivé / actes juridiques [legacy: Non-discrimination, Worker's rights] — already live in casus.html (`dominguez`)
