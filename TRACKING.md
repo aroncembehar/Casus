@@ -198,7 +198,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Kolpinghuis Nijmegen** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale, Renvoi préjudiciel ⚠️ — done (commit `536c31a`)
 - [x] **Konstantinidis** — AG — Citoyenneté / libre circulation, Droits fondamentaux [legacy: Market freedoms] — already live in casus.html (`konstantinidis`)
 - [x] **Köbler** — CJCE (corrected from CJUE, pre-Lisbon by decision date) — Renvoi préjudiciel, Responsabilité extracontractuelle (dropped mistagged Recours en manquement) — done (commit `64208f7`)
-- [ ] **Kücükdeveci** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel
+- [x] **Kücükdeveci** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel — done (commit `e0d6f40`)
 - [ ] **Kühne et Heitz** — CJCE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel
 - [ ] **Laval** — CJCE — Compétences / base juridique, Droits fondamentaux
 - [ ] **Les Verts** — CJCE — Équilibre institutionnel, Ordre juridique / primauté / effet direct, Recours en annulation
