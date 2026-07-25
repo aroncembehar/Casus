@@ -195,7 +195,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Kadi II** — CJUE — Ordre juridique / primauté / effet direct, Relations extérieures / DI — already live in casus.html (`kadi2`)
 - [x] **Kampffmeyer** — CJCE — Responsabilité extracontractuelle — done (commit `1800bf8`)
 - [x] **Kempter (C-2/06)** — CJCE — Renvoi préjudiciel — done (commit `eed8107`)
-- [ ] **Kolpinghuis Nijmegen** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale, Renvoi préjudiciel ⚠️
+- [x] **Kolpinghuis Nijmegen** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale, Renvoi préjudiciel ⚠️ — done (commit `536c31a`)
 - [x] **Konstantinidis** — AG — Citoyenneté / libre circulation, Droits fondamentaux [legacy: Market freedoms] — already live in casus.html (`konstantinidis`)
 - [ ] **Köbler** — CJUE — Recours en manquement, Renvoi préjudiciel, Responsabilité extracontractuelle
 - [ ] **Kücükdeveci** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel
