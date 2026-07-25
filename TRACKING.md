@@ -204,7 +204,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Les Verts** — CJCE — Équilibre institutionnel, Ordre juridique / primauté / effet direct, Recours en annulation — done (commit `646fbf2`)
 - [x] **Lissabonsvertrag** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz — done (commit `cb485bb`)
 - [x] **Lord Bruce of Donington** — CJCE — Équilibre institutionnel — done (commit `0a81ff6`)
-- [ ] **Lucchini** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct
+- [x] **Lucchini** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct — done (commit `d12f63b`)
 - [ ] **M.S.S.** — CourEDH — CEDH / Droits CEDH
 - [x] **Mangold** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel — already live in casus.html (`mangold`)
 - [ ] **Marcin Bonda** — AG — Droits fondamentaux
