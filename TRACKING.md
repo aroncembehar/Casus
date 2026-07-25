@@ -11,7 +11,7 @@ Source: `IUR I/Droit européen/jurisprudence UE.pdf` — 284 rows across 17 cate
 - [x] Ambiguous grouped-row resolution (see Ambiguity Log)
 - [x] 17-category taxonomy adopted, old 10-theme cases remapped
 - [x] Dual-taxonomy resolution: 5 legacy substantive themes kept as a secondary tag layer
-- [ ] Case-by-case content development (Step 4) — NOT STARTED, 0/182 cases at full depth
+- [ ] Case-by-case content development (Step 4) — IN PROGRESS, 20/182 cases at full depth (12 original Casus cases + 8 authored this project), **162 genuinely remaining** (not 174 — an earlier PROGRESS.md checkpoint miscounted by not subtracting the 12 original cases, which this list already includes as its own rows; corrected 2026-07-25, see PROGRESS.md). Split in half across two parallel sessions: this session (Batch B) claimed the second half (items 82-162 of the 162 remaining, in list order) — IBM through van Delft; a separate session (Batch A) is taking the first half (AETR through IATA), working from its own worktree, not coordinated live.
 
 ## Count reconciliation
 
@@ -118,14 +118,14 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [ ] **Avis 1/09** — AG — Équilibre institutionnel, Renvoi préjudiciel ⚠️
 - [ ] **Avis 1/76** — CJCE — Compétences / base juridique, Relations extérieures / DI
 - [ ] **Avis 1/91** — CJCE — Ordre juridique / primauté / effet direct, Relations extérieures / DI
-- [ ] **Avis 2/13** — CJUE — CEDH / Droits CEDH, Ordre juridique / primauté / effet direct, Relations extérieures / DI
+- [x] **Avis 2/13** — CJUE — CEDH / Droits CEDH, Ordre juridique / primauté / effet direct, Relations extérieures / DI — already live in casus.html (`opinion213`)
 - [ ] **Avis 2/25** — CJUE — Compétences / base juridique, Relations extérieures / DI
 - [ ] **Avis 2/94** — CJCE — CEDH / Droits CEDH, Compétences / base juridique, Révision des traités / Kompetenz
 - [ ] **Avis ciel ouvert** — CJCE — Compétences / base juridique, Relations extérieures / DI
 - [ ] **BASF** — CJCE — Droit dérivé / actes juridiques, Recours en annulation
 - [ ] **BECTU** — CJCE — Droits fondamentaux
 - [ ] **Bavaria** — CJCE — Recours en annulation
-- [ ] **Bavarian Lager** — CJUE — Équilibre institutionnel
+- [x] **Bavarian Lager** — CJUE — Équilibre institutionnel — already live in casus.html (`bavarianlager`)
 - [ ] **Becker et Grosskrotzenburg** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
 - [ ] **Bergaderm et Goupil c. Commission** — CJUE — Responsabilité extracontractuelle ⚠️
 - [ ] **Biocides & Commission c. Conseil et Parlement** — CJUE — Droit dérivé / actes juridiques
@@ -147,12 +147,12 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [ ] **Conseil c. Commission (coopération loyale — accords interinstitutionnels)** — CJUE — Équilibre institutionnel ⚠️
 - [ ] **Conseil c. Commission (coopération loyale — répartition des attributions)** — CJCE — Procédures législatives, Équilibre institutionnel ⚠️
 - [ ] **Cordoniu** — CJCE — Recours en annulation
-- [ ] **Costa c. ENEL (1964)** — CJCE — Ordre juridique / primauté / effet direct
+- [x] **Costa c. ENEL (1964)** — CJCE — Ordre juridique / primauté / effet direct — already live in casus.html (`costaenel`)
 - [ ] **D'Hoop** — CJCE — Citoyenneté / libre circulation
 - [ ] **Daichii Sankyo** — CJUE — Relations extérieures / DI
 - [ ] **Dano** — CJUE — Citoyenneté / libre circulation
 - [ ] **Defrenne I** — CJCE — Révision des traités / Kompetenz
-- [ ] **Defrenne II** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct [legacy: Non-discrimination]
+- [x] **Defrenne II** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct [legacy: Non-discrimination] — already live in casus.html (`defrenne`)
 - [ ] **Defrenne III** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct
 - [ ] **Demirel** — CJCE — Relations extérieures / DI
 - [ ] **Deutsche Milchkontor** — CJCE — Mise en œuvre / autonomie procédurale
@@ -169,8 +169,8 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [ ] **Ferreira da Silva** — CJUE — Recours en manquement, Renvoi préjudiciel, Responsabilité extracontractuelle
 - [ ] **Firma A. Racke** — CJCE — Droit dérivé / actes juridiques
 - [ ] **Foto-Frost** — CJCE — Renvoi préjudiciel
-- [ ] **Francovich** — CJCE — Recours en manquement, Responsabilité extracontractuelle
-- [ ] **Fransson** — CJUE — Droits fondamentaux
+- [x] **Francovich** — CJCE — Recours en manquement, Responsabilité extracontractuelle — already live in casus.html (`francovich`)
+- [x] **Fransson** — CJUE — Droits fondamentaux — already live in casus.html (`fransson`)
 - [ ] **Franz Grad** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
 - [ ] **Front Polisario** — CJUE — Recours en annulation, Relations extérieures / DI
 - [ ] **Fédéchar** — CJCE — Compétences / base juridique
@@ -181,9 +181,9 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [ ] **Global Starnet** — CJUE — Renvoi préjudiciel
 - [ ] **Goodwin** — CourEDH — CEDH / Droits CEDH
 - [ ] **Grimaldi** — CJUE — Droit dérivé / actes juridiques
-- [ ] **Grzelczyk** — CJCE — Citoyenneté / libre circulation
+- [x] **Grzelczyk** — CJCE — Citoyenneté / libre circulation — already live in casus.html (`grzelczyk`)
 - [ ] **Haegeman et Opel Austria** — CJCE — Relations extérieures / DI
-- [ ] **Handelsgesellschaft** — CJCE — Droits fondamentaux, Identité constitutionnelle nationale, Ordre juridique / primauté / effet direct
+- [x] **Handelsgesellschaft** — CJCE — Droits fondamentaux, Identité constitutionnelle nationale, Ordre juridique / primauté / effet direct — already live in casus.html (`handelsgesellschaft`)
 - [ ] **Holtz & Willemsen** — CJCE — Responsabilité extracontractuelle ⚠️
 - [ ] **IATA** — CJCE — Équilibre institutionnel, Renvoi préjudiciel
 - [ ] **IBM** — CJCE — Recours en annulation
@@ -191,12 +191,12 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [ ] **Inuit** — CJUE — Recours en annulation
 - [ ] **Isoglucose** — CJCE — Équilibre institutionnel, Procédures législatives
 - [ ] **James Elliott** — CJUE — Droit dérivé / actes juridiques, Équilibre institutionnel
-- [ ] **Kadi I** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct, Relations extérieures / DI
-- [ ] **Kadi II** — CJUE — Ordre juridique / primauté / effet direct, Relations extérieures / DI
+- [x] **Kadi I** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct, Relations extérieures / DI — already live in casus.html (`kadi1`)
+- [x] **Kadi II** — CJUE — Ordre juridique / primauté / effet direct, Relations extérieures / DI — already live in casus.html (`kadi2`)
 - [ ] **Kampffmeyer** — CJCE — Responsabilité extracontractuelle
 - [ ] **Kempter (C-2/06)** — CJCE — Renvoi préjudiciel
 - [ ] **Kolpinghuis Nijmegen** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale, Renvoi préjudiciel ⚠️
-- [ ] **Konstantinidis** — AG — Citoyenneté / libre circulation, Droits fondamentaux [legacy: Market freedoms]
+- [x] **Konstantinidis** — AG — Citoyenneté / libre circulation, Droits fondamentaux [legacy: Market freedoms] — already live in casus.html (`konstantinidis`)
 - [ ] **Köbler** — CJUE — Recours en manquement, Renvoi préjudiciel, Responsabilité extracontractuelle
 - [ ] **Kücükdeveci** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel
 - [ ] **Kühne et Heitz** — CJCE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel
@@ -206,14 +206,14 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [ ] **Lord Bruce of Donington** — CJCE — Équilibre institutionnel
 - [ ] **Lucchini** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct
 - [ ] **M.S.S.** — CourEDH — CEDH / Droits CEDH
-- [ ] **Mangold** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel
+- [x] **Mangold** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel — already live in casus.html (`mangold`)
 - [ ] **Marcin Bonda** — AG — Droits fondamentaux
-- [ ] **Maribel Dominguez** — CJCE — Citoyenneté / libre circulation, Droit dérivé / actes juridiques [legacy: Non-discrimination, Worker's rights]
+- [x] **Maribel Dominguez** — CJCE — Citoyenneté / libre circulation, Droit dérivé / actes juridiques [legacy: Non-discrimination, Worker's rights] — already live in casus.html (`dominguez`)
 - [ ] **Marleasing** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
-- [ ] **Marshall** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel
+- [x] **Marshall** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — already live in casus.html (`marshall`)
 - [ ] **Martinez Sala** — CJCE — Citoyenneté / libre circulation
 - [ ] **Matthews** — CourEDH — CEDH / Droits CEDH, Relations extérieures / DI
-- [ ] **Melloni** — CJCE — Droits fondamentaux, Identité constitutionnelle nationale, Ordre juridique / primauté / effet direct
+- [x] **Melloni** — CJCE — Droits fondamentaux, Identité constitutionnelle nationale, Ordre juridique / primauté / effet direct — already live in casus.html (`melloni`)
 - [ ] **Meroni** — CJCE — Équilibre institutionnel, Recours en annulation
 - [ ] **Michaniki** — AG — Identité constitutionnelle nationale
 - [ ] **Michaud** — CourEDH — CEDH / Droits CEDH
@@ -254,10 +254,10 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [ ] **Schneider Electric** — CJUE — Responsabilité extracontractuelle
 - [ ] **Schrems** — CJUE — Droits fondamentaux, Recours en annulation
 - [ ] **Sevince** — CJCE — Droit dérivé / actes juridiques, Relations extérieures / DI
-- [ ] **Simmenthal II** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct
-- [ ] **Solange I** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️
-- [ ] **Solange II** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️
-- [ ] **Stauder** — CJCE — Droits fondamentaux
+- [x] **Simmenthal II** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct — already live in casus.html (`simmenthal-ii`)
+- [x] **Solange I** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️ — already live in casus.html (`solange-i`)
+- [x] **Solange II** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️ — already live in casus.html (`solange-ii`)
+- [x] **Stauder** — CJCE — Droits fondamentaux — already live in casus.html (`stauder`)
 - [ ] **T-Mobile et Vodafone** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel
 - [ ] **TWD I** — CJCE — Procédures législatives, Recours en annulation
 - [ ] **Taricco II** — CJUE — Droits fondamentaux, Mise en œuvre / autonomie procédurale
@@ -268,7 +268,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [ ] **Tyrer** — CourEDH — CEDH / Droits CEDH
 - [ ] **Unibet** — CJUE — Équilibre institutionnel, Renvoi préjudiciel ⚠️
 - [ ] **Van Duyn** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct, Renvoi préjudiciel
-- [ ] **Van Gend & Loos (26/62, 1963)** — CJCE — Compétences / base juridique, Ordre juridique / primauté / effet direct
+- [x] **Van Gend & Loos (26/62, 1963)** — CJCE — Compétences / base juridique, Ordre juridique / primauté / effet direct — already live in casus.html (`vangend`)
 - [ ] **Van Landewyck** — CJCE — Recours en annulation
 - [ ] **Variola** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
 - [ ] **Viking Line** — CJCE — Compétences / base juridique, Droits fondamentaux
