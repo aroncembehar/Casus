@@ -215,7 +215,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Matthews** — CourEDH — CEDH / Droits CEDH, Relations extérieures / DI — done (commit `a02f3ee`)
 - [x] **Melloni** — CJCE — Droits fondamentaux, Identité constitutionnelle nationale, Ordre juridique / primauté / effet direct — already live in casus.html (`melloni`)
 - [x] **Meroni** — CJCE — Équilibre institutionnel, Recours en annulation — done (commit `b46569e`)
-- [ ] **Michaniki** — AG — Identité constitutionnelle nationale
+- [x] **Michaniki** — CJCE (corrected from AG; Grand Chamber judgment 16 Dec 2008, pre-Lisbon) — Identité constitutionnelle nationale, Actes de droit dérivé — done (commit `231ff40`)
 - [ ] **Michaud** — CourEDH — CEDH / Droits CEDH
 - [ ] **Micheletti** — CJCE — Citoyenneté / libre circulation
 - [ ] **Microban** — CJUE — Recours en annulation
