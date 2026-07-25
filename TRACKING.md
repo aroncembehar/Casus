@@ -209,7 +209,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Mangold** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel — already live in casus.html (`mangold`)
 - [x] **Marcin Bonda** — CJUE (corrected from AG — decided by the Grand Chamber, 2012) — Droits fondamentaux — done (commit `3fedac2`)
 - [x] **Maribel Dominguez** — CJCE — Citoyenneté / libre circulation, Droit dérivé / actes juridiques [legacy: Non-discrimination, Worker's rights] — already live in casus.html (`dominguez`)
-- [ ] **Marleasing** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
+- [x] **Marleasing** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — done (commit `e702622`)
 - [x] **Marshall** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — already live in casus.html (`marshall`)
 - [ ] **Martinez Sala** — CJCE — Citoyenneté / libre circulation
 - [ ] **Matthews** — CourEDH — CEDH / Droits CEDH, Relations extérieures / DI
