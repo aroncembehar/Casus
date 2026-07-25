@@ -211,7 +211,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Maribel Dominguez** — CJCE — Citoyenneté / libre circulation, Droit dérivé / actes juridiques [legacy: Non-discrimination, Worker's rights] — already live in casus.html (`dominguez`)
 - [x] **Marleasing** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — done (commit `e702622`)
 - [x] **Marshall** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — already live in casus.html (`marshall`)
-- [ ] **Martinez Sala** — CJCE — Citoyenneté / libre circulation
+- [x] **Martinez Sala** — CJCE — Citoyenneté / libre circulation — done (commit `428bc37`)
 - [ ] **Matthews** — CourEDH — CEDH / Droits CEDH, Relations extérieures / DI
 - [x] **Melloni** — CJCE — Droits fondamentaux, Identité constitutionnelle nationale, Ordre juridique / primauté / effet direct — already live in casus.html (`melloni`)
 - [ ] **Meroni** — CJCE — Équilibre institutionnel, Recours en annulation
