@@ -200,7 +200,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Köbler** — CJCE (corrected from CJUE, pre-Lisbon by decision date) — Renvoi préjudiciel, Responsabilité extracontractuelle (dropped mistagged Recours en manquement) — done (commit `64208f7`)
 - [x] **Kücükdeveci** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel — done (commit `e0d6f40`)
 - [x] **Kühne et Heitz** — CJCE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel — done (commit `271cbf0`)
-- [ ] **Laval** — CJCE — Compétences / base juridique, Droits fondamentaux
+- [x] **Laval** — CJCE — Compétences / base juridique, Droits fondamentaux — done (commit `71bd3a6`)
 - [ ] **Les Verts** — CJCE — Équilibre institutionnel, Ordre juridique / primauté / effet direct, Recours en annulation
 - [ ] **Lissabonsvertrag** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz
 - [ ] **Lord Bruce of Donington** — CJCE — Équilibre institutionnel
