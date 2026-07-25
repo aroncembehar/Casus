@@ -207,7 +207,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Lucchini** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct — done (commit `d12f63b`)
 - [x] **M.S.S.** — CourEDH — CEDH / Droits CEDH — done (commit `2807253`)
 - [x] **Mangold** — CJUE — Droit dérivé / actes juridiques, Droits fondamentaux, Renvoi préjudiciel — already live in casus.html (`mangold`)
-- [ ] **Marcin Bonda** — AG — Droits fondamentaux
+- [x] **Marcin Bonda** — CJUE (corrected from AG — decided by the Grand Chamber, 2012) — Droits fondamentaux — done (commit `3fedac2`)
 - [x] **Maribel Dominguez** — CJCE — Citoyenneté / libre circulation, Droit dérivé / actes juridiques [legacy: Non-discrimination, Worker's rights] — already live in casus.html (`dominguez`)
 - [ ] **Marleasing** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
 - [x] **Marshall** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — already live in casus.html (`marshall`)
