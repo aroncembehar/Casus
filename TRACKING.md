@@ -193,7 +193,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **James Elliott** — CJUE — Droit dérivé / actes juridiques, Équilibre institutionnel — done (commit `6b24446`)
 - [x] **Kadi I** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct, Relations extérieures / DI — already live in casus.html (`kadi1`)
 - [x] **Kadi II** — CJUE — Ordre juridique / primauté / effet direct, Relations extérieures / DI — already live in casus.html (`kadi2`)
-- [ ] **Kampffmeyer** — CJCE — Responsabilité extracontractuelle
+- [x] **Kampffmeyer** — CJCE — Responsabilité extracontractuelle — done (commit `1800bf8`)
 - [ ] **Kempter (C-2/06)** — CJCE — Renvoi préjudiciel
 - [ ] **Kolpinghuis Nijmegen** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale, Renvoi préjudiciel ⚠️
 - [x] **Konstantinidis** — AG — Citoyenneté / libre circulation, Droits fondamentaux [legacy: Market freedoms] — already live in casus.html (`konstantinidis`)
