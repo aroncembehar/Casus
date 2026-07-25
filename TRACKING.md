@@ -190,7 +190,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **International Fruits** — CJCE — Relations extérieures / DI — done (commit `9bc2eb6`)
 - [x] **Inuit** — CJUE — Recours en annulation — done (commit `b490288`)
 - [x] **Isoglucose** — CJCE — Équilibre institutionnel, Procédures législatives — done (commit `ee21a9a`)
-- [ ] **James Elliott** — CJUE — Droit dérivé / actes juridiques, Équilibre institutionnel
+- [x] **James Elliott** — CJUE — Droit dérivé / actes juridiques, Équilibre institutionnel — done (commit `6b24446`)
 - [x] **Kadi I** — CJCE — Droits fondamentaux, Ordre juridique / primauté / effet direct, Relations extérieures / DI — already live in casus.html (`kadi1`)
 - [x] **Kadi II** — CJUE — Ordre juridique / primauté / effet direct, Relations extérieures / DI — already live in casus.html (`kadi2`)
 - [ ] **Kampffmeyer** — CJCE — Responsabilité extracontractuelle
