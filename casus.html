@@ -51,6 +51,7 @@
   .detail b{color:var(--red);}
   .citable{cursor:text;}
   .citable::selection, .citable *::selection{background:var(--gold-light);}
+  .citable mark.user-bold{background:none;font-weight:700;color:var(--ink);}
   .citable cite{font-style:normal;border-bottom:1px dotted var(--muted);}
   .case-link{color:var(--blue);cursor:pointer;text-decoration:underline;}
   .case-link:hover{color:var(--red);}
@@ -129,6 +130,9 @@
   .cp-note{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5;}
   .cp-link{display:block;font-size:12px;color:var(--blue);text-decoration:none;margin-top:10px;padding-top:8px;border-top:1px solid var(--line);}
   .cp-link:hover{text-decoration:underline;}
+  .cp-bold-btn{display:block;width:100%;margin-top:10px;padding:6px 10px;font-size:12px;font-weight:600;color:var(--red);background:var(--gold-light);border:none;border-radius:6px;cursor:pointer;text-align:center;font-family:inherit;}
+  .cp-bold-btn:hover{background:var(--gold);color:var(--white);}
+  .clear-bold-hint{cursor:pointer;text-decoration:underline;}
   .modal-overlay{position:fixed;inset:0;background:rgba(58,54,47,0.45);display:none;align-items:center;justify-content:center;z-index:1200;padding:20px;}
   .modal-card{background:var(--white);border-radius:12px;padding:22px 24px;max-width:420px;width:100%;max-height:80vh;overflow:auto;position:relative;}
   .modal-close{position:absolute;top:16px;right:18px;cursor:pointer;color:var(--muted);font-size:14px;}
@@ -2255,7 +2259,7 @@ function renderLangSwitch(){
   el.innerHTML = langs.map(([code,label])=>`<span onclick="setLang('${code}')" style="cursor:pointer;font-size:12px;padding:3px 7px;border-radius:6px;color:${currentLang===code?'var(--red)':'var(--gold-light)'};background:${currentLang===code?'var(--gold-light)':'transparent'};">${label}</span>`).join('');
 }
 
-let state = { weekNotes: {}, weekCases: {}, progress: {}, exams: [
+let state = { weekNotes: {}, weekCases: {}, progress: {}, userBold: {}, exams: [
   {id:'exam-1', name:'Exam 1/01', caseIds:[]},
   {id:'exam-2', name:'Exam 2/02', caseIds:[]}
 ]};
@@ -2263,7 +2267,7 @@ let state = { weekNotes: {}, weekCases: {}, progress: {}, exams: [
 async function loadState(){
   try{
     const r = await window.storage.get('casus-state');
-    if(r && r.value) state = Object.assign({weekNotes:{},weekCases:{},progress:{},exams:[]}, JSON.parse(r.value));
+    if(r && r.value) state = Object.assign({weekNotes:{},weekCases:{},progress:{},userBold:{},exams:[]}, JSON.parse(r.value));
   }catch(e){ /* no saved state yet */ }
 }
 async function saveState(){
@@ -2325,11 +2329,11 @@ function findCitations(caseId, selectedText){
 }
 function citationPopupStrings(){
   return {
-    en:{cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — ', readFull:'Read the full judgment →'},
-    fr:{cited:'Cité du jugement', sourced:'Passages sourcés pour cet arrêt', primary:'Le plus pertinent — ', readFull:'Lire l’arrêt intégral →'},
-    de:{cited:'Aus dem Urteil zitiert', sourced:'Belegte Passagen zu diesem Fall', primary:'Am relevantesten — ', readFull:'Vollständiges Urteil lesen →'},
-    it:{cited:'Citato dalla sentenza', sourced:'Passaggi documentati per questo caso', primary:'Il più rilevante — ', readFull:'Leggi la sentenza integrale →'}
-  }[currentLang] || {cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — ', readFull:'Read the full judgment →'};
+    en:{cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — ', readFull:'Read the full judgment →', bold:'Bold this', unbold:'Remove bold'},
+    fr:{cited:'Cité du jugement', sourced:'Passages sourcés pour cet arrêt', primary:'Le plus pertinent — ', readFull:'Lire l’arrêt intégral →', bold:'Mettre en gras', unbold:'Retirer le gras'},
+    de:{cited:'Aus dem Urteil zitiert', sourced:'Belegte Passagen zu diesem Fall', primary:'Am relevantesten — ', readFull:'Vollständiges Urteil lesen →', bold:'Fett markieren', unbold:'Fett entfernen'},
+    it:{cited:'Citato dalla sentenza', sourced:'Passaggi documentati per questo caso', primary:'Il più rilevante — ', readFull:'Leggi la sentenza integrale →', bold:'Metti in grassetto', unbold:'Rimuovi grassetto'}
+  }[currentLang] || {cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — ', readFull:'Read the full judgment →', bold:'Bold this', unbold:'Remove bold'};
 }
 function renderCitationCards(matches, exact, sourceUrl){
   const t = citationPopupStrings();
@@ -2380,28 +2384,124 @@ function positionCitationPopup(popup, rect){
   popup.style.left = left + 'px';
   popup.style.visibility = 'visible';
 }
-function showCitationPopup(caseId, selectedText, rect){
+function boldKey(caseId, lvl){ return caseId+'::'+currentLang+'::'+lvl; }
+function boldButtonHtml(caseId, lvl, text){
+  if(!text) return '';
+  const key = boldKey(caseId, lvl);
+  const isBold = !!(state.userBold && state.userBold[key] && state.userBold[key].indexOf(text)>-1);
+  const t = citationPopupStrings();
+  return `<button type="button" class="cp-bold-btn" onclick="toggleUserBold()">${isBold ? t.unbold : t.bold}</button>`;
+}
+function showCitationPopup(caseId, selectedText, rect, lvl){
   const popup = document.getElementById('citation-popup');
   const result = findCitations(caseId, selectedText);
-  if(!result.matches || !result.matches.length){ popup.style.display='none'; return; }
   const c = CASES.find(x=>x.id===caseId);
-  popup.innerHTML = renderCitationCards(result.matches, result.exact, c && c.sourceUrl);
+  const cardsHtml = (result.matches && result.matches.length) ? renderCitationCards(result.matches, result.exact, c && c.sourceUrl) : '';
+  popup.innerHTML = cardsHtml + boldButtonHtml(caseId, lvl, selectedText);
   positionCitationPopup(popup, rect);
 }
-function showCitationPopupForUnits(caseId, citeEls, rect){
+function showCitationPopupForUnits(caseId, citeEls, rect, lvl, text){
   const popup = document.getElementById('citation-popup');
   const c = CASES.find(x=>x.id===caseId);
   const content = c ? getCaseContent(c) : null;
-  if(!content || !content.citations){ popup.style.display='none'; return; }
   const matches = [];
-  citeEls.forEach(el=>{
-    const key = el.getAttribute('data-para');
-    const cit = content.citations.find(x=>x.key===key);
-    if(cit && matches.indexOf(cit)===-1) matches.push(cit);
-  });
-  if(!matches.length){ popup.style.display='none'; return; }
-  popup.innerHTML = renderCitationCards(matches, true, c && c.sourceUrl);
+  if(content && content.citations){
+    citeEls.forEach(el=>{
+      const key = el.getAttribute('data-para');
+      const cit = content.citations.find(x=>x.key===key);
+      if(cit && matches.indexOf(cit)===-1) matches.push(cit);
+    });
+  }
+  const cardsHtml = matches.length ? renderCitationCards(matches, true, c && c.sourceUrl) : '';
+  popup.innerHTML = cardsHtml + boldButtonHtml(caseId, lvl, text);
   positionCitationPopup(popup, rect);
+}
+
+function getTextNodesIn(el){
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+  const nodes = []; let n;
+  while(n = walker.nextNode()) nodes.push(n);
+  return nodes;
+}
+function unwrapMark(markEl){
+  const parent = markEl.parentNode;
+  if(!parent) return;
+  while(markEl.firstChild) parent.insertBefore(markEl.firstChild, markEl);
+  parent.removeChild(markEl);
+  parent.normalize();
+}
+function wrapTextInElement(el, text){
+  if(!text) return;
+  const nodes = getTextNodesIn(el);
+  let full = ''; const map = [];
+  nodes.forEach(node=>{ map.push({node, start: full.length}); full += node.textContent; });
+  const idx = full.indexOf(text);
+  if(idx===-1) return;
+  const endIdx = idx + text.length;
+  let startNode=null, startOffset=0, endNode=null, endOffset=0;
+  for(let i=0;i<map.length;i++){
+    const {node, start} = map[i];
+    const len = node.textContent.length;
+    if(startNode===null && idx>=start && idx<start+len){ startNode=node; startOffset=idx-start; }
+    if(endIdx>start && endIdx<=start+len){ endNode=node; endOffset=endIdx-start; }
+  }
+  if(!startNode || !endNode) return;
+  const range = document.createRange();
+  try{
+    range.setStart(startNode, startOffset);
+    range.setEnd(endNode, endOffset);
+    const mark = document.createElement('mark');
+    mark.className = 'user-bold';
+    const frag = range.extractContents();
+    mark.appendChild(frag);
+    range.insertNode(mark);
+  }catch(e){ /* stale or malformed mark, skip */ }
+}
+function applyStoredBoldMarks(citableEl, caseId, lvl){
+  const key = boldKey(caseId, lvl);
+  const marks = (state.userBold && state.userBold[key]) || [];
+  marks.forEach(text => wrapTextInElement(citableEl, text));
+}
+function toggleUserBold(){
+  const p = window._pendingBold;
+  if(!p || !p.text) return;
+  if(!state.userBold) state.userBold = {};
+  const key = boldKey(p.caseId, p.lvl);
+  if(!state.userBold[key]) state.userBold[key] = [];
+  const arr = state.userBold[key];
+  const idx = arr.indexOf(p.text);
+  const anchorEl = p.range.commonAncestorContainer.nodeType===1 ? p.range.commonAncestorContainer : p.range.commonAncestorContainer.parentElement;
+  const citable = anchorEl ? anchorEl.closest('.citable') : null;
+  if(idx>-1){
+    arr.splice(idx,1);
+    if(citable){
+      const marks = Array.from(citable.querySelectorAll('mark.user-bold'));
+      const m = marks.find(el=>el.textContent===p.text);
+      if(m) unwrapMark(m);
+    }
+  } else {
+    arr.push(p.text);
+    try{
+      const frag = p.range.extractContents();
+      const mark = document.createElement('mark');
+      mark.className = 'user-bold';
+      mark.appendChild(frag);
+      p.range.insertNode(mark);
+    }catch(e){ console.error('bold failed', e); }
+  }
+  saveState();
+  document.getElementById('citation-popup').style.display='none';
+  window.getSelection().removeAllRanges();
+}
+function caseHasBoldMarks(caseId){
+  if(!state.userBold) return false;
+  return Object.keys(state.userBold).some(k => k.indexOf(caseId+'::')===0 && state.userBold[k] && state.userBold[k].length);
+}
+function clearCaseBoldMarks(caseId){
+  if(!state.userBold) return;
+  Object.keys(state.userBold).forEach(k=>{ if(k.indexOf(caseId+'::')===0) delete state.userBold[k]; });
+  saveState();
+  renderMain();
 }
 
 function progressSummary(){
@@ -2448,7 +2548,14 @@ function levelContentHtml(c){
       de:'Markieren Sie einen Satz oben, um zu sehen, woher er im Urteil stammt.',
       it:'Seleziona una frase sopra per vedere da dove proviene nella sentenza.'
     }[currentLang] || 'Highlight any phrase above to see where it comes from in the judgment.';
-    return `<div class="citable" data-case="${c.id}">${body}</div>${legal}<p class="advanced-hint">${hint}</p>${note}`;
+    const clearLabel = {
+      en:'Clear my bold highlights for this case',
+      fr:'Effacer mes passages en gras pour cet arrêt',
+      de:'Meine Fettmarkierungen für diesen Fall löschen',
+      it:'Cancella le mie evidenziazioni in grassetto per questa sentenza'
+    }[currentLang] || 'Clear my bold highlights for this case';
+    const clearHtml = caseHasBoldMarks(c.id) ? `<p class="advanced-hint clear-bold-hint" onclick="clearCaseBoldMarks('${c.id}')">${clearLabel}</p>` : '';
+    return `<div class="citable" data-case="${c.id}">${body}</div>${legal}<p class="advanced-hint">${hint}</p>${clearHtml}${note}`;
   }
   return body + legal + note;
 }
@@ -2797,6 +2904,11 @@ function renderMain(){
   document.body.classList.toggle('home-bg', activeTab==='home');
   mainEl.className = '';
   mainEl.innerHTML = map[activeTab]();
+  Array.from(mainEl.querySelectorAll('.citable[data-case]')).forEach(function(el){
+    const caseId = el.getAttribute('data-case');
+    const lvl = (window._cardLevel && window._cardLevel[caseId]) || 2;
+    applyStoredBoldMarks(el, caseId, lvl);
+  });
   if(activeId){
     const el = document.getElementById(activeId);
     if(el){
@@ -2826,6 +2938,7 @@ document.addEventListener('mouseup', function(e){
   if(!citable){ popup.style.display='none'; return; }
   const caseId = citable.getAttribute('data-case');
   const range = sel.getRangeAt(0);
+  const lvl = (window._cardLevel && window._cardLevel[caseId]) || 2;
   const allUnits = Array.from(citable.querySelectorAll('cite[data-para]'));
   if(allUnits.length){
     // Tagged ("new-style") case: source is only ever a specific paragraph, never "everything".
@@ -2837,13 +2950,16 @@ document.addEventListener('mouseup', function(e){
     extended.setEndAfter(touched[touched.length-1]);
     sel.removeAllRanges();
     sel.addRange(extended);
-    showCitationPopupForUnits(caseId, touched, extended.getBoundingClientRect());
+    const extText = extended.toString().trim();
+    window._pendingBold = {caseId, lvl, range: extended.cloneRange(), text: extText};
+    showCitationPopupForUnits(caseId, touched, extended.getBoundingClientRect(), lvl, extText);
     return;
   }
   // Legacy (untagged) case: fall back to the original whole-case fuzzy match.
   const text = sel.toString().trim();
   if(!text){ popup.style.display='none'; return; }
-  showCitationPopup(caseId, text, range.getBoundingClientRect());
+  window._pendingBold = {caseId, lvl, range: range.cloneRange(), text};
+  showCitationPopup(caseId, text, range.getBoundingClientRect(), lvl);
 });
 document.addEventListener('mousedown', function(e){
   const popup = document.getElementById('citation-popup');
