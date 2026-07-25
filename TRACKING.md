@@ -202,7 +202,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Kühne et Heitz** — CJCE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel — done (commit `271cbf0`)
 - [x] **Laval** — CJCE — Compétences / base juridique, Droits fondamentaux — done (commit `71bd3a6`)
 - [x] **Les Verts** — CJCE — Équilibre institutionnel, Ordre juridique / primauté / effet direct, Recours en annulation — done (commit `646fbf2`)
-- [ ] **Lissabonsvertrag** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz
+- [x] **Lissabonsvertrag** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz — done (commit `cb485bb`)
 - [ ] **Lord Bruce of Donington** — CJCE — Équilibre institutionnel
 - [ ] **Lucchini** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct
 - [ ] **M.S.S.** — CourEDH — CEDH / Droits CEDH
