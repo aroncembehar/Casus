@@ -220,11 +220,15 @@ Grzelczyk (CJCE) done earlier — was referenced pending in Konstantinidis, now 
 - Van Gend en Loos's PDF-derived categories include `competences` alongside `ordre_juridique` — unexpected for the direct-effect classic. Kept as document ground truth; worth a second look if time allows, not blocking.
 - EUR-Lex access failure is systemic, not case-specific — expect this flag to recur on nearly every case going forward. Not re-flagging as a "new" problem each time; see the standing convention above.
 
-## ⏸ STOPPED HERE — 2026-07-25, Batch B 81-case queue, 10/81 done
+## ⏸ STOPPED HERE — 2026-07-25, Batch B 81-case queue, 20/81 done
 
-Session ended cleanly after 10 cases (IBM through Kücükdeveci, in list order), each committed individually and checkpointed, working tree clean, `git status` confirmed clean at stop time. Every committed case passed the mandatory osascript syntax check and the per-language `data-para`/`citations[].key` consistency check (scratchpad `check_case.py`) before its commit. No case was left mid-write.
+(Superseded checkpoint history: session first stopped at 10/81 after IBM through Kücükdeveci, then resumed twice more in the same day, adding Kühne & Heitz, Laval, Les Verts, Lissabonsvertrag, Lord Bruce of Donington, Lucchini, M.S.S., Marcin Bonda, Marleasing, and Martínez Sala — 10 more cases — bringing the total to 20/81.)
 
-**Next case to resume with: Kühne et Heitz** (per the exact list order below), then continue straight through the remaining list. Two forward-link id commitments were made in Kempter's holistic text and must be honoured when these two cases are actually authored: use id `kuhneheitz` for Kühne et Heitz and id `rewezentralfinanz` for Rewe-Zentralfinanz (see scratchpad `id_commitments.md`, not part of the repo — re-derive from this note if that scratchpad is gone).
+Session ended cleanly after 20 cases (IBM through Martínez Sala, in list order), each committed individually and checkpointed, working tree clean, `git status` confirmed clean at stop time. Every committed case passed the mandatory osascript syntax check and the per-language `data-para`/`citations[].key` consistency check (scratchpad `check_case.py`) before its commit. No case was left mid-write.
+
+**Next case to resume with: Matthews** (per the exact list order below), then continue straight through the remaining list (61 cases left). Two forward-link id commitments were made in Kempter's holistic text and have now been resolved: `kuhneheitz` (Kühne & Heitz, added) is live; `rewezentralfinanz` (Rewe-Zentralfinanz) is still pending — honour that id when that case is actually authored later in the queue (see scratchpad `id_commitments.md`, not part of the repo — re-derive from this note if that scratchpad is gone).
+
+Remaining ⚠️-flagged Ambiguity Log cases still to come, in list order: Parlement c. Conseil (double base juridique), Parlement c. Conseil (révision par voie coutumière), Poplawski, Publicité sur le tabac I, Publicité sur le tabac II, Rottmann, Schipani et autres c. Italie, Tas-Hagen et Tas, Unibet — apply the Ambiguity Log guidance already given directly, no need to re-derive it.
 
 ## Batch B 81-case queue — IN PROGRESS (started 2026-07-25)
 
