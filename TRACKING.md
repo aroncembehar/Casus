@@ -212,7 +212,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Marleasing** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — done (commit `e702622`)
 - [x] **Marshall** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — already live in casus.html (`marshall`)
 - [x] **Martinez Sala** — CJCE — Citoyenneté / libre circulation — done (commit `428bc37`)
-- [ ] **Matthews** — CourEDH — CEDH / Droits CEDH, Relations extérieures / DI
+- [x] **Matthews** — CourEDH — CEDH / Droits CEDH, Relations extérieures / DI — done (commit `a02f3ee`)
 - [x] **Melloni** — CJCE — Droits fondamentaux, Identité constitutionnelle nationale, Ordre juridique / primauté / effet direct — already live in casus.html (`melloni`)
 - [ ] **Meroni** — CJCE — Équilibre institutionnel, Recours en annulation
 - [ ] **Michaniki** — AG — Identité constitutionnelle nationale
