@@ -214,7 +214,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Martinez Sala** — CJCE — Citoyenneté / libre circulation — done (commit `428bc37`)
 - [x] **Matthews** — CourEDH — CEDH / Droits CEDH, Relations extérieures / DI — done (commit `a02f3ee`)
 - [x] **Melloni** — CJCE — Droits fondamentaux, Identité constitutionnelle nationale, Ordre juridique / primauté / effet direct — already live in casus.html (`melloni`)
-- [ ] **Meroni** — CJCE — Équilibre institutionnel, Recours en annulation
+- [x] **Meroni** — CJCE — Équilibre institutionnel, Recours en annulation — done (commit `b46569e`)
 - [ ] **Michaniki** — AG — Identité constitutionnelle nationale
 - [ ] **Michaud** — CourEDH — CEDH / Droits CEDH
 - [ ] **Micheletti** — CJCE — Citoyenneté / libre circulation
