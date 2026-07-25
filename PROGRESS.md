@@ -220,6 +220,12 @@ Grzelczyk (CJCE) done earlier — was referenced pending in Konstantinidis, now 
 - Van Gend en Loos's PDF-derived categories include `competences` alongside `ordre_juridique` — unexpected for the direct-effect classic. Kept as document ground truth; worth a second look if time allows, not blocking.
 - EUR-Lex access failure is systemic, not case-specific — expect this flag to recur on nearly every case going forward. Not re-flagging as a "new" problem each time; see the standing convention above.
 
+## ⏸ STOPPED HERE — 2026-07-25, Batch B 81-case queue, 10/81 done
+
+Session ended cleanly after 10 cases (IBM through Kücükdeveci, in list order), each committed individually and checkpointed, working tree clean, `git status` confirmed clean at stop time. Every committed case passed the mandatory osascript syntax check and the per-language `data-para`/`citations[].key` consistency check (scratchpad `check_case.py`) before its commit. No case was left mid-write.
+
+**Next case to resume with: Kühne et Heitz** (per the exact list order below), then continue straight through the remaining list. Two forward-link id commitments were made in Kempter's holistic text and must be honoured when these two cases are actually authored: use id `kuhneheitz` for Kühne et Heitz and id `rewezentralfinanz` for Rewe-Zentralfinanz (see scratchpad `id_commitments.md`, not part of the repo — re-derive from this note if that scratchpad is gone).
+
 ## Batch B 81-case queue — IN PROGRESS (started 2026-07-25)
 
 Working through the 81-case list assigned to this worktree (`casus-newcases-batchB`, forked from `2dd8a22`), in the exact order given: IBM, International Fruits, Inuit, Isoglucose, ... van Delft. One commit per case (or small batch of up to 3 for closely-related joined-case splits), full IRAC x 4-language depth with exhaustive `<cite data-para>` tagging from the start, per the standing schema. Checkpointing every 1-3 cases.
