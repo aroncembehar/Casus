@@ -1,5 +1,16 @@
 # Casus — Step 4 Progress
 
+## Readability pass (user request, 2026-07-26)
+User asked for a separate, orthogonal pass: some `intermediate`/`detailed` prose paragraphs were one or two very long, comma/dash/semicolon-heavy sentences cramming multiple facts or holdings together — split these into shorter, one-idea-per-sentence prose in all four languages (EN/FR/DE/IT), without removing any content, and without touching `abstract`/`holistic`/citations/structural fields. Verbatim judgment quotations (inside `<cite>` spans quoting the court's own words, e.g. the Solange I/II Leitsatz, Grzelczyk para. 31/44, Francovich paras. 33/35/40) were deliberately left un-split — only their English/French/German/Italian lead-in framing sentences were separated from the quote itself where that was possible without altering the quotation.
+
+**Cases done (19/44, in file order), each verified via the syntax-check + per-case `<cite>` balance-check pipeline before committing:**
+Costa v ENEL, Internationale Handelsgesellschaft, Melloni v Ministerio Fiscal, Commission v Bavarian Lager, Kadi I, Kadi II, Dominguez (Van Gend en Loos and Defrenne v Sabena No 2 were reviewed too — no over-long sentences found, left untouched), Opinion 2/13, Stauder v City of Ulm, Konstantinidis v Stadt Altensteig, Simmenthal II, Marshall, Solange I, Solange II, Grzelczyk, Åkerberg Fransson, Francovich and Bonifaci v Italy.
+
+**Not yet started (25/44 remaining, in file order):** Mangold v Helm, IBM v Commission, International Fruit Company, Inuit Tapiriit Kanatami, Isoglucose, James Elliott Construction, Kampffmeyer v Commission, Kempter, Kolpinghuis Nijmegen, Köbler, Kücükdeveci, Kühne & Heitz, Laval un Partneri, Les Verts v Parliament, Lisbon Treaty Judgment, Lord Bruce of Donington v Aspden, Lucchini, M.S.S. v Belgium and Greece, Marcin Bonda, Marleasing, Martínez Sala, Matthews v United Kingdom, Meroni v High Authority, Michaniki, Michaud v France. A scan of these 25 cases (script-based long-sentence detector, threshold ~40 words) shows a similar or higher density of over-long sentences per case than the ones already done (roughly 30-90 flagged sentences per case), so this remaining slice is the bulk of the total work, not a short tail.
+
+This section tracks the readability pass only — do not conflate with the case-authoring checklist above/below.
+
+
 Last updated: 2026-07-23, in-session. Continuing in a fresh interactive session from the one that left off at 4/182 — confirmed via `ps`/`lsof` that the other live `claude` process on this machine has cwd `~`, not this repo, so no collision. Since then: added Grzelczyk, Åkerberg Fransson, Francovich, Mangold (8/182 new cases at full depth), completed the original-12 translation-parity pass (all 12 pre-existing cases now trilingual), completed an Italian language pass (site is now EN/FR/DE/IT quadrilingual across all 19 cases done before Mangold), and shipped a paragraph-precise citation-highlight upgrade (see "Citation-highlight upgrade" section below) — Mangold is the first case authored under the new tagging standard.
 
 ## Citation-highlight upgrade (user request, 2026-07-23) — mechanism shipped, retrofit COMPLETE (all 20 cases now tagged)
