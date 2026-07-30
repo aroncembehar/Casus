@@ -222,7 +222,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Morgan et Bucher** — CJUE — Citoyenneté / libre circulation ⚠️ — done (commit `a81e91b`; jurisdiction corrected to CJCE, decided 23 Oct 2007, pre-Lisbon)
 - [x] **Mox** — CJCE — Recours en manquement, Relations extérieures / DI — done (commit `e12c5ad`)
 - [x] **Nold** — CJCE — Droits fondamentaux — done (commit `3d0e7b3`, fix `16f6153`)
-- [ ] **OMT** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz
+- [x] **OMT** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz — done (commit `9e0c497`)
 - [ ] **Omega** — CJCE — Compétences / base juridique, Droits fondamentaux
 - [ ] **Otis** — CJUE — Droits fondamentaux
 - [ ] **Palmisani** — CJCE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle
