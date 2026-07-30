@@ -220,7 +220,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Micheletti** — CJCE — Citoyenneté / libre circulation — done (commit `910607a`)
 - [x] **Microban** — CJUE — Recours en annulation — done (commit `e5e2ca8`)
 - [x] **Morgan et Bucher** — CJUE — Citoyenneté / libre circulation ⚠️ — done (commit `a81e91b`; jurisdiction corrected to CJCE, decided 23 Oct 2007, pre-Lisbon)
-- [ ] **Mox** — CJCE — Recours en manquement, Relations extérieures / DI
+- [x] **Mox** — CJCE — Recours en manquement, Relations extérieures / DI — done (commit `e12c5ad`)
 - [ ] **Nold** — CJCE — Droits fondamentaux
 - [ ] **OMT** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz
 - [ ] **Omega** — CJCE — Compétences / base juridique, Droits fondamentaux

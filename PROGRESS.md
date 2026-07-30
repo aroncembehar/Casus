@@ -304,7 +304,9 @@ Remaining (57 of 81): Micheletti, Microban, Morgan et Bucher, Mox, Nold, OMT, Om
 
 - [x] Morgan and Bucher — Joined Cases C-11/06 and C-12/06 — CJCE (corrected from TRACKING's CJUE — decided 23 October 2007, pre-Lisbon) — Citizenship / free movement — commit `a81e91b`. Verified via direct EUR-Lex fetch (CELEX:62006CJ0011) plus a second targeted HTML-variant fetch for paras 52-53 (why Bucher's second question went unanswered). Keys p22/p23/p24/p25/p26/p30/p33/p35/p43/p49/p52, one general key. Authentic language German. Holistic cross-links Grzelczyk/Martínez Sala/Zambrano (all live), forward-references Tas-Hagen et Tas (later in this queue) as case-link-pending.
 
-Next case to resume with: **Mox** (the MOX Plant case, Commission v Ireland, Case C-459/03 — CJCE, external relations/international law and infringement-style dispute between Member States over exclusive CJEU jurisdiction under Art. 292 EC/344 TFEU vs. UNCLOS Annex VII arbitration).
+- [x] Commission v Ireland (MOX Plant) — Case C-459/03 — CJCE (Grand Chamber, 30 May 2006) — Infringement actions, External relations / international law — commit `e12c5ad`. Verified via direct EUR-Lex fetch (CELEX:62003CJ0459). Keys p92/p93/p108/p123/p126/p127/p128/p175/p179, one general key. Holistic cross-links Opinion 2/13 (live) on the "autonomy of the EU legal order" theme. Caught and fixed two missing closing `</cite>` tags (DE/IT) before verification.
+
+Next case to resume with: **Nold** (Nold KG v Commission, Case 4/73, CJCE 1974 — fundamental rights as general principles of Community law, property/right to pursue trade, drawing on Member States' common constitutional traditions).
 
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
