@@ -306,7 +306,9 @@ Remaining (57 of 81): Micheletti, Microban, Morgan et Bucher, Mox, Nold, OMT, Om
 
 - [x] Commission v Ireland (MOX Plant) — Case C-459/03 — CJCE (Grand Chamber, 30 May 2006) — Infringement actions, External relations / international law — commit `e12c5ad`. Verified via direct EUR-Lex fetch (CELEX:62003CJ0459). Keys p92/p93/p108/p123/p126/p127/p128/p175/p179, one general key. Holistic cross-links Opinion 2/13 (live) on the "autonomy of the EU legal order" theme. Caught and fixed two missing closing `</cite>` tags (DE/IT) before verification.
 
-Next case to resume with: **Nold** (Nold KG v Commission, Case 4/73, CJCE 1974 — fundamental rights as general principles of Community law, property/right to pursue trade, drawing on Member States' common constitutional traditions).
+- [x] Nold KG v Commission — Case 4/73 — CJCE (14 May 1974) — Fundamental rights — commit `3d0e7b3`, fix `16f6153`. Verified via direct EUR-Lex fetch (CELEX:61973CJ0004). Keys p1/p12/p13/p14/p15/p16/p18, one general key. Holistic cross-links Opinion 2/13, Laval un Partneri, Stauder, and Internationale Handelsgesellschaft (all live); forward-references Viking Line (not yet added) as case-link-pending. Post-commit audit caught and fixed a mistake: Stauder/Handelsgesellschaft were wrongly spanned as case-link-pending despite being already live — fixed in all 4 languages. Audit also confirmed the pre-existing forward jumpToCase commitments (omega in Michaniki, rewezentralfinanz in Kempter, and my own zambrano reference in Morgan and Bucher) are intentional self-resolving forward links, not bugs — consistent with the project's established convention.
+
+Next case to resume with: **OMT** (Gauweiler and Others v Deutscher Bundestag — the OMT reference, Case C-62/14, CJUE preliminary ruling on the ECB's Outright Monetary Transactions programme; also research the German Federal Constitutional Court's own OMT decision, BVerfGE 142, 123, which sits alongside the CJEU ruling in the same saga).
 
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
