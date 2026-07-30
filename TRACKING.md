@@ -223,7 +223,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Mox** — CJCE — Recours en manquement, Relations extérieures / DI — done (commit `e12c5ad`)
 - [x] **Nold** — CJCE — Droits fondamentaux — done (commit `3d0e7b3`, fix `16f6153`)
 - [x] **OMT** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz — done (commit `9e0c497`)
-- [ ] **Omega** — CJCE — Compétences / base juridique, Droits fondamentaux
+- [x] **Omega** — CJCE — Compétences / base juridique, Droits fondamentaux — done (commit `976cbf1`)
 - [ ] **Otis** — CJUE — Droits fondamentaux
 - [ ] **Palmisani** — CJCE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle
 - [ ] **Parlement c. Conseil (double base juridique)** — CJCE — Compétences / base juridique, Procédures législatives, Équilibre institutionnel ⚠️
