@@ -224,7 +224,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Nold** — CJCE — Droits fondamentaux — done (commit `3d0e7b3`, fix `16f6153`)
 - [x] **OMT** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz — done (commit `9e0c497`)
 - [x] **Omega** — CJCE — Compétences / base juridique, Droits fondamentaux — done (commit `976cbf1`)
-- [ ] **Otis** — CJUE — Droits fondamentaux
+- [x] **Otis** — CJUE — Droits fondamentaux — done (commit `c0c79dd`)
 - [ ] **Palmisani** — CJCE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle
 - [ ] **Parlement c. Conseil (double base juridique)** — CJCE — Compétences / base juridique, Procédures législatives, Équilibre institutionnel ⚠️
 - [ ] **Parlement c. Conseil (révision par voie coutumière)** — AG — Révision des traités / Kompetenz ⚠️

@@ -295,7 +295,7 @@ Progress so far (case → citation → jurisdiction → theme(s) → commit):
 
 - [x] Michaud v France — Application No. 12323/11 — CourEDH — ECHR / Convention rights — commit `db62e62`. Full direct PDF read of the authentic HUDOC judgment succeeded (CCBE-hosted copy; second genuine full-text primary-source success this batch after Matthews) — paragraph-precise verification of paras 96/97/99/103/113/115/118/127/129/131. Refines the Bosphorus presumption: found inapplicable because the Conseil d'État's refusal to make a preliminary reference left the specific Article 8 question never examined by the CJEU, whose only prior ruling on this same French rule addressed Article 6 instead; on the merits, no violation (proportionate reporting obligation, narrow scope, bâtonnier filter). Holistic cross-links M.S.S. v Belgium and Greece (live).
 
-Remaining (57 of 81): Micheletti, Microban, Morgan et Bucher, Mox, Nold, OMT, Omega, Otis, Palmisani, Parlement c. Conseil (double base juridique), Parlement c. Conseil (révision par voie coutumière), Peterbroeck, Plaumann, Poirrez, Poplawski, Poulsen et Opel Austria, Preston, Pringle, Promusica et T ; Arcelor, Publicité sur le tabac I, Publicité sur le tabac II, Pupino, Racke, Ratti, Razzouk, Rewe-Zentralfinanz, Roquette, Rottmann, Royaume-Uni c. Parlement et Conseil, Rutili, République Slovaque / Hongrie c. Conseil, Sayn-Wittgenstein, Schipani et autres c. Italie, Schmidberger, Schneider Electric, Schrems, Sevince, T-Mobile et Vodafone, TWD I, Taricco II, Tas-Hagen et Tas, Test-Achats, Transportes Urbanos, Trubowest, Tyrer, Unibet, Van Duyn, Van Landewyck, Variola, Viking Line, Von Colson, Wachauf, Walonie, Winner Wetten, Zambrano, Zuckerfabrik, van Delft.
+(Remaining-count note superseded — see the updated "Remaining" list further below, after the Micheletti-through-Otis entries, which reflects 32/81 done rather than 24/81.)
 
 ## ⏸ Resumed 2026-07-30 (new session), continuing the 57-case remainder
 
@@ -312,7 +312,19 @@ Remaining (57 of 81): Micheletti, Microban, Morgan et Bucher, Mox, Nold, OMT, Om
 
 - [x] Omega Spielhallen v Oberbürgermeisterin der Bundesstadt Bonn — Case C-36/02 — CJCE (14 October 2004) — Competences / legal basis, Fundamental rights [legacy: Market freedoms] — commit `976cbf1`. Verified via direct EUR-Lex fetch (CELEX:62002CJ0036). Keys p3/p9/p10/p22/p29/p31/p34/p35/p37/p38/p39, one general key. Holistic cross-links Michaniki/Lisbon Treaty judgment (both live), Schmidberger (live), forward-references Viking Line (not yet added) as case-link-pending. Also fixed two forward-reference overreaches from earlier this session (zambrano in Morgan and Bucher, schmidberger in this same case's draft) that had used real jumpToCase links to not-yet-added cases — converted both to case-link-pending, per the schema's explicit "already in casus.html" requirement for real links. A project-wide audit afterward confirmed the only remaining forward real-link to a not-yet-added case is the pre-approved `rewezentralfinanz` commitment from Kempter.
 
-Next case to resume with: **Otis** (Otis and Others, Case C-199/11, CJUE — private damages actions/effective judicial protection where the Commission itself is also a claimant for cartel damages before a national court; verify exact facts, this is an EU-as-claimant procedural case, not the earlier Otis elevator cartel Commission decision itself).
+- [x] Otis and Others — Case C-199/11 — CJUE — Fundamental rights — commit `c0c79dd`. Verified via direct EUR-Lex fetch (CELEX:62011CJ0199). Whether the Commission suing for the EU's own cartel-related losses, after itself having found and fined the same elevator-cartel infringement, breaches Article 47 Charter's right to an effective remedy/equality of arms — held no, since EU courts independently review the infringement decision and the national court independently assesses loss/causation. Keys p18/p20/p27/p41/p49/p59/p67/p68, one general key. Holistic cross-links Köbler (live).
+
+## ⏸ STOPPED HERE — 2026-07-30, Batch B 81-case queue, 32/81 done, user stopped the agent directly
+
+This case (Otis) had already passed its full verification pipeline (syntax check + per-language `data-para`/`citations[].key` consistency, all four languages) in the agent's own session before the stop instruction arrived, but the commit itself hadn't executed yet — the coordinating session re-verified it independently after the stop and committed it as `c0c79dd`, so nothing authored was lost.
+
+**32 of 81 cases done** (IBM through Otis, in exact list order). **49 remain**, starting with **Palmisani**, through **van Delft**:
+
+Palmisani, Parlement c. Conseil (double base juridique), Parlement c. Conseil (révision par voie coutumière), Peterbroeck, Plaumann, Poirrez, Poplawski, Poulsen et Opel Austria, Preston, Pringle, Promusica et T ; Arcelor, Publicité sur le tabac I, Publicité sur le tabac II, Pupino, Racke, Ratti, Razzouk, Rewe-Zentralfinanz, Roquette, Rottmann, Royaume-Uni c. Parlement et Conseil, Rutili, République Slovaque / Hongrie c. Conseil, Sayn-Wittgenstein, Schipani et autres c. Italie, Schmidberger, Schneider Electric, Schrems, Sevince, T-Mobile et Vodafone, TWD I, Taricco II, Tas-Hagen et Tas, Test-Achats, Transportes Urbanos, Trubowest, Tyrer, Unibet, Van Duyn, Van Landewyck, Variola, Viking Line, Von Colson, Wachauf, Walonie, Winner Wetten, Zambrano, Zuckerfabrik, van Delft.
+
+Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfinanz (referenced from Kempter's holistic text). Remaining ⚠️-flagged Ambiguity Log cases: both Parlement c. Conseil rows, Poplawski, both Publicité sur le tabac rows, Rottmann, Schipani et autres c. Italie, Tas-Hagen et Tas, Unibet.
+
+`git status` confirmed clean after committing Otis; nothing else mid-write.
 
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
