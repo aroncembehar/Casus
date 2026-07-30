@@ -217,8 +217,8 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Meroni** — CJCE — Équilibre institutionnel, Recours en annulation — done (commit `b46569e`)
 - [x] **Michaniki** — CJCE (corrected from AG; Grand Chamber judgment 16 Dec 2008, pre-Lisbon) — Identité constitutionnelle nationale, Actes de droit dérivé — done (commit `231ff40`)
 - [x] **Michaud** — CourEDH — CEDH / Droits CEDH — done (commit `db62e62`)
-- [ ] **Micheletti** — CJCE — Citoyenneté / libre circulation
-- [ ] **Microban** — CJUE — Recours en annulation
+- [x] **Micheletti** — CJCE — Citoyenneté / libre circulation — done (commit `910607a`)
+- [x] **Microban** — CJUE — Recours en annulation — done (commit `e5e2ca8`)
 - [ ] **Morgan et Bucher** — CJUE — Citoyenneté / libre circulation ⚠️
 - [ ] **Mox** — CJCE — Recours en manquement, Relations extérieures / DI
 - [ ] **Nold** — CJCE — Droits fondamentaux
