@@ -235,7 +235,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Poulsen et Opel Austria** — CJCE — Relations extérieures / DI — done as two cases: Poulsen and Diva Navigation Corp (C-286/90) and Opel Austria v Council (T-115/94) (commit `3ca490c`)
 - [x] **Preston** — CJCE — Mise en œuvre / autonomie procédurale — done (commit `268fff8`)
 - [x] **Pringle** — CJUE — Compétences / base juridique, Révision des traités / Kompetenz — done (commit `f25fe31`)
-- [ ] **Promusica et T ; Arcelor** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale
+- [x] **Promusica et T ; Arcelor** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — done as Promusicae v Telefónica de España, Case C-275/06 (commit `4c4d308`); "Arcelor" in this row's label is a duplicate of the separate Arcelor row above (line ~113, Batch A's half) and was not re-authored here — see PROGRESS.md for reasoning
 - [ ] **Publicité sur le tabac I (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️
 - [ ] **Publicité sur le tabac II (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️
 - [ ] **Pupino** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
