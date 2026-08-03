@@ -232,7 +232,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Plaumann** — CJCE — Recours en annulation — done (commit `0e64223`)
 - [x] **Poirrez** — CourEDH — CEDH / Droits CEDH — done (commit `ba316a4`)
 - [x] **Poplawski** — CJUE — Mise en œuvre / autonomie procédurale ⚠️ — done as Poplawski II, Case C-573/17 (commit `888a222`)
-- [ ] **Poulsen et Opel Austria** — CJCE — Relations extérieures / DI
+- [x] **Poulsen et Opel Austria** — CJCE — Relations extérieures / DI — done as two cases: Poulsen and Diva Navigation Corp (C-286/90) and Opel Austria v Council (T-115/94) (commit `3ca490c`)
 - [ ] **Preston** — CJCE — Mise en œuvre / autonomie procédurale
 - [ ] **Pringle** — CJUE — Compétences / base juridique, Révision des traités / Kompetenz
 - [ ] **Promusica et T ; Arcelor** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale
