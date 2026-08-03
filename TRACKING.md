@@ -242,7 +242,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Racke** — CJCE — Relations extérieures / DI — done (commit `9b8941e`)
 - [x] **Ratti** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — done (commit `bad4ad4`)
 - [x] **Razzouk** — CJUE — Recours en annulation — done (commit `df6e557`; jurisdiction corrected to CJCE, decided 20 March 1984, pre-Lisbon)
-- [ ] **Rewe-Zentralfinanz** — CJCE — Mise en œuvre / autonomie procédurale
+- [x] **Rewe-Zentralfinanz** — CJCE — Mise en œuvre / autonomie procédurale — done, Case 33/76 (commit `f430493`)
 - [ ] **Roquette** — CJCE — Équilibre institutionnel, Procédures législatives
 - [ ] **Rottmann** — CJUE — Citoyenneté / libre circulation ⚠️
 - [ ] **Royaume-Uni c. Parlement et Conseil** — CJCE — Compétences / base juridique
