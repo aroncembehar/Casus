@@ -226,7 +226,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Omega** — CJCE — Compétences / base juridique, Droits fondamentaux — done (commit `976cbf1`)
 - [x] **Otis** — CJUE — Droits fondamentaux — done (commit `c0c79dd`)
 - [x] **Palmisani** — CJCE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — done (commit `9df1dc9`)
-- [ ] **Parlement c. Conseil (double base juridique)** — CJCE — Compétences / base juridique, Procédures législatives, Équilibre institutionnel ⚠️
+- [x] **Parlement c. Conseil (double base juridique)** — CJCE — Compétences / base juridique, Procédures législatives, Équilibre institutionnel ⚠️ — done as Parliament v Council (Chernobyl), Case C-70/88 (commit `f2b6e8a`)
 - [ ] **Parlement c. Conseil (révision par voie coutumière)** — AG — Révision des traités / Kompetenz ⚠️
 - [ ] **Peterbroeck** — CJCE — Renvoi préjudiciel
 - [ ] **Plaumann** — CJCE — Recours en annulation
