@@ -336,7 +336,9 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 - [x] Peterbroeck, Van Campenhout & Cie v Belgian State — Case C-312/93 — CJCE — Preliminary reference, Implementation / procedural autonomy — commit `63acbea`. Verified via structured WebFetch summary of the judgment (CELEX:61993CJ0312), full paragraph breakdown. Whether a Belgian 60-day time bar could stop a taxpayer's EU free-movement argument, where the appeal court was the only court able to make a preliminary reference — held no, that specific structural block on ever getting the point examined breached effectiveness. Keys p2/p3/p10/p12/p13/p14/p17/p18/p19/p20/p21, one general key. Holistic cross-references Van Schijndel (decided the same year, confirmed via grep not to be part of TRACKING's 182-case list) as case-link-pending.
 
-**45 of 81 remain after Peterbroeck**, starting with **Plaumann**, through **van Delft**.
+- [x] Plaumann & Co v Commission — Case 25/62 — CJCE — Actions for annulment — commit `0e64223`. Verified via structured WebFetch summary of the judgment (CELEX:61962CJ0025). The foundational individual-concern test: a decision addressed to a Member State only concerns a third party individually if it affects them by reason of attributes peculiar to them or circumstances differentiating them from all others; a clementine importer failed that test since importing was open to anyone. Pre-numbered-paragraph judgment: used descriptive keys (facts/objection1/objection2/test/application/holding), same convention as Costa v ENEL/Kampffmeyer/Meroni. Holistic cross-links IBM/Inuit Tapiriit Kanatami/Microban (all live); converted four case-link-pending forward references to Plaumann already sitting in Microban's holistic text (EN/FR/DE/IT) into real jumpToCase links.
+
+**44 of 81 remain after Plaumann**, starting with **Poirrez**, through **van Delft**.
 
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
