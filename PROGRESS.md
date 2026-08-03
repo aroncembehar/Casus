@@ -338,7 +338,9 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 - [x] Plaumann & Co v Commission — Case 25/62 — CJCE — Actions for annulment — commit `0e64223`. Verified via structured WebFetch summary of the judgment (CELEX:61962CJ0025). The foundational individual-concern test: a decision addressed to a Member State only concerns a third party individually if it affects them by reason of attributes peculiar to them or circumstances differentiating them from all others; a clementine importer failed that test since importing was open to anyone. Pre-numbered-paragraph judgment: used descriptive keys (facts/objection1/objection2/test/application/holding), same convention as Costa v ENEL/Kampffmeyer/Meroni. Holistic cross-links IBM/Inuit Tapiriit Kanatami/Microban (all live); converted four case-link-pending forward references to Plaumann already sitting in Microban's holistic text (EN/FR/DE/IT) into real jumpToCase links.
 
-**44 of 81 remain after Plaumann**, starting with **Poirrez**, through **van Delft**.
+- [x] Koua Poirrez v France — Application No. 40892/98 — CourEDH — ECHR / Convention rights [legacy: Non-discrimination] — commit `ba316a4`. Verified via the ECtHR Registry's own official Case-Law Information Note No. 56 (direct HUDOC full-text fetch returned only the page title). France refused a disability allowance to a lawfully resident Ivorian national purely for lack of a reciprocity agreement with Ivory Coast — a rule the CJEU had already upheld as compatible with EU law — but the ECtHR found a violation of Article 14 + Article 1 Protocol 1 (6-1), no violation of Article 6§1 (unanimous). Keys facts/admissibility/merits/article6, one general key. Holistic cross-links Micheletti/Martínez Sala (both live).
+
+**43 of 81 remain after Poirrez**, starting with **Poplawski**, through **van Delft**.
 
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.

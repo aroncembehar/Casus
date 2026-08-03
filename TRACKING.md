@@ -230,7 +230,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Parlement c. Conseil (révision par voie coutumière)** — AG — Révision des traités / Kompetenz ⚠️ — done as Parliament v Council (Edicom), Case C-271/94, jurisdiction corrected to CJCE (commit `81567f0`)
 - [x] **Peterbroeck** — CJCE — Renvoi préjudiciel — done (commit `63acbea`)
 - [x] **Plaumann** — CJCE — Recours en annulation — done (commit `0e64223`)
-- [ ] **Poirrez** — CourEDH — CEDH / Droits CEDH
+- [x] **Poirrez** — CourEDH — CEDH / Droits CEDH — done (commit `ba316a4`)
 - [ ] **Poplawski** — CJUE — Mise en œuvre / autonomie procédurale ⚠️
 - [ ] **Poulsen et Opel Austria** — CJCE — Relations extérieures / DI
 - [ ] **Preston** — CJCE — Mise en œuvre / autonomie procédurale
