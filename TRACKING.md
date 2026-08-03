@@ -227,7 +227,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Otis** — CJUE — Droits fondamentaux — done (commit `c0c79dd`)
 - [x] **Palmisani** — CJCE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — done (commit `9df1dc9`)
 - [x] **Parlement c. Conseil (double base juridique)** — CJCE — Compétences / base juridique, Procédures législatives, Équilibre institutionnel ⚠️ — done as Parliament v Council (Chernobyl), Case C-70/88 (commit `f2b6e8a`)
-- [ ] **Parlement c. Conseil (révision par voie coutumière)** — AG — Révision des traités / Kompetenz ⚠️
+- [x] **Parlement c. Conseil (révision par voie coutumière)** — AG — Révision des traités / Kompetenz ⚠️ — done as Parliament v Council (Edicom), Case C-271/94, jurisdiction corrected to CJCE (commit `81567f0`)
 - [ ] **Peterbroeck** — CJCE — Renvoi préjudiciel
 - [ ] **Plaumann** — CJCE — Recours en annulation
 - [ ] **Poirrez** — CourEDH — CEDH / Droits CEDH
