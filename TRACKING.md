@@ -239,8 +239,8 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Publicité sur le tabac I (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️ — done as Case C-376/98, jurisdiction corrected to CJCE (commit `79406be`)
 - [x] **Publicité sur le tabac II (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️ — done as Case C-380/03, jurisdiction corrected to CJCE (commit `79406be`)
 - [x] **Pupino** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — done (commit `97844fb`)
-- [ ] **Racke** — CJCE — Relations extérieures / DI
-- [ ] **Ratti** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel
+- [x] **Racke** — CJCE — Relations extérieures / DI — done (commit `9b8941e`)
+- [x] **Ratti** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — done (commit `bad4ad4`)
 - [ ] **Razzouk** — CJUE — Recours en annulation
 - [ ] **Rewe-Zentralfinanz** — CJCE — Mise en œuvre / autonomie procédurale
 - [ ] **Roquette** — CJCE — Équilibre institutionnel, Procédures législatives
