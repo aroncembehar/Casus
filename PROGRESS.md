@@ -340,7 +340,9 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 - [x] Koua Poirrez v France — Application No. 40892/98 — CourEDH — ECHR / Convention rights [legacy: Non-discrimination] — commit `ba316a4`. Verified via the ECtHR Registry's own official Case-Law Information Note No. 56 (direct HUDOC full-text fetch returned only the page title). France refused a disability allowance to a lawfully resident Ivorian national purely for lack of a reciprocity agreement with Ivory Coast — a rule the CJEU had already upheld as compatible with EU law — but the ECtHR found a violation of Article 14 + Article 1 Protocol 1 (6-1), no violation of Article 6§1 (unanimous). Keys facts/admissibility/merits/article6, one general key. Holistic cross-links Micheletti/Martínez Sala (both live).
 
-**43 of 81 remain after Poirrez**, starting with **Poplawski**, through **van Delft**.
+- [x] Poplawski II — Case C-573/17 — CJUE — Legal order / primacy / direct effect, Implementation / procedural autonomy — commit `888a222`. Resolves the Poplawski I/II Ambiguity Log entry: picked Poplawski II per the guidance's own "primacy-of-EU-law point" hint, since it is the case that actually decides whether primacy requires disapplying national law conflicting with a framework decision lacking direct effect (answer: no — consistent interpretation instead, short of contra legem). Verified via structured WebFetch summary (CELEX:62017CJ0573), full paragraph breakdown. Keys facts/general/primacy/framework/conforming/application/declaration. Holistic cross-links Kolpinghuis Nijmegen/Marleasing (both live).
+
+**42 of 81 remain after Poplawski**, starting with **Poulsen et Opel Austria**, through **van Delft**.
 
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
