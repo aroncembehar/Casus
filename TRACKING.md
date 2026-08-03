@@ -245,7 +245,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Rewe-Zentralfinanz** — CJCE — Mise en œuvre / autonomie procédurale — done, Case 33/76 (commit `f430493`)
 - [x] **Roquette** — CJCE — Équilibre institutionnel, Procédures législatives — resolved as a source-index duplicate of the already-authored **Isoglucose** row (`isoglucose`, Joined Cases 138/79 and 139/79, SA Roquette Frères and Maizena v Council, 29 October 1980): identical themes, and "Roquette" is simply this judgment's common French casebook name (vs. "Isoglucose" as its popular English-language nickname). No separate entry authored — see PROGRESS.md.
 - [x] **Rottmann** — CJUE — Citoyenneté / libre circulation ⚠️ — done, Case C-135/08, one merged entry combining AG Poiares Maduro's opinion and the Court's judgment per the Ambiguity Log guidance (commit `33ed75e`)
-- [ ] **Royaume-Uni c. Parlement et Conseil** — CJCE — Compétences / base juridique
+- [x] **Royaume-Uni c. Parlement et Conseil** — CJCE — Compétences / base juridique — done as United Kingdom v Parliament and Council (ENISA), Case C-217/04 (commit `a07b534`)
 - [ ] **Rutili** — CJCE — CEDH / Droits CEDH, Droits fondamentaux
 - [ ] **République Slovaque / Hongrie c. Conseil** — CJUE — Compétences / base juridique, Relations extérieures / DI
 - [ ] **Sayn-Wittgenstein** — CJUE — Citoyenneté / libre circulation, Identité constitutionnelle nationale

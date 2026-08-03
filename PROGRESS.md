@@ -372,6 +372,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **28 of 81 remain after Rottmann**, starting with **Royaume-Uni c. Parlement et Conseil**, through **van Delft**.
 
+- [x] United Kingdom v Parliament and Council (ENISA) — Case C-217/04 — CJCE (Grand Chamber, 2 May 2006) — Competences / legal basis — commit `a07b534`. Resolves the "Royaume-Uni c. Parlement et Conseil" TRACKING row. Verified via structured WebFetch summary (CELEX:62004CJ0217): whether Article 95 EC (internal-market harmonisation) could support a regulation creating a purely advisory agency (ENISA) rather than directly approximating national law — held yes, since the Court reads Article 95 EC to allow a Community body issuing non-binding measures provided its tasks are closely linked to instruments that do approximate national law (paras 42-45), and ENISA's tasks were closely tied to the Framework Directive and network-security directives in a fast-moving, technically complex field (paras 58-66). Keys facts/p1/p2/p9/general/p11/p12/p16/p17/p21/p42/p43/p44/p45/p47/p48/p58/p60/p61/p62/p63/p64/p65/p66/operative. Holistic contrasts with Tobacco Advertising I (live, opposite outcome on the same Article 95 EC question) and forward-references UK v Council and Parliament (C-270/12, short-selling/ESMA) as case-link-pending.
+
+**27 of 81 remain after ENISA**, starting with **Rutili**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
