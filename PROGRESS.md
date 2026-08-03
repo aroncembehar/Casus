@@ -354,7 +354,9 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 - [x] Tobacco Advertising I — Case C-376/98 — CJCE (corrected from TRACKING's CJUE — 2000, pre-Lisbon) — Competences / legal basis, Actions for annulment — commit `79406be`. Verified via structured WebFetch summary (CELEX:61998CJ0376). Directive 98/43's near-total tobacco ad/sponsorship ban annulled: Art. 100a can't be used to sidestep the Treaty's health-harmonisation exclusion, and most of the ban (posters, ashtrays, cinema ads) had no genuine trade-obstacle rationale; whole directive annulled since the Court can't sever it without rewriting it. Keys facts/general/health/standard/press/other/holding.
 - [x] Tobacco Advertising II — Case C-380/03 — CJCE (corrected from TRACKING's CJUE — 2006, pre-Lisbon) — Competences / legal basis, Actions for annulment — commit `79406be`. Verified via structured WebFetch summary (CELEX:62003CJ0380). Narrower replacement Directive 2003/33 (press/radio/info-society only, with a free-movement guarantee) upheld: genuine cross-border disparities existed, commercial-speech restriction proportionate. Keys facts/general/crossborder/expression/holding. Both cases cross-link each other as a matched pair.
 
-**35 of 81 remain after Tobacco Advertising I/II**, starting with **Pupino**, through **van Delft**.
+- [x] Criminal proceedings against Maria Pupino — Case C-105/03 — CJCE — Secondary law / legal acts, Legal order / primacy / direct effect — commit `97844fb`. Verified via structured WebFetch summary (CELEX:62003CJ0105). Extends consistent-interpretation duty from directives to framework decisions (Framework Decision 2001/220 on crime victims): Italian law's special protected-testimony procedure for child sexual-abuse victims had to be read, consistent with its own wording, to also cover child victims of physical abuse. Keys facts/general/jurisdiction/duty/limits/holding. Holistic cross-links Marleasing/Kolpinghuis Nijmegen/Poplawski II (all live).
+
+**34 of 81 remain after Pupino**, starting with **Racke**, through **van Delft**.
 
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.

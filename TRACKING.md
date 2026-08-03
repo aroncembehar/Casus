@@ -238,7 +238,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Promusica et T ; Arcelor** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — done as Promusicae v Telefónica de España, Case C-275/06 (commit `4c4d308`); "Arcelor" in this row's label is a duplicate of the separate Arcelor row above (line ~113, Batch A's half) and was not re-authored here — see PROGRESS.md for reasoning
 - [x] **Publicité sur le tabac I (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️ — done as Case C-376/98, jurisdiction corrected to CJCE (commit `79406be`)
 - [x] **Publicité sur le tabac II (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️ — done as Case C-380/03, jurisdiction corrected to CJCE (commit `79406be`)
-- [ ] **Pupino** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
+- [x] **Pupino** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — done (commit `97844fb`)
 - [ ] **Racke** — CJCE — Relations extérieures / DI
 - [ ] **Ratti** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel
 - [ ] **Razzouk** — CJUE — Recours en annulation
