@@ -228,7 +228,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Palmisani** — CJCE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — done (commit `9df1dc9`)
 - [x] **Parlement c. Conseil (double base juridique)** — CJCE — Compétences / base juridique, Procédures législatives, Équilibre institutionnel ⚠️ — done as Parliament v Council (Chernobyl), Case C-70/88 (commit `f2b6e8a`)
 - [x] **Parlement c. Conseil (révision par voie coutumière)** — AG — Révision des traités / Kompetenz ⚠️ — done as Parliament v Council (Edicom), Case C-271/94, jurisdiction corrected to CJCE (commit `81567f0`)
-- [ ] **Peterbroeck** — CJCE — Renvoi préjudiciel
+- [x] **Peterbroeck** — CJCE — Renvoi préjudiciel — done (commit `63acbea`)
 - [ ] **Plaumann** — CJCE — Recours en annulation
 - [ ] **Poirrez** — CourEDH — CEDH / Droits CEDH
 - [ ] **Poplawski** — CJUE — Mise en œuvre / autonomie procédurale ⚠️
