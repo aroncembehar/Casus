@@ -233,7 +233,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Poirrez** — CourEDH — CEDH / Droits CEDH — done (commit `ba316a4`)
 - [x] **Poplawski** — CJUE — Mise en œuvre / autonomie procédurale ⚠️ — done as Poplawski II, Case C-573/17 (commit `888a222`)
 - [x] **Poulsen et Opel Austria** — CJCE — Relations extérieures / DI — done as two cases: Poulsen and Diva Navigation Corp (C-286/90) and Opel Austria v Council (T-115/94) (commit `3ca490c`)
-- [ ] **Preston** — CJCE — Mise en œuvre / autonomie procédurale
+- [x] **Preston** — CJCE — Mise en œuvre / autonomie procédurale — done (commit `268fff8`)
 - [ ] **Pringle** — CJUE — Compétences / base juridique, Révision des traités / Kompetenz
 - [ ] **Promusica et T ; Arcelor** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale
 - [ ] **Publicité sur le tabac I (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️
