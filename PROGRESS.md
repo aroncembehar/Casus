@@ -347,7 +347,9 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 - [x] Preston and Others v Wolverhampton Healthcare NHS Trust — Case C-78/98 — CJCE — Implementation / procedural autonomy [legacy: Non-discrimination] — commit `268fff8`. Verified via structured WebFetch summary (CELEX:61998CJ0078). Three UK procedural limits on retroactive occupational-pension-scheme membership claims: a 6-month time limit (fine), a 2-year cap on recognised past service (precluded — limits substance not timing), and resetting the 6-month clock per short renewed contract in a really-continuous relationship (also precluded). Keys facts/general/sixmonth/twoyear/equivalence/successive. Holistic cross-links Palmisani (live).
 
-**39 of 81 remain after Preston**, starting with **Pringle**, through **van Delft**.
+- [x] Pringle v Government of Ireland — Case C-370/12 — CJUE — Competences / legal basis, Treaty revision / Kompetenz-Kompetenz — commit `f25fe31`. Verified via structured WebFetch summary (CELEX:62012CJ0370). Whether the simplified revision procedure validly enabled the ESM, and whether the ESM Treaty breached the no-bailout clause — held both valid: no new EU competence created (simplified procedure OK), and ESM's conditional-loan structure preserves state liability so doesn't breach Art. 125 TFEU; ESM is economic not monetary policy. Keys facts/general/jurisdiction/simplified/monetary/economic/nobailout/judicial/holding. Holistic cross-links OMT decision/Lisbon Treaty judgment (both live).
+
+**38 of 81 remain after Pringle**, starting with **Promusica et T ; Arcelor**, through **van Delft**.
 
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
