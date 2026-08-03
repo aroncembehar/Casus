@@ -326,6 +326,12 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 `git status` confirmed clean after committing Otis; nothing else mid-write.
 
+## ⏸ Resumed 2026-08-03 (new session), continuing the 49-case remainder
+
+- [x] Palmisani v INPS — Case C-261/95 — CJCE — Implementation / procedural autonomy, Non-contractual liability — commit `9df1dc9`. Verified via a full-text CVCE-hosted copy of the judgment (direct EUR-Lex fetch for CELEX:61995CJ0261 returned empty). Second-generation Francovich case: whether Italy's one-year limitation period for state-liability claims over its late transposition of Directive 80/987/EEC satisfies equivalence/effectiveness, given ordinary Italian damages claims get five years. Keys p9/p10/p12/p14/p24/p25/p26/p27/p28/p29/p34/p38/p39/p40, one general key. Holistic cross-links Francovich (live), forward-references Preston and Transportes Urbanos (both later in this queue) as case-link-pending. Note: the Write tool call that authored the scratchpad draft returned a spurious "file has not been read yet" error but the file was written anyway; before inserting it into casus.html, every paragraph citation was cross-checked against the CVCE full text and the pipeline was run (28/28 cite-tag balance, 15/15 key consistency in all four languages) to confirm the content was sound.
+
+**48 of 81 remain after Palmisani**, starting with **Parlement c. Conseil (double base juridique)**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
