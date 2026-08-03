@@ -243,7 +243,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Ratti** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — done (commit `bad4ad4`)
 - [x] **Razzouk** — CJUE — Recours en annulation — done (commit `df6e557`; jurisdiction corrected to CJCE, decided 20 March 1984, pre-Lisbon)
 - [x] **Rewe-Zentralfinanz** — CJCE — Mise en œuvre / autonomie procédurale — done, Case 33/76 (commit `f430493`)
-- [ ] **Roquette** — CJCE — Équilibre institutionnel, Procédures législatives
+- [x] **Roquette** — CJCE — Équilibre institutionnel, Procédures législatives — resolved as a source-index duplicate of the already-authored **Isoglucose** row (`isoglucose`, Joined Cases 138/79 and 139/79, SA Roquette Frères and Maizena v Council, 29 October 1980): identical themes, and "Roquette" is simply this judgment's common French casebook name (vs. "Isoglucose" as its popular English-language nickname). No separate entry authored — see PROGRESS.md.
 - [ ] **Rottmann** — CJUE — Citoyenneté / libre circulation ⚠️
 - [ ] **Royaume-Uni c. Parlement et Conseil** — CJCE — Compétences / base juridique
 - [ ] **Rutili** — CJCE — CEDH / Droits CEDH, Droits fondamentaux
