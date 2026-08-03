@@ -241,7 +241,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Pupino** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — done (commit `97844fb`)
 - [x] **Racke** — CJCE — Relations extérieures / DI — done (commit `9b8941e`)
 - [x] **Ratti** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — done (commit `bad4ad4`)
-- [ ] **Razzouk** — CJUE — Recours en annulation
+- [x] **Razzouk** — CJUE — Recours en annulation — done (commit `df6e557`; jurisdiction corrected to CJCE, decided 20 March 1984, pre-Lisbon)
 - [ ] **Rewe-Zentralfinanz** — CJCE — Mise en œuvre / autonomie procédurale
 - [ ] **Roquette** — CJCE — Équilibre institutionnel, Procédures législatives
 - [ ] **Rottmann** — CJUE — Citoyenneté / libre circulation ⚠️
