@@ -368,6 +368,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **29 of 81 remain after Roquette**, starting with **Rottmann**, through **van Delft**.
 
+- [x] Rottmann v Freistaat Bayern — Case C-135/08 — CJUE — Citizenship / free movement — commit `33ed75e`. Verified via direct EUR-Lex fetch (CELEX:62008CJ0135), full paragraph breakdown, plus a targeted German-language fetch for paras 42/43/45/51/54 (authentic procedural language — German fragments used as the primary DE citation text for those keys, rest flagged unofficial translation). Resolves the Ambiguity Log's dual-jurisdiction note: authored as one case entry combining AG Poiares Maduro's opinion and the Court's own judgment, since the Court's judgment is the binding holding. Core holding: withdrawing a naturalisation obtained by deception is not, in principle, precluded by EU law even where it causes loss of Union citizenship and statelessness (paras 51/54), but the withdrawal decision itself must satisfy proportionality (paras 55-58) — a question the Court left to the national court, and left Austria's own restoration duty as a hypothetical (paras 62-64). Keys facts/p22/p23/p25/p26/p28/general/p29/p35/general2/p39/p42/p43/p45/p51/p52/p54/p55/p56/p57/p58/p62/p64/general3. Converted Micheletti's four-language case-link-pending forward reference to Rottmann into a real jumpToCase link. Holistic forward-references Zambrano (later in this queue) as case-link-pending.
+
+**28 of 81 remain after Rottmann**, starting with **Royaume-Uni c. Parlement et Conseil**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
