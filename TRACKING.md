@@ -261,7 +261,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **T-Mobile et Vodafone** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — already live in casus.html (`vodafone`; jurisdiction corrected to CJUE, decided 8 June 2010, post-Lisbon)
 - [x] **TWD I** — CJCE — Procédures législatives, Recours en annulation — already live in casus.html (`twd`; second theme corrected to Preliminary reference)
 - [x] **Taricco II** — CJUE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — already live in casus.html (`taricco2`)
-- [ ] **Tas-Hagen et Tas** — CJUE — Citoyenneté / libre circulation ⚠️
+- [x] **Tas-Hagen et Tas** — CJUE — Citoyenneté / libre circulation ⚠️ — already live in casus.html (`tashagen`; jurisdiction corrected to CJCE, pre-Lisbon)
 - [ ] **Test-Achats** — CJUE — Droits fondamentaux, Recours en annulation
 - [ ] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle
 - [ ] **Trubowest** — CJUE — Responsabilité extracontractuelle

@@ -422,6 +422,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **16 of 81 remain after Taricco II**, starting with **Tas-Hagen et Tas**, through **van Delft**.
 
+- [x] Tas-Hagen and Tas v Raadskamer WUBO — Case C-192/05 — CJCE — Citizenship / free movement [legacy: Solidarity] — commit `5a71b13`. Ambiguity Log case, authored per prior guidance as its own single entry. Verified via a structured WebFetch summary quoting exact paragraph numbers, corroborated by a Schutze case-summary PDF. Extends Grzelczyk/Martinez Sala's logic to a home-state rather than host-state setting: the Netherlands' residence-at-application-date condition for a civilian-war-victims benefit restricted Article 18(1) EC; limiting solidarity to those with genuine ties to Dutch society was legitimate, but a residence snapshot tied to the application date was disproportionate. Keys facts/question/p19/p22/p28/p31/p35/p37/p39/p40, one general key. Corrected jurisdiction from CJUE to CJCE (26 October 2006, pre-Lisbon). Holistic cross-links Grzelczyk/Martinez Sala/Morgan and Bucher (all live). Converted 4 stale case-link-pending references (in Morgan and Bucher, all languages) into real jumpToCase links.
+
+**15 of 81 remain after Tas-Hagen et Tas**, starting with **Test-Achats**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
