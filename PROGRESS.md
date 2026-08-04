@@ -390,6 +390,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **24 of 81 remain after Sayn-Wittgenstein**, starting with **Schipani et autres c. Italie**, through **van Delft**.
 
+- [x] Schipani and Others v Italy — Application No. 38369/09 — CourEDH — ECHR / Convention rights, Preliminary reference — commit `db6e1e3`. Ambiguity Log case, resolved per prior guidance as the single "medici specializzandi" preliminary-reference-reasoning case (Dhahbi and Arlewin are the other session's half). Judgment of 21 July 2015 refining Dhahbi v Italy: Article 6 ECHR requires a court of last instance to make clear which CILFIT ground (irrelevance, acte éclairé, acte clair) it relied on when declining an Article 267 TFEU reference, not merely to discuss EU law in some form. No primary paragraph-numbered HUDOC text obtainable (direct fetch returned only the page header); verified via secondary academic case notes, flagged explicitly as the weakest-verified point. Descriptive keys facts/cassation/dhahbi/reasoning/holding/dissent, one general key. Holistic cross-links Köbler/Francovich (both live); forward-references Dhahbi v Italy (other session's half) as case-link-pending.
+
+**23 of 81 remain after Schipani**, starting with **Schmidberger**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
