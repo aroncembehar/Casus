@@ -277,5 +277,5 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Walonie** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale — commit `d213e55`
 - [x] **Winner Wetten** — CJUE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel — commit `214fcf0`
 - [x] **Zambrano** — CJUE — Citoyenneté / libre circulation — commit `a73b55f`
-- [ ] **Zuckerfabrik** — CJCE — Recours en annulation, Responsabilité extracontractuelle
+- [x] **Zuckerfabrik** — CJCE — Recours en annulation, Responsabilité extracontractuelle — commit `5623513`
 - [ ] **van Delft** — CJUE — Ordre juridique / primauté / effet direct

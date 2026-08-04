@@ -490,6 +490,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **2 of 81 remain after Zambrano**, through **van Delft**: Zuckerfabrik, van Delft.
 
+- [x] Aktien-Zuckerfabrik Schöppenstedt v Council — Case 5/71 — CJCE (2 December 1971) — Actions for annulment, Non-contractual liability — commit `5623513`. Verified via a structured WebFetch summary of the EUR-Lex judgment quoting exact paragraph numbers directly. Foundational non-contractual liability case: a damages action under Article 215(2) EEC is autonomous from an action for annulment under Article 173 EEC (not a disguised substitute for it), and liability for a legislative measure involving economic-policy choices requires a sufficiently serious breach of a superior rule of law protecting individuals -- the "Schöppenstedt formula." Keys facts/question/p3/p9/p11/p12/p13/p15, one general key. Holistic cross-links Plaumann, Kampffmeyer, Commission v Schneider Electric, and Trubowest (all live).
+
+**1 of 81 remains after Zuckerfabrik**: van Delft (the final case).
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
