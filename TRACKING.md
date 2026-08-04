@@ -251,7 +251,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Sayn-Wittgenstein** — CJUE — Citoyenneté / libre circulation, Identité constitutionnelle nationale — already live in casus.html (`saynwittgenstein`)
 - [x] **Schipani et autres c. Italie** — CourEDH — CEDH / Droits CEDH, Renvoi préjudiciel ⚠️ — already live in casus.html (`schipani`)
 - [x] **Schmidberger** — CJCE — Compétences / base juridique, Droits fondamentaux — already live in casus.html (`schmidberger`)
-- [ ] **Schneider Electric** — CJUE — Responsabilité extracontractuelle
+- [x] **Schneider Electric** — CJUE — Responsabilité extracontractuelle — already live in casus.html (`schneiderelectric`; jurisdiction corrected to CJCE, decided 16 July 2009, pre-Lisbon)
 - [ ] **Schrems** — CJUE — Droits fondamentaux, Recours en annulation
 - [ ] **Sevince** — CJCE — Droit dérivé / actes juridiques, Relations extérieures / DI
 - [x] **Simmenthal II** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct — already live in casus.html (`simmenthal-ii`)

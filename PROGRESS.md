@@ -398,6 +398,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **22 of 81 remain after Schmidberger**, starting with **Schneider Electric**, through **van Delft**.
 
+- [x] Commission v Schneider Electric — Case C-440/07 P — CJCE (Grand Chamber, 16 July 2009) — Non-contractual liability — commit `dcc767f`. Verified via the official EUR-Lex case-summary listing plus corroborating secondary sources (Lexology, WilmerHale, Mondaq); direct EUR-Lex fetch of the full text returned empty. Confirms the Commission's rights-of-defence breach in the Schneider/Legrand merger prohibition was sufficiently serious to found liability, but reverses the General Court on causation: Schneider's own mid-procedure sale of its Legrand shareholding broke the causal link for the largest damages head, leaving only reopened-procedure costs recoverable. Descriptive keys facts/prohibition/breach/sufficientlyserious/conditions/causation/reversal/upheld/quantum, one general key. Holistic cross-links Kampffmeyer/Meroni (both live). Caught and fixed a runaway straight-vs-curly German quotation regex over-match (spanning hundreds of lines and corrupting an onclick attribute) before the syntax check passed.
+
+**21 of 81 remain after Schneider Electric**, starting with **Schrems**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
