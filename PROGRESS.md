@@ -406,6 +406,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **20 of 81 remain after Schrems**, starting with **Sevince**, through **van Delft**.
 
+- [x] Sevince v Staatssecretaris van Justitie — Case C-192/89 — CJCE — Secondary law / legal acts, External relations / international law — commit `b080cb8`. Verified via a structured WebFetch summary quoting exact paragraph numbers (direct EUR-Lex fetch returned empty). Foundational EEC-Turkey Association Agreement case: Association Council decisions are directly connected to the Agreement and form an integral part of Community law, with direct effect under the Demirel test; non-publication does not bar invocation. "Legal employment" under Decisions 2/76 and 1/80 excludes years worked only because a since-dismissed appeal had suspensory effect. Keys facts/question/p8/p9/p11/p15/p17/p19/p22/p24/p25/p27/p30/p31/p32, one general key. Holistic cross-links International Fruit Company (live). Caught and fixed 5 straight-vs-curly German quotation marks before the syntax check passed.
+
+**19 of 81 remain after Sevince**, starting with **T-Mobile et Vodafone**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).

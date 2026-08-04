@@ -253,7 +253,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Schmidberger** — CJCE — Compétences / base juridique, Droits fondamentaux — already live in casus.html (`schmidberger`)
 - [x] **Schneider Electric** — CJUE — Responsabilité extracontractuelle — already live in casus.html (`schneiderelectric`; jurisdiction corrected to CJCE, decided 16 July 2009, pre-Lisbon)
 - [x] **Schrems** — CJUE — Droits fondamentaux, Recours en annulation — already live in casus.html (`schrems`; theme corrected to Preliminary reference, reached via Article 267 TFEU not a direct annulment action)
-- [ ] **Sevince** — CJCE — Droit dérivé / actes juridiques, Relations extérieures / DI
+- [x] **Sevince** — CJCE — Droit dérivé / actes juridiques, Relations extérieures / DI — already live in casus.html (`sevince`)
 - [x] **Simmenthal II** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct — already live in casus.html (`simmenthal-ii`)
 - [x] **Solange I** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️ — already live in casus.html (`solange-i`)
 - [x] **Solange II** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️ — already live in casus.html (`solange-ii`)
