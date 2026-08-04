@@ -264,7 +264,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Tas-Hagen et Tas** — CJUE — Citoyenneté / libre circulation ⚠️ — already live in casus.html (`tashagen`; jurisdiction corrected to CJCE, pre-Lisbon)
 - [x] **Test-Achats** — CJUE — Droits fondamentaux, Recours en annulation — already live in casus.html (`testachats`; second theme corrected to Preliminary reference)
 - [x] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — already live in casus.html (`transportesurbanos`)
-- [ ] **Trubowest** — CJUE — Responsabilité extracontractuelle
+- [x] **Trubowest** — CJUE — Responsabilité extracontractuelle — already live in casus.html (`trubowest`)
 - [ ] **Tyrer** — CourEDH — CEDH / Droits CEDH
 - [ ] **Unibet** — CJUE — Équilibre institutionnel, Renvoi préjudiciel ⚠️
 - [ ] **Van Duyn** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct, Renvoi préjudiciel

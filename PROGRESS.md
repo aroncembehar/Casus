@@ -434,6 +434,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **13 of 81 remain after Transportes Urbanos**, starting with **Trubowest**, through **van Delft**.
 
+- [x] Trubowest Handel and Makarov v Council and Commission — Case C-419/08 P — CJUE (18 March 2010) — Non-contractual liability — commit `ed2b5c8`. Verified via a structured WebFetch summary quoting exact paragraph numbers, corroborated by WebSearch results. Dismisses a non-contractual liability appeal from an anti-dumping customs dispute: national courts alone have jurisdiction over duty-repayment claims, a settlement cannot create EU-court jurisdiction, and the causal-link condition is entirely independent of the illegality condition, requiring a sufficiently direct causal nexus breakable by the claimant's own negligence or an intervening national decision. Keys facts/question/p23/p26/p40/p48/p53/p58/p59/p61/p67, one general key. Holistic cross-links Kampffmeyer, Meroni, and Commission v Schneider Electric (all live).
+
+**12 of 81 remain after Trubowest**, starting with **Tyrer**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
