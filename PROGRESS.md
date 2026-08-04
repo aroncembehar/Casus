@@ -478,6 +478,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **4 of 81 remain after Wachauf**, starting with **Walonie**, through **van Delft**.
 
+- [x] Inter-Environnement Wallonie ASBL v Région wallonne — Case C-129/96 — CJCE (18 December 1997) — Secondary law / legal acts, Implementation / procedural autonomy — commit `d213e55`. Resolves the "Walonie" TRACKING row. Verified via a structured WebFetch summary of the EUR-Lex judgment quoting exact paragraph numbers directly. Establishes the "standstill" doctrine between direct effect and consistent interpretation: even before a directive's transposition deadline passes, Member States must refrain from adopting measures liable seriously to compromise the result the directive prescribes; also holds a substance is not excluded from the definition of waste merely because it forms an integral part of an industrial process. Keys facts/question/p26/p27/p28/p29/p30/p41/p43/p45/p47/p48/p49, one general key. Holistic cross-links Ratti, Von Colson, and Van Duyn (all live). Caught and fixed a straight-vs-curly German quotation mark bug (around "Abfalls"/"sich entledigen") before the syntax check passed.
+
+**3 of 81 remain after Walonie**, starting with **Winner Wetten**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).

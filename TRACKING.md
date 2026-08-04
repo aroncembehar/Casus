@@ -274,7 +274,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Viking Line** — CJCE — Compétences / base juridique, Droits fondamentaux — commit `e0944c0`
 - [x] **Von Colson** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale — commit `4f17865`
 - [x] **Wachauf** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — commit `2f95a74`
-- [ ] **Walonie** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale
+- [x] **Walonie** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale — commit `d213e55`
 - [ ] **Winner Wetten** — CJUE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel
 - [ ] **Zambrano** — CJUE — Citoyenneté / libre circulation
 - [ ] **Zuckerfabrik** — CJCE — Recours en annulation, Responsabilité extracontractuelle
