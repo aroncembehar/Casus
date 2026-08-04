@@ -275,7 +275,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Von Colson** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale — commit `4f17865`
 - [x] **Wachauf** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — commit `2f95a74`
 - [x] **Walonie** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale — commit `d213e55`
-- [ ] **Winner Wetten** — CJUE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel
+- [x] **Winner Wetten** — CJUE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel — commit `214fcf0`
 - [ ] **Zambrano** — CJUE — Citoyenneté / libre circulation
 - [ ] **Zuckerfabrik** — CJCE — Recours en annulation, Responsabilité extracontractuelle
 - [ ] **van Delft** — CJUE — Ordre juridique / primauté / effet direct

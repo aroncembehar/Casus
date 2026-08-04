@@ -482,6 +482,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **3 of 81 remain after Walonie**, starting with **Winner Wetten**, through **van Delft**.
 
+- [x] Winner Wetten GmbH v Bürgermeisterin der Stadt Bergheim — Case C-409/06 — CJUE (Grand Chamber, 8 September 2010) — Legal order / primacy / direct effect, Implementation / procedural autonomy, Preliminary reference — commit `214fcf0`. Verified via a structured WebFetch summary of the EUR-Lex judgment quoting exact paragraph numbers directly. Even though Germany's own Bundesverfassungsgericht found a sports-betting monopoly unconstitutional but let it keep operating under a domestic transitional arrangement, primacy of Union law meant a national court could not analogously let that same monopoly's incompatibility with the freedom of establishment and freedom to provide services continue during any transitional period. Keys facts/question/p53/p54/p60/p61/p65/p66/p67/p68, one general key. Added "Legal order / primacy / direct effect" as a third theme alongside TRACKING's two, since primacy is squarely the case's central holding. Holistic cross-links Simmenthal II, the Lisbon Treaty judgment, and the OMT decision (all live).
+
+**3 of 81 remain after Winner Wetten**, through **van Delft**: Zambrano, Zuckerfabrik, van Delft.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
