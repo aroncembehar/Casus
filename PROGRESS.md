@@ -470,6 +470,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **6 of 81 remain after Viking Line**, starting with **Von Colson**, through **van Delft**.
 
+- [x] Von Colson and Kamann v Land Nordrhein-Westfalen — Case 14/83 — CJCE (10 April 1984) — Secondary law / legal acts, Implementation / procedural autonomy [legacy: Non-discrimination] — commit `4f17865`. Verified via a structured WebFetch summary of the EUR-Lex judgment quoting exact paragraph numbers directly. Foundational consistent-interpretation case: the Equal Treatment Directive does not require a specific sanction like forced hiring for sex-discriminatory rejection, and its remedy provisions are not directly effective, but national courts must interpret national law, so far as their own discretion allows, to achieve the directive's purpose so that compensation is genuinely dissuasive rather than merely nominal. Keys facts/question/p18/p19/p22/p23/p24/p25/p26/p27/p28, two general keys. Holistic cross-links Van Duyn, Ratti, and Kolpinghuis Nijmegen (all live). Converted 8 stale case-link-pending references (4 in Ratti, 4 in Van Duyn, all languages, several with localized title text) into real jumpToCase links.
+
+**5 of 81 remain after Von Colson**, starting with **Wachauf**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
