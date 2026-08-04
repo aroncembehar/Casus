@@ -430,6 +430,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **14 of 81 remain after Test-Achats**, starting with **Transportes Urbanos**, through **van Delft**.
 
+- [x] Transportes Urbanos y Servicios Generales — Case C-118/08 — CJUE (Grand Chamber, 26 January 2010) — Implementation / procedural autonomy, Non-contractual liability — commit `69b777c`. Verified via a structured WebFetch summary quoting exact paragraph numbers, corroborated by WebSearch results. Equivalence-principle case: a Spanish rule requiring prior exhaustion of remedies for an EU-law-based state-liability claim, but not for an otherwise identical claim based on breach of the Constitution, breached equivalence, the two actions sharing exactly the same purpose and differing only in which court establishes the underlying breach. Keys facts/question/p33/p36/p43/holding, one general key. Holistic cross-links Palmisani, Rewe-Zentralfinanz, and Preston (all live). Converted 8 stale case-link-pending references (4 in Palmisani, 4 in Rewe-Zentralfinanz, all languages) into real jumpToCase links. Caught and fixed 2 straight-vs-curly German quotation marks before the syntax check passed.
+
+**13 of 81 remain after Transportes Urbanos**, starting with **Trubowest**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).

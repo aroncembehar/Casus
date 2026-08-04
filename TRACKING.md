@@ -263,7 +263,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Taricco II** — CJUE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — already live in casus.html (`taricco2`)
 - [x] **Tas-Hagen et Tas** — CJUE — Citoyenneté / libre circulation ⚠️ — already live in casus.html (`tashagen`; jurisdiction corrected to CJCE, pre-Lisbon)
 - [x] **Test-Achats** — CJUE — Droits fondamentaux, Recours en annulation — already live in casus.html (`testachats`; second theme corrected to Preliminary reference)
-- [ ] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle
+- [x] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — already live in casus.html (`transportesurbanos`)
 - [ ] **Trubowest** — CJUE — Responsabilité extracontractuelle
 - [ ] **Tyrer** — CourEDH — CEDH / Droits CEDH
 - [ ] **Unibet** — CJUE — Équilibre institutionnel, Renvoi préjudiciel ⚠️
