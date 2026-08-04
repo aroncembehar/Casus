@@ -270,7 +270,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Van Duyn** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct, Renvoi préjudiciel — already live in casus.html (`vanduyn`)
 - [x] **Van Gend & Loos (26/62, 1963)** — CJCE — Compétences / base juridique, Ordre juridique / primauté / effet direct — already live in casus.html (`vangend`)
 - [x] **Van Landewyck** — CJCE — Recours en annulation — done (commit `c3f1bdb`)
-- [ ] **Variola** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
+- [x] **Variola** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — commit `b437a92`
 - [ ] **Viking Line** — CJCE — Compétences / base juridique, Droits fondamentaux
 - [ ] **Von Colson** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale
 - [ ] **Wachauf** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale

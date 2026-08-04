@@ -460,6 +460,12 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 `git status` confirmed clean after committing Van Landewyck; nothing else mid-write.
 
+## ▶ Resumed 2026-08-05, final 9-case stretch
+
+- [x] Fratelli Variola v Amministrazione delle Finanze dello Stato — Case 34/73 — CJCE (10 October 1973) — Secondary law / legal acts, Legal order / primacy / direct effect [legacy: Market freedoms] — commit `b437a92`. Verified via a structured WebFetch summary of the EUR-Lex HTML judgment text quoting exact paragraph numbers directly (direct fetch of the PDF version returned only binary/encoded content). Foundational regulation-direct-applicability case: an Italian unloading charge on imported cereals fell within the prohibition on charges having an effect equivalent to a customs duty; a Member State's own legislative reproduction of a Community regulation's content cannot affect its directly applicable Community character, and a Member State cannot unilaterally vary the date a Community rule takes effect. Keys facts/question/p3/p6/p8/p10/p13/p15, one general key. Holistic cross-links Costa v ENEL, International Fruit Company, and Simmenthal II (all live) — Simmenthal II shares the same Italian defendant.
+
+**7 of 81 remain after Variola**, starting with **Viking Line**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
