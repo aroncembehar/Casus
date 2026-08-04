@@ -386,6 +386,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **25 of 81 remain after Slovak Republic and Hungary v Council**, starting with **Sayn-Wittgenstein**, through **van Delft**.
 
+- [x] Sayn-Wittgenstein v Landeshauptmann von Wien — Case C-208/09 — CJUE — Citizenship / free movement, National constitutional identity — commit `7e692fb`. Verified via a structured WebFetch summary quoting exact paragraph numbers (direct EUR-Lex fetch returned empty). First case expressly grounding a Treaty-freedom restriction in a member state's constitutional identity under Article 4(2) TEU: Austria's refusal to recognise the noble element of a citizen's surname (lawfully acquired via adult adoption in Germany) restricted Article 21 TFEU but was proportionate given Austria's constitutional abolition of nobility as part of its Republic identity. Keys facts/question/p52/p53/p54/p63/p65/p69/p71/p81/p86/p87/p88/p89/p90/p91/p92/p93/p94/p95, one general key. Holistic cross-links Omega/Michaniki/Lisbon Treaty judgment/Rottmann (all live). Caught and fixed a straight-vs-curly German quotation mark bug before the syntax check passed.
+
+**24 of 81 remain after Sayn-Wittgenstein**, starting with **Schipani et autres c. Italie**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).

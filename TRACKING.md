@@ -248,7 +248,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Royaume-Uni c. Parlement et Conseil** — CJCE — Compétences / base juridique — done as United Kingdom v Parliament and Council (ENISA), Case C-217/04 (commit `a07b534`)
 - [x] **Rutili** — CJCE — CEDH / Droits CEDH, Droits fondamentaux — already live in casus.html (`rutili`)
 - [x] **République Slovaque / Hongrie c. Conseil** — CJUE — Compétences / base juridique, Relations extérieures / DI — already live in casus.html (`slovakiahungary`)
-- [ ] **Sayn-Wittgenstein** — CJUE — Citoyenneté / libre circulation, Identité constitutionnelle nationale
+- [x] **Sayn-Wittgenstein** — CJUE — Citoyenneté / libre circulation, Identité constitutionnelle nationale — already live in casus.html (`saynwittgenstein`)
 - [ ] **Schipani et autres c. Italie** — CourEDH — CEDH / Droits CEDH, Renvoi préjudiciel ⚠️
 - [ ] **Schmidberger** — CJCE — Compétences / base juridique, Droits fondamentaux
 - [ ] **Schneider Electric** — CJUE — Responsabilité extracontractuelle
