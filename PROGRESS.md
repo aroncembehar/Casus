@@ -450,6 +450,16 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **9 of 81 remain after Van Duyn**, starting with **Van Landewyck**, through **van Delft**.
 
+- [x] Van Landewyck v Commission — Joined Cases 209 to 215 and 218/78 — CJCE — Actions for annulment — commit `c3f1bdb`. FEDETAB and Belgian-Luxembourg tobacco manufacturers/importers fined by the Commission over a cigarette-distribution recommendation restricting competition; addressed both the rights-of-defence complaint and whether a non-binding recommendation can still fall within Article 85(1) EEC. This case had already passed its full verification pipeline (23/23 cite-tag balance, zero missing citation keys in all four languages) in the prior session before an infrastructure failure (dropped API connection) interrupted it right before the commit step — the coordinating session re-verified it independently and committed it.
+
+## ⏸ STOPPED HERE — 2026-08-05, Batch B 81-case queue, 72/81 done
+
+**8 of 81 remain after Van Landewyck**, starting with **Variola**, through **van Delft**: Variola, Viking Line, Von Colson, Wachauf, Walonie, Winner Wetten, Zambrano, Zuckerfabrik, van Delft.
+
+(That's 9 names, not 8 — PROGRESS.md's own running count says 8 remain; treat TRACKING.md's checklist as the authoritative source if there's any discrepancy when resuming.)
+
+`git status` confirmed clean after committing Van Landewyck; nothing else mid-write.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
