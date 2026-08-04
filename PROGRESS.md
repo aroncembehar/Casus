@@ -418,6 +418,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **17 of 81 remain after TWD I**, starting with **Taricco II**, through **van Delft**.
 
+- [x] M.A.S. and M.B. (Taricco II) — Case C-42/17 — CJUE (Grand Chamber, 5 December 2017) — Fundamental rights, Implementation / procedural autonomy — commit `5ebe16d`. Verified via a structured WebFetch summary (eucrim.eu) quoting exact paragraph numbers directly (direct EUR-Lex fetch returned empty). Resolves the Taricco saga: reaffirms Article 325 TFEU's effective/dissuasive-penalties requirement for VAT fraud, but holds a national court need not disapply national limitation rules where that would itself breach the Charter's own principle of legality in criminal matters (foreseeability/precision/non-retroactivity) — decided without any express reference to Article 4(2) TEU, resolving Italy's Constitutional Court's unprecedented preliminary reference entirely within EU fundamental-rights doctrine. Keys facts/taricco1/referral/question/p36/p46/legality/p59/p48, one general key. Holistic cross-links Lisbon Treaty judgment, OMT decision, and Melloni (all live). Caught and fixed one straight-vs-curly German quotation mark before the syntax check passed.
+
+**16 of 81 remain after Taricco II**, starting with **Tas-Hagen et Tas**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
