@@ -466,6 +466,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **7 of 81 remain after Variola**, starting with **Viking Line**, through **van Delft**.
 
+- [x] International Transport Workers' Federation and Finnish Seamen's Union v Viking Line ABP — Case C-438/05 — CJCE (Grand Chamber, 11 December 2007) — Competences / legal basis, Fundamental rights [legacy: Collective action vs. economic liberty] — commit `e0944c0`. Verified via a structured WebFetch summary of the EUR-Lex judgment quoting exact paragraph numbers directly. Collective action to stop a ferry reflagging to another Member State falls within Article 43 EC; the right to strike is a fundamental right but does not remove conduct from the Treaty's scope, only enters at the justification stage; Article 43 has horizontal direct effect against a trade union; the action restricted freedom of establishment but could in principle be justified by protection of workers, subject to a national-court proportionality check. Keys facts/question/p33/p37/p40/p43/p44/p47/p51/p57/p66/p72/p74/p76/p87/p89, one general key. Holistic cross-links Laval un Partneri, Schmidberger, and Omega (all live). Converted 8 stale case-link-pending references (4 in Nold, 4 in Omega, all languages) into real jumpToCase links.
+
+**6 of 81 remain after Viking Line**, starting with **Von Colson**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
