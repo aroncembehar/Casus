@@ -410,6 +410,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **19 of 81 remain after Sevince**, starting with **T-Mobile et Vodafone**, through **van Delft**.
 
+- [x] Vodafone and Others v Secretary of State — Case C-58/08 — CJUE (Grand Chamber, 8 June 2010) — Secondary law / legal acts, Preliminary reference — commit `871c3de`. Resolves "T-Mobile et Vodafone": Vodafone, Telefonica O2, Orange and T-Mobile jointly challenged UK measures implementing the EU Roaming Regulation 717/2007. Verified via structured WebFetch summaries and WebSearch results quoting exact paragraph numbers directly (direct EUR-Lex fetch returned empty). Confirms Article 95 EC supports retail (not just wholesale) roaming price regulation, restates the "manifestly inappropriate" deferential proportionality standard, and treats wholesale/retail-charge interdependence as justifying regulating both together. Keys facts/question/p32/p33/p34/discretion/interdependence/p68/p69/subsidiarity, one general key. Holistic cross-links United Kingdom v Parliament and Council (ENISA), already live. Caught and fixed 4 straight-vs-curly German quotation marks before the syntax check passed.
+
+**18 of 81 remain after Vodafone/T-Mobile**, starting with **TWD I**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).

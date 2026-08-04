@@ -258,7 +258,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Solange I** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️ — already live in casus.html (`solange-i`)
 - [x] **Solange II** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️ — already live in casus.html (`solange-ii`)
 - [x] **Stauder** — CJCE — Droits fondamentaux — already live in casus.html (`stauder`)
-- [ ] **T-Mobile et Vodafone** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel
+- [x] **T-Mobile et Vodafone** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — already live in casus.html (`vodafone`; jurisdiction corrected to CJUE, decided 8 June 2010, post-Lisbon)
 - [ ] **TWD I** — CJCE — Procédures législatives, Recours en annulation
 - [ ] **Taricco II** — CJUE — Droits fondamentaux, Mise en œuvre / autonomie procédurale
 - [ ] **Tas-Hagen et Tas** — CJUE — Citoyenneté / libre circulation ⚠️
