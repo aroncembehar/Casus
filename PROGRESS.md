@@ -382,6 +382,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **26 of 81 remain after Rutili**, starting with **République Slovaque / Hongrie c. Conseil**, through **van Delft**.
 
+- [x] Slovak Republic and Hungary v Council — Joined Cases C-643/15 and C-647/15 — CJUE (Grand Chamber, 6 September 2017) — Competences / legal basis, External relations / international law [legacy: Solidarity] — commit `127b60b`. Resolves the "République Slovaque / Hongrie c. Conseil" TRACKING row. Verified via a structured WebFetch summary quoting exact paragraph numbers (direct EUR-Lex fetch returned empty). Dismissed both states' challenge to the 2015 mandatory asylum-relocation quotas (Decision 2015/1601): confirms Article 78(3) TFEU's scope for provisional, non-legislative crisis measures able to derogate temporarily from Dublin III, applies a manifest-error proportionality standard, and treats Article 80 TFEU solidarity as binding rather than aspirational. Keys p77/p79/p246/p291/p304/p343, one general key. Holistic cross-links United Kingdom v Parliament and Council (ENISA), already live.
+
+**25 of 81 remain after Slovak Republic and Hungary v Council**, starting with **Sayn-Wittgenstein**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
