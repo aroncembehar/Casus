@@ -262,7 +262,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **TWD I** — CJCE — Procédures législatives, Recours en annulation — already live in casus.html (`twd`; second theme corrected to Preliminary reference)
 - [x] **Taricco II** — CJUE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — already live in casus.html (`taricco2`)
 - [x] **Tas-Hagen et Tas** — CJUE — Citoyenneté / libre circulation ⚠️ — already live in casus.html (`tashagen`; jurisdiction corrected to CJCE, pre-Lisbon)
-- [ ] **Test-Achats** — CJUE — Droits fondamentaux, Recours en annulation
+- [x] **Test-Achats** — CJUE — Droits fondamentaux, Recours en annulation — already live in casus.html (`testachats`; second theme corrected to Preliminary reference)
 - [ ] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle
 - [ ] **Trubowest** — CJUE — Responsabilité extracontractuelle
 - [ ] **Tyrer** — CourEDH — CEDH / Droits CEDH

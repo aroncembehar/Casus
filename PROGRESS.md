@@ -426,6 +426,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **15 of 81 remain after Tas-Hagen et Tas**, starting with **Test-Achats**, through **van Delft**.
 
+- [x] Test-Achats — Case C-236/09 — CJUE (Grand Chamber, 1 March 2011) — Fundamental rights, Preliminary reference [legacy: Non-discrimination] — commit `f32477d`. Verified via a structured WebFetch summary quoting exact paragraph numbers, corroborated by WebSearch results. Reached via a preliminary reference from Belgium's own Constitutional Court testing the validity of Article 5(2) of the Gender Directive 2004/113/EC: an indefinite derogation letting Member States permit sex-based insurance premiums works against the Directive's unisex-treatment objective and is incompatible with Charter Articles 21/23, invalid only from 21 December 2012 (transitional period, not immediate effect). Keys facts/referral/p17/p26/p30/p32/p33/p34, one general key. Corrected TRACKING's "Recours en annulation" tag to "Preliminary reference" (same correction as Schrems). Holistic cross-links Schrems (live).
+
+**14 of 81 remain after Test-Achats**, starting with **Transportes Urbanos**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
