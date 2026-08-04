@@ -250,7 +250,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **République Slovaque / Hongrie c. Conseil** — CJUE — Compétences / base juridique, Relations extérieures / DI — already live in casus.html (`slovakiahungary`)
 - [x] **Sayn-Wittgenstein** — CJUE — Citoyenneté / libre circulation, Identité constitutionnelle nationale — already live in casus.html (`saynwittgenstein`)
 - [x] **Schipani et autres c. Italie** — CourEDH — CEDH / Droits CEDH, Renvoi préjudiciel ⚠️ — already live in casus.html (`schipani`)
-- [ ] **Schmidberger** — CJCE — Compétences / base juridique, Droits fondamentaux
+- [x] **Schmidberger** — CJCE — Compétences / base juridique, Droits fondamentaux — already live in casus.html (`schmidberger`)
 - [ ] **Schneider Electric** — CJUE — Responsabilité extracontractuelle
 - [ ] **Schrems** — CJUE — Droits fondamentaux, Recours en annulation
 - [ ] **Sevince** — CJCE — Droit dérivé / actes juridiques, Relations extérieures / DI

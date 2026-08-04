@@ -394,6 +394,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **23 of 81 remain after Schipani**, starting with **Schmidberger**, through **van Delft**.
 
+- [x] Schmidberger v Austria — Case C-112/00 — CJCE — Competences / legal basis, Fundamental rights [legacy: Market freedoms] — commit `58b263d`. Verified via a full-text academic source (Utrecht Law Review, de Vries) quoting the judgment's own paragraphs directly (direct EUR-Lex fetch returned empty). Foundational balancing case: Austria's authorisation of the peaceful, single, time-limited Brenner motorway demonstration restricted free movement of goods but was proportionate given the demonstrators' own freedom of expression and assembly. Keys facts/question/restriction/p78/rights/p66/p81/discretion/factors/p89, one general key. Holistic cross-links Omega/Sayn-Wittgenstein/Laval un Partneri (all live). Converted 8 stale case-link-pending references to Schmidberger (4 in Laval, 4 in Omega, all languages) into real jumpToCase links. Caught and fixed a straight-vs-curly German quotation mark bug before the syntax check passed.
+
+**22 of 81 remain after Schmidberger**, starting with **Schneider Electric**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
