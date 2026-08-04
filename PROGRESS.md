@@ -486,6 +486,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **3 of 81 remain after Winner Wetten**, through **van Delft**: Zambrano, Zuckerfabrik, van Delft.
 
+- [x] Ruiz Zambrano v Office national de l'emploi (ONEm) — Case C-34/09 — CJUE (Grand Chamber, 8 March 2011) — Citizenship / free movement — commit `a73b55f`. Verified via a structured WebFetch summary of the EUR-Lex judgment quoting exact paragraph numbers directly. Marks the point at which Union citizenship stops depending on any cross-border element: Article 20 TFEU precludes national measures depriving Union citizens of the genuine enjoyment of the substance of their rights even in a wholly internal situation, so Belgium could not refuse Mr Ruiz Zambrano's residence and work-permit applications since that would force his Belgian-citizen children to leave Union territory altogether. Keys facts/question/p39/p40/p41/p42/p43/p44/p45, one general key. Holistic cross-links Martínez Sala, Grzelczyk, Tas-Hagen and Tas, and Rottmann (all live). Converted 8 stale case-link-pending references (4 in Morgan and Bucher, 4 in Rottmann, all languages) into real jumpToCase links.
+
+**2 of 81 remain after Zambrano**, through **van Delft**: Zuckerfabrik, van Delft.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
