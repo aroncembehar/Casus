@@ -442,6 +442,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **11 of 81 remain after Tyrer**, starting with **Unibet**, through **van Delft**.
 
+- [x] Unibet (London) Ltd v Justitiekanslern — Case C-432/05 — CJCE (Grand Chamber, 13 March 2007) — Institutional balance, Preliminary reference — commit `f9d9940`. Ambiguity Log case, authored per prior guidance as its own single entry (split from Opinion 1/09). Verified via a structured WebFetch summary quoting exact paragraph numbers, corroborated by WebSearch results. Effective judicial protection does not require a Member State to create a free-standing action to test a national provision's EU-law compatibility, provided that question can be resolved as a preliminary issue in some other effective, equivalent remedy; interim relief must nonetheless be available, even while the underlying action's own admissibility remains uncertain. Keys facts/question/p37/p38/p40/p41/p43/p44/p65/p72/p77/p83, one general key. Holistic cross-links Rewe-Zentralfinanz, Palmisani, Inuit Tapiriit Kanatami, and Les Verts (all live). Converted 8 stale case-link-pending references (in Inuit Tapiriit Kanatami and Les Verts, all languages) into real jumpToCase links.
+
+**10 of 81 remain after Unibet**, starting with **Van Duyn**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).

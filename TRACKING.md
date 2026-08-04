@@ -266,7 +266,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — already live in casus.html (`transportesurbanos`)
 - [x] **Trubowest** — CJUE — Responsabilité extracontractuelle — already live in casus.html (`trubowest`)
 - [x] **Tyrer** — CourEDH — CEDH / Droits CEDH — already live in casus.html (`tyrer`)
-- [ ] **Unibet** — CJUE — Équilibre institutionnel, Renvoi préjudiciel ⚠️
+- [x] **Unibet** — CJUE — Équilibre institutionnel, Renvoi préjudiciel ⚠️ — already live in casus.html (`unibet`; jurisdiction corrected to CJCE, decided 13 March 2007, pre-Lisbon)
 - [ ] **Van Duyn** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct, Renvoi préjudiciel
 - [x] **Van Gend & Loos (26/62, 1963)** — CJCE — Compétences / base juridique, Ordre juridique / primauté / effet direct — already live in casus.html (`vangend`)
 - [ ] **Van Landewyck** — CJCE — Recours en annulation
