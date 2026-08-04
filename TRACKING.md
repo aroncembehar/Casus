@@ -265,7 +265,7 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Test-Achats** — CJUE — Droits fondamentaux, Recours en annulation — already live in casus.html (`testachats`; second theme corrected to Preliminary reference)
 - [x] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — already live in casus.html (`transportesurbanos`)
 - [x] **Trubowest** — CJUE — Responsabilité extracontractuelle — already live in casus.html (`trubowest`)
-- [ ] **Tyrer** — CourEDH — CEDH / Droits CEDH
+- [x] **Tyrer** — CourEDH — CEDH / Droits CEDH — already live in casus.html (`tyrer`)
 - [ ] **Unibet** — CJUE — Équilibre institutionnel, Renvoi préjudiciel ⚠️
 - [ ] **Van Duyn** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct, Renvoi préjudiciel
 - [x] **Van Gend & Loos (26/62, 1963)** — CJCE — Compétences / base juridique, Ordre juridique / primauté / effet direct — already live in casus.html (`vangend`)

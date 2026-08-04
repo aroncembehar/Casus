@@ -438,6 +438,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **12 of 81 remain after Trubowest**, starting with **Tyrer**, through **van Delft**.
 
+- [x] Tyrer v United Kingdom — Application No. 5856/72 — CourEDH (25 April 1978) — ECHR / Convention rights — commit `5f5bb80`. Verified via WebSearch results and a Wikipedia case summary quoting specific paragraph numbers (direct HUDOC fetch returned only the page header). The case that coined the "living instrument" doctrine (para. 31). Held 6-1 that judicial birching of a 15-year-old on the Isle of Man was degrading punishment under Article 3, locating the degrading character in the institutionalised nature of the violence (para. 33) and the mental anguish of anticipating it during a several-week delay (para. 29), not the severity of physical injury. Keys facts/question/p29/p31/p33/holding, one general key. Caught and fixed one straight-vs-curly German quotation mark before the syntax check passed.
+
+**11 of 81 remain after Tyrer**, starting with **Unibet**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
