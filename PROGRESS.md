@@ -474,6 +474,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **5 of 81 remain after Von Colson**, starting with **Wachauf**, through **van Delft**.
 
+- [x] Wachauf v Bundesamt für Ernährung und Forstwirtschaft — Case 5/88 — CJCE (13 July 1989) — Fundamental rights, Implementation / procedural autonomy — commit `2f95a74`. Verified via a structured WebFetch summary of the EUR-Lex judgment quoting exact paragraph numbers directly. Extends the Nold fundamental-rights doctrine from the Community institutions to Member States themselves: fundamental rights bind Member States when implementing Community rules, though the rights are not absolute and yield to proportionate general-interest restrictions that do not impair their substance; a tenant farmer could not be left wholly uncompensated for milk-production capacity he had personally built up. Keys facts/question/p8/p11/p16/p17/p18/p19/p22, one general key. Holistic cross-links Nold, Åkerberg Fransson, Schmidberger, and Omega (all live). Caught and fixed a straight-vs-curly German quotation mark bug and a matching Italian straight-quote/guillemet issue (both around the quoted term "Betrieb"/"azienda") before the syntax check passed.
+
+**4 of 81 remain after Wachauf**, starting with **Walonie**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
