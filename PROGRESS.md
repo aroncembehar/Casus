@@ -376,6 +376,12 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **27 of 81 remain after ENISA**, starting with **Rutili**, through **van Delft**.
 
+## ⏸ Resumed 2026-08-04 (new session), continuing the 27-case remainder
+
+- [x] Rutili v Minister for the Interior — Case 36/75 — CJCE — ECHR / Convention rights, Fundamental rights [legacy: Worker's rights] — commit `f615687`. Verified via a full-text CVCE-hosted copy of the official ECR judgment report (direct EUR-Lex fetch returned empty, as usual for older cases). Authentic procedural language French; English ECR translation used as verified primary source, FR/DE/IT flagged unofficial in citation notes. One of the earliest CJEU references to the ECHR (Articles 8-11, para. 32), confirming how strictly the Article 48(3) EEC public-policy derogation from free movement must be read; also establishes the "genuine and sufficiently serious threat" personal-conduct test, Directive 64/221 procedural safeguards, and the equal-treatment rule for territorially limited residence bans. Keys facts/p8/p17/p18/p19/p21/p27/p28/p30/p31/p32/p37/p39/p41/p48/p50, one general key. Holistic cross-links Nold/Omega (both live); forward-references Van Duyn (later in this queue) as case-link-pending.
+
+**26 of 81 remain after Rutili**, starting with **République Slovaque / Hongrie c. Conseil**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
