@@ -414,6 +414,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **18 of 81 remain after Vodafone/T-Mobile**, starting with **TWD I**, through **van Delft**.
 
+- [x] TWD Textilwerke Deggendorf v Germany — Case C-188/92 — CJCE — Actions for annulment, Preliminary reference — commit `9a94827`. Verified via WebSearch results quoting the judgment's own facts and reasoning directly (direct EUR-Lex fetch returned empty). Founding statement of "the TWD doctrine": a person with undoubted standing for a direct Article 173 annulment action, expressly informed in writing of that right, cannot let the time limit lapse and then challenge the same decision's validity indirectly via a national court or preliminary reference, since that would defeat the decision's definitive character and undermine legal certainty. Descriptive keys facts/letter/question/standing/legalcertainty/holding, one general key. Holistic cross-links IBM v Commission, Plaumann v Commission, and Inuit Tapiriit Kanatami (all live). Corrected TRACKING's "Procédures législatives" tag to "Preliminary reference". Caught and fixed one straight-vs-curly German quotation mark before the syntax check passed.
+
+**17 of 81 remain after TWD I**, starting with **Taricco II**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
