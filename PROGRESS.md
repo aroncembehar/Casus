@@ -402,6 +402,10 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **21 of 81 remain after Schneider Electric**, starting with **Schrems**, through **van Delft**.
 
+- [x] Schrems v Data Protection Commissioner — Case C-362/14 — CJUE (Grand Chamber, 6 October 2015) — Fundamental rights, Preliminary reference — commit `7220150`. Verified via a full-text case note (EBU Legal Department) plus corroborating WebSearch results quoting specific paragraph numbers directly (direct EUR-Lex fetch returned empty). Invalidates the Commission's EU-US Safe Harbour adequacy decision: national supervisory authorities keep full independent power to examine a complaint despite a Commission adequacy decision (only the CJEU can invalidate it, per Foto-Frost), "adequate" means "essentially equivalent" protection, and US law's generalised surveillance access and lack of any legal remedy compromised the essence of Charter Articles 7 and 47. Keys facts/p41/p53/foto-frost/p73/p94/p95, one general key. Corrected TRACKING's "Recours en annulation" tag to "Preliminary reference" (Schrems reached the Court via an Article 267 TFEU validity reference, not a direct annulment action). Caught and fixed one straight-vs-curly German quotation mark before the syntax check passed.
+
+**20 of 81 remain after Schrems**, starting with **Sevince**, through **van Delft**.
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
