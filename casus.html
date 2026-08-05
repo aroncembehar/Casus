@@ -11035,11 +11035,16 @@ function escapeHtmlAttr(s){
 // can pop up on click or focus. Typing just filters the results below directly. This is the
 // simplest possible search bar: there is no separate autocomplete mechanism left that could ever
 // interfere with the browser's native handling of keystrokes in the field.
+//
+// No inline oninput="" attribute here on purpose: the listener is attached with a real
+// addEventListener directly on the element itself, once, right after it's inserted into the DOM
+// (see wireHomeSearchInputs, called from renderMain). data-filter-key carries which of the four
+// filters this particular input drives, so the wiring code doesn't need to parse it out of the id.
 function filterField(key,label,placeholder,big){
   const value = (window._filters && window._filters[key]) || '';
   return `<div class="filter-field${big?' big':''}">
     <label class="field-label">${label}</label>
-    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${escapeHtmlAttr(value)}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="onHomeSearchInput('${key}', this.value)">
+    <input id="filter-${key}" data-filter-key="${key}" type="text" placeholder="${placeholder}" value="${escapeHtmlAttr(value)}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
   </div>`;
 }
 // Debounced the same way any regular search-as-you-type box is (Google, GitHub, etc.): each
@@ -11053,6 +11058,17 @@ function onHomeSearchInput(key, value){
   window._filters[key] = value;
   clearTimeout(window._homeSearchTimers[key]);
   window._homeSearchTimers[key] = setTimeout(function(){ refreshHomeResults(); }, 150);
+}
+// Attaches the actual input listeners. Called once per Home render, directly on the four filter
+// inputs -- not delegated through document, and not relying on an inline HTML attribute handler.
+// Idempotent-safe to call multiple times on the same elements since renderHome() always creates
+// fresh <input> nodes (the search fields are never patched in place), so there's never a risk of
+// double-binding the same DOM node twice.
+function wireHomeSearchInputs(){
+  document.querySelectorAll('.filter-field input[data-filter-key]').forEach(function(el){
+    const key = el.getAttribute('data-filter-key');
+    el.addEventListener('input', function(){ onHomeSearchInput(key, el.value); });
+  });
 }
 function refreshHomeResults(){
   try{
@@ -11442,6 +11458,7 @@ function renderMain(){
     }
   }
   if(activeTab==='home'){
+    wireHomeSearchInputs();
     const catEl = document.getElementById('cat-mascot');
     if(window._catAnim){ window._catAnim.destroy(); window._catAnim=null; }
     if(catEl && window.lottie){
