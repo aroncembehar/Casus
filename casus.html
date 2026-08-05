@@ -11028,29 +11028,18 @@ function sectionCard(tab,title,desc){
 function normalizeForSearch(s){
   return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 }
-// Which fixed list (if any) a filter field's autocomplete suggestions are drawn from. Centralized
-// so the initial render and the later per-keystroke update (see updateHomeSearch) never disagree.
-function sourceListFor(key){
-  if(key==='name' || key==='related') return CASES.map(c=>c.name);
-  if(key==='theme') return THEMES.map(themeLabel);
-  return null; // 'keyword' has no fixed suggestion list
-}
 function escapeHtmlAttr(s){
   return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
-// A "regular search bar": a plain <input> wired to a native <datalist> for the fields that have a
-// fixed list of valid values (case name, theme, related-case). The browser owns the dropdown
-// entirely -- no suggestions <div> is rendered or patched by this app's own JS, so there is nothing
-// here that can ever interfere with the browser's own native handling of keystrokes in the field.
-function filterField(key,label,placeholder,sourceList,big){
+// A plain, bare <input> with no dropdown at all -- no <datalist>, no suggestions box, nothing that
+// can pop up on click or focus. Typing just filters the results below directly. This is the
+// simplest possible search bar: there is no separate autocomplete mechanism left that could ever
+// interfere with the browser's native handling of keystrokes in the field.
+function filterField(key,label,placeholder,big){
   const value = (window._filters && window._filters[key]) || '';
-  const listId = 'datalist-'+key;
-  const listAttr = sourceList ? ` list="${listId}"` : '';
-  const datalist = sourceList ? `<datalist id="${listId}">${sourceList.map(s=>`<option value="${escapeHtmlAttr(s)}">`).join('')}</datalist>` : '';
   return `<div class="filter-field${big?' big':''}">
     <label class="field-label">${label}</label>
-    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${escapeHtmlAttr(value)}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"${listAttr} oninput="onHomeSearchInput('${key}', this.value)">
-    ${datalist}
+    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${escapeHtmlAttr(value)}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="onHomeSearchInput('${key}', this.value)">
   </div>`;
 }
 // Debounced the same way any regular search-as-you-type box is (Google, GitHub, etc.): each
@@ -11092,7 +11081,8 @@ function computeResults(){
   }
   if(f.theme) results = results.filter(c=>c.themes.some(t=>normalizeForSearch(themeLabel(t)).includes(normalizeForSearch(f.theme))) || (c.legacyThemes||[]).some(t=>normalizeForSearch(legacyThemeLabel(t)).includes(normalizeForSearch(f.theme))));
   if(f.related){
-    const base = CASES.find(c=>normalizeForSearch(c.name)===normalizeForSearch(f.related));
+    const rq = normalizeForSearch(f.related);
+    const base = CASES.find(c=>normalizeForSearch(c.name)===rq) || CASES.find(c=>normalizeForSearch(c.name).includes(rq));
     if(base) results = results.filter(c=>c.id!==base.id && c.themes.some(t=>base.themes.includes(t)));
   }
   return results;
@@ -11120,13 +11110,13 @@ function renderHome(){
   return `<div class="hero"><div class="hero-rule"></div><p class="hero-sub">Start small. Become great.</p></div>
     <p class="progress-line">${s.mastered} mastered · ${s.started} in progress · ${s.notStarted} not started</p>
     <div class="search-row">
-      ${filterField('name','Case name','e.g. Rottmann', sourceListFor('name'), true)}
+      ${filterField('name','Case name','e.g. Rottmann', true)}
       <div id="cat-mascot" class="cat-mascot"></div>
     </div>
     <div class="filter-row">
-      ${filterField('keyword','Keywords','e.g. direct effect', sourceListFor('keyword'))}
-      ${filterField('theme','Key theme','e.g. citizenship', sourceListFor('theme'))}
-      ${filterField('related','Related to','e.g. Van Gend en Loos', sourceListFor('related'))}
+      ${filterField('keyword','Keywords','e.g. direct effect')}
+      ${filterField('theme','Key theme','e.g. citizenship')}
+      ${filterField('related','Related to','e.g. Van Gend en Loos')}
     </div>
     <div id="home-results">${renderHomeResults()}</div>`;
 }
