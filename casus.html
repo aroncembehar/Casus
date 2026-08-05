@@ -11555,7 +11555,17 @@ document.addEventListener('mouseup', function(e){
   // card -- even though the user just clicked a completely unrelated element like the search box.
   const clickTargetEl = e.target && e.target.nodeType===1 ? e.target : (e.target && e.target.parentElement);
   if(!clickTargetEl || !clickTargetEl.closest('.citable')){
-    window.getSelection().removeAllRanges();
+    // Root cause of the long-standing "can't type in any field" bug: clicking into an editable
+    // field (input/textarea/contenteditable) fires this same mouseup. window.getSelection() is
+    // also how the browser tracks the text-editing caret inside such fields, so calling
+    // removeAllRanges() here -- right as the browser is establishing that caret from the click --
+    // wiped it out. The field stayed focused (keydown/keyup fired fine) but had no valid insertion
+    // point left, so typed characters silently never landed. Only clear the selection for clicks
+    // on genuinely non-editable targets (buttons, nav, whitespace), where the original stale-
+    // selection protection above still applies and this has no effect on any caret.
+    if(!clickTargetEl.closest('input, textarea, [contenteditable]')){
+      window.getSelection().removeAllRanges();
+    }
     popup.style.display='none';
     return;
   }
