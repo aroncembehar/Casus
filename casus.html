@@ -11045,7 +11045,7 @@ function filterField(key,label,placeholder,sourceList,big){
   const value = (window._filters && window._filters[key]) || '';
   return `<div class="filter-field${big?' big':''}">
     <label class="field-label">${label}</label>
-    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${value}" oninput="updateHomeSearch('${key}', this.value)">
+    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${value}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="updateHomeSearch('${key}', this.value)">
     <div id="suggestions-${key}">${renderSuggestions(key, value, sourceList)}</div>
   </div>`;
 }
@@ -11242,17 +11242,32 @@ function computeWeekDays(offset){
   const monday = new Date(today); monday.setDate(today.getDate() - ((today.getDay()+6)%7) + offset*7);
   return [...Array(7)].map((_,i)=>{ const d=new Date(monday); d.setDate(monday.getDate()+i); return d; });
 }
+function weekCaseMatches(selKey, q0){
+  const q = normalizeForSearch(q0);
+  return q ? CASES.filter(c=>normalizeForSearch(c.name).includes(q) && !(state.weekCases[selKey]||[]).includes(c.id)).slice(0,5) : [];
+}
+function renderWeekCaseSuggestions(selKey, q0){
+  const matches = weekCaseMatches(selKey, q0);
+  return matches.length? `<div class="suggestions">${matches.map(c=>`<div class="suggestion" onclick="addWeekCase('${selKey}','${c.id}')">${c.name} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`).join('')}</div>` : '';
+}
+// Same never-touch-the-input principle as updateHomeSearch: only the suggestions dropdown is
+// refreshed, so this input can never lose focus to a re-render while the user is typing.
+function updateWeekCaseInput(selKey, value){
+  window._caseInput = value;
+  try{
+    const sEl = document.getElementById('week-case-suggestions');
+    if(sEl) sEl.innerHTML = renderWeekCaseSuggestions(selKey, value);
+  }catch(e){ console.error('renderWeekCaseSuggestions failed', e); }
+}
 function renderCaseAutocomplete(selKey){
-  const q = normalizeForSearch(window._caseInput);
   const tagged = (state.weekCases[selKey]||[]).map(id=>CASES.find(c=>c.id===id)).filter(Boolean);
-  const matches = q ? CASES.filter(c=>normalizeForSearch(c.name).includes(q) && !(state.weekCases[selKey]||[]).includes(c.id)).slice(0,5) : [];
   return `<div class="case-log">
     <div class="case-log-label">Cases studied</div>
     <div class="case-chips">${tagged.map(c=>`<span class="chip active">${c.name} <span onclick="removeWeekCase('${selKey}','${c.id}')" style="cursor:pointer;margin-left:4px;">✕</span></span>`).join('')}</div>
-    <input id="case-log-input" type="text" placeholder="Type a case name..." value="${window._caseInput||''}"
-      oninput="window._caseInput=this.value;renderMain()"
+    <input id="case-log-input" type="text" placeholder="Type a case name..." value="${window._caseInput||''}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+      oninput="updateWeekCaseInput('${selKey}', this.value)"
       onkeydown="if(event.key==='Enter'){handleCaseEnter('${selKey}')}">
-    ${matches.length? `<div class="suggestions">${matches.map(c=>`<div class="suggestion" onclick="addWeekCase('${selKey}','${c.id}')">${c.name} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`).join('')}</div>` : ''}
+    <div id="week-case-suggestions">${renderWeekCaseSuggestions(selKey, window._caseInput||'')}</div>
   </div>`;
 }
 function addWeekCase(dateKey, caseId){
@@ -11327,22 +11342,9 @@ function renderExamScope(ex){
     </div>`;
   }).join('');
 }
-function renderExamBlock(ex){
-  const count = ex.caseIds.length;
-  const query = (window._examInput && window._examInput[ex.id]) || '';
+function renderExamSuggestionsHtml(ex, query){
   const suggestions = examSuggestions(ex, query);
-  return `<div class="theme-block" style="margin-bottom:14px;">
-    <div class="theme-head">
-      <input type="text" value="${ex.name}" onchange="renameExam('${ex.id}',this.value)" style="border:none;background:transparent;font-family:'Averia Serif Libre',serif;color:var(--red);font-size:17px;padding:0;width:55%;">
-      <span style="display:flex;align-items:center;gap:12px;">
-        <span class="n">${count} case${count===1?'':'s'}</span>
-        <span onclick="deleteExam('${ex.id}')" style="cursor:pointer;color:var(--muted);">✕</span>
-      </span>
-    </div>
-    <div class="theme-body">
-      <div class="case-log">
-        <input id="exam-search-${ex.id}" type="text" placeholder="Add a subject or a case..." value="${query}" oninput="setExamInput('${ex.id}',this.value)">
-        ${suggestions.length? `<div class="suggestions">${suggestions.map(s=>{
+  return suggestions.length? `<div class="suggestions">${suggestions.map(s=>{
           if(s.type==='theme'){
             const themeKey = THEMES[s.idx];
             const cnt = CASES.filter(c=>c.themes.includes(themeKey) && !ex.caseIds.includes(c.id)).length;
@@ -11350,16 +11352,38 @@ function renderExamBlock(ex){
           }
           const c = CASES.find(x=>x.id===s.id);
           return `<div class="suggestion" onclick="addCaseToExamSearch('${ex.id}','${s.id}')">${c.name} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`;
-        }).join('')}</div>` : ''}
+        }).join('')}</div>` : '';
+}
+function renderExamBlock(ex){
+  const count = ex.caseIds.length;
+  const query = (window._examInput && window._examInput[ex.id]) || '';
+  return `<div class="theme-block" style="margin-bottom:14px;">
+    <div class="theme-head">
+      <input type="text" value="${ex.name}" onchange="renameExam('${ex.id}',this.value)" autocomplete="off" style="border:none;background:transparent;font-family:'Averia Serif Libre',serif;color:var(--red);font-size:17px;padding:0;width:55%;">
+      <span style="display:flex;align-items:center;gap:12px;">
+        <span class="n">${count} case${count===1?'':'s'}</span>
+        <span onclick="deleteExam('${ex.id}')" style="cursor:pointer;color:var(--muted);">✕</span>
+      </span>
+    </div>
+    <div class="theme-body">
+      <div class="case-log">
+        <input id="exam-search-${ex.id}" type="text" placeholder="Add a subject or a case..." value="${query}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="setExamInput('${ex.id}',this.value)">
+        <div id="exam-suggestions-${ex.id}">${renderExamSuggestionsHtml(ex, query)}</div>
       </div>
       <div style="margin-top:14px;">${renderExamScope(ex)}</div>
     </div>
   </div>`;
 }
+// Same never-touch-the-input principle as updateHomeSearch/updateWeekCaseInput -- only this one
+// exam's suggestions dropdown is refreshed, so the input never loses focus mid-typing.
 function setExamInput(examId, val){
   if(!window._examInput) window._examInput={};
   window._examInput[examId]=val;
-  renderMain();
+  try{
+    const ex = state.exams.find(e=>e.id===examId);
+    const sEl = document.getElementById('exam-suggestions-'+examId);
+    if(ex && sEl) sEl.innerHTML = renderExamSuggestionsHtml(ex, val);
+  }catch(e){ console.error('renderExamSuggestionsHtml failed', e); }
 }
 function addSubjectToExam(examId, themeIndex){
   const ex = state.exams.find(e=>e.id===examId); if(!ex) return;
