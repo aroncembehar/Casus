@@ -217,65 +217,65 @@ Format: `- [ ] name — jurisdiction — categories [+ legacy tags]`. Citations 
 - [x] **Meroni** — CJCE — Équilibre institutionnel, Recours en annulation — done (commit `b46569e`)
 - [x] **Michaniki** — CJCE (corrected from AG; Grand Chamber judgment 16 Dec 2008, pre-Lisbon) — Identité constitutionnelle nationale, Actes de droit dérivé — done (commit `231ff40`)
 - [x] **Michaud** — CourEDH — CEDH / Droits CEDH — done (commit `db62e62`)
-- [ ] **Micheletti** — CJCE — Citoyenneté / libre circulation
-- [ ] **Microban** — CJUE — Recours en annulation
-- [ ] **Morgan et Bucher** — CJUE — Citoyenneté / libre circulation ⚠️
-- [ ] **Mox** — CJCE — Recours en manquement, Relations extérieures / DI
-- [ ] **Nold** — CJCE — Droits fondamentaux
-- [ ] **OMT** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz
-- [ ] **Omega** — CJCE — Compétences / base juridique, Droits fondamentaux
-- [ ] **Otis** — CJUE — Droits fondamentaux
-- [ ] **Palmisani** — CJCE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle
-- [ ] **Parlement c. Conseil (double base juridique)** — CJCE — Compétences / base juridique, Procédures législatives, Équilibre institutionnel ⚠️
-- [ ] **Parlement c. Conseil (révision par voie coutumière)** — AG — Révision des traités / Kompetenz ⚠️
-- [ ] **Peterbroeck** — CJCE — Renvoi préjudiciel
-- [ ] **Plaumann** — CJCE — Recours en annulation
-- [ ] **Poirrez** — CourEDH — CEDH / Droits CEDH
-- [ ] **Poplawski** — CJUE — Mise en œuvre / autonomie procédurale ⚠️
-- [ ] **Poulsen et Opel Austria** — CJCE — Relations extérieures / DI
-- [ ] **Preston** — CJCE — Mise en œuvre / autonomie procédurale
-- [ ] **Pringle** — CJUE — Compétences / base juridique, Révision des traités / Kompetenz
-- [ ] **Promusica et T ; Arcelor** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale
-- [ ] **Publicité sur le tabac I (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️
-- [ ] **Publicité sur le tabac II (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️
-- [ ] **Pupino** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
-- [ ] **Racke** — CJCE — Relations extérieures / DI
-- [ ] **Ratti** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel
-- [ ] **Razzouk** — CJUE — Recours en annulation
-- [ ] **Rewe-Zentralfinanz** — CJCE — Mise en œuvre / autonomie procédurale
-- [ ] **Roquette** — CJCE — Équilibre institutionnel, Procédures législatives
-- [ ] **Rottmann** — CJUE — Citoyenneté / libre circulation ⚠️
-- [ ] **Royaume-Uni c. Parlement et Conseil** — CJCE — Compétences / base juridique
-- [ ] **Rutili** — CJCE — CEDH / Droits CEDH, Droits fondamentaux
-- [ ] **République Slovaque / Hongrie c. Conseil** — CJUE — Compétences / base juridique, Relations extérieures / DI
-- [ ] **Sayn-Wittgenstein** — CJUE — Citoyenneté / libre circulation, Identité constitutionnelle nationale
-- [ ] **Schipani et autres c. Italie** — CourEDH — CEDH / Droits CEDH, Renvoi préjudiciel ⚠️
-- [ ] **Schmidberger** — CJCE — Compétences / base juridique, Droits fondamentaux
-- [ ] **Schneider Electric** — CJUE — Responsabilité extracontractuelle
-- [ ] **Schrems** — CJUE — Droits fondamentaux, Recours en annulation
-- [ ] **Sevince** — CJCE — Droit dérivé / actes juridiques, Relations extérieures / DI
+- [x] **Micheletti** — CJCE — Citoyenneté / libre circulation — done (commit `910607a`)
+- [x] **Microban** — CJUE — Recours en annulation — done (commit `e5e2ca8`)
+- [x] **Morgan et Bucher** — CJUE — Citoyenneté / libre circulation ⚠️ — done (commit `a81e91b`; jurisdiction corrected to CJCE, decided 23 Oct 2007, pre-Lisbon)
+- [x] **Mox** — CJCE — Recours en manquement, Relations extérieures / DI — done (commit `e12c5ad`)
+- [x] **Nold** — CJCE — Droits fondamentaux — done (commit `3d0e7b3`, fix `16f6153`)
+- [x] **OMT** — BVerfGE — Identité constitutionnelle nationale, Révision des traités / Kompetenz — done (commit `9e0c497`)
+- [x] **Omega** — CJCE — Compétences / base juridique, Droits fondamentaux — done (commit `976cbf1`)
+- [x] **Otis** — CJUE — Droits fondamentaux — done (commit `c0c79dd`)
+- [x] **Palmisani** — CJCE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — done (commit `9df1dc9`)
+- [x] **Parlement c. Conseil (double base juridique)** — CJCE — Compétences / base juridique, Procédures législatives, Équilibre institutionnel ⚠️ — done as Parliament v Council (Chernobyl), Case C-70/88 (commit `f2b6e8a`)
+- [x] **Parlement c. Conseil (révision par voie coutumière)** — AG — Révision des traités / Kompetenz ⚠️ — done as Parliament v Council (Edicom), Case C-271/94, jurisdiction corrected to CJCE (commit `81567f0`)
+- [x] **Peterbroeck** — CJCE — Renvoi préjudiciel — done (commit `63acbea`)
+- [x] **Plaumann** — CJCE — Recours en annulation — done (commit `0e64223`)
+- [x] **Poirrez** — CourEDH — CEDH / Droits CEDH — done (commit `ba316a4`)
+- [x] **Poplawski** — CJUE — Mise en œuvre / autonomie procédurale ⚠️ — done as Poplawski II, Case C-573/17 (commit `888a222`)
+- [x] **Poulsen et Opel Austria** — CJCE — Relations extérieures / DI — done as two cases: Poulsen and Diva Navigation Corp (C-286/90) and Opel Austria v Council (T-115/94) (commit `3ca490c`)
+- [x] **Preston** — CJCE — Mise en œuvre / autonomie procédurale — done (commit `268fff8`)
+- [x] **Pringle** — CJUE — Compétences / base juridique, Révision des traités / Kompetenz — done (commit `f25fe31`)
+- [x] **Promusica et T ; Arcelor** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — done as Promusicae v Telefónica de España, Case C-275/06 (commit `4c4d308`); "Arcelor" in this row's label is a duplicate of the separate Arcelor row above (line ~113, Batch A's half) and was not re-authored here — see PROGRESS.md for reasoning
+- [x] **Publicité sur le tabac I (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️ — done as Case C-376/98, jurisdiction corrected to CJCE (commit `79406be`)
+- [x] **Publicité sur le tabac II (Allemagne c. Parlement et Conseil)** — CJUE — Compétences / base juridique, Recours en annulation ⚠️ — done as Case C-380/03, jurisdiction corrected to CJCE (commit `79406be`)
+- [x] **Pupino** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — done (commit `97844fb`)
+- [x] **Racke** — CJCE — Relations extérieures / DI — done (commit `9b8941e`)
+- [x] **Ratti** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — done (commit `bad4ad4`)
+- [x] **Razzouk** — CJUE — Recours en annulation — done (commit `df6e557`; jurisdiction corrected to CJCE, decided 20 March 1984, pre-Lisbon)
+- [x] **Rewe-Zentralfinanz** — CJCE — Mise en œuvre / autonomie procédurale — done, Case 33/76 (commit `f430493`)
+- [x] **Roquette** — CJCE — Équilibre institutionnel, Procédures législatives — resolved as a source-index duplicate of the already-authored **Isoglucose** row (`isoglucose`, Joined Cases 138/79 and 139/79, SA Roquette Frères and Maizena v Council, 29 October 1980): identical themes, and "Roquette" is simply this judgment's common French casebook name (vs. "Isoglucose" as its popular English-language nickname). No separate entry authored — see PROGRESS.md.
+- [x] **Rottmann** — CJUE — Citoyenneté / libre circulation ⚠️ — done, Case C-135/08, one merged entry combining AG Poiares Maduro's opinion and the Court's judgment per the Ambiguity Log guidance (commit `33ed75e`)
+- [x] **Royaume-Uni c. Parlement et Conseil** — CJCE — Compétences / base juridique — done as United Kingdom v Parliament and Council (ENISA), Case C-217/04 (commit `a07b534`)
+- [x] **Rutili** — CJCE — CEDH / Droits CEDH, Droits fondamentaux — already live in casus.html (`rutili`)
+- [x] **République Slovaque / Hongrie c. Conseil** — CJUE — Compétences / base juridique, Relations extérieures / DI — already live in casus.html (`slovakiahungary`)
+- [x] **Sayn-Wittgenstein** — CJUE — Citoyenneté / libre circulation, Identité constitutionnelle nationale — already live in casus.html (`saynwittgenstein`)
+- [x] **Schipani et autres c. Italie** — CourEDH — CEDH / Droits CEDH, Renvoi préjudiciel ⚠️ — already live in casus.html (`schipani`)
+- [x] **Schmidberger** — CJCE — Compétences / base juridique, Droits fondamentaux — already live in casus.html (`schmidberger`)
+- [x] **Schneider Electric** — CJUE — Responsabilité extracontractuelle — already live in casus.html (`schneiderelectric`; jurisdiction corrected to CJCE, decided 16 July 2009, pre-Lisbon)
+- [x] **Schrems** — CJUE — Droits fondamentaux, Recours en annulation — already live in casus.html (`schrems`; theme corrected to Preliminary reference, reached via Article 267 TFEU not a direct annulment action)
+- [x] **Sevince** — CJCE — Droit dérivé / actes juridiques, Relations extérieures / DI — already live in casus.html (`sevince`)
 - [x] **Simmenthal II** — CJCE — Mise en œuvre / autonomie procédurale, Ordre juridique / primauté / effet direct — already live in casus.html (`simmenthal-ii`)
 - [x] **Solange I** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️ — already live in casus.html (`solange-i`)
 - [x] **Solange II** — BVerfGE — Droits fondamentaux, Identité constitutionnelle nationale ⚠️ — already live in casus.html (`solange-ii`)
 - [x] **Stauder** — CJCE — Droits fondamentaux — already live in casus.html (`stauder`)
-- [ ] **T-Mobile et Vodafone** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel
-- [ ] **TWD I** — CJCE — Procédures législatives, Recours en annulation
-- [ ] **Taricco II** — CJUE — Droits fondamentaux, Mise en œuvre / autonomie procédurale
-- [ ] **Tas-Hagen et Tas** — CJUE — Citoyenneté / libre circulation ⚠️
-- [ ] **Test-Achats** — CJUE — Droits fondamentaux, Recours en annulation
-- [ ] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle
-- [ ] **Trubowest** — CJUE — Responsabilité extracontractuelle
-- [ ] **Tyrer** — CourEDH — CEDH / Droits CEDH
-- [ ] **Unibet** — CJUE — Équilibre institutionnel, Renvoi préjudiciel ⚠️
-- [ ] **Van Duyn** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct, Renvoi préjudiciel
+- [x] **T-Mobile et Vodafone** — CJCE — Droit dérivé / actes juridiques, Renvoi préjudiciel — already live in casus.html (`vodafone`; jurisdiction corrected to CJUE, decided 8 June 2010, post-Lisbon)
+- [x] **TWD I** — CJCE — Procédures législatives, Recours en annulation — already live in casus.html (`twd`; second theme corrected to Preliminary reference)
+- [x] **Taricco II** — CJUE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — already live in casus.html (`taricco2`)
+- [x] **Tas-Hagen et Tas** — CJUE — Citoyenneté / libre circulation ⚠️ — already live in casus.html (`tashagen`; jurisdiction corrected to CJCE, pre-Lisbon)
+- [x] **Test-Achats** — CJUE — Droits fondamentaux, Recours en annulation — already live in casus.html (`testachats`; second theme corrected to Preliminary reference)
+- [x] **Transportes Urbanos** — CJUE — Mise en œuvre / autonomie procédurale, Responsabilité extracontractuelle — already live in casus.html (`transportesurbanos`)
+- [x] **Trubowest** — CJUE — Responsabilité extracontractuelle — already live in casus.html (`trubowest`)
+- [x] **Tyrer** — CourEDH — CEDH / Droits CEDH — already live in casus.html (`tyrer`)
+- [x] **Unibet** — CJUE — Équilibre institutionnel, Renvoi préjudiciel ⚠️ — already live in casus.html (`unibet`; jurisdiction corrected to CJCE, decided 13 March 2007, pre-Lisbon)
+- [x] **Van Duyn** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct, Renvoi préjudiciel — already live in casus.html (`vanduyn`)
 - [x] **Van Gend & Loos (26/62, 1963)** — CJCE — Compétences / base juridique, Ordre juridique / primauté / effet direct — already live in casus.html (`vangend`)
-- [ ] **Van Landewyck** — CJCE — Recours en annulation
-- [ ] **Variola** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct
-- [ ] **Viking Line** — CJCE — Compétences / base juridique, Droits fondamentaux
-- [ ] **Von Colson** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale
-- [ ] **Wachauf** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale
-- [ ] **Walonie** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale
-- [ ] **Winner Wetten** — CJUE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel
-- [ ] **Zambrano** — CJUE — Citoyenneté / libre circulation
-- [ ] **Zuckerfabrik** — CJCE — Recours en annulation, Responsabilité extracontractuelle
-- [ ] **van Delft** — CJUE — Ordre juridique / primauté / effet direct
+- [x] **Van Landewyck** — CJCE — Recours en annulation — done (commit `c3f1bdb`)
+- [x] **Variola** — CJCE — Droit dérivé / actes juridiques, Ordre juridique / primauté / effet direct — commit `b437a92`
+- [x] **Viking Line** — CJCE — Compétences / base juridique, Droits fondamentaux — commit `e0944c0`
+- [x] **Von Colson** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale — commit `4f17865`
+- [x] **Wachauf** — CJCE — Droits fondamentaux, Mise en œuvre / autonomie procédurale — commit `2f95a74`
+- [x] **Walonie** — CJCE — Droit dérivé / actes juridiques, Mise en œuvre / autonomie procédurale — commit `d213e55`
+- [x] **Winner Wetten** — CJUE — Mise en œuvre / autonomie procédurale, Renvoi préjudiciel — commit `214fcf0`
+- [x] **Zambrano** — CJUE — Citoyenneté / libre circulation — commit `a73b55f`
+- [x] **Zuckerfabrik** — CJCE — Recours en annulation, Responsabilité extracontractuelle — commit `5623513`
+- [x] **van Delft** — CJUE — Ordre juridique / primauté / effet direct — commit `f4533f6`
