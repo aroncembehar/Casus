@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Casus — EU case law</title>
-<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Inter:wght@400;500&display=optional" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.13.0/lottie.min.js"></script>
 <style>
   :root{
     --red:#6E1B24; --red-dark:#4F1219; --gold:#C9A227; --gold-light:#F0DFC0;
     --cream:#FDFBF6; --white:#FFFFFF; --blue:#2E7BAE; --blue-light:#EAF4FB;
-    --ink:#3A362F; --muted:#5B564C; --line:#E4DCC8;
+    --ink:#3A362F; --muted:#5B564C; --line:#E4DCC8; --sky-light:#BFE3F8;
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;}
@@ -52,8 +54,16 @@
   .citable{cursor:text;}
   .citable::selection, .citable *::selection{background:var(--gold-light);}
   .citable mark.user-bold{background:none;font-weight:700;color:var(--ink);}
-  .citable cite{font-style:normal;border-bottom:1px dotted var(--muted);}
-  .case-link{color:var(--blue);cursor:pointer;text-decoration:underline;}
+  .citable cite{font-style:normal;}
+  /* Two distinct highlight colors: gold marks the whole source paragraph the popup is showing
+     info for; light blue marks the precise word/phrase that will actually be bolded. These are
+     applied as real DOM markers (a class on the existing <cite>, and a temporary wrapper span),
+     not native text selection -- a browser selection can only be one color at a time, so it can't
+     show both distinctions at once. */
+  cite.cite-highlighted{background:var(--gold-light);}
+  .bold-target-highlight{background:var(--sky-light);}
+  .citable mark.user-bold.bold-target-highlight{background:var(--sky-light);}
+  .case-link{color:var(--blue);cursor:pointer;}
   .case-link:hover{color:var(--red);}
   .case-link-pending{color:var(--muted);border-bottom:1px dashed var(--muted);cursor:help;}
   .theme-tag{display:inline-block;font-size:11px;color:var(--gold);background:#FBF3DD;border:1px solid var(--gold-light);padding:2px 8px;border-radius:10px;margin-top:8px;}
@@ -132,6 +142,10 @@
   .cp-link:hover{text-decoration:underline;}
   .cp-bold-btn{display:block;width:100%;margin-top:10px;padding:6px 10px;font-size:12px;font-weight:600;color:var(--red);background:var(--gold-light);border:none;border-radius:6px;cursor:pointer;text-align:center;font-family:inherit;}
   .cp-bold-btn:hover{background:var(--gold);color:var(--white);}
+  /* When there's no citation card to frame (Abstract/Holistic, or any untagged connector text),
+     drop the white card entirely -- just the gold button on its own, no border/shadow/padding. */
+  #citation-popup.bold-only{width:auto;background:none;border:none;border-radius:0;padding:0;box-shadow:none;}
+  #citation-popup.bold-only .cp-bold-btn{width:auto;margin-top:0;padding:8px 16px;}
   .clear-bold-hint{cursor:pointer;text-decoration:underline;}
   .modal-overlay{position:fixed;inset:0;background:rgba(58,54,47,0.45);display:none;align-items:center;justify-content:center;z-index:1200;padding:20px;}
   .modal-card{background:var(--white);border-radius:12px;padding:22px 24px;max-width:420px;width:100%;max-height:80vh;overflow:auto;position:relative;}
@@ -4553,18 +4567,6 @@ function showArticle(id){
 }
 function closeArticleModal(){ document.getElementById('article-modal').style.display='none'; }
 
-function findCitations(caseId, selectedText){
-  const c = CASES.find(x=>x.id===caseId);
-  const content = c ? getCaseContent(c) : null;
-  if(!c || !content.citations) return [];
-  const q = selectedText.trim().toLowerCase();
-  if(!q) return [];
-  let matches = content.citations.filter(ct => ct.phrase.toLowerCase().includes(q) || q.includes(ct.phrase.toLowerCase()));
-  const exact = matches.length>0;
-  if(!matches.length) matches = content.citations;
-  matches = matches.slice().sort((a,b)=>(b.primary?1:0)-(a.primary?1:0));
-  return {matches, exact};
-}
 function citationPopupStrings(){
   return {
     en:{cited:'Cited from the judgment', sourced:'Sourced passages for this case', primary:'Most relevant — ', readFull:'Read the full judgment →', bold:'Bold this', unbold:'Remove bold'},
@@ -4623,19 +4625,19 @@ function positionCitationPopup(popup, rect){
   popup.style.visibility = 'visible';
 }
 function boldKey(caseId, lvl){ return caseId+'::'+currentLang+'::'+lvl; }
-function boldButtonHtml(caseId, lvl, text){
-  if(!text) return '';
-  const key = boldKey(caseId, lvl);
-  const isBold = !!(state.userBold && state.userBold[key] && state.userBold[key].indexOf(text)>-1);
+function boldButtonHtml(){
+  const p = window._pendingBold;
+  if(!p || !p.text) return '';
   const t = citationPopupStrings();
-  return `<button type="button" class="cp-bold-btn" onclick="toggleUserBold()">${isBold ? t.unbold : t.bold}</button>`;
+  return `<button type="button" class="cp-bold-btn" onclick="toggleUserBold()">${p.isExisting ? t.unbold : t.bold}</button>`;
 }
-function showCitationPopup(caseId, selectedText, rect, lvl){
+// No specific paragraph was matched (Abstract/Holistic have no <cite> tags at all, or the click
+// landed on untagged connector text within Intermediate/Detailed) -- show only the bold control,
+// never a fuzzy/guessed citation card.
+function showBoldOnlyPopup(rect){
   const popup = document.getElementById('citation-popup');
-  const result = findCitations(caseId, selectedText);
-  const c = CASES.find(x=>x.id===caseId);
-  const cardsHtml = (result.matches && result.matches.length) ? renderCitationCards(result.matches, result.exact, c && c.sourceUrl) : '';
-  popup.innerHTML = cardsHtml + boldButtonHtml(caseId, lvl, selectedText);
+  popup.classList.add('bold-only');
+  popup.innerHTML = boldButtonHtml();
   positionCitationPopup(popup, rect);
 }
 function showCitationPopupForUnits(caseId, citeEls, rect, lvl, text){
@@ -4651,7 +4653,8 @@ function showCitationPopupForUnits(caseId, citeEls, rect, lvl, text){
     });
   }
   const cardsHtml = matches.length ? renderCitationCards(matches, true, c && c.sourceUrl) : '';
-  popup.innerHTML = cardsHtml + boldButtonHtml(caseId, lvl, text);
+  popup.classList.toggle('bold-only', !cardsHtml);
+  popup.innerHTML = cardsHtml + boldButtonHtml();
   positionCitationPopup(popup, rect);
 }
 
@@ -4661,6 +4664,18 @@ function getTextNodesIn(el){
   while(n = walker.nextNode()) nodes.push(n);
   return nodes;
 }
+// A range that starts/ends inside actual text nodes, spanning all of el's text content.
+// Range.selectNodeContents(el) is NOT equivalent here: on an element it produces a range whose
+// container is the element itself with child-index offsets, not a text-node/character-offset
+// range -- getContainerOffsets() (and everything downstream of it) only understands the latter.
+function rangeCoveringElementText(el){
+  const nodes = getTextNodesIn(el);
+  if(!nodes.length) return null;
+  const r = document.createRange();
+  r.setStart(nodes[0], 0);
+  r.setEnd(nodes[nodes.length-1], nodes[nodes.length-1].textContent.length);
+  return r;
+}
 function unwrapMark(markEl){
   const parent = markEl.parentNode;
   if(!parent) return;
@@ -4668,68 +4683,112 @@ function unwrapMark(markEl){
   parent.removeChild(markEl);
   parent.normalize();
 }
-function wrapTextInElement(el, text){
-  if(!text) return;
-  const nodes = getTextNodesIn(el);
+// Bold styling is keyed to the tag name (`mark.user-bold`), not just a class, so confirming a bold
+// on the temporary highlight <span> needs an actual element swap, not classList.add('user-bold') --
+// a <span class="user-bold"> matches no CSS rule and would render completely unstyled.
+function replaceElementTag(oldEl, newTagName, newClassName){
+  const newEl = document.createElement(newTagName);
+  newEl.className = newClassName;
+  while(oldEl.firstChild) newEl.appendChild(oldEl.firstChild);
+  oldEl.parentNode.replaceChild(newEl, oldEl);
+  return newEl;
+}
+// Character offsets are computed against the .citable container's concatenated text content.
+// Since a case's rendered HTML is deterministic (same data -> same markup every render), these
+// offsets are stable across reloads -- unlike matching by substring, which breaks as soon as the
+// same word/phrase appears more than once in the same field.
+function getContainerOffsets(containerEl, range){
+  const nodes = getTextNodesIn(containerEl);
   let full = ''; const map = [];
   nodes.forEach(node=>{ map.push({node, start: full.length}); full += node.textContent; });
-  const idx = full.indexOf(text);
-  if(idx===-1) return;
-  const endIdx = idx + text.length;
+  function offsetOf(node, off){
+    const entry = map.find(m=>m.node===node);
+    return entry ? entry.start + off : null;
+  }
+  const s = offsetOf(range.startContainer, range.startOffset);
+  const en = offsetOf(range.endContainer, range.endOffset);
+  if(s===null || en===null) return null;
+  return {start:s, end:en};
+}
+function applyBoldMarkAtOffsets(el, mark){
+  if(mark.start==null || mark.end==null || mark.end<=mark.start) return;
+  const nodes = getTextNodesIn(el);
+  let full=''; const map=[];
+  nodes.forEach(node=>{ map.push({node, start: full.length}); full += node.textContent; });
   let startNode=null, startOffset=0, endNode=null, endOffset=0;
   for(let i=0;i<map.length;i++){
     const {node, start} = map[i];
     const len = node.textContent.length;
-    if(startNode===null && idx>=start && idx<start+len){ startNode=node; startOffset=idx-start; }
-    if(endIdx>start && endIdx<=start+len){ endNode=node; endOffset=endIdx-start; }
+    if(startNode===null && mark.start>=start && mark.start<start+len){ startNode=node; startOffset=mark.start-start; }
+    if(mark.end>start && mark.end<=start+len){ endNode=node; endOffset=mark.end-start; }
   }
   if(!startNode || !endNode) return;
   const range = document.createRange();
   try{
     range.setStart(startNode, startOffset);
     range.setEnd(endNode, endOffset);
-    const mark = document.createElement('mark');
-    mark.className = 'user-bold';
+    const markEl = document.createElement('mark');
+    markEl.className = 'user-bold';
     const frag = range.extractContents();
-    mark.appendChild(frag);
-    range.insertNode(mark);
+    markEl.appendChild(frag);
+    range.insertNode(markEl);
   }catch(e){ /* stale or malformed mark, skip */ }
+}
+// Legacy fallback for bold marks saved before offset-based storage (plain substrings) --
+// keeps any bolding a returning user already saved from silently disappearing.
+function wrapTextInElementLegacy(el, text){
+  if(!text) return;
+  const nodes = getTextNodesIn(el);
+  let full = ''; const map = [];
+  nodes.forEach(node=>{ map.push({node, start: full.length}); full += node.textContent; });
+  const idx = full.indexOf(text);
+  if(idx===-1) return;
+  applyBoldMarkAtOffsets(el, {start: idx, end: idx+text.length});
 }
 function applyStoredBoldMarks(citableEl, caseId, lvl){
   const key = boldKey(caseId, lvl);
   const marks = (state.userBold && state.userBold[key]) || [];
-  marks.forEach(text => wrapTextInElement(citableEl, text));
+  marks.filter(m=>typeof m==='object' && m && m.start!=null).sort((a,b)=>a.start-b.start)
+    .forEach(mark => applyBoldMarkAtOffsets(citableEl, mark));
+  marks.filter(m=>typeof m==='string').forEach(text => wrapTextInElementLegacy(citableEl, text));
+}
+// Undoes whatever the last click/selection did visually (gold cite highlight, blue bold-target
+// highlight) without touching any real bold marks -- called before starting a new interaction and
+// whenever the popup is dismissed without the user confirming a bold/unbold action.
+function clearPendingHighlights(){
+  document.querySelectorAll('cite.cite-highlighted').forEach(el=>el.classList.remove('cite-highlighted'));
+  const p = window._pendingBold;
+  if(p && p.span){
+    if(p.isExisting){
+      p.span.classList.remove('bold-target-highlight'); // real mark, just drop the preview tint
+    } else {
+      unwrapMark(p.span); // temporary wrapper around plain text, undo it entirely
+    }
+  }
+  window._pendingBold = null;
 }
 function toggleUserBold(){
   const p = window._pendingBold;
-  if(!p || !p.text) return;
+  if(!p || !p.span) return;
   if(!state.userBold) state.userBold = {};
   const key = boldKey(p.caseId, p.lvl);
   if(!state.userBold[key]) state.userBold[key] = [];
   const arr = state.userBold[key];
-  const idx = arr.indexOf(p.text);
-  const anchorEl = p.range.commonAncestorContainer.nodeType===1 ? p.range.commonAncestorContainer : p.range.commonAncestorContainer.parentElement;
-  const citable = anchorEl ? anchorEl.closest('.citable') : null;
-  if(idx>-1){
-    arr.splice(idx,1);
-    if(citable){
-      const marks = Array.from(citable.querySelectorAll('mark.user-bold'));
-      const m = marks.find(el=>el.textContent===p.text);
-      if(m) unwrapMark(m);
+  if(p.isExisting){
+    if(p.start!=null && p.end!=null){
+      const idx = arr.findIndex(m=>typeof m==='object' && m.start===p.start && m.end===p.end);
+      if(idx>-1) arr.splice(idx,1);
     }
+    p.span.classList.remove('bold-target-highlight');
+    unwrapMark(p.span);
   } else {
-    arr.push(p.text);
-    try{
-      const frag = p.range.extractContents();
-      const mark = document.createElement('mark');
-      mark.className = 'user-bold';
-      mark.appendChild(frag);
-      p.range.insertNode(mark);
-    }catch(e){ console.error('bold failed', e); }
+    // The temp highlight <span> already wraps exactly the right text -- swap it for a real <mark>.
+    if(p.start!=null && p.end!=null) arr.push({start: p.start, end: p.end, text: p.text});
+    replaceElementTag(p.span, 'mark', 'user-bold');
   }
+  window._pendingBold = null;
   saveState();
   document.getElementById('citation-popup').style.display='none';
-  window.getSelection().removeAllRanges();
 }
 function caseHasBoldMarks(caseId){
   if(!state.userBold) return false;
@@ -4772,9 +4831,19 @@ function levelContentHtml(c){
   const lvl = (window._cardLevel && window._cardLevel[c.id]) || 1;
   const content = getCaseContent(c);
   const note = (currentLang!=='en' && !hasTranslation(c,currentLang)) ? fallbackNote() : '';
+  const clearLabel = {
+    en:'Clear my bold highlights for this case',
+    fr:'Effacer mes passages en gras pour cet arrêt',
+    de:'Meine Fettmarkierungen für diesen Fall löschen',
+    it:'Cancella le mie evidenziazioni in grassetto per questa sentenza'
+  }[currentLang] || 'Clear my bold highlights for this case';
+  const clearHtml = caseHasBoldMarks(c.id) ? `<p class="advanced-hint clear-bold-hint" onclick="clearCaseBoldMarks('${c.id}')">${clearLabel}</p>` : '';
   if(lvl===4){
+    // Bolding works here too, but there are no per-paragraph <cite> tags at this depth, so no
+    // "highlight to see the source" hint -- just the bold-clear control if anything's bolded.
     const legal = articleChips(c);
-    return `<div class="detail">${content.holistic}</div>${legal}${note}`;
+    const body = `<div class="detail">${content.holistic}</div>`;
+    return `<div class="citable" data-case="${c.id}">${body}</div>${legal}${clearHtml}${note}`;
   }
   const src = lvl===1 ? content.abstract : (lvl===2 ? content.intermediate : content.detailed);
   const body = `<div class="detail"><b>Issue</b> — ${src.issue}<br><br><b>Rule</b> — ${src.rule}<br><br><b>Application</b> — ${src.application}</div>`;
@@ -4786,16 +4855,11 @@ function levelContentHtml(c){
       de:'Markieren Sie einen Satz oben, um zu sehen, woher er im Urteil stammt.',
       it:'Seleziona una frase sopra per vedere da dove proviene nella sentenza.'
     }[currentLang] || 'Highlight any phrase above to see where it comes from in the judgment.';
-    const clearLabel = {
-      en:'Clear my bold highlights for this case',
-      fr:'Effacer mes passages en gras pour cet arrêt',
-      de:'Meine Fettmarkierungen für diesen Fall löschen',
-      it:'Cancella le mie evidenziazioni in grassetto per questa sentenza'
-    }[currentLang] || 'Clear my bold highlights for this case';
-    const clearHtml = caseHasBoldMarks(c.id) ? `<p class="advanced-hint clear-bold-hint" onclick="clearCaseBoldMarks('${c.id}')">${clearLabel}</p>` : '';
     return `<div class="citable" data-case="${c.id}">${body}</div>${legal}<p class="advanced-hint">${hint}</p>${clearHtml}${note}`;
   }
-  return body + legal + note;
+  // lvl===1 (Abstract): bolding enabled, same as Holistic, but again no per-paragraph <cite> tags
+  // exist at this depth (it's a one-line summary), so no citation-source hint either.
+  return `<div class="citable" data-case="${c.id}">${body}</div>${legal}${clearHtml}${note}`;
 }
 function setLevel(id, lvl){
   if(!window._cardLevel) window._cardLevel={};
@@ -4817,11 +4881,17 @@ function sectionCard(tab,title,desc){
   return `<div class="section-card" onclick="switchTab('${tab}')"><div class="t">${title}</div><div class="d">${desc}</div></div>`;
 }
 
+// Strips accents/diacritics before lowercasing, so a plain-ASCII query (e.g. "Akerberg", typed on
+// a keyboard with no easy way to produce "Å") still matches accented case names ("Åkerberg
+// Fransson"), and likewise for characters like ö/ü/é that appear throughout the case list.
+function normalizeForSearch(s){
+  return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+}
 function filterField(key,label,placeholder,sourceList,big){
   const value = (window._filters && window._filters[key]) || '';
-  const q = value.toLowerCase();
-  const exact = sourceList && sourceList.some(s=>s.toLowerCase()===q);
-  const matches = (sourceList && q && !exact) ? sourceList.filter(s=>s.toLowerCase().includes(q)).slice(0,5) : [];
+  const q = normalizeForSearch(value);
+  const exact = sourceList && sourceList.some(s=>normalizeForSearch(s)===q);
+  const matches = (sourceList && q && !exact) ? sourceList.filter(s=>normalizeForSearch(s).includes(q)).slice(0,5) : [];
   return `<div class="filter-field${big?' big':''}">
     <label class="field-label">${label}</label>
     <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${value}" oninput="window._filters['${key}']=this.value;renderMain()">
@@ -4832,17 +4902,17 @@ function filterField(key,label,placeholder,sourceList,big){
 function computeResults(){
   const f = window._filters || {};
   let results = CASES;
-  if(f.name) results = results.filter(c=>c.name.toLowerCase().includes(f.name.toLowerCase()));
+  if(f.name) results = results.filter(c=>normalizeForSearch(c.name).includes(normalizeForSearch(f.name)));
   if(f.keyword){
-    const kq = f.keyword.toLowerCase();
+    const kq = normalizeForSearch(f.keyword);
     results = results.filter(c=>{
-      const text = [c.abstract,c.intermediate,c.detailed].map(l=>l.issue+' '+l.rule+' '+l.application).join(' ').toLowerCase();
+      const text = normalizeForSearch([c.abstract,c.intermediate,c.detailed].map(l=>l.issue+' '+l.rule+' '+l.application).join(' '));
       return text.includes(kq);
     });
   }
-  if(f.theme) results = results.filter(c=>c.themes.some(t=>themeLabel(t).toLowerCase().includes(f.theme.toLowerCase())) || (c.legacyThemes||[]).some(t=>legacyThemeLabel(t).toLowerCase().includes(f.theme.toLowerCase())));
+  if(f.theme) results = results.filter(c=>c.themes.some(t=>normalizeForSearch(themeLabel(t)).includes(normalizeForSearch(f.theme))) || (c.legacyThemes||[]).some(t=>normalizeForSearch(legacyThemeLabel(t)).includes(normalizeForSearch(f.theme))));
   if(f.related){
-    const base = CASES.find(c=>c.name.toLowerCase()===f.related.toLowerCase());
+    const base = CASES.find(c=>normalizeForSearch(c.name)===normalizeForSearch(f.related));
     if(base) results = results.filter(c=>c.id!==base.id && c.themes.some(t=>base.themes.includes(t)));
   }
   return results;
@@ -4982,9 +5052,9 @@ function computeWeekDays(offset){
   return [...Array(7)].map((_,i)=>{ const d=new Date(monday); d.setDate(monday.getDate()+i); return d; });
 }
 function renderCaseAutocomplete(selKey){
-  const q = (window._caseInput||'').toLowerCase();
+  const q = normalizeForSearch(window._caseInput);
   const tagged = (state.weekCases[selKey]||[]).map(id=>CASES.find(c=>c.id===id)).filter(Boolean);
-  const matches = q ? CASES.filter(c=>c.name.toLowerCase().includes(q) && !(state.weekCases[selKey]||[]).includes(c.id)).slice(0,5) : [];
+  const matches = q ? CASES.filter(c=>normalizeForSearch(c.name).includes(q) && !(state.weekCases[selKey]||[]).includes(c.id)).slice(0,5) : [];
   return `<div class="case-log">
     <div class="case-log-label">Cases studied</div>
     <div class="case-chips">${tagged.map(c=>`<span class="chip active">${c.name} <span onclick="removeWeekCase('${selKey}','${c.id}')" style="cursor:pointer;margin-left:4px;">✕</span></span>`).join('')}</div>
@@ -5005,8 +5075,8 @@ function removeWeekCase(dateKey, caseId){
   saveState(); renderMain();
 }
 function handleCaseEnter(selKey){
-  const q = (window._caseInput||'').toLowerCase();
-  const m = CASES.find(c=>c.name.toLowerCase().includes(q) && !(state.weekCases[selKey]||[]).includes(c.id));
+  const q = normalizeForSearch(window._caseInput);
+  const m = CASES.find(c=>normalizeForSearch(c.name).includes(q) && !(state.weekCases[selKey]||[]).includes(c.id));
   if(m) addWeekCase(selKey, m.id);
 }
 
@@ -5046,13 +5116,13 @@ function renderExams(){
     ${state.exams.length? state.exams.map(ex=>renderExamBlock(ex)).join('') : '<p class="empty">No exams yet — add one to start scoping.</p>'}`;
 }
 function examSuggestions(ex, query){
-  const q = (query||'').trim().toLowerCase();
+  const q = normalizeForSearch((query||'').trim());
   if(!q) return [];
   const themeMatches = THEMES.filter(t=>{
-    if(!themeLabel(t).toLowerCase().includes(q)) return false;
+    if(!normalizeForSearch(themeLabel(t)).includes(q)) return false;
     return CASES.some(c=>c.themes.includes(t) && !ex.caseIds.includes(c.id));
   }).map(t=>({type:'theme', idx:THEMES.indexOf(t)}));
-  const caseMatches = CASES.filter(c=>c.name.toLowerCase().includes(q) && !ex.caseIds.includes(c.id)).map(c=>({type:'case', id:c.id}));
+  const caseMatches = CASES.filter(c=>normalizeForSearch(c.name).includes(q) && !ex.caseIds.includes(c.id)).map(c=>({type:'case', id:c.id}));
   return [...themeMatches, ...caseMatches].slice(0,6);
 }
 function renderExamScope(ex){
@@ -5142,11 +5212,16 @@ function renderMain(){
   document.body.classList.toggle('home-bg', activeTab==='home');
   mainEl.className = '';
   mainEl.innerHTML = map[activeTab]();
-  Array.from(mainEl.querySelectorAll('.citable[data-case]')).forEach(function(el){
-    const caseId = el.getAttribute('data-case');
-    const lvl = (window._cardLevel && window._cardLevel[caseId]) || 2;
-    applyStoredBoldMarks(el, caseId, lvl);
-  });
+  // Guarded so that any unexpected failure while reapplying bold marks can NEVER silently skip
+  // restoring focus below -- losing focus after a keystroke's re-render is exactly what would make
+  // typing/deleting into a search box look like it "randomly stops working".
+  try{
+    Array.from(mainEl.querySelectorAll('.citable[data-case]')).forEach(function(el){
+      const caseId = el.getAttribute('data-case');
+      const lvl = (window._cardLevel && window._cardLevel[caseId]) || 1;
+      applyStoredBoldMarks(el, caseId, lvl);
+    });
+  }catch(e){ console.error('applyStoredBoldMarks failed', e); }
   if(activeId){
     const el = document.getElementById(activeId);
     if(el){
@@ -5165,46 +5240,177 @@ function renderMain(){
   }
 }
 
+function getWordRangeAtPoint(x, y){
+  let range = null;
+  if(document.caretRangeFromPoint){
+    range = document.caretRangeFromPoint(x, y);
+  } else if(document.caretPositionFromPoint){
+    const pos = document.caretPositionFromPoint(x, y);
+    if(pos){ range = document.createRange(); range.setStart(pos.offsetNode, pos.offset); range.collapse(true); }
+  }
+  if(!range) return null;
+  const node = range.startContainer;
+  if(node.nodeType !== 3) return null;
+  const text = node.textContent;
+  let start = range.startOffset, end = range.startOffset;
+  const isWordChar = c => /[\p{L}\p{N}'’-]/u.test(c);
+  while(start>0 && isWordChar(text[start-1])) start--;
+  while(end<text.length && isWordChar(text[end])) end++;
+  if(start===end) return null;
+  const wr = document.createRange();
+  wr.setStart(node, start);
+  wr.setEnd(node, end);
+  return wr;
+}
+// A drag-selection can start or end mid-word (e.g. dragging from the middle of "word" onward) --
+// never let a bold target stop partway through a word. Pushes the range's start backward and its
+// end forward to the nearest word boundary on each side, same word-char rule as click-to-word.
+function expandRangeToWordBoundaries(range){
+  const isWordChar = c => /[\p{L}\p{N}'’-]/u.test(c);
+  const r = range.cloneRange();
+  if(r.startContainer.nodeType === 3){
+    const text = r.startContainer.textContent;
+    let start = r.startOffset;
+    while(start > 0 && isWordChar(text[start-1])) start--;
+    r.setStart(r.startContainer, start);
+  }
+  if(r.endContainer.nodeType === 3){
+    const text = r.endContainer.textContent;
+    let end = r.endOffset;
+    while(end < text.length && isWordChar(text[end])) end++;
+    r.setEnd(r.endContainer, end);
+  }
+  return r;
+}
+// Adds the gold "this is the source paragraph" highlight to every touched <cite> unit.
+function highlightCiteUnits(touched){
+  touched.forEach(ce=>ce.classList.add('cite-highlighted'));
+}
+// Wraps (or reuses) the precise bold-target range in the light-blue highlight, computing its
+// stable character offsets first. Returns null if the range couldn't be wrapped.
+function highlightBoldTarget(citable, range, existingMark){
+  const offsets = getContainerOffsets(citable, range);
+  if(existingMark){
+    existingMark.classList.add('bold-target-highlight');
+    return {span: existingMark, start: offsets?offsets.start:null, end: offsets?offsets.end:null};
+  }
+  const span = document.createElement('span');
+  span.className = 'bold-target-highlight';
+  try{
+    const frag = range.extractContents();
+    span.appendChild(frag);
+    range.insertNode(span);
+  }catch(err){ return null; }
+  return {span, start: offsets?offsets.start:null, end: offsets?offsets.end:null};
+}
 document.addEventListener('mouseup', function(e){
   const popup = document.getElementById('citation-popup');
   if(popup.contains(e.target)) return;
+  clearPendingHighlights();
+  // Bail out immediately if the actual click target isn't inside a .citable region at all -- e.g.
+  // a search input, a nav button, anything outside case text. Without this upfront check, a STALE
+  // non-collapsed window.getSelection() left over from a PREVIOUS click/drag inside some unrelated
+  // .citable card would make the code below (which keys off sel.anchorNode, not e.target) wrongly
+  // treat this click as "drag-selecting inside that old card" and mutate its DOM / pop up a bold
+  // card -- even though the user just clicked a completely unrelated element like the search box.
+  const clickTargetEl = e.target && e.target.nodeType===1 ? e.target : (e.target && e.target.parentElement);
+  if(!clickTargetEl || !clickTargetEl.closest('.citable')){
+    window.getSelection().removeAllRanges();
+    popup.style.display='none';
+    return;
+  }
   const sel = window.getSelection();
-  if(!sel || !sel.rangeCount || sel.isCollapsed){ popup.style.display='none'; return; }
+  if(!sel || !sel.rangeCount){ popup.style.display='none'; return; }
+
+  if(sel.isCollapsed){
+    // A plain click, not a drag: bold exactly the single word under the cursor.
+    const clickEl = e.target && e.target.nodeType===1 ? e.target : (e.target && e.target.parentElement);
+    const citable = clickEl ? clickEl.closest('.citable') : null;
+    if(!citable || (clickEl && clickEl.closest('a'))){ sel.removeAllRanges(); popup.style.display='none'; return; }
+    const existingMark = clickEl ? clickEl.closest('mark.user-bold') : null;
+    let wordRange;
+    if(existingMark){
+      // Clicking already-bolded text targets the whole existing mark, so the button can unbold it.
+      wordRange = rangeCoveringElementText(existingMark);
+    } else {
+      wordRange = getWordRangeAtPoint(e.clientX, e.clientY);
+    }
+    sel.removeAllRanges();
+    if(!wordRange){ popup.style.display='none'; return; }
+    const caseId = citable.getAttribute('data-case');
+    const lvl = (window._cardLevel && window._cardLevel[caseId]) || 1;
+    const wordText = wordRange.toString();
+    const allUnits = Array.from(citable.querySelectorAll('cite[data-para]'));
+    const touched = allUnits.filter(function(ce){ return wordRange.intersectsNode(ce); });
+    highlightCiteUnits(touched);
+    const target = highlightBoldTarget(citable, wordRange, existingMark);
+    if(!target){ popup.style.display='none'; return; }
+    window._pendingBold = {caseId, lvl, span: target.span, text: wordText, isExisting: !!existingMark, start: target.start, end: target.end};
+    const rect = target.span.getBoundingClientRect();
+    if(touched.length){
+      showCitationPopupForUnits(caseId, touched, rect, lvl, wordText);
+    } else {
+      showBoldOnlyPopup(rect);
+    }
+    return;
+  }
+
   const node = sel.anchorNode;
   const el = node && node.nodeType===3 ? node.parentElement : node;
   const citable = el ? el.closest('.citable') : null;
-  if(!citable){ popup.style.display='none'; return; }
+  if(!citable){ sel.removeAllRanges(); popup.style.display='none'; return; }
   const caseId = citable.getAttribute('data-case');
   const range = sel.getRangeAt(0);
-  const lvl = (window._cardLevel && window._cardLevel[caseId]) || 2;
+  const originalRange = range.cloneRange(); // exactly what the user dragged -- this is what gets bolded.
+  const lvl = (window._cardLevel && window._cardLevel[caseId]) || 1;
+  // A "click" can register as a tiny 1-pixel drag (isCollapsed false) rather than going through the
+  // click branch above -- so re-check here too whether the selection touches an existing bold mark
+  // at all (not just sits entirely inside one). Re-selecting a bolded section imprecisely -- dragging
+  // across it, past its edges, whatever -- should still snap to the WHOLE mark so it's a one-click
+  // unbold, rather than requiring an exact re-selection of the original bold's boundaries.
+  const allMarksInCitable = Array.from(citable.querySelectorAll('mark.user-bold'));
+  const dragExistingMark = allMarksInCitable.find(m => originalRange.intersectsNode(m)) || null;
+  // When it's a genuinely new bold target (not snapping to an existing mark, whose boundaries are
+  // already clean), never let it start or stop mid-word.
+  const wholeWordRange = dragExistingMark ? null : expandRangeToWordBoundaries(originalRange);
+  sel.removeAllRanges();
   const allUnits = Array.from(citable.querySelectorAll('cite[data-para]'));
   if(allUnits.length){
     // Tagged ("new-style") case: source is only ever a specific paragraph, never "everything".
     const touched = allUnits.filter(function(ce){ return range.intersectsNode(ce); });
     if(!touched.length){ popup.style.display='none'; return; }
-    // Extend the visible selection to cover each whole information unit touched.
-    const extended = document.createRange();
-    extended.setStartBefore(touched[0]);
-    extended.setEndAfter(touched[touched.length-1]);
-    sel.removeAllRanges();
-    sel.addRange(extended);
-    const extText = extended.toString().trim();
-    window._pendingBold = {caseId, lvl, range: extended.cloneRange(), text: extText};
-    showCitationPopupForUnits(caseId, touched, extended.getBoundingClientRect(), lvl, extText);
+    highlightCiteUnits(touched);
+    const boldRange = dragExistingMark ? rangeCoveringElementText(dragExistingMark) : wholeWordRange;
+    const boldText = boldRange.toString().trim();
+    if(!boldText){ popup.style.display='none'; return; }
+    const target = highlightBoldTarget(citable, boldRange, dragExistingMark);
+    if(!target){ popup.style.display='none'; return; }
+    window._pendingBold = {caseId, lvl, span: target.span, text: boldText, isExisting: !!dragExistingMark, start: target.start, end: target.end};
+    showCitationPopupForUnits(caseId, touched, target.span.getBoundingClientRect(), lvl, boldText);
     return;
   }
-  // Legacy (untagged) case: fall back to the original whole-case fuzzy match.
-  const text = sel.toString().trim();
+  // No <cite> tags at all in this container (Abstract, Holistic): bold only, no citation lookup.
+  const legacyRange = dragExistingMark ? rangeCoveringElementText(dragExistingMark) : wholeWordRange;
+  const text = legacyRange.toString().trim();
   if(!text){ popup.style.display='none'; return; }
-  window._pendingBold = {caseId, lvl, range: range.cloneRange(), text};
-  showCitationPopup(caseId, text, range.getBoundingClientRect(), lvl);
+  const target = highlightBoldTarget(citable, legacyRange, dragExistingMark);
+  if(!target){ popup.style.display='none'; return; }
+  window._pendingBold = {caseId, lvl, span: target.span, text, isExisting: !!dragExistingMark, start: target.start, end: target.end};
+  showBoldOnlyPopup(target.span.getBoundingClientRect());
 });
 document.addEventListener('mousedown', function(e){
   const popup = document.getElementById('citation-popup');
-  if(!popup.contains(e.target)) popup.style.display='none';
+  if(!popup.contains(e.target)){
+    clearPendingHighlights();
+    popup.style.display='none';
+  }
 });
 document.addEventListener('keydown', function(e){
-  if(e.key==='Escape'){ document.getElementById('citation-popup').style.display='none'; closeArticleModal(); }
+  if(e.key==='Escape'){
+    clearPendingHighlights();
+    document.getElementById('citation-popup').style.display='none';
+    closeArticleModal();
+  }
 });
 
 (async function init(){
