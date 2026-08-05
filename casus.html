@@ -11028,16 +11028,58 @@ function sectionCard(tab,title,desc){
 function normalizeForSearch(s){
   return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 }
-function filterField(key,label,placeholder,sourceList,big){
-  const value = (window._filters && window._filters[key]) || '';
+// Which fixed list (if any) a filter field's autocomplete suggestions are drawn from. Centralized
+// so the initial render and the later per-keystroke update (see updateHomeSearch) never disagree.
+function sourceListFor(key){
+  if(key==='name' || key==='related') return CASES.map(c=>c.name);
+  if(key==='theme') return THEMES.map(themeLabel);
+  return null; // 'keyword' has no fixed suggestion list
+}
+function renderSuggestions(key, value, sourceList){
   const q = normalizeForSearch(value);
   const exact = sourceList && sourceList.some(s=>normalizeForSearch(s)===q);
   const matches = (sourceList && q && !exact) ? sourceList.filter(s=>normalizeForSearch(s).includes(q)).slice(0,5) : [];
+  return matches.length ? `<div class="suggestions">${matches.map(s=>`<div class="suggestion" onclick="chooseSuggestion('${key}','${s.replace(/'/g,"\\'")}')">${s}</div>`).join('')}</div>` : '';
+}
+function filterField(key,label,placeholder,sourceList,big){
+  const value = (window._filters && window._filters[key]) || '';
   return `<div class="filter-field${big?' big':''}">
     <label class="field-label">${label}</label>
-    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${value}" oninput="window._filters['${key}']=this.value;renderMain()">
-    ${matches.length? `<div class="suggestions">${matches.map(s=>`<div class="suggestion" onclick="window._filters['${key}']='${s.replace(/'/g,"\\'")}';renderMain()">${s}</div>`).join('')}</div>` : ''}
+    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${value}" oninput="updateHomeSearch('${key}', this.value)">
+    <div id="suggestions-${key}">${renderSuggestions(key, value, sourceList)}</div>
   </div>`;
+}
+// Called on every keystroke in a home-page search field. Deliberately does NOT touch any <input>
+// element or go through the full renderMain()/innerHTML-replacement cycle -- only the suggestions
+// dropdown and the results area below are refreshed. This is what makes typing/deleting reliable:
+// the input the user is actively typing into is never destroyed and recreated, so there is no
+// "restore focus after the fact" step that could ever fail, race, or get skipped by an unrelated
+// exception elsewhere in the render path.
+function updateHomeSearch(key, value){
+  if(!window._filters) window._filters = {name:'',keyword:'',theme:'',related:''};
+  window._filters[key] = value;
+  try{
+    const sEl = document.getElementById('suggestions-'+key);
+    if(sEl) sEl.innerHTML = renderSuggestions(key, value, sourceListFor(key));
+  }catch(e){ console.error('renderSuggestions failed', e); }
+  try{
+    const resultsEl = document.getElementById('home-results');
+    if(resultsEl){
+      resultsEl.innerHTML = renderHomeResults();
+      Array.from(resultsEl.querySelectorAll('.citable[data-case]')).forEach(function(el){
+        const caseId = el.getAttribute('data-case');
+        const lvl = (window._cardLevel && window._cardLevel[caseId]) || 1;
+        applyStoredBoldMarks(el, caseId, lvl);
+      });
+    }
+  }catch(e){ console.error('renderHomeResults failed', e); }
+}
+// A suggestion was clicked: the input never re-renders on its own here either, so set its value
+// directly, then refresh suggestions/results exactly as a real keystroke would.
+function chooseSuggestion(key, value){
+  const el = document.getElementById('filter-'+key);
+  if(el) el.value = value;
+  updateHomeSearch(key, value);
 }
 
 function computeResults(){
@@ -11059,29 +11101,37 @@ function computeResults(){
   return results;
 }
 
-function renderHome(){
-  if(!window._filters) window._filters = {name:'',keyword:'',theme:'',related:''};
-  const active = Object.values(window._filters).some(v=>v&&v.trim());
-  const s = progressSummary();
-  const results = active ? computeResults() : [];
-  return `<div class="hero"><div class="hero-rule"></div><p class="hero-sub">Start small. Become great.</p></div>
-    <p class="progress-line">${s.mastered} mastered · ${s.started} in progress · ${s.notStarted} not started</p>
-    <div class="search-row">
-      ${filterField('name','Case name','e.g. Rottmann', CASES.map(c=>c.name), true)}
-      <div id="cat-mascot" class="cat-mascot"></div>
-    </div>
-    <div class="filter-row">
-      ${filterField('keyword','Keywords','e.g. direct effect', null)}
-      ${filterField('theme','Key theme','e.g. citizenship', THEMES.map(themeLabel))}
-      ${filterField('related','Related to','e.g. Van Gend en Loos', CASES.map(c=>c.name))}
-    </div>
-    ${active ? `<div style="margin-top:14px;">${results.length? results.map(c=>caseCard(c)).join('') : '<p class="empty">No cases match yet — try different criteria.</p>'}</div>`
-        : `<div class="section-grid">
+// The results/section-grid area below the search fields -- factored out on its own so
+// updateHomeSearch() can refresh just this part on every keystroke, without touching the
+// search <input> elements rendered by renderHome() around it.
+function renderHomeResults(){
+  const active = Object.values(window._filters||{}).some(v=>v&&v.trim());
+  if(!active){
+    return `<div class="section-grid">
             ${sectionCard('subjects','My subjects','Browse cases by article and theme')}
             ${sectionCard('diagrams','Diagrams','Visual maps of each theme')}
             ${sectionCard('week','This week','Log what you studied, day by day')}
             ${sectionCard('exams','My exams','Define your exam scope')}
-           </div>`}`;
+           </div>`;
+  }
+  const results = computeResults();
+  return `<div style="margin-top:14px;">${results.length? results.map(c=>caseCard(c)).join('') : '<p class="empty">No cases match yet — try different criteria.</p>'}</div>`;
+}
+function renderHome(){
+  if(!window._filters) window._filters = {name:'',keyword:'',theme:'',related:''};
+  const s = progressSummary();
+  return `<div class="hero"><div class="hero-rule"></div><p class="hero-sub">Start small. Become great.</p></div>
+    <p class="progress-line">${s.mastered} mastered · ${s.started} in progress · ${s.notStarted} not started</p>
+    <div class="search-row">
+      ${filterField('name','Case name','e.g. Rottmann', sourceListFor('name'), true)}
+      <div id="cat-mascot" class="cat-mascot"></div>
+    </div>
+    <div class="filter-row">
+      ${filterField('keyword','Keywords','e.g. direct effect', sourceListFor('keyword'))}
+      ${filterField('theme','Key theme','e.g. citizenship', sourceListFor('theme'))}
+      ${filterField('related','Related to','e.g. Van Gend en Loos', sourceListFor('related'))}
+    </div>
+    <div id="home-results">${renderHomeResults()}</div>`;
 }
 
 function renderSubjects(){
