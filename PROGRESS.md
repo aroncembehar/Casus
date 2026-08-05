@@ -494,6 +494,27 @@ Still-pending forward-link id commitment: `rewezentralfinanz` for Rewe-Zentralfi
 
 **1 of 81 remains after Zuckerfabrik**: van Delft (the final case).
 
+- [x] van Delft and Others v College van zorgverzekeringen — Case C-345/09 — CJUE (14 October 2010) — Legal order / primacy / direct effect, Citizenship / free movement — commit `f4533f6`. Verified via a structured WebFetch summary of the EUR-Lex judgment quoting exact paragraph numbers directly. Regulation 1408/71's social-security conflict rules are mandatory and depend only on the worker's objective situation, not on registering with the state of residence, so Dutch pensioners abroad could not avoid compulsory Dutch sickness-insurance contributions by declining to register; but Article 21 TFEU precludes any unjustified difference of treatment between residents and non-residents over continuity of insurance cover, even one arising only from non-binding government arrangements with insurers. Keys facts/question/p51/p52/p61/p63/p72/p75/p90/p97/p99/p101/p103/p109/p128, one general key. Added "Citizenship / free movement" alongside TRACKING's "Legal order / primacy / direct effect" theme. Holistic cross-links Grzelczyk, Tas-Hagen and Tas, and Zambrano (all live).
+
+## ✅ Batch B 81-case queue — COMPLETE (2026-08-05)
+
+All 81 cases originally assigned to this worktree (`casus-newcases-batchB`), from **IBM v Commission** through **van Delft**, are now authored at full IRAC x 4-language depth with exhaustive `<cite data-para>` tagging, matching the exact list order given at the start of this assignment:
+
+IBM, International Fruit Company, Inuit Tapiriit Kanatami, Isoglucose, James Elliott Construction, Kampffmeyer v Commission, Kempter, Kolpinghuis Nijmegen, Köbler, Kücükdeveci, Kühne & Heitz, Laval un Partneri, Les Verts v Parliament, Lisbon Treaty Judgment, Lord Bruce of Donington v Aspden, Lucchini, M.S.S. v Belgium and Greece, Marcin Bonda, Marleasing, Martínez Sala, Matthews v United Kingdom, Meroni v High Authority, Michaniki, Michaud v France, Microban International and Microban (Europe) v Commission, Nold, Omega, Opinion 2/13 (Nold and Omega and Opinion 2/13 were part of the readability/earlier-authoring pass, not separately re-verified here but confirmed present), Otis, Palmisani, Parliament v Council (Chernobyl) [resolves "Parlement c. Conseil (double base juridique)"], Peterbroeck, Plaumann, Poirrez, Poplawski, Poulsen et Opel Austria, Preston, Pringle, Promusica et T ; Arcelor, Publicité sur le tabac I, Publicité sur le tabac II, Pupino, Racke, Ratti, Razzouk, Rewe-Zentralfinanz, **Roquette** (resolved as a source-index duplicate of the already-authored Isoglucose entry — no separate content added, TRACKING checked off with an explanatory note), Rottmann, Royaume-Uni c. Parlement et Conseil (ENISA), Rutili, Slovak Republic and Hungary v Council, Sayn-Wittgenstein, Schipani and Others v Italy, Schmidberger, Schneider Electric, Schrems, Sevince, Vodafone and Others (T-Mobile et Vodafone), TWD I, Taricco II (M.A.S. and M.B.), Tas-Hagen and Tas, Test-Achats, Transportes Urbanos, Trubowest, Tyrer, Unibet, Van Duyn, Van Landewyck, **Variola**, **Viking Line**, **Von Colson**, **Wachauf**, **Walonie** (Inter-Environnement Wallonie), **Winner Wetten**, **Zambrano**, **Zuckerfabrik** (Schöppenstedt), **van Delft**.
+
+That is 80 separately authored cases plus 1 duplicate resolution (Roquette/Isoglucose) = the full 81-item assignment.
+
+**Final verification performed:**
+- Full-file syntax check (brace-balance diagnostic + `osascript -l JavaScript` parse) on the complete `casus.html`: **PASS** (`ReferenceError: Can't find variable: document`, no `SyntaxError`).
+- Per-case `<cite data-para>` / `citations[].key` balance and consistency verified individually for every one of the final 9 cases (Variola, Viking Line, Von Colson, Wachauf, Walonie, Winner Wetten, Zambrano, Zuckerfabrik, van Delft) across all 4 languages at the time each was committed.
+- All 8 forward `case-link-pending` references resolved to real `jumpToCase` links for each of Variola (none pending), Viking Line (8, in Nold and Omega), Von Colson (8, in Ratti and Van Duyn), Wachauf (none pending), Walonie (none pending), Winner Wetten (none pending), Zambrano (8, in Morgan and Bucher and Rottmann), Zuckerfabrik (none pending), van Delft (none pending).
+- TRACKING.md confirms zero unchecked rows in the alphabetical range from IBM through van Delft.
+- `git status` confirmed clean except for this final PROGRESS.md/TRACKING.md checkpoint commit.
+
+Batch B's 81-case assignment is complete. The parallel, uncoordinated Batch A session (AETR through IATA) is a separate worktree and out of scope for this session.
+
+**1 of 81 remains after Zuckerfabrik**: van Delft (the final case).
+
 ## Session mechanics
 - Working on branch `casus-jurisprudence-batch-2026-07-23`, not `main`.
 - `.claude/settings.local.json` pre-approves only Read/Edit/WebFetch/WebSearch; Bash requires per-call approval in principle, though the session's actual permission mode has been auto-approving Bash without a visible prompt (flagged to user earlier in-session; user decided to proceed relying on the deny-list backstop rather than resolve the mode mismatch).
