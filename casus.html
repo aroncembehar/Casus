@@ -11035,33 +11035,37 @@ function sourceListFor(key){
   if(key==='theme') return THEMES.map(themeLabel);
   return null; // 'keyword' has no fixed suggestion list
 }
-function renderSuggestions(key, value, sourceList){
-  const q = normalizeForSearch(value);
-  const exact = sourceList && sourceList.some(s=>normalizeForSearch(s)===q);
-  const matches = (sourceList && q && !exact) ? sourceList.filter(s=>normalizeForSearch(s).includes(q)).slice(0,5) : [];
-  return matches.length ? `<div class="suggestions">${matches.map(s=>`<div class="suggestion" onclick="chooseSuggestion('${key}','${s.replace(/'/g,"\\'")}')">${s}</div>`).join('')}</div>` : '';
+function escapeHtmlAttr(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
+// A "regular search bar": a plain <input> wired to a native <datalist> for the fields that have a
+// fixed list of valid values (case name, theme, related-case). The browser owns the dropdown
+// entirely -- no suggestions <div> is rendered or patched by this app's own JS, so there is nothing
+// here that can ever interfere with the browser's own native handling of keystrokes in the field.
 function filterField(key,label,placeholder,sourceList,big){
   const value = (window._filters && window._filters[key]) || '';
+  const listId = 'datalist-'+key;
+  const listAttr = sourceList ? ` list="${listId}"` : '';
+  const datalist = sourceList ? `<datalist id="${listId}">${sourceList.map(s=>`<option value="${escapeHtmlAttr(s)}">`).join('')}</datalist>` : '';
   return `<div class="filter-field${big?' big':''}">
     <label class="field-label">${label}</label>
-    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${value}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="updateHomeSearch('${key}', this.value)">
-    <div id="suggestions-${key}">${renderSuggestions(key, value, sourceList)}</div>
+    <input id="filter-${key}" type="text" placeholder="${placeholder}" value="${escapeHtmlAttr(value)}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"${listAttr} oninput="onHomeSearchInput('${key}', this.value)">
+    ${datalist}
   </div>`;
 }
-// Called on every keystroke in a home-page search field. Deliberately does NOT touch any <input>
-// element or go through the full renderMain()/innerHTML-replacement cycle -- only the suggestions
-// dropdown and the results area below are refreshed. This is what makes typing/deleting reliable:
-// the input the user is actively typing into is never destroyed and recreated, so there is no
-// "restore focus after the fact" step that could ever fail, race, or get skipped by an unrelated
-// exception elsewhere in the render path.
-function updateHomeSearch(key, value){
+// Debounced the same way any regular search-as-you-type box is (Google, GitHub, etc.): each
+// keystroke records the raw value immediately, but the actual results refresh is deferred a short
+// moment and cancelled/rescheduled by the next keystroke, so a fast typing burst does one results
+// update at the end instead of one per character. The <input> itself is never touched by this --
+// only the separate, distant #home-results container below it.
+window._homeSearchTimers = window._homeSearchTimers || {};
+function onHomeSearchInput(key, value){
   if(!window._filters) window._filters = {name:'',keyword:'',theme:'',related:''};
   window._filters[key] = value;
-  try{
-    const sEl = document.getElementById('suggestions-'+key);
-    if(sEl) sEl.innerHTML = renderSuggestions(key, value, sourceListFor(key));
-  }catch(e){ console.error('renderSuggestions failed', e); }
+  clearTimeout(window._homeSearchTimers[key]);
+  window._homeSearchTimers[key] = setTimeout(function(){ refreshHomeResults(); }, 150);
+}
+function refreshHomeResults(){
   try{
     const resultsEl = document.getElementById('home-results');
     if(resultsEl){
@@ -11073,13 +11077,6 @@ function updateHomeSearch(key, value){
       });
     }
   }catch(e){ console.error('renderHomeResults failed', e); }
-}
-// A suggestion was clicked: the input never re-renders on its own here either, so set its value
-// directly, then refresh suggestions/results exactly as a real keystroke would.
-function chooseSuggestion(key, value){
-  const el = document.getElementById('filter-'+key);
-  if(el) el.value = value;
-  updateHomeSearch(key, value);
 }
 
 function computeResults(){
@@ -11250,10 +11247,15 @@ function renderWeekCaseSuggestions(selKey, q0){
   const matches = weekCaseMatches(selKey, q0);
   return matches.length? `<div class="suggestions">${matches.map(c=>`<div class="suggestion" onclick="addWeekCase('${selKey}','${c.id}')">${c.name} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`).join('')}</div>` : '';
 }
-// Same never-touch-the-input principle as updateHomeSearch: only the suggestions dropdown is
-// refreshed, so this input can never lose focus to a re-render while the user is typing.
+// Same debounce principle as onHomeSearchInput: only the suggestions dropdown is refreshed, and
+// only after a short pause, so this input can never lose focus to a re-render while typing.
+window._weekCaseTimer = null;
 function updateWeekCaseInput(selKey, value){
   window._caseInput = value;
+  clearTimeout(window._weekCaseTimer);
+  window._weekCaseTimer = setTimeout(function(){ refreshWeekCaseSuggestions(selKey, value); }, 150);
+}
+function refreshWeekCaseSuggestions(selKey, value){
   try{
     const sEl = document.getElementById('week-case-suggestions');
     if(sEl) sEl.innerHTML = renderWeekCaseSuggestions(selKey, value);
@@ -11374,11 +11376,16 @@ function renderExamBlock(ex){
     </div>
   </div>`;
 }
-// Same never-touch-the-input principle as updateHomeSearch/updateWeekCaseInput -- only this one
-// exam's suggestions dropdown is refreshed, so the input never loses focus mid-typing.
+// Same debounce principle as onHomeSearchInput/updateWeekCaseInput -- only this one exam's
+// suggestions dropdown is refreshed, and only after a short pause, so the input never loses focus.
+window._examInputTimers = window._examInputTimers || {};
 function setExamInput(examId, val){
   if(!window._examInput) window._examInput={};
   window._examInput[examId]=val;
+  clearTimeout(window._examInputTimers[examId]);
+  window._examInputTimers[examId] = setTimeout(function(){ refreshExamSuggestions(examId, val); }, 150);
+}
+function refreshExamSuggestions(examId, val){
   try{
     const ex = state.exams.find(e=>e.id===examId);
     const sEl = document.getElementById('exam-suggestions-'+examId);
