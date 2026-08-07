@@ -204,7 +204,7 @@
 <header>
   <span class="logo" onclick="goHome()">Casus</span>
   <span style="display:flex;align-items:center;gap:14px;">
-    <span style="color:var(--gold-light);font-size:13px;">EU case law</span>
+    <span id="tagline" style="color:var(--gold-light);font-size:13px;">EU case law</span>
     <span id="lang-switch" style="display:flex;gap:4px;"></span>
   </span>
 </header>
@@ -10686,6 +10686,9 @@ function renderLangSwitch(){
   if(!el) return;
   const langs = [['en','EN'],['fr','FR'],['de','DE'],['it','IT']];
   el.innerHTML = langs.map(([code,label])=>`<span onclick="setLang('${code}')" style="cursor:pointer;font-size:12px;padding:3px 7px;border-radius:6px;color:${currentLang===code?'var(--red)':'var(--gold-light)'};background:${currentLang===code?'var(--gold-light)':'transparent'};">${label}</span>`).join('');
+  const tagEl = document.getElementById('tagline');
+  if(tagEl) tagEl.textContent = ui('tagline');
+  document.title = 'Casus — ' + ui('tagline');
 }
 
 let state = { weekNotes: {}, weekCases: {}, progress: {}, userBold: {}, exams: [
@@ -10705,17 +10708,17 @@ async function saveState(){
 }
 
 const TABS = [
-  {id:'home', label:'Home'},
-  {id:'subjects', label:'My subjects'},
-  {id:'diagrams', label:'Diagrams'},
-  {id:'week', label:'This week'},
-  {id:'exams', label:'My exams'},
+  {id:'home', labelKey:'tab_home'},
+  {id:'subjects', labelKey:'tab_subjects'},
+  {id:'diagrams', labelKey:'tab_diagrams'},
+  {id:'week', labelKey:'tab_week'},
+  {id:'exams', labelKey:'tab_exams'},
 ];
 let activeTab = 'home';
 
 function renderNav(){
   const el = document.getElementById('nav');
-  el.innerHTML = TABS.map(t=>`<button class="${t.id===activeTab?'active':''}" onclick="switchTab('${t.id}')">${t.label}</button>`).join('');
+  el.innerHTML = TABS.map(t=>`<button class="${t.id===activeTab?'active':''}" onclick="switchTab('${t.id}')">${ui(t.labelKey)}</button>`).join('');
 }
 function switchTab(id){ activeTab = id; renderNav(); renderMain(); }
 function goHome(){ window._filters = {name:'',keyword:'',theme:'',related:''}; switchTab('home'); }
@@ -10735,14 +10738,128 @@ function showArticle(id){
     <span class="modal-close" onclick="closeArticleModal()">✕</span>
     <h3>${a.label}</h3>
     <p style="color:var(--muted);font-size:13.5px;line-height:1.6;">${a.covers}</p>
-    ${a.changed ? `<div class="changed-banner"><b>This provision has changed.</b> At the time of the relevant judgment it was cited as ${a.historicalLabel}. ${a.historicalNote}</div>` : ''}
+    ${a.changed ? `<div class="changed-banner"><b>${ui('provision_changed')}</b> ${uiCitedAsHistorical(a.historicalLabel)} ${a.historicalNote}</div>` : ''}
     <div class="article-links">
-      ${a.historicalUrl ? `<a href="${a.historicalUrl}" target="_blank" rel="noopener">→ View ${a.historicalLabel}, the version cited in the case</a>` : ''}
-      <a href="${a.currentUrl}" target="_blank" rel="noopener">→ View the current text on EUR-Lex</a>
+      ${a.historicalUrl ? `<a href="${a.historicalUrl}" target="_blank" rel="noopener">${uiViewHistorical(a.historicalLabel)}</a>` : ''}
+      <a href="${a.currentUrl}" target="_blank" rel="noopener">${ui('view_current_text')}</a>
     </div>`;
   document.getElementById('article-modal').style.display='flex';
 }
 function closeArticleModal(){ document.getElementById('article-modal').style.display='none'; }
+
+// Site-wide UI chrome translations (nav, labels, buttons, hints, empty states) -- separate from
+// the per-case content translations (c.translations) and theme labels (THEME_LABELS_*), which
+// already covered the substantive legal text. ui(key) looks up the current language, falling back
+// to English if a key is somehow missing so nothing ever renders blank.
+const UI_STRINGS = {
+  tagline:{en:'EU case law', fr:"Droit de l'UE", de:'EU-Recht', it:"Diritto dell'UE"},
+  tab_home:{en:'Home', fr:'Accueil', de:'Start', it:'Home'},
+  tab_subjects:{en:'My subjects', fr:'Mes matières', de:'Meine Themen', it:'Le mie materie'},
+  tab_diagrams:{en:'Diagrams', fr:'Schémas', de:'Diagramme', it:'Schemi'},
+  tab_week:{en:'This week', fr:'Cette semaine', de:'Diese Woche', it:'Questa settimana'},
+  tab_exams:{en:'My exams', fr:'Mes examens', de:'Meine Prüfungen', it:'I miei esami'},
+  hero_sub:{en:'Start small. Become great.', fr:'Commencez petit. Devenez grand.', de:'Klein anfangen. Groß werden.', it:'Inizia in piccolo. Diventa grande.'},
+  stat_mastered:{en:'mastered', fr:'maîtrisées', de:'gemeistert', it:'padroneggiate'},
+  stat_inprogress:{en:'in progress', fr:'en cours', de:'in Bearbeitung', it:'in corso'},
+  stat_notstarted:{en:'not started', fr:'non commencées', de:'nicht begonnen', it:'non iniziate'},
+  field_name:{en:'Case name', fr:"Nom de l'affaire", de:'Name der Rechtssache', it:'Nome della causa'},
+  field_keyword:{en:'Keywords', fr:'Mots-clés', de:'Stichwörter', it:'Parole chiave'},
+  field_theme:{en:'Key theme', fr:'Thème clé', de:'Schlüsselthema', it:'Tema chiave'},
+  field_related:{en:'Related to', fr:'En rapport avec', de:'Verwandt mit', it:'Collegato a'},
+  ph_name:{en:'e.g. Rottmann', fr:'p. ex. Rottmann', de:'z. B. Rottmann', it:'es. Rottmann'},
+  ph_keyword:{en:'e.g. direct effect', fr:'p. ex. effet direct', de:'z. B. unmittelbare Wirkung', it:'es. effetto diretto'},
+  ph_theme:{en:'e.g. citizenship', fr:'p. ex. citoyenneté', de:'z. B. Unionsbürgerschaft', it:'es. cittadinanza'},
+  ph_related:{en:'e.g. Van Gend en Loos', fr:'p. ex. Van Gend en Loos', de:'z. B. Van Gend en Loos', it:'es. Van Gend en Loos'},
+  card_subjects_desc:{en:'Browse cases by article and theme', fr:'Parcourez les affaires par article et par thème', de:'Fälle nach Artikel und Thema durchsuchen', it:'Sfoglia le cause per articolo e tema'},
+  card_diagrams_desc:{en:'Visual maps of each theme', fr:'Cartes visuelles de chaque thème', de:'Visuelle Übersichten zu jedem Thema', it:'Mappe visive per ogni tema'},
+  card_week_desc:{en:'Log what you studied, day by day', fr:'Notez ce que vous avez étudié, jour après jour', de:'Halte fest, was du Tag für Tag gelernt hast', it:'Registra ciò che hai studiato, giorno per giorno'},
+  card_exams_desc:{en:'Define your exam scope', fr:'Définissez le périmètre de votre examen', de:'Lege den Umfang deiner Prüfung fest', it:'Definisci il programma del tuo esame'},
+  no_results:{en:'No cases match yet — try different criteria.', fr:"Aucune affaire ne correspond encore — essayez d'autres critères.", de:'Noch keine passenden Fälle — versuche andere Kriterien.', it:'Nessuna causa corrisponde ancora — prova altri criteri.'},
+  subjects_subhead:{en:'Tap a subject to see its cases. Box size reflects how many cases it has.', fr:"Touchez une matière pour voir ses affaires. La taille de la case reflète son nombre d'affaires.", de:'Tippe auf ein Thema, um seine Fälle zu sehen. Die Kachelgröße zeigt die Anzahl der Fälle.', it:'Tocca una materia per vedere le sue cause. La dimensione del riquadro riflette il numero di cause.'},
+  back_to_subjects:{en:'← Back to subjects', fr:'← Retour aux matières', de:'← Zurück zu den Themen', it:'← Torna alle materie'},
+  diagram_empty:{en:'Click a case to see its details.', fr:'Cliquez sur une affaire pour voir ses détails.', de:'Klicke auf einen Fall, um Details zu sehen.', it:'Fai clic su una causa per vedere i dettagli.'},
+  cases_studied:{en:'Cases studied', fr:'Affaires étudiées', de:'Studierte Fälle', it:'Cause studiate'},
+  ph_case_name:{en:'Type a case name...', fr:"Saisissez le nom d'une affaire...", de:'Namen einer Rechtssache eingeben...', it:'Digita il nome di una causa...'},
+  ph_other_notes:{en:'Other notes...', fr:'Autres notes...', de:'Weitere Notizen...', it:'Altre note...'},
+  exams_subhead:{en:'Create an exam, then add subjects or individual cases to its scope.', fr:'Créez un examen, puis ajoutez des matières ou des affaires individuelles à son périmètre.', de:'Erstelle eine Prüfung und füge dann Themen oder einzelne Fälle zu ihrem Umfang hinzu.', it:'Crea un esame, poi aggiungi materie o singole cause al suo programma.'},
+  add_exam:{en:'+ Add exam', fr:'+ Ajouter un examen', de:'+ Prüfung hinzufügen', it:'+ Aggiungi esame'},
+  no_exams:{en:'No exams yet — add one to start scoping.', fr:'Aucun examen pour le moment — ajoutez-en un pour définir son périmètre.', de:'Noch keine Prüfungen — füge eine hinzu, um mit der Planung zu beginnen.', it:'Ancora nessun esame — aggiungine uno per iniziare a definire il programma.'},
+  no_exam_cases:{en:'No cases yet — search above to add a subject or a case.', fr:'Aucune affaire pour le moment — utilisez la recherche ci-dessus pour ajouter une matière ou une affaire.', de:'Noch keine Fälle — nutze die Suche oben, um ein Thema oder einen Fall hinzuzufügen.', it:'Ancora nessuna causa — usa la ricerca sopra per aggiungere una materia o una causa.'},
+  ph_add_subject_case:{en:'Add a subject or a case...', fr:'Ajouter une matière ou une affaire...', de:'Thema oder Fall hinzufügen...', it:'Aggiungi una materia o una causa...'},
+  exam_default_name:{en:'Exam', fr:'Examen', de:'Prüfung', it:'Esame'},
+  lbl_issue:{en:'Issue', fr:'Question', de:'Frage', it:'Questione'},
+  lbl_rule:{en:'Rule', fr:'Règle', de:'Regel', it:'Regola'},
+  lbl_application:{en:'Application', fr:'Application', de:'Anwendung', it:'Applicazione'},
+  legal_basis:{en:'Legal basis', fr:'Base juridique', de:'Rechtsgrundlage', it:'Base giuridica'},
+  lvl_abstract:{en:'Abstract', fr:'Résumé', de:'Kurzfassung', it:'Sintesi'},
+  lvl_intermediate:{en:'Intermediate', fr:'Intermédiaire', de:'Mittel', it:'Intermedio'},
+  lvl_detailed:{en:'Detailed', fr:'Détaillé', de:'Detailliert', it:'Dettagliato'},
+  lvl_holistic:{en:'Holistic', fr:"Vue d'ensemble", de:'Gesamtbild', it:"Visione d'insieme"},
+  provision_changed:{en:'This provision has changed.', fr:'Cette disposition a changé.', de:'Diese Bestimmung hat sich geändert.', it:'Questa disposizione è cambiata.'},
+  view_current_text:{en:'→ View the current text on EUR-Lex', fr:'→ Voir le texte actuel sur EUR-Lex', de:'→ Aktuellen Text auf EUR-Lex ansehen', it:'→ Vedi il testo attuale su EUR-Lex'},
+};
+function ui(key){
+  const entry = UI_STRINGS[key];
+  if(!entry) return key;
+  return entry[currentLang] || entry.en;
+}
+function uiCitedAsHistorical(label){
+  return {
+    en:`At the time of the relevant judgment it was cited as ${label}.`,
+    fr:`Au moment de l'arrêt concerné, elle était citée sous la référence ${label}.`,
+    de:`Zum Zeitpunkt des betreffenden Urteils wurde sie als ${label} zitiert.`,
+    it:`Al momento della sentenza in questione, era citata come ${label}.`
+  }[currentLang] || `At the time of the relevant judgment it was cited as ${label}.`;
+}
+// A handful of strings need real interpolation/pluralization rather than a flat lookup.
+function uiMasteredOfTotal(mastered, total){
+  return {
+    en:`${mastered} of ${total} mastered`,
+    fr:`${mastered} sur ${total} maîtrisées`,
+    de:`${mastered} von ${total} gemeistert`,
+    it:`${mastered} di ${total} padroneggiate`
+  }[currentLang] || `${mastered} of ${total} mastered`;
+}
+function uiMasteredSlash(mastered, total){
+  return {
+    en:`${mastered}/${total} mastered`,
+    fr:`${mastered}/${total} maîtrisées`,
+    de:`${mastered}/${total} gemeistert`,
+    it:`${mastered}/${total} padroneggiate`
+  }[currentLang] || `${mastered}/${total} mastered`;
+}
+function uiCaseWord(n){
+  return {
+    en:`case${n!==1?'s':''}`,
+    fr:`affaire${n!==1?'s':''}`,
+    de:`Fall${n!==1?'e':''}`,
+    it:`caus${n!==1?'e':'a'}`
+  }[currentLang] || `case${n!==1?'s':''}`;
+}
+function uiCaseCount(n){ return `${n} ${uiCaseWord(n)}`; }
+function uiAddCaseCount(n){
+  return {
+    en:`add ${n} case${n!==1?'s':''}`,
+    fr:`ajouter ${n} affaire${n!==1?'s':''}`,
+    de:`${n} Fall${n!==1?'e':''} hinzufügen`,
+    it:`aggiungi ${n} caus${n!==1?'e':'a'}`
+  }[currentLang] || `add ${n} case${n!==1?'s':''}`;
+}
+function uiViewHistorical(label){
+  return {
+    en:`→ View ${label}, the version cited in the case`,
+    fr:`→ Voir ${label}, la version citée dans l'affaire`,
+    de:`→ ${label} ansehen, die im Fall zitierte Fassung`,
+    it:`→ Vedi ${label}, la versione citata nella causa`
+  }[currentLang] || `→ View ${label}, the version cited in the case`;
+}
+const WEEKDAY_LABELS = {
+  en:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+  fr:['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'],
+  de:['Mo','Di','Mi','Do','Fr','Sa','So'],
+  it:['Lun','Mar','Mer','Gio','Ven','Sab','Dom']
+};
+const UI_LOCALE = {en:'en-GB', fr:'fr-FR', de:'de-DE', it:'it-IT'};
 
 function citationPopupStrings(){
   return {
@@ -10987,15 +11104,15 @@ function progressSummary(){
 function levelTabsHtml(id){
   const lvl = (window._cardLevel && window._cardLevel[id]) || 1;
   const p = state.progress[id]||0;
-  const labels = [[1,'Abstract'],[2,'Intermediate'],[3,'Detailed'],[4,'Holistic']];
+  const labels = [[1,'lvl_abstract'],[2,'lvl_intermediate'],[3,'lvl_detailed'],[4,'lvl_holistic']];
   return `<div class="level-tabs">
-    ${labels.map(([n,l])=>`<span class="lvl-btn ${lvl===n?'active':''}" onclick="setLevel('${id}',${n})">${l}</span>`).join('')}
+    ${labels.map(([n,key])=>`<span class="lvl-btn ${lvl===n?'active':''}" onclick="setLevel('${id}',${n})">${ui(key)}</span>`).join('')}
     <span class="dots">${[1,2,3].map(n=>`<span class="dot ${n<=p?'filled':''}"></span>`).join('')}</span>
   </div>`;
 }
 function articleChips(c){
   if(!c.articleIds || !c.articleIds.length) return '';
-  return `<div class="legal-basis"><span class="lb-label">Legal basis</span>${c.articleIds.map(aid=>{
+  return `<div class="legal-basis"><span class="lb-label">${ui('legal_basis')}</span>${c.articleIds.map(aid=>{
     const a = ARTICLES.find(x=>x.id===aid); if(!a) return '';
     return `<span class="article-chip" onclick="showArticle('${aid}')">${a.label}</span>`;
   }).join('')}</div>`;
@@ -11023,7 +11140,7 @@ function levelContentHtml(c){
     return `<div class="citable" data-case="${c.id}">${body}</div>${legal}${clearHtml}${note}`;
   }
   const src = lvl===1 ? content.abstract : (lvl===2 ? content.intermediate : content.detailed);
-  const body = `<div class="detail"><b>Issue</b> — ${src.issue}<br><br><b>Rule</b> — ${src.rule}<br><br><b>Application</b> — ${src.application}</div>`;
+  const body = `<div class="detail"><b>${ui('lbl_issue')}</b> — ${src.issue}<br><br><b>${ui('lbl_rule')}</b> — ${src.rule}<br><br><b>${ui('lbl_application')}</b> — ${src.application}</div>`;
   const legal = lvl>=2 ? articleChips(c) : '';
   if(lvl===2 || lvl===3){
     const hint = {
@@ -11155,28 +11272,28 @@ function renderHomeResults(){
   const active = Object.values(window._filters||{}).some(v=>v&&v.trim());
   if(!active){
     return `<div class="section-grid">
-            ${sectionCard('subjects','My subjects','Browse cases by article and theme')}
-            ${sectionCard('diagrams','Diagrams','Visual maps of each theme')}
-            ${sectionCard('week','This week','Log what you studied, day by day')}
-            ${sectionCard('exams','My exams','Define your exam scope')}
+            ${sectionCard('subjects',ui('tab_subjects'),ui('card_subjects_desc'))}
+            ${sectionCard('diagrams',ui('tab_diagrams'),ui('card_diagrams_desc'))}
+            ${sectionCard('week',ui('tab_week'),ui('card_week_desc'))}
+            ${sectionCard('exams',ui('tab_exams'),ui('card_exams_desc'))}
            </div>`;
   }
   const results = computeResults();
-  return `<div style="margin-top:14px;">${results.length? results.map(c=>caseCard(c)).join('') : '<p class="empty">No cases match yet — try different criteria.</p>'}</div>`;
+  return `<div style="margin-top:14px;">${results.length? results.map(c=>caseCard(c)).join('') : `<p class="empty">${ui('no_results')}</p>`}</div>`;
 }
 function renderHome(){
   if(!window._filters) window._filters = {name:'',keyword:'',theme:'',related:''};
   const s = progressSummary();
-  return `<div class="hero"><div class="hero-rule"></div><p class="hero-sub">Start small. Become great.</p></div>
-    <p class="progress-line">${s.mastered} mastered · ${s.started} in progress · ${s.notStarted} not started</p>
+  return `<div class="hero"><div class="hero-rule"></div><p class="hero-sub">${ui('hero_sub')}</p></div>
+    <p class="progress-line">${s.mastered} ${ui('stat_mastered')} · ${s.started} ${ui('stat_inprogress')} · ${s.notStarted} ${ui('stat_notstarted')}</p>
     <div class="search-row">
-      ${filterField('name','Case name','e.g. Rottmann', true)}
+      ${filterField('name',ui('field_name'),ui('ph_name'), true)}
       <div id="cat-mascot" class="cat-mascot"></div>
     </div>
     <div class="filter-row">
-      ${filterField('keyword','Keywords','e.g. direct effect')}
-      ${filterField('theme','Key theme','e.g. citizenship')}
-      ${filterField('related','Related to','e.g. Van Gend en Loos')}
+      ${filterField('keyword',ui('field_keyword'),ui('ph_keyword'))}
+      ${filterField('theme',ui('field_theme'),ui('ph_theme'))}
+      ${filterField('related',ui('field_related'),ui('ph_related'))}
     </div>
     <div id="home-results">${renderHomeResults()}</div>`;
 }
@@ -11215,11 +11332,11 @@ function subjectTileHtml(t, cases, mastered, tier){
   let inner;
   if(tier==='large'){
     inner = `<div class="subj-tile-top">
-        <div class="subj-tile-stat"><span class="subj-stat-num">${total}</span><span class="subj-stat-label">case${total!==1?'s':''}</span></div>
+        <div class="subj-tile-stat"><span class="subj-stat-num">${total}</span><span class="subj-stat-label">${uiCaseWord(total)}</span></div>
         ${ring}
       </div>
       <div class="subj-tile-label">${label}</div>
-      <div class="subj-tile-sub">${mastered} of ${total} mastered</div>`;
+      <div class="subj-tile-sub">${uiMasteredOfTotal(mastered, total)}</div>`;
   } else if(tier==='medium'){
     inner = `<div class="subj-tile-top"><span class="subj-tile-count-inline">${total}</span>${ring}</div>
       <div class="subj-tile-label">${label}</div>`;
@@ -11247,15 +11364,15 @@ function renderSubjects(){
   const maxCount = Math.max(...perTheme.map(x=>x.cases.length), 0);
   const sorted = perTheme.slice().sort((a,b)=>b.cases.length-a.cases.length);
   const tilesHtml = sorted.map(({t,cases,mastered})=>subjectTileHtml(t, cases, mastered, subjectTier(cases.length, maxCount))).join('');
-  return `<h1>My subjects</h1>
-    <p class="subhead">Tap a subject to see its cases. Box size reflects how many cases it has.</p>
+  return `<h1>${ui('tab_subjects')}</h1>
+    <p class="subhead">${ui('subjects_subhead')}</p>
     <div class="subj-grid${currentLang==='de'?' subj-grid-de':''}">${tilesHtml}</div>`;
 }
 function subjectDetailHtml(t, cases){
   const mastered = cases.filter(c=>(state.progress[c.id]||0)>=3).length;
-  return `<div class="subj-back" onclick="selectSubject(null)">← Back to subjects</div>
+  return `<div class="subj-back" onclick="selectSubject(null)">${ui('back_to_subjects')}</div>
     <h1>${themeLabel(t)}</h1>
-    <p class="subhead">${mastered} of ${cases.length} mastered</p>
+    <p class="subhead">${uiMasteredOfTotal(mastered, cases.length)}</p>
     <div class="theme-body">${cases.map(c=>caseCard(c,'')).join('')}</div>`;
 }
 function selectSubject(t){
@@ -11326,7 +11443,7 @@ function renderDiagramSVG(theme, themeIndex, cases){
       ${detail.originalName ? `<div style="color:var(--muted);font-size:12px;font-style:italic;margin-top:2px;">${detail.originalName}</div>` : ''}
       ${levelTabsHtml(detail.id)}
       ${levelContentHtml(detail)}
-    </div>` : `<p class="empty">Click a case to see its details.</p>`}`;
+    </div>` : `<p class="empty">${ui('diagram_empty')}</p>`}`;
 }
 function selectDiagram(themeIndex,id){
   const theme = THEMES[themeIndex];
@@ -11336,11 +11453,11 @@ function selectDiagram(themeIndex,id){
 }
 
 function renderDiagrams(){
-  return `<h1>Diagrams</h1>` + THEMES.map((t,i)=>{
+  return `<h1>${ui('tab_diagrams')}</h1>` + THEMES.map((t,i)=>{
     const cases = CASES.filter(c=>c.themes.includes(t));
     const mastered = cases.filter(c=>(state.progress[c.id]||0)>=3).length;
     return `<div class="diag-block">
-      <div class="diag-head"><span class="t">${themeLabel(t)}</span><span class="n">${mastered}/${cases.length} mastered</span></div>
+      <div class="diag-head"><span class="t">${themeLabel(t)}</span><span class="n">${uiMasteredSlash(mastered, cases.length)}</span></div>
       ${renderDiagramSVG(t,i,cases)}
     </div>`;
   }).join('');
@@ -11376,9 +11493,9 @@ function refreshWeekCaseSuggestions(selKey, value){
 function renderCaseAutocomplete(selKey){
   const tagged = (state.weekCases[selKey]||[]).map(id=>CASES.find(c=>c.id===id)).filter(Boolean);
   return `<div class="case-log">
-    <div class="case-log-label">Cases studied</div>
+    <div class="case-log-label">${ui('cases_studied')}</div>
     <div class="case-chips">${tagged.map(c=>`<span class="chip active">${c.name} <span onclick="removeWeekCase('${selKey}','${c.id}')" style="cursor:pointer;margin-left:4px;">✕</span></span>`).join('')}</div>
-    <input id="case-log-input" type="text" placeholder="Type a case name..." value="${window._caseInput||''}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+    <input id="case-log-input" type="text" placeholder="${escapeHtmlAttr(ui('ph_case_name'))}" value="${window._caseInput||''}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
       oninput="updateWeekCaseInput('${selKey}', this.value)"
       onkeydown="if(event.key==='Enter'){handleCaseEnter('${selKey}')}">
     <div id="week-case-suggestions">${renderWeekCaseSuggestions(selKey, window._caseInput||'')}</div>
@@ -11403,12 +11520,13 @@ function handleCaseEnter(selKey){
 function renderWeek(){
   const days = computeWeekDays(window._weekOffset||0);
   if(!window._agendaDate) window._agendaDate = new Date().toISOString().slice(0,10);
-  const dayNames=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-  const rangeLabel = `${days[0].toLocaleDateString(undefined,{day:'numeric',month:'short'})} – ${days[6].toLocaleDateString(undefined,{day:'numeric',month:'short'})}`;
+  const dayNames = WEEKDAY_LABELS[currentLang] || WEEKDAY_LABELS.en;
+  const locale = UI_LOCALE[currentLang] || 'en-GB';
+  const rangeLabel = `${days[0].toLocaleDateString(locale,{day:'numeric',month:'short'})} – ${days[6].toLocaleDateString(locale,{day:'numeric',month:'short'})}`;
   const selectedDate = days.find(d=>d.toISOString().slice(0,10)===window._agendaDate) || days[0];
   const selKey = selectedDate.toISOString().slice(0,10);
-  const fullLabel = selectedDate.toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long'});
-  return `<h1>This week</h1>
+  const fullLabel = selectedDate.toLocaleDateString(locale,{weekday:'long',day:'numeric',month:'long'});
+  return `<h1>${ui('tab_week')}</h1>
     <div class="week-nav">
       <span class="arrow" onclick="window._weekOffset=(window._weekOffset||0)-1;renderMain()">‹</span>
       <span class="range">${rangeLabel}</span>
@@ -11425,15 +11543,15 @@ function renderWeek(){
     <div class="agenda-page">
       <div class="agenda-date">${fullLabel}</div>
       ${renderCaseAutocomplete(selKey)}
-      <textarea class="agenda" placeholder="Other notes..." onchange="state.weekNotes['${selKey}']=this.value;saveState()">${state.weekNotes[selKey]||''}</textarea>
+      <textarea class="agenda" placeholder="${escapeHtmlAttr(ui('ph_other_notes'))}" onchange="state.weekNotes['${selKey}']=this.value;saveState()">${state.weekNotes[selKey]||''}</textarea>
     </div>`;
 }
 
 function renderExams(){
-  return `<h1>My exams</h1>
-    <p style="color:var(--muted);font-size:13.5px;margin-top:-8px;">Create an exam, then add subjects or individual cases to its scope.</p>
-    <div style="margin:14px 0;"><span class="chip active" style="cursor:pointer;" onclick="addExam()">+ Add exam</span></div>
-    ${state.exams.length? state.exams.map(ex=>renderExamBlock(ex)).join('') : '<p class="empty">No exams yet — add one to start scoping.</p>'}`;
+  return `<h1>${ui('tab_exams')}</h1>
+    <p style="color:var(--muted);font-size:13.5px;margin-top:-8px;">${ui('exams_subhead')}</p>
+    <div style="margin:14px 0;"><span class="chip active" style="cursor:pointer;" onclick="addExam()">${ui('add_exam')}</span></div>
+    ${state.exams.length? state.exams.map(ex=>renderExamBlock(ex)).join('') : `<p class="empty">${ui('no_exams')}</p>`}`;
 }
 function examSuggestions(ex, query){
   const q = normalizeForSearch((query||'').trim());
@@ -11447,7 +11565,7 @@ function examSuggestions(ex, query){
 }
 function renderExamScope(ex){
   const inScope = CASES.filter(c=>ex.caseIds.includes(c.id));
-  if(!inScope.length) return '<p class="empty">No cases yet — search above to add a subject or a case.</p>';
+  if(!inScope.length) return `<p class="empty">${ui('no_exam_cases')}</p>`;
   return THEMES.filter(t=>inScope.some(c=>c.themes.includes(t))).map(t=>{
     const cases = inScope.filter(c=>c.themes.includes(t));
     return `<div style="margin:12px 0;">
@@ -11462,7 +11580,7 @@ function renderExamSuggestionsHtml(ex, query){
           if(s.type==='theme'){
             const themeKey = THEMES[s.idx];
             const cnt = CASES.filter(c=>c.themes.includes(themeKey) && !ex.caseIds.includes(c.id)).length;
-            return `<div class="suggestion" onclick="addSubjectToExam('${ex.id}',${s.idx})"><b>${themeLabel(themeKey)}</b> — add ${cnt} case${cnt===1?'':'s'}</div>`;
+            return `<div class="suggestion" onclick="addSubjectToExam('${ex.id}',${s.idx})"><b>${themeLabel(themeKey)}</b> — ${uiAddCaseCount(cnt)}</div>`;
           }
           const c = CASES.find(x=>x.id===s.id);
           return `<div class="suggestion" onclick="addCaseToExamSearch('${ex.id}','${s.id}')">${c.name} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`;
@@ -11475,13 +11593,13 @@ function renderExamBlock(ex){
     <div class="theme-head">
       <input type="text" value="${ex.name}" onchange="renameExam('${ex.id}',this.value)" autocomplete="off" style="border:none;background:transparent;font-family:'Averia Serif Libre',serif;color:var(--red);font-size:17px;padding:0;width:55%;">
       <span style="display:flex;align-items:center;gap:12px;">
-        <span class="n">${count} case${count===1?'':'s'}</span>
+        <span class="n">${uiCaseCount(count)}</span>
         <span onclick="deleteExam('${ex.id}')" style="cursor:pointer;color:var(--muted);">✕</span>
       </span>
     </div>
     <div class="theme-body">
       <div class="case-log">
-        <input id="exam-search-${ex.id}" type="text" placeholder="Add a subject or a case..." value="${query}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="setExamInput('${ex.id}',this.value)">
+        <input id="exam-search-${ex.id}" type="text" placeholder="${escapeHtmlAttr(ui('ph_add_subject_case'))}" value="${query}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="setExamInput('${ex.id}',this.value)">
         <div id="exam-suggestions-${ex.id}">${renderExamSuggestionsHtml(ex, query)}</div>
       </div>
       <div style="margin-top:14px;">${renderExamScope(ex)}</div>
@@ -11518,7 +11636,7 @@ function addCaseToExamSearch(examId, caseId){
   saveState(); renderMain();
 }
 function addExam(){
-  state.exams.push({id:'exam-'+Date.now(), name:'Exam '+(state.exams.length+1), caseIds:[]});
+  state.exams.push({id:'exam-'+Date.now(), name:ui('exam_default_name')+' '+(state.exams.length+1), caseIds:[]});
   saveState(); renderMain();
 }
 function renameExam(id, name){
