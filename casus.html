@@ -92,6 +92,39 @@
   .theme-head span.t{font-family:'Averia Serif Libre',serif;color:var(--red);font-size:17px;}
   .theme-head span.n{font-size:12px;color:var(--muted);}
   .theme-body{padding-top:12px;}
+  .subhead{color:var(--muted);font-size:13.5px;margin:0 0 22px;max-width:54ch;line-height:1.55;}
+  .subj-grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(100px,auto);grid-auto-flow:row dense;gap:12px;align-items:stretch;}
+  @media (max-width:620px){.subj-grid{grid-template-columns:repeat(4,1fr);} .subj-tile-large{grid-column:span 4 !important;} .subj-tile-medium{grid-column:span 2;}}
+  @media (max-width:420px){.subj-grid{grid-template-columns:repeat(2,1fr);} .subj-tile-large,.subj-tile-medium{grid-column:span 2 !important;}}
+  .subj-tile{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:13px 14px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;cursor:pointer;text-align:left;box-shadow:0 1px 2px rgba(110,27,36,0.09);transition:transform 0.15s ease,box-shadow 0.15s ease,border-color 0.15s ease;font-family:'Inter',sans-serif;}
+  .subj-tile-small{grid-column:span 1;grid-row:span 1;}
+  .subj-tile-medium{grid-column:span 2;grid-row:span 1;}
+  .subj-tile-large{grid-column:span 3;grid-row:span 2;border-radius:22px;}
+  .subj-tile:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(110,27,36,0.16);border-color:var(--gold);}
+  .subj-tile:active{transform:translateY(0) scale(0.98);box-shadow:0 2px 6px rgba(110,27,36,0.09);}
+  .subj-tile-active{border-color:var(--red);box-shadow:0 0 0 2px var(--red);}
+  .subj-tile-empty{opacity:0.6;}
+  .subj-tile-empty:hover{opacity:0.82;}
+  .subj-tile-top{display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0;}
+  .subj-tile-large .subj-tile-top{align-items:center;}
+  .subj-tile-stat{display:flex;flex-direction:column;line-height:1;}
+  .subj-stat-num{font-family:'Averia Serif Libre',serif;font-size:40px;color:var(--red);line-height:1;}
+  .subj-stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;}
+  .subj-tile-count-inline{font-family:'Averia Serif Libre',serif;font-size:22px;color:var(--red);}
+  .subj-tile-count-small{font-size:13px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .subj-tile-empty .subj-tile-count-small{color:#A39C8C;}
+  .subj-ring{transform:rotate(-90deg);flex-shrink:0;}
+  .subj-ring-track{fill:none;stroke:var(--gold-light);stroke-width:3;}
+  .subj-ring-fill{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset 0.6s ease;}
+  .subj-ring-complete .subj-ring-fill{stroke:var(--red);}
+  .subj-ring-empty{border-radius:50%;border:3px dashed var(--gold-light);}
+  .subj-tile-label{font-size:13px;line-height:1.3;color:var(--ink);font-weight:500;}
+  .subj-tile-large .subj-tile-label{font-size:17px;margin-top:2px;}
+  .subj-tile-medium .subj-tile-label{font-size:13.5px;}
+  .subj-tile-small .subj-tile-label{font-size:12px;}
+  .subj-tile-sub{font-size:11.5px;color:var(--muted);}
+  .subj-back{cursor:pointer;color:var(--muted);font-size:13px;margin-bottom:14px;display:inline-block;}
+  .subj-back:hover{color:var(--red);}
   .diag-block{margin-bottom:18px;}
   .diag-head{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);}
   .diag-head .t{font-family:'Averia Serif Libre',serif;color:var(--red);font-size:17px;}
@@ -11139,23 +11172,85 @@ function renderHome(){
     <div id="home-results">${renderHomeResults()}</div>`;
 }
 
+// Tile size tier is relative to the busiest subject, not a fixed case count, so the grid keeps
+// making sense as more cases get added over time (currently: >=65% of the max case count is
+// "large", >=25% is "medium", the rest "small" -- this reproduces the exact tiers approved in the
+// design draft against the 101-case dataset the app has today, but stays correctly calibrated as
+// that number grows).
+function subjectTier(count, maxCount){
+  if(maxCount<=0) return 'small';
+  const ratio = count/maxCount;
+  if(ratio>=0.65) return 'large';
+  if(ratio>=0.25) return 'medium';
+  return 'small';
+}
+function subjectRingSvg(mastered, total, tier){
+  const r = tier==='large' ? 17 : 13;
+  const d = r*2+6;
+  if(total===0) return `<div class="subj-ring subj-ring-empty" style="width:${d}px;height:${d}px" aria-hidden="true"></div>`;
+  const pct = mastered/total;
+  const circumference = 2*Math.PI*r;
+  const offset = circumference*(1-pct);
+  const complete = mastered===total ? ' subj-ring-complete' : '';
+  return `<svg class="subj-ring${complete}" width="${d}" height="${d}" viewBox="0 0 ${d} ${d}" aria-hidden="true">
+    <circle class="subj-ring-track" cx="${d/2}" cy="${d/2}" r="${r}"></circle>
+    <circle class="subj-ring-fill" cx="${d/2}" cy="${d/2}" r="${r}" style="stroke-dasharray:${circumference.toFixed(2)};stroke-dashoffset:${offset.toFixed(2)}"></circle>
+  </svg>`;
+}
+function subjectTileHtml(t, cases, mastered, tier){
+  const total = cases.length;
+  const label = themeLabel(t);
+  const ring = subjectRingSvg(mastered, total, tier);
+  const empty = total===0 ? ' subj-tile-empty' : '';
+  const active = window._openSubject===t ? ' subj-tile-active' : '';
+  let inner;
+  if(tier==='large'){
+    inner = `<div class="subj-tile-top">
+        <div class="subj-tile-stat"><span class="subj-stat-num">${total}</span><span class="subj-stat-label">case${total!==1?'s':''}</span></div>
+        ${ring}
+      </div>
+      <div class="subj-tile-label">${label}</div>
+      <div class="subj-tile-sub">${mastered} of ${total} mastered</div>`;
+  } else if(tier==='medium'){
+    inner = `<div class="subj-tile-top"><span class="subj-tile-count-inline">${total}</span>${ring}</div>
+      <div class="subj-tile-label">${label}</div>`;
+  } else {
+    const countDisp = total===0 ? '—' : total;
+    inner = `<div class="subj-tile-top"><span class="subj-tile-count-small">${countDisp}</span></div>
+      <div class="subj-tile-label">${label}</div>`;
+  }
+  return `<button class="subj-tile subj-tile-${tier}${empty}${active}" type="button" onclick="selectSubject('${t.replace(/'/g,"\\'")}')">${inner}</button>`;
+}
+// Tapping a subject tile is a real navigation, not an inline expand: it swaps the whole tab body
+// for that subject's own page (subjectDetailHtml), the same way tapping an app opens a new screen
+// rather than unfolding in place. "Back to subjects" returns to the grid.
 function renderSubjects(){
-  if(!window._openSubjects) window._openSubjects = {};
-  return `<h1>My subjects</h1>` + THEMES.map((t,i)=>{
+  if(window._openSubject){
+    const cases = CASES.filter(c=>c.themes.includes(window._openSubject));
+    if(cases.length || THEMES.includes(window._openSubject)) return subjectDetailHtml(window._openSubject, cases);
+    window._openSubject = null; // stale/unknown theme id, fall through to the grid
+  }
+  const perTheme = THEMES.map(t=>{
     const cases = CASES.filter(c=>c.themes.includes(t));
     const mastered = cases.filter(c=>(state.progress[c.id]||0)>=3).length;
-    const open = !!window._openSubjects[t];
-    return `<div class="theme-block">
-      <div class="theme-head" style="cursor:pointer;" onclick="toggleSubjectOpen(${i})">
-        <span class="t"><span style="display:inline-block;width:14px;color:var(--gold);">${open?'▾':'▸'}</span>${themeLabel(t)}</span><span class="n">${mastered}/${cases.length} mastered</span>
-      </div>
-      ${open ? `<div class="theme-body">${cases.map(c=>caseCard(c,'')).join('')}</div>` : ''}
-    </div>`;
-  }).join('');
+    return {t, cases, mastered};
+  });
+  const maxCount = Math.max(...perTheme.map(x=>x.cases.length), 0);
+  const sorted = perTheme.slice().sort((a,b)=>b.cases.length-a.cases.length);
+  const tilesHtml = sorted.map(({t,cases,mastered})=>subjectTileHtml(t, cases, mastered, subjectTier(cases.length, maxCount))).join('');
+  return `<h1>My subjects</h1>
+    <p class="subhead">Tap a subject to see its cases. Box size reflects how many cases it has.</p>
+    <div class="subj-grid">${tilesHtml}</div>`;
 }
-function toggleSubjectOpen(i){
-  const t = THEMES[i];
-  window._openSubjects[t] = !window._openSubjects[t];
+function subjectDetailHtml(t, cases){
+  const mastered = cases.filter(c=>(state.progress[c.id]||0)>=3).length;
+  return `<div class="subj-back" onclick="selectSubject(null)">← Back to subjects</div>
+    <h1>${themeLabel(t)}</h1>
+    <p class="subhead">${mastered} of ${cases.length} mastered</p>
+    <div class="theme-body">${cases.map(c=>caseCard(c,'')).join('')}</div>`;
+}
+function selectSubject(t){
+  window._openSubject = t;
   renderMain();
 }
 
