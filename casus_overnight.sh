@@ -1,7 +1,7 @@
 #!/bin/bash
 # casus_overnight.sh — run now, wait for 4am reset, run again
 
-cd /path/to/Casus   # adjust to your actual repo path
+cd ~/Desktop/Casus
 
 echo "=== SESSION 1: starting now ==="
 claude -p "$(cat casus_batch_prompt.md)" \

@@ -1,0 +1,23 @@
+{
+  "env": {
+    "CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION": "800"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "MSG=$(cat | python3 -c 'import json,sys; print(json.load(sys.stdin).get(\"message\",\"Claude Code needs you\"))'); osascript -e \"display notification \\\"$MSG\\\" with title \\\"Casus\\\" sound name \\\"Submarine\\\"\""
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "WebFetch"
+    ]
+  }
+}
