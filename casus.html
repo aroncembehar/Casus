@@ -362,6 +362,106 @@ function getHistoricalNote(a){
   if(currentLang!=='en' && t && t[currentLang]) return t[currentLang];
   return a.historicalNote;
 }
+// FR/DE/IT translations of each article's "covers" description (the one-line summary of what the
+// provision actually does, shown at the top of the article modal). Same separate-dictionary
+// pattern as ARTICLE_HISTORICAL_NOTES, keyed by article id, English array stays canonical.
+const ARTICLE_COVERS = {
+  art267tfeu:{
+    fr:"Permet aux juridictions nationales de saisir la Cour de justice de questions relatives à l'interprétation ou à la validité du droit de l'Union dans le cadre d'un renvoi préjudiciel — le mécanisme par lequel l'essentiel de la doctrine fondatrice du droit de l'Union, dont la primauté et l'effet direct, est effectivement parvenu jusqu'à la Cour.",
+    de:"Ermöglicht es nationalen Gerichten, dem Gerichtshof Fragen zur Auslegung oder Gültigkeit des Unionsrechts im Wege eines Vorabentscheidungsersuchens vorzulegen — der Mechanismus, über den die meiste grundlegende Doktrin des Unionsrechts, darunter Vorrang und unmittelbare Wirkung, überhaupt erst zum Gerichtshof gelangte.",
+    it:"Consente ai giudici nazionali di sottoporre alla Corte di giustizia questioni relative all'interpretazione o alla validità del diritto dell'Unione mediante un rinvio pregiudiziale — il meccanismo attraverso il quale la maggior parte della dottrina fondamentale del diritto dell'Unione, compresi il primato e l'effetto diretto, è effettivamente giunta dinanzi alla Corte."
+  },
+  art49tfeu:{
+    fr:"Garantit la liberté d'établissement — le droit de s'installer et d'exercer une activité économique dans un autre État membre.",
+    de:"Gewährleistet die Niederlassungsfreiheit — das Recht, sich in einem anderen Mitgliedstaat niederzulassen und dort eine wirtschaftliche Tätigkeit auszuüben.",
+    it:"Garantisce la libertà di stabilimento — il diritto di stabilirsi ed esercitare un'attività economica in un altro Stato membro."
+  },
+  art20tfeu:{
+    fr:"Institue la citoyenneté de l'Union, dont est titulaire toute personne ayant la nationalité d'un État membre.",
+    de:"Begründet die Unionsbürgerschaft, die jede Person besitzt, die die Staatsangehörigkeit eines Mitgliedstaats hat.",
+    it:"Istituisce la cittadinanza dell'Unione, di cui è titolare ogni persona avente la cittadinanza di uno Stato membro."
+  },
+  art21tfeu:{
+    fr:"Confère à tout citoyen de l'Union le droit de circuler et de séjourner librement sur le territoire des États membres, sous réserve de certaines conditions.",
+    de:"Verleiht jedem Unionsbürger das Recht, sich im Hoheitsgebiet der Mitgliedstaaten vorbehaltlich bestimmter Bedingungen frei zu bewegen und aufzuhalten.",
+    it:"Attribuisce a ogni cittadino dell'Unione il diritto di circolare e soggiornare liberamente nel territorio degli Stati membri, fatte salve alcune condizioni."
+  },
+  art18tfeu:{
+    fr:"L'interdiction générale de toute discrimination fondée sur la nationalité dans le champ d'application des traités.",
+    de:"Das allgemeine Verbot der Diskriminierung aus Gründen der Staatsangehörigkeit im Anwendungsbereich der Verträge.",
+    it:"Il divieto generale di discriminazione fondata sulla cittadinanza nell'ambito di applicazione dei trattati."
+  },
+  art34tfeu:{
+    fr:"Interdit les restrictions quantitatives à l'importation ainsi que les mesures d'effet équivalent entre États membres.",
+    de:"Verbietet mengenmäßige Einfuhrbeschränkungen sowie Maßnahmen gleicher Wirkung zwischen den Mitgliedstaaten.",
+    it:"Vieta le restrizioni quantitative all'importazione e le misure di effetto equivalente tra Stati membri."
+  },
+  art36tfeu:{
+    fr:"Énonce les motifs — moralité publique, ordre public, santé, entre autres — susceptibles de justifier des restrictions à la circulation des marchandises.",
+    de:"Nennt die Gründe — unter anderem öffentliche Sittlichkeit, öffentliche Ordnung, Gesundheit —, mit denen Beschränkungen des Warenverkehrs gerechtfertigt werden können.",
+    it:"Elenca i motivi — moralità pubblica, ordine pubblico, salute, tra gli altri — che possono giustificare restrizioni alla circolazione delle merci."
+  },
+  art157tfeu:{
+    fr:"Impose aux États membres d'assurer le principe de l'égalité des rémunérations entre hommes et femmes pour un même travail.",
+    de:"Verpflichtet die Mitgliedstaaten, den Grundsatz des gleichen Entgelts für Männer und Frauen bei gleicher Arbeit sicherzustellen.",
+    it:"Impone agli Stati membri di assicurare il principio della parità di retribuzione tra uomini e donne per uno stesso lavoro."
+  },
+  art30tfeu:{
+    fr:"Interdit les droits de douane à l'importation et à l'exportation, ainsi que les taxes d'effet équivalent, entre États membres.",
+    de:"Verbietet Ein- und Ausfuhrzölle sowie Abgaben gleicher Wirkung zwischen den Mitgliedstaaten.",
+    it:"Vieta i dazi doganali all'importazione e all'esportazione, nonché le tasse di effetto equivalente, tra Stati membri."
+  },
+  dir76207:{
+    fr:"La directive originelle sur l'égalité de traitement, imposant l'égalité de traitement entre hommes et femmes en matière d'accès à l'emploi et de conditions de travail.",
+    de:"Die ursprüngliche Gleichbehandlungsrichtlinie, die die Gleichbehandlung von Männern und Frauen beim Zugang zur Beschäftigung und bei den Arbeitsbedingungen vorschreibt.",
+    it:"La direttiva originaria sulla parità di trattamento, che impone la parità di trattamento tra uomini e donne in materia di accesso all'occupazione e di condizioni di lavoro."
+  },
+  dir200078:{
+    fr:"Établit un cadre général en faveur de l'égalité de traitement en matière d'emploi, couvrant la religion, le handicap, l'âge et l'orientation sexuelle.",
+    de:"Schafft einen allgemeinen Rahmen für die Gleichbehandlung in Beschäftigung und Beruf, der Religion, Behinderung, Alter und sexuelle Ausrichtung erfasst.",
+    it:"Istituisce un quadro generale per la parità di trattamento in materia di occupazione, che comprende religione, disabilità, età e orientamento sessuale."
+  },
+  dir200388:{
+    fr:"La garantie, prévue par la directive sur le temps de travail, d'au moins quatre semaines de congé annuel payé pour tout travailleur, sans condition préalable à l'existence de ce droit.",
+    de:"Die in der Arbeitszeitrichtlinie vorgesehene Garantie eines bezahlten Mindestjahresurlaubs von vier Wochen für jeden Arbeitnehmer, ohne dass das Bestehen dieses Rechts an Vorbedingungen geknüpft wäre.",
+    it:"La garanzia, prevista dalla direttiva sull'orario di lavoro, di almeno quattro settimane di ferie annuali retribuite per ogni lavoratore, senza alcuna condizione preliminare all'esistenza di tale diritto."
+  },
+  art218tfeu:{
+    fr:"Permet à un État membre, au Parlement, au Conseil ou à la Commission de demander à titre préalable à la Cour de justice si un accord international envisagé est compatible avec les traités.",
+    de:"Erlaubt es einem Mitgliedstaat, dem Parlament, dem Rat oder der Kommission, den Gerichtshof im Voraus zu befragen, ob eine geplante völkerrechtliche Übereinkunft mit den Verträgen vereinbar ist.",
+    it:"Consente a uno Stato membro, al Parlamento, al Consiglio o alla Commissione di chiedere preventivamente alla Corte di giustizia se un accordo internazionale previsto sia compatibile con i trattati."
+  },
+  dir9396:{
+    fr:"Accordait aux étudiants universitaires un droit de séjour dans un autre État membre, sous réserve de disposer de ressources suffisantes et d'une assurance maladie, afin de ne pas devenir une charge pour le système d'assistance sociale de l'État d'accueil.",
+    de:"Gewährte Studierenden ein Aufenthaltsrecht in einem anderen Mitgliedstaat, sofern sie über ausreichende Existenzmittel und einen Krankenversicherungsschutz verfügten, um nicht die Sozialhilfe des Aufnahmestaats in Anspruch zu nehmen.",
+    it:"Concedeva agli studenti universitari un diritto di soggiorno in un altro Stato membro, a condizione di disporre di risorse sufficienti e di un'assicurazione malattia, in modo da non diventare un onere per il sistema di assistenza sociale dello Stato ospitante."
+  },
+  art51charter:{
+    fr:"Définit le champ d'application de la Charte des droits fondamentaux : elle ne lie les États membres que lorsqu'ils mettent en œuvre le droit de l'Union, et non en tant que déclaration des droits générale et autonome régissant l'ensemble de l'action nationale.",
+    de:"Bestimmt den Anwendungsbereich der Charta der Grundrechte: Sie bindet die Mitgliedstaaten nur bei der Durchführung des Unionsrechts, nicht als allgemeiner, eigenständiger Grundrechtskatalog für jedes innerstaatliche Handeln.",
+    it:"Definisce l'ambito di applicazione della Carta dei diritti fondamentali: essa vincola gli Stati membri solo quando attuano il diritto dell'Unione, e non come una carta dei diritti generale e autonoma applicabile a ogni azione nazionale."
+  },
+  art50charter:{
+    fr:"Garantit le principe ne bis in idem : le droit de ne pas être jugé ou puni pénalement deux fois pour une même infraction.",
+    de:"Gewährleistet den Grundsatz ne bis in idem: das Recht, wegen derselben Straftat nicht zweimal strafrechtlich verfolgt oder bestraft zu werden.",
+    it:"Garantisce il principio del ne bis in idem: il diritto di non essere giudicato o punito penalmente due volte per lo stesso reato."
+  },
+  art4tue:{
+    fr:"Le devoir de coopération loyale : les États membres doivent prendre toute mesure appropriée pour assurer l'exécution des obligations découlant des traités et des actes de l'Union, et s'abstenir de compromettre la réalisation des objectifs de l'Union.",
+    de:"Die Pflicht zur loyalen Zusammenarbeit: Die Mitgliedstaaten müssen alle geeigneten Maßnahmen treffen, um die Erfüllung ihrer Verpflichtungen aus den Verträgen und den Rechtsakten der Union zu gewährleisten, und dürfen die Verwirklichung der Ziele der Union nicht gefährden.",
+    it:"Il dovere di leale cooperazione: gli Stati membri devono adottare tutte le misure opportune per garantire l'adempimento degli obblighi derivanti dai trattati e dagli atti dell'Unione, e devono astenersi dal compromettere la realizzazione degli obiettivi dell'Unione."
+  },
+  dir80987:{
+    fr:"Imposait aux États membres de mettre en place des institutions de garantie chargées de régler les créances salariales impayées des travailleurs en cas d'insolvabilité de leur employeur.",
+    de:"Verpflichtete die Mitgliedstaaten, Garantieeinrichtungen zu schaffen, die ausstehende Lohnforderungen von Arbeitnehmern im Fall der Zahlungsunfähigkeit ihres Arbeitgebers begleichen.",
+    it:"Imponeva agli Stati membri di istituire istituti di garanzia incaricati di soddisfare i crediti retributivi non pagati dei lavoratori in caso di insolvenza del datore di lavoro."
+  }
+};
+function getCovers(a){
+  const t = ARTICLE_COVERS[a.id];
+  if(currentLang!=='en' && t && t[currentLang]) return t[currentLang];
+  return a.covers;
+}
 
 const CASES = [
 {id:"costaenel", name:"Costa v ENEL", originalName:"Flaminio Costa contro E.N.E.L.", citation:"Case 6/64", jurisdiction:"CJCE", themes:["Legal order / primacy / direct effect"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61964CJ0006",
@@ -10809,7 +10909,7 @@ function showArticle(id){
   card.innerHTML = `
     <span class="modal-close" onclick="closeArticleModal()">✕</span>
     <h3>${a.label}</h3>
-    <p style="color:var(--muted);font-size:13.5px;line-height:1.6;">${a.covers}</p>
+    <p style="color:var(--muted);font-size:13.5px;line-height:1.6;">${getCovers(a)}</p>
     ${a.changed ? `<div class="changed-banner"><b>${ui('provision_changed')}</b> ${uiCitedAsHistorical(a.historicalLabel)} ${getHistoricalNote(a)}</div>` : ''}
     <div class="article-links">
       ${a.historicalUrl ? `<a href="${a.historicalUrl}" target="_blank" rel="noopener">${uiViewHistorical(a.historicalLabel)}</a>` : ''}
