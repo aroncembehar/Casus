@@ -291,6 +291,78 @@ const ARTICLES = [
    historicalUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31980L0987"}
 ];
 
+// FR/DE/IT translations of each article's historicalNote (the "renumbered from X to Y" prose in
+// the changed-provision banner). Keyed by article id, kept separate from ARTICLES itself so the
+// English array above stays the single source of truth; getHistoricalNote() falls back to English
+// for 'en' or if a translation is ever missing.
+const ARTICLE_HISTORICAL_NOTES = {
+  art267tfeu:{
+    fr:"Renuméroté de l'article 177 dans le traité de Rome originel, à l'article 234 CE après le traité d'Amsterdam (1999), puis à l'article 267 TFUE après le traité de Lisbonne (2009). Costa contre ENEL (1964) et Van Gend en Loos (1963) ont tous deux été jugés sous l'article 177 CEE.",
+    de:"Umnummeriert von Artikel 177 im ursprünglichen Vertrag von Rom zu Artikel 234 EG nach dem Vertrag von Amsterdam (1999), dann zu Artikel 267 AEUV nach dem Vertrag von Lissabon (2009). Costa/E.N.E.L. (1964) und Van Gend & Loos (1963) ergingen beide noch unter Artikel 177 EWG.",
+    it:"Rinumerato dall'articolo 177 nel Trattato di Roma originario, all'articolo 234 CE dopo il Trattato di Amsterdam (1999), fino all'articolo 267 TFUE dopo il Trattato di Lisbona (2009). Costa contro ENEL (1964) e Van Gend en Loos (1963) sono stati entrambi decisi ai sensi dell'articolo 177 CEE."
+  },
+  art49tfeu:{
+    fr:"Renuméroté de l'article 52 dans le traité de Rome originel, à l'article 43 après le traité d'Amsterdam (1999), puis à l'article 49 TFUE après le traité de Lisbonne (2009). L'arrêt Micheletti (1992) l'a appliqué en tant qu'article 52 CEE ; Viking Line (2007) l'a appliqué en tant qu'article 43 CE.",
+    de:"Umnummeriert von Artikel 52 im ursprünglichen Vertrag von Rom zu Artikel 43 nach dem Vertrag von Amsterdam (1999), dann zu Artikel 49 AEUV nach dem Vertrag von Lissabon (2009). Micheletti (1992) wandte ihn als Artikel 52 EWG an; Viking Line (2007) als Artikel 43 EG.",
+    it:"Rinumerato dall'articolo 52 nel Trattato di Roma originario, all'articolo 43 dopo il Trattato di Amsterdam (1999), fino all'articolo 49 TFUE dopo il Trattato di Lisbona (2009). La sentenza Micheletti (1992) lo ha applicato come articolo 52 CEE; Viking Line (2007) lo ha applicato come articolo 43 CE."
+  },
+  art21tfeu:{
+    fr:"Introduit par le traité de Maastricht en tant qu'article 8 bis, renuméroté article 18 CE par le traité d'Amsterdam, puis article 21 TFUE par le traité de Lisbonne. Les arrêts Grzelczyk (2001) et Chen (2004) l'ont appliqué en tant qu'article 18 CE.",
+    de:"Durch den Vertrag von Maastricht als Artikel 8a eingeführt, durch Amsterdam zu Artikel 18 EG umnummeriert, dann durch Lissabon zu Artikel 21 AEUV. Grzelczyk (2001) und Chen (2004) wandten ihn als Artikel 18 EG an.",
+    it:"Introdotto dal Trattato di Maastricht come articolo 8 bis, rinumerato articolo 18 CE con il Trattato di Amsterdam, poi articolo 21 TFUE con il Trattato di Lisbona. Le sentenze Grzelczyk (2001) e Chen (2004) lo hanno applicato come articolo 18 CE."
+  },
+  art18tfeu:{
+    fr:"Renuméroté à plusieurs reprises au fil des révisions des traités. L'arrêt Grzelczyk (2001) l'a appliqué en tant qu'article 12 CE.",
+    de:"Im Laufe mehrerer Vertragsrevisionen wiederholt umnummeriert. Grzelczyk (2001) wandte ihn als Artikel 12 EG an.",
+    it:"Rinumerato più volte nel corso delle revisioni dei trattati. La sentenza Grzelczyk (2001) lo ha applicato come articolo 12 CE."
+  },
+  art34tfeu:{
+    fr:"Renuméroté de l'article 30 dans le traité de Rome originel, à l'article 28 CE après Amsterdam, puis à l'article 34 TFUE après Lisbonne. L'arrêt Cassis de Dijon (1979) l'a appliqué en tant qu'article 30 CEE.",
+    de:"Umnummeriert von Artikel 30 im ursprünglichen Vertrag von Rom zu Artikel 28 EG nach Amsterdam, dann zu Artikel 34 AEUV nach Lissabon. Cassis de Dijon (1979) wandte ihn als Artikel 30 EWG an.",
+    it:"Rinumerato dall'articolo 30 nel Trattato di Roma originario, all'articolo 28 CE dopo Amsterdam, fino all'articolo 34 TFUE dopo Lisbona. La sentenza Cassis de Dijon (1979) lo ha applicato come articolo 30 CEE."
+  },
+  art36tfeu:{
+    fr:"A conservé son numéro dans le traité originel, a été renuméroté article 30 CE après Amsterdam, puis est redevenu l'article 36 sous le TFUE après Lisbonne.",
+    de:"Behielt seine Nummer im ursprünglichen Vertrag, wurde nach Amsterdam zu Artikel 30 EG umnummeriert, kehrte dann nach Lissabon unter dem AEUV zu Artikel 36 zurück.",
+    it:"Ha mantenuto il proprio numero nel trattato originario, è stato rinumerato articolo 30 CE dopo Amsterdam, per poi tornare all'articolo 36 con il TFUE dopo Lisbona."
+  },
+  art157tfeu:{
+    fr:"Renuméroté de l'article 119 dans le traité originel, à l'article 141 CE après Amsterdam, puis à l'article 157 TFUE après Lisbonne ; son libellé a également été étendu au fil du temps. L'arrêt Defrenne (1976) l'a appliqué en tant qu'article 119 CEE.",
+    de:"Umnummeriert von Artikel 119 im ursprünglichen Vertrag zu Artikel 141 EG nach Amsterdam, dann zu Artikel 157 AEUV nach Lissabon; sein Wortlaut wurde im Laufe der Zeit ebenfalls erweitert. Defrenne (1976) wandte ihn als Artikel 119 EWG an.",
+    it:"Rinumerato dall'articolo 119 nel trattato originario, all'articolo 141 CE dopo Amsterdam, fino all'articolo 157 TFUE dopo Lisbona; anche il suo testo è stato ampliato nel tempo. La sentenza Defrenne (1976) lo ha applicato come articolo 119 CEE."
+  },
+  art30tfeu:{
+    fr:"L'arrêt Van Gend en Loos (1963) a appliqué l'article 12 CEE, une clause de statu quo transitoire. Cet article spécifique n'existe plus — il a été supprimé une fois l'union douanière achevée — mais l'interdiction permanente des droits de douane entre États membres qui a subsisté figure désormais à l'article 30 TFUE.",
+    de:"Van Gend & Loos (1963) wandte Artikel 12 EWG an, eine vorübergehende Stillhalteklausel. Dieser konkrete Artikel besteht nicht mehr — er wurde nach Vollendung der Zollunion gestrichen —, doch das fortbestehende, dauerhafte Verbot von Zöllen zwischen den Mitgliedstaaten findet sich heute in Artikel 30 AEUV.",
+    it:"La sentenza Van Gend en Loos (1963) ha applicato l'articolo 12 CEE, una clausola transitoria di standstill. Quello specifico articolo non esiste più — è stato soppresso una volta completata l'unione doganale — ma il divieto permanente di dazi doganali tra Stati membri che ne è sopravvissuto è oggi contenuto nell'articolo 30 TFUE."
+  },
+  dir76207:{
+    fr:"La directive elle-même n'avait pas été modifiée au moment où l'arrêt Marshall a été rendu en 1986, mais elle a depuis été abrogée et refondue, avec plusieurs autres directives relatives à l'égalité entre les sexes, dans la directive 2006/54/CE, l'actuelle directive « refonte » sur l'égalité de traitement.",
+    de:"Die Richtlinie selbst hatte sich bis zur Entscheidung in der Rechtssache Marshall im Jahr 1986 nicht geändert, wurde aber seither zusammen mit mehreren anderen Gleichstellungsrichtlinien aufgehoben und in der Richtlinie 2006/54/EG, der heutigen Neufassung der Gleichbehandlungsrichtlinie, zusammengeführt.",
+    it:"La direttiva in sé non era stata modificata al momento della sentenza Marshall nel 1986, ma da allora è stata abrogata e rifusa, insieme a diverse altre direttive sulla parità di genere, nella direttiva 2006/54/CE, l'attuale direttiva di rifusione sulla parità di trattamento."
+  },
+  dir9396:{
+    fr:"Abrogée et refondue, avec les autres directives de l'Union relatives à la libre circulation, dans la directive 2004/38/CE, la directive relative aux droits des citoyens, dont l'article 7, paragraphe 1, point c), couvre désormais les étudiants dans des conditions substantiellement similaires.",
+    de:"Aufgehoben und zusammen mit den übrigen Freizügigkeitsrichtlinien der Union in der Richtlinie 2004/38/EG, der Unionsbürgerrichtlinie, zusammengeführt, deren Artikel 7 Absatz 1 Buchstabe c Studierende nun zu inhaltlich vergleichbaren Bedingungen erfasst.",
+    it:"Abrogata e rifusa, insieme alle altre direttive dell'Unione sulla libera circolazione, nella direttiva 2004/38/CE, la direttiva sui diritti dei cittadini, il cui articolo 7, paragrafo 1, lettera c), disciplina oggi gli studenti a condizioni sostanzialmente analoghe."
+  },
+  art4tue:{
+    fr:"Renuméroté de l'article 5 dans le traité de Rome originel, à l'article 10 CE après Amsterdam, puis à l'article 4, paragraphe 3, TUE après Lisbonne, son libellé ayant également été étendu. L'arrêt Francovich (1991) a fondé la responsabilité de l'État en partie sur cette obligation, alors numérotée article 5 CEE.",
+    de:"Umnummeriert von Artikel 5 im ursprünglichen Vertrag von Rom zu Artikel 10 EG nach Amsterdam, dann zu Artikel 4 Absatz 3 EUV nach Lissabon, wobei auch sein Wortlaut erweitert wurde. Francovich (1991) stützte die Staatshaftung teilweise auf diese Pflicht, damals als Artikel 5 EWG nummeriert.",
+    it:"Rinumerato dall'articolo 5 nel Trattato di Roma originario, all'articolo 10 CE dopo Amsterdam, fino all'articolo 4, paragrafo 3, TUE dopo Lisbona, con un testo anch'esso ampliato. La sentenza Francovich (1991) ha fondato la responsabilità dello Stato in parte su questo obbligo, allora numerato articolo 5 CEE."
+  },
+  dir80987:{
+    fr:"Abrogée et refondue dans la directive 2008/94/CE, l'actuelle directive relative à la protection en cas d'insolvabilité, qui conserve le même modèle d'institution de garantie.",
+    de:"Aufgehoben und in der Richtlinie 2008/94/EG zusammengeführt, der heutigen Insolvenzschutzrichtlinie, die dasselbe Modell einer Garantieeinrichtung beibehält.",
+    it:"Abrogata e rifusa nella direttiva 2008/94/CE, l'attuale direttiva sulla tutela in caso di insolvenza, che conserva lo stesso modello di istituto di garanzia."
+  }
+};
+function getHistoricalNote(a){
+  const t = ARTICLE_HISTORICAL_NOTES[a.id];
+  if(currentLang!=='en' && t && t[currentLang]) return t[currentLang];
+  return a.historicalNote;
+}
+
 const CASES = [
 {id:"costaenel", name:"Costa v ENEL", originalName:"Flaminio Costa contro E.N.E.L.", citation:"Case 6/64", jurisdiction:"CJCE", themes:["Legal order / primacy / direct effect"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61964CJ0006",
  abstract:{
@@ -10738,7 +10810,7 @@ function showArticle(id){
     <span class="modal-close" onclick="closeArticleModal()">✕</span>
     <h3>${a.label}</h3>
     <p style="color:var(--muted);font-size:13.5px;line-height:1.6;">${a.covers}</p>
-    ${a.changed ? `<div class="changed-banner"><b>${ui('provision_changed')}</b> ${uiCitedAsHistorical(a.historicalLabel)} ${a.historicalNote}</div>` : ''}
+    ${a.changed ? `<div class="changed-banner"><b>${ui('provision_changed')}</b> ${uiCitedAsHistorical(a.historicalLabel)} ${getHistoricalNote(a)}</div>` : ''}
     <div class="article-links">
       ${a.historicalUrl ? `<a href="${a.historicalUrl}" target="_blank" rel="noopener">${uiViewHistorical(a.historicalLabel)}</a>` : ''}
       <a href="${a.currentUrl}" target="_blank" rel="noopener">${ui('view_current_text')}</a>
