@@ -11914,6 +11914,15 @@ function highlightCiteUnits(touched){
 // Wraps (or reuses) the precise bold-target range in the light-blue highlight, computing its
 // stable character offsets first. Returns null if the range couldn't be wrapped.
 function highlightBoldTarget(citable, range, existingMark){
+  if(!existingMark && (!citable.contains(range.startContainer) || !citable.contains(range.endContainer))){
+    // A double/triple-click's native browser selection can extend past the end of the last
+    // paragraph into whatever sits right after this card in the DOM (the next case card --
+    // adjacent cards have no separator node between them). extractContents()+insertNode() on a
+    // range like that doesn't just grab extra text: it physically moves DOM nodes out of the
+    // following sibling card into a span inserted here, visually tearing that card apart. Refuse
+    // to wrap anything the click's range doesn't fully own, rather than let it corrupt the DOM.
+    return null;
+  }
   const offsets = getContainerOffsets(citable, range);
   if(existingMark){
     existingMark.classList.add('bold-target-highlight');
