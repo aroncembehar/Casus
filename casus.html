@@ -462,6 +462,22 @@ function getCovers(a){
   if(currentLang!=='en' && t && t[currentLang]) return t[currentLang];
   return a.covers;
 }
+// A handful of cases are known by a DESCRIPTIVE nickname (not a proper-noun party name), so the
+// short name genuinely differs by language. For those, c.name holds the English form and this
+// table supplies the FR/DE/IT equivalents -- taken from how the app's own translated case content
+// already refers to them, so a "Tabakwerbung I" cross-reference in German prose lands on a case
+// whose header also reads "Tabakwerbung I". Every other case's name is a proper noun / acronym,
+// identical in all four languages, and isn't listed here (caseDisplayName falls back to c.name).
+const CASE_NAMES_I18N = {
+  tobaccoadv1:{fr:'Publicité pour le tabac I', de:'Tabakwerbung I', it:'Pubblicità sul tabacco I'},
+  tobaccoadv2:{fr:'Publicité pour le tabac II', de:'Tabakwerbung II', it:'Pubblicità sul tabacco II'},
+  isoglucose:{fr:'Isoglucose', de:'Isoglukose', it:'Isoglucosio'}
+};
+function caseDisplayName(c){
+  const t = CASE_NAMES_I18N[c.id];
+  if(currentLang!=='en' && t && t[currentLang]) return t[currentLang];
+  return c.name;
+}
 
 const CASES = [
 {id:"costaenel", name:"Costa v ENEL", originalName:"Flaminio Costa contro E.N.E.L.", citation:"Case 6/64", jurisdiction:"CJCE", themes:["Legal order / primacy / direct effect"], articleIds:["art267tfeu"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:61964CJ0006",
@@ -6684,7 +6700,7 @@ const CASES = [
      ]
    }
  }},
-{id:"tobaccoadv1", name:"Germany v Parliament and Council (Tobacco Advertising I)", originalName:"Bundesrepublik Deutschland gegen Europäisches Parlament und Rat der Europäischen Union", citation:"Case C-376/98", jurisdiction:"CJCE", themes:["Competences / legal basis","Actions for annulment"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:61998CJ0376",
+{id:"tobaccoadv1", name:"Tobacco Advertising I", originalName:"Bundesrepublik Deutschland gegen Europäisches Parlament und Rat der Europäischen Union", citation:"Case C-376/98", jurisdiction:"CJCE", themes:["Competences / legal basis","Actions for annulment"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:61998CJ0376",
  abstract:{
    issue:"Could the EU ban almost all tobacco advertising and sponsorship across the Union using its internal-market harmonisation power, when the EU has no power to harmonise health-protection measures directly?",
    rule:"An internal-market harmonisation measure must genuinely aim to remove real or likely obstacles to cross-border trade or competition, not just pursue public-health goals under the cover of market harmonisation, and a general, near-total ban that does nothing to help products move freely fails that test.",
@@ -6781,7 +6797,7 @@ const CASES = [
      ]
    }
  }},
-{id:"tobaccoadv2", name:"Germany v Parliament and Council (Tobacco Advertising II)", originalName:"Bundesrepublik Deutschland gegen Europäisches Parlament und Rat der Europäischen Union", citation:"Case C-380/03", jurisdiction:"CJCE", themes:["Competences / legal basis","Actions for annulment"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:62003CJ0380",
+{id:"tobaccoadv2", name:"Tobacco Advertising II", originalName:"Bundesrepublik Deutschland gegen Europäisches Parlament und Rat der Europäischen Union", citation:"Case C-380/03", jurisdiction:"CJCE", themes:["Competences / legal basis","Actions for annulment"], sourceUrl:"https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:62003CJ0380",
  abstract:{
    issue:"After its first tobacco-advertising directive was annulled for going too far, could the EU adopt a narrower replacement banning tobacco advertising only in the press, radio and information-society services, still using its internal-market power?",
    rule:"Once a measure is genuinely confined to advertising media that really do circulate across borders, guarantees free movement for compliant products, and only indirectly and proportionately limits commercial free expression, it counts as genuine market harmonisation even if protecting public health is also one of its purposes.",
@@ -10896,7 +10912,7 @@ function switchTab(id){ activeTab = id; renderNav(); renderMain(); }
 function goHome(){ window._filters = {name:'',keyword:'',theme:'',related:''}; switchTab('home'); }
 function jumpToCase(id){
   const c = CASES.find(x=>x.id===id); if(!c) return;
-  window._filters = {name:c.name,keyword:'',theme:'',related:''};
+  window._filters = {name:caseDisplayName(c),keyword:'',theme:'',related:''};
   if(!window._cardLevel) window._cardLevel={};
   window._cardLevel[id]=3;
   activeTab='home'; renderNav(); renderMain();
@@ -11335,7 +11351,7 @@ function setLevel(id, lvl){
 
 function caseCard(c, extra){
   return `<div class="card">
-    <div class="row"><span class="name">${c.name}</span>${jurisdictionBadge(c)}<span class="cite">${c.citation}</span></div>
+    <div class="row"><span class="name">${caseDisplayName(c)}</span>${jurisdictionBadge(c)}<span class="cite">${c.citation}</span></div>
     ${c.originalName ? `<div style="color:var(--muted);font-size:12px;font-style:italic;margin-top:2px;">${c.originalName}</div>` : ''}
     ${levelTabsHtml(c.id)}
     ${levelContentHtml(c)}
@@ -11420,7 +11436,7 @@ function refreshHomeResults(){
 function computeResults(){
   const f = window._filters || {};
   let results = CASES;
-  if(f.name) results = results.filter(c=>normalizeForSearch(c.name).includes(normalizeForSearch(f.name)));
+  if(f.name){ const nq = normalizeForSearch(f.name); results = results.filter(c=>normalizeForSearch(c.name).includes(nq) || normalizeForSearch(caseDisplayName(c)).includes(nq)); }
   if(f.keyword){
     const kq = normalizeForSearch(f.keyword);
     results = results.filter(c=>{
@@ -11431,7 +11447,7 @@ function computeResults(){
   if(f.theme) results = results.filter(c=>c.themes.some(t=>normalizeForSearch(themeLabel(t)).includes(normalizeForSearch(f.theme))) || (c.legacyThemes||[]).some(t=>normalizeForSearch(legacyThemeLabel(t)).includes(normalizeForSearch(f.theme))));
   if(f.related){
     const rq = normalizeForSearch(f.related);
-    const base = CASES.find(c=>normalizeForSearch(c.name)===rq) || CASES.find(c=>normalizeForSearch(c.name).includes(rq));
+    const base = CASES.find(c=>normalizeForSearch(c.name)===rq || normalizeForSearch(caseDisplayName(c))===rq) || CASES.find(c=>normalizeForSearch(c.name).includes(rq) || normalizeForSearch(caseDisplayName(c)).includes(rq));
     if(base) results = results.filter(c=>c.id!==base.id && c.themes.some(t=>base.themes.includes(t)));
   }
   return results;
@@ -11592,7 +11608,7 @@ function renderDiagramSVG(theme, themeIndex, cases){
   const lines = nodes.map(n=>`<line x1="${cx}" y1="${cy}" x2="${n.x.toFixed(1)}" y2="${n.y.toFixed(1)}" stroke="${selected===n.id?'#2E7BAE':'#F0DFC0'}" stroke-width="2"/>`).join('');
   const dots = nodes.map(n=>{
     const isSel = selected===n.id;
-    const nodeLines = wrapTextLines(n.name, 13);
+    const nodeLines = wrapTextLines(caseDisplayName(n), 13);
     const lineHeight = 10.5;
     const startY = n.y - ((nodeLines.length-1)*lineHeight)/2;
     const tspans = nodeLines.map((l,i)=>`<text x="${n.x.toFixed(1)}" y="${(startY+i*lineHeight).toFixed(1)}" text-anchor="middle" dominant-baseline="central" font-size="9" fill="${isSel?'#FFFFFF':'#3A362F'}" font-family="Inter,sans-serif">${l}</text>`).join('');
@@ -11611,7 +11627,7 @@ function renderDiagramSVG(theme, themeIndex, cases){
     ${dots}
   </svg>
   ${detail ? `<div class="diagram-detail">
-      <div class="row"><span class="name">${detail.name}</span><span class="cite">${detail.citation}</span></div>
+      <div class="row"><span class="name">${caseDisplayName(detail)}</span><span class="cite">${detail.citation}</span></div>
       ${detail.originalName ? `<div style="color:var(--muted);font-size:12px;font-style:italic;margin-top:2px;">${detail.originalName}</div>` : ''}
       ${levelTabsHtml(detail.id)}
       ${levelContentHtml(detail)}
@@ -11642,11 +11658,11 @@ function computeWeekDays(offset){
 }
 function weekCaseMatches(selKey, q0){
   const q = normalizeForSearch(q0);
-  return q ? CASES.filter(c=>normalizeForSearch(c.name).includes(q) && !(state.weekCases[selKey]||[]).includes(c.id)).slice(0,5) : [];
+  return q ? CASES.filter(c=>(normalizeForSearch(c.name).includes(q) || normalizeForSearch(caseDisplayName(c)).includes(q)) && !(state.weekCases[selKey]||[]).includes(c.id)).slice(0,5) : [];
 }
 function renderWeekCaseSuggestions(selKey, q0){
   const matches = weekCaseMatches(selKey, q0);
-  return matches.length? `<div class="suggestions">${matches.map(c=>`<div class="suggestion" onclick="addWeekCase('${selKey}','${c.id}')">${c.name} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`).join('')}</div>` : '';
+  return matches.length? `<div class="suggestions">${matches.map(c=>`<div class="suggestion" onclick="addWeekCase('${selKey}','${c.id}')">${caseDisplayName(c)} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`).join('')}</div>` : '';
 }
 // Same debounce principle as onHomeSearchInput: only the suggestions dropdown is refreshed, and
 // only after a short pause, so this input can never lose focus to a re-render while typing.
@@ -11666,7 +11682,7 @@ function renderCaseAutocomplete(selKey){
   const tagged = (state.weekCases[selKey]||[]).map(id=>CASES.find(c=>c.id===id)).filter(Boolean);
   return `<div class="case-log">
     <div class="case-log-label">${ui('cases_studied')}</div>
-    <div class="case-chips">${tagged.map(c=>`<span class="chip active">${c.name} <span onclick="removeWeekCase('${selKey}','${c.id}')" style="cursor:pointer;margin-left:4px;">✕</span></span>`).join('')}</div>
+    <div class="case-chips">${tagged.map(c=>`<span class="chip active">${caseDisplayName(c)} <span onclick="removeWeekCase('${selKey}','${c.id}')" style="cursor:pointer;margin-left:4px;">✕</span></span>`).join('')}</div>
     <input id="case-log-input" type="text" placeholder="${escapeHtmlAttr(ui('ph_case_name'))}" value="${window._caseInput||''}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
       oninput="updateWeekCaseInput('${selKey}', this.value)"
       onkeydown="if(event.key==='Enter'){handleCaseEnter('${selKey}')}">
@@ -11685,7 +11701,7 @@ function removeWeekCase(dateKey, caseId){
 }
 function handleCaseEnter(selKey){
   const q = normalizeForSearch(window._caseInput);
-  const m = CASES.find(c=>normalizeForSearch(c.name).includes(q) && !(state.weekCases[selKey]||[]).includes(c.id));
+  const m = CASES.find(c=>(normalizeForSearch(c.name).includes(q) || normalizeForSearch(caseDisplayName(c)).includes(q)) && !(state.weekCases[selKey]||[]).includes(c.id));
   if(m) addWeekCase(selKey, m.id);
 }
 
@@ -11732,7 +11748,7 @@ function examSuggestions(ex, query){
     if(!normalizeForSearch(themeLabel(t)).includes(q)) return false;
     return CASES.some(c=>c.themes.includes(t) && !ex.caseIds.includes(c.id));
   }).map(t=>({type:'theme', idx:THEMES.indexOf(t)}));
-  const caseMatches = CASES.filter(c=>normalizeForSearch(c.name).includes(q) && !ex.caseIds.includes(c.id)).map(c=>({type:'case', id:c.id}));
+  const caseMatches = CASES.filter(c=>(normalizeForSearch(c.name).includes(q) || normalizeForSearch(caseDisplayName(c)).includes(q)) && !ex.caseIds.includes(c.id)).map(c=>({type:'case', id:c.id}));
   return [...themeMatches, ...caseMatches].slice(0,6);
 }
 function renderExamScope(ex){
@@ -11742,7 +11758,7 @@ function renderExamScope(ex){
     const cases = inScope.filter(c=>c.themes.includes(t));
     return `<div style="margin:12px 0;">
       <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">${themeLabel(t)}</div>
-      <div class="case-chips">${cases.map(c=>`<span class="chip active">${c.name} <span onclick="toggleExamCase('${ex.id}','${c.id}')" style="cursor:pointer;margin-left:4px;">✕</span></span>`).join('')}</div>
+      <div class="case-chips">${cases.map(c=>`<span class="chip active">${caseDisplayName(c)} <span onclick="toggleExamCase('${ex.id}','${c.id}')" style="cursor:pointer;margin-left:4px;">✕</span></span>`).join('')}</div>
     </div>`;
   }).join('');
 }
@@ -11755,7 +11771,7 @@ function renderExamSuggestionsHtml(ex, query){
             return `<div class="suggestion" onclick="addSubjectToExam('${ex.id}',${s.idx})"><b>${themeLabel(themeKey)}</b> — ${uiAddCaseCount(cnt)}</div>`;
           }
           const c = CASES.find(x=>x.id===s.id);
-          return `<div class="suggestion" onclick="addCaseToExamSearch('${ex.id}','${s.id}')">${c.name} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`;
+          return `<div class="suggestion" onclick="addCaseToExamSearch('${ex.id}','${s.id}')">${caseDisplayName(c)} <span style="color:var(--blue);font-size:11px;">${c.citation}</span></div>`;
         }).join('')}</div>` : '';
 }
 function renderExamBlock(ex){
